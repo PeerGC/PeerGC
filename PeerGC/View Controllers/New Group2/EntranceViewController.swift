@@ -15,7 +15,7 @@ class EntranceViewController: UIViewController {
     @IBOutlet weak var continueWithEmail: DesignableButton!
     @IBOutlet weak var continueWithGoogle: DesignableButton!
     
-    
+    //edit
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().delegate = self
