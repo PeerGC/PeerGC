@@ -3,18 +3,45 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C75F3CF823EB570700C7B5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3CF723EB570700C7B5E5 /* AppDelegate.swift */; };
-		C75F3CFA23EB570700C7B5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3CF923EB570700C7B5E5 /* SceneDelegate.swift */; };
-		C75F3CFC23EB570700C7B5E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3CFB23EB570700C7B5E5 /* ViewController.swift */; };
+		13ED888637A22E902B3AC05E /* libPods-PeerGC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A4416D3AADE9304A4B7461 /* libPods-PeerGC.a */; };
+		641BC82358A4929396E4CF5F /* libPods-PeerGCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591FA7CABBF09D92B97256B /* libPods-PeerGCTests.a */; };
+		C700B14423EB647100816708 /* lastNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B13F23EB644400816708 /* lastNames.txt */; };
+		C700B14523EB647100816708 /* firstNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B14023EB644400816708 /* firstNames.txt */; };
+		C700B14623EB647100816708 /* zipCodesToValue.csv in Resources */ = {isa = PBXBuildFile; fileRef = C700B14123EB644F00816708 /* zipCodesToValue.csv */; };
+		C700B14723EB647100816708 /* zipCodesToLocation.csv in Resources */ = {isa = PBXBuildFile; fileRef = C700B14223EB646800816708 /* zipCodesToLocation.csv */; };
+		C700B14823EB647100816708 /* zipCodes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B14323EB647100816708 /* zipCodes.txt */; };
+		C700B15523EB650500816708 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15023EB64D800816708 /* HomeViewController.swift */; };
+		C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15423EB650500816708 /* AccountInfoViewController.swift */; };
+		C700B15923EB651F00816708 /* SpashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15223EB64EF00816708 /* SpashScreenViewController.swift */; };
+		C700B15A23EB651F00816708 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15823EB651F00816708 /* EntranceViewController.swift */; };
+		C700B15F23EB654D00816708 /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B14E23EB64C100816708 /* EnterPasswordViewController.swift */; };
+		C700B16023EB654D00816708 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15123EB64E500816708 /* EmailViewController.swift */; };
+		C700B16123EB654D00816708 /* CreateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15723EB650F00816708 /* CreateNameViewController.swift */; };
+		C700B16223EB654D00816708 /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15C23EB653400816708 /* CreatePasswordViewController.swift */; };
+		C700B16323EB654D00816708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */; };
+		C700B16523EB655500816708 /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B14D23EB64B500816708 /* ProfilePictureViewController.swift */; };
+		C700B16623EB655500816708 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B14F23EB64CD00816708 /* InterestViewController.swift */; };
+		C700B16723EB655500816708 /* AccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15323EB64F600816708 /* AccountTypeViewController.swift */; };
+		C700B16823EB655500816708 /* ZipCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15B23EB652800816708 /* ZipCodeViewController.swift */; };
+		C700B16923EB655500816708 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15D23EB654000816708 /* GenderViewController.swift */; };
+		C700B16A23EB655500816708 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B16423EB655500816708 /* RaceViewController.swift */; };
+		C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */; };
 		C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3CFD23EB570700C7B5E5 /* Main.storyboard */; };
 		C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */; };
 		C75F3D0423EB570B00C7B5E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0223EB570B00C7B5E5 /* LaunchScreen.storyboard */; };
 		C75F3D0F23EB570B00C7B5E5 /* PeerGCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D0E23EB570B00C7B5E5 /* PeerGCTests.swift */; };
 		C75F3D1A23EB570B00C7B5E5 /* PeerGCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D1923EB570B00C7B5E5 /* PeerGCUITests.swift */; };
+		C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D2923EB58DB00C7B5E5 /* AppDelegate.swift */; };
+		C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */; };
+		C7CC451D23EB5A8400A086D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */; };
+		C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */; };
+		C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452223EB5AD600A086D7 /* Customizables.swift */; };
+		C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452323EB5AE200A086D7 /* Utilities.swift */; };
+		DFDCDE6A98DC490D71195CF9 /* libPods-PeerGC-PeerGCUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DE60E1D71711AA1F5C3E3B /* libPods-PeerGC-PeerGCUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +62,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38FD6E3FD97A146741219AFD /* Pods-PeerGCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGCTests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGCTests/Pods-PeerGCTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5591FA7CABBF09D92B97256B /* libPods-PeerGCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		778EE7A3AB495216631A5389 /* Pods-PeerGCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGCTests.release.xcconfig"; path = "Target Support Files/Pods-PeerGCTests/Pods-PeerGCTests.release.xcconfig"; sourceTree = "<group>"; };
+		A021896555FBE7107EBC6494 /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B25E8BBDC511B9969B8FBEAD /* Pods-PeerGC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC.release.xcconfig"; path = "Target Support Files/Pods-PeerGC/Pods-PeerGC.release.xcconfig"; sourceTree = "<group>"; };
+		C3BF8243096052AB097B3E37 /* Pods-PeerGC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC/Pods-PeerGC.debug.xcconfig"; sourceTree = "<group>"; };
+		C700B13F23EB644400816708 /* lastNames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lastNames.txt; sourceTree = "<group>"; };
+		C700B14023EB644400816708 /* firstNames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = firstNames.txt; path = "../../../../PeerGC-master 2/PeerGC/Utilities/Resources/firstNames.txt"; sourceTree = "<group>"; };
+		C700B14123EB644F00816708 /* zipCodesToValue.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodesToValue.csv; sourceTree = "<group>"; };
+		C700B14223EB646800816708 /* zipCodesToLocation.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodesToLocation.csv; sourceTree = "<group>"; };
+		C700B14323EB647100816708 /* zipCodes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodes.txt; sourceTree = "<group>"; };
+		C700B14D23EB64B500816708 /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
+		C700B14E23EB64C100816708 /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
+		C700B14F23EB64CD00816708 /* InterestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
+		C700B15023EB64D800816708 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C700B15123EB64E500816708 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		C700B15223EB64EF00816708 /* SpashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpashScreenViewController.swift; sourceTree = "<group>"; };
+		C700B15323EB64F600816708 /* AccountTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeViewController.swift; sourceTree = "<group>"; };
+		C700B15423EB650500816708 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
+		C700B15723EB650F00816708 /* CreateNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNameViewController.swift; sourceTree = "<group>"; };
+		C700B15823EB651F00816708 /* EntranceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
+		C700B15B23EB652800816708 /* ZipCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeViewController.swift; sourceTree = "<group>"; };
+		C700B15C23EB653400816708 /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
+		C700B15D23EB654000816708 /* GenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		C700B16423EB655500816708 /* RaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
+		C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		C75F3CF423EB570700C7B5E5 /* PeerGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C75F3CF723EB570700C7B5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C75F3CF923EB570700C7B5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C75F3CFB23EB570700C7B5E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C75F3CFE23EB570700C7B5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C75F3D0323EB570B00C7B5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +100,15 @@
 		C75F3D1523EB570B00C7B5E5 /* PeerGCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeerGCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75F3D1923EB570B00C7B5E5 /* PeerGCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerGCUITests.swift; sourceTree = "<group>"; };
 		C75F3D1B23EB570B00C7B5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C75F3D2923EB58DB00C7B5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		C7CC452223EB5AD600A086D7 /* Customizables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customizables.swift; sourceTree = "<group>"; };
+		C7CC452323EB5AE200A086D7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		CF2A70FB27130AA32B52C351 /* Pods-PeerGC-PeerGCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.release.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D4A4416D3AADE9304A4B7461 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8DE60E1D71711AA1F5C3E3B /* libPods-PeerGC-PeerGCUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC-PeerGCUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13ED888637A22E902B3AC05E /* libPods-PeerGC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				641BC82358A4929396E4CF5F /* libPods-PeerGCTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +132,101 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFDCDE6A98DC490D71195CF9 /* libPods-PeerGC-PeerGCUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DE275F85833841A72AC1B29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3BF8243096052AB097B3E37 /* Pods-PeerGC.debug.xcconfig */,
+				B25E8BBDC511B9969B8FBEAD /* Pods-PeerGC.release.xcconfig */,
+				A021896555FBE7107EBC6494 /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */,
+				CF2A70FB27130AA32B52C351 /* Pods-PeerGC-PeerGCUITests.release.xcconfig */,
+				38FD6E3FD97A146741219AFD /* Pods-PeerGCTests.debug.xcconfig */,
+				778EE7A3AB495216631A5389 /* Pods-PeerGCTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ACFB813F4A1290BFC866406F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4A4416D3AADE9304A4B7461 /* libPods-PeerGC.a */,
+				E8DE60E1D71711AA1F5C3E3B /* libPods-PeerGC-PeerGCUITests.a */,
+				5591FA7CABBF09D92B97256B /* libPods-PeerGCTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C700B13E23EB644400816708 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C700B14C23EB649700816708 /* Splash Flow */,
+				C700B14B23EB649100816708 /* Home Flow */,
+				C700B14A23EB648300816708 /* Continue With Email Flow */,
+				C700B14923EB647900816708 /* Additional Account Information Flow */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C700B14923EB647900816708 /* Additional Account Information Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C700B15323EB64F600816708 /* AccountTypeViewController.swift */,
+				C700B15D23EB654000816708 /* GenderViewController.swift */,
+				C700B14F23EB64CD00816708 /* InterestViewController.swift */,
+				C700B14D23EB64B500816708 /* ProfilePictureViewController.swift */,
+				C700B16423EB655500816708 /* RaceViewController.swift */,
+				C700B15B23EB652800816708 /* ZipCodeViewController.swift */,
+			);
+			path = "Additional Account Information Flow";
+			sourceTree = "<group>";
+		};
+		C700B14A23EB648300816708 /* Continue With Email Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C700B15723EB650F00816708 /* CreateNameViewController.swift */,
+				C700B15C23EB653400816708 /* CreatePasswordViewController.swift */,
+				C700B15123EB64E500816708 /* EmailViewController.swift */,
+				C700B14E23EB64C100816708 /* EnterPasswordViewController.swift */,
+				C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */,
+			);
+			name = "Continue With Email Flow";
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		C700B14B23EB649100816708 /* Home Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C700B15423EB650500816708 /* AccountInfoViewController.swift */,
+				C700B15023EB64D800816708 /* HomeViewController.swift */,
+			);
+			path = "Home Flow";
+			sourceTree = "<group>";
+		};
+		C700B14C23EB649700816708 /* Splash Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C700B15823EB651F00816708 /* EntranceViewController.swift */,
+				C700B15223EB64EF00816708 /* SpashScreenViewController.swift */,
+			);
+			name = "Splash Flow";
+			path = "New Group2";
+			sourceTree = "<group>";
+		};
+		C700B16D23EB696000816708 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C75F3D0223EB570B00C7B5E5 /* LaunchScreen.storyboard */,
+				C75F3CFD23EB570700C7B5E5 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		C75F3CEB23EB570700C7B5E5 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +234,8 @@
 				C75F3D0D23EB570B00C7B5E5 /* PeerGCTests */,
 				C75F3D1823EB570B00C7B5E5 /* PeerGCUITests */,
 				C75F3CF523EB570700C7B5E5 /* Products */,
+				5DE275F85833841A72AC1B29 /* Pods */,
+				ACFB813F4A1290BFC866406F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +252,12 @@
 		C75F3CF623EB570700C7B5E5 /* PeerGC */ = {
 			isa = PBXGroup;
 			children = (
-				C75F3CF723EB570700C7B5E5 /* AppDelegate.swift */,
-				C75F3CF923EB570700C7B5E5 /* SceneDelegate.swift */,
-				C75F3CFB23EB570700C7B5E5 /* ViewController.swift */,
-				C75F3CFD23EB570700C7B5E5 /* Main.storyboard */,
+				C700B16D23EB696000816708 /* Storyboards */,
 				C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */,
-				C75F3D0223EB570B00C7B5E5 /* LaunchScreen.storyboard */,
-				C75F3D0523EB570B00C7B5E5 /* Info.plist */,
+				C75F3D2823EB588E00C7B5E5 /* Default Delegates */,
+				C7CC451E23EB5A9D00A086D7 /* Utilities */,
+				C7CC451B23EB5A7200A086D7 /* Info */,
+				C700B13E23EB644400816708 /* View Controllers */,
 			);
 			path = PeerGC;
 			sourceTree = "<group>";
@@ -128,6 +280,56 @@
 			path = PeerGCUITests;
 			sourceTree = "<group>";
 		};
+		C75F3D2823EB588E00C7B5E5 /* Default Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				C75F3D2923EB58DB00C7B5E5 /* AppDelegate.swift */,
+				C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */,
+			);
+			path = "Default Delegates";
+			sourceTree = "<group>";
+		};
+		C7CC451B23EB5A7200A086D7 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				C75F3D0523EB570B00C7B5E5 /* Info.plist */,
+				C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
+		C7CC451E23EB5A9D00A086D7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC452023EB5AB000A086D7 /* Resources */,
+				C7CC451F23EB5AAA00A086D7 /* Code */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C7CC451F23EB5AAA00A086D7 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC452223EB5AD600A086D7 /* Customizables.swift */,
+				C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */,
+				C7CC452323EB5AE200A086D7 /* Utilities.swift */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		C7CC452023EB5AB000A086D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */,
+				C700B14023EB644400816708 /* firstNames.txt */,
+				C700B13F23EB644400816708 /* lastNames.txt */,
+				C700B14323EB647100816708 /* zipCodes.txt */,
+				C700B14223EB646800816708 /* zipCodesToLocation.csv */,
+				C700B14123EB644F00816708 /* zipCodesToValue.csv */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +337,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C75F3D1E23EB570B00C7B5E5 /* Build configuration list for PBXNativeTarget "PeerGC" */;
 			buildPhases = (
+				57DD2C8B6E62E1362F4E44DC /* [CP] Check Pods Manifest.lock */,
 				C75F3CF023EB570700C7B5E5 /* Sources */,
 				C75F3CF123EB570700C7B5E5 /* Frameworks */,
 				C75F3CF223EB570700C7B5E5 /* Resources */,
+				95BAD94E66E0ACBB9BB86914 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,6 +356,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C75F3D2123EB570B00C7B5E5 /* Build configuration list for PBXNativeTarget "PeerGCTests" */;
 			buildPhases = (
+				45AA487D2645E9F51DB31FB2 /* [CP] Check Pods Manifest.lock */,
 				C75F3D0623EB570B00C7B5E5 /* Sources */,
 				C75F3D0723EB570B00C7B5E5 /* Frameworks */,
 				C75F3D0823EB570B00C7B5E5 /* Resources */,
@@ -170,9 +375,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C75F3D2423EB570B00C7B5E5 /* Build configuration list for PBXNativeTarget "PeerGCUITests" */;
 			buildPhases = (
+				77422FED66A42D70AB04E64D /* [CP] Check Pods Manifest.lock */,
 				C75F3D1123EB570B00C7B5E5 /* Sources */,
 				C75F3D1223EB570B00C7B5E5 /* Frameworks */,
 				C75F3D1323EB570B00C7B5E5 /* Resources */,
+				F2EA04F1BC544457817AED8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,7 +439,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */,
+				C700B14623EB647100816708 /* zipCodesToValue.csv in Resources */,
+				C700B14823EB647100816708 /* zipCodes.txt in Resources */,
+				C700B14523EB647100816708 /* firstNames.txt in Resources */,
 				C75F3D0423EB570B00C7B5E5 /* LaunchScreen.storyboard in Resources */,
+				C7CC451D23EB5A8400A086D7 /* GoogleService-Info.plist in Resources */,
+				C700B14423EB647100816708 /* lastNames.txt in Resources */,
+				C700B14723EB647100816708 /* zipCodesToLocation.csv in Resources */,
 				C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */,
 				C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */,
 			);
@@ -254,14 +468,134 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45AA487D2645E9F51DB31FB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PeerGCTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57DD2C8B6E62E1362F4E44DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PeerGC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77422FED66A42D70AB04E64D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PeerGC-PeerGCUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95BAD94E66E0ACBB9BB86914 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeerGC/Pods-PeerGC-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeerGC/Pods-PeerGC-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PeerGC/Pods-PeerGC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2EA04F1BC544457817AED8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C75F3CF023EB570700C7B5E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C75F3CFC23EB570700C7B5E5 /* ViewController.swift in Sources */,
-				C75F3CF823EB570700C7B5E5 /* AppDelegate.swift in Sources */,
-				C75F3CFA23EB570700C7B5E5 /* SceneDelegate.swift in Sources */,
+				C700B15923EB651F00816708 /* SpashScreenViewController.swift in Sources */,
+				C700B16523EB655500816708 /* ProfilePictureViewController.swift in Sources */,
+				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
+				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
+				C700B16623EB655500816708 /* InterestViewController.swift in Sources */,
+				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,
+				C700B16223EB654D00816708 /* CreatePasswordViewController.swift in Sources */,
+				C700B16823EB655500816708 /* ZipCodeViewController.swift in Sources */,
+				C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */,
+				C700B16123EB654D00816708 /* CreateNameViewController.swift in Sources */,
+				C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */,
+				C700B15A23EB651F00816708 /* EntranceViewController.swift in Sources */,
+				C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */,
+				C700B15F23EB654D00816708 /* EnterPasswordViewController.swift in Sources */,
+				C700B16023EB654D00816708 /* EmailViewController.swift in Sources */,
+				C700B15523EB650500816708 /* HomeViewController.swift in Sources */,
+				C700B16723EB655500816708 /* AccountTypeViewController.swift in Sources */,
+				C700B16A23EB655500816708 /* RaceViewController.swift in Sources */,
+				C700B16323EB654D00816708 /* ResetPasswordViewController.swift in Sources */,
+				C700B16923EB655500816708 /* GenderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +766,7 @@
 		};
 		C75F3D1F23EB570B00C7B5E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3BF8243096052AB097B3E37 /* Pods-PeerGC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +785,7 @@
 		};
 		C75F3D2023EB570B00C7B5E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B25E8BBDC511B9969B8FBEAD /* Pods-PeerGC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +804,7 @@
 		};
 		C75F3D2223EB570B00C7B5E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38FD6E3FD97A146741219AFD /* Pods-PeerGCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +827,7 @@
 		};
 		C75F3D2323EB570B00C7B5E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 778EE7A3AB495216631A5389 /* Pods-PeerGCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +850,7 @@
 		};
 		C75F3D2523EB570B00C7B5E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A021896555FBE7107EBC6494 /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +871,7 @@
 		};
 		C75F3D2623EB570B00C7B5E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF2A70FB27130AA32B52C351 /* Pods-PeerGC-PeerGCUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

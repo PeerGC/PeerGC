@@ -1,23 +1,43 @@
 //
 //  AppDelegate.swift
-//  PeerGC
+//  FBex
 //
-//  Created by AJ Radik on 2/5/20.
-//  Copyright © 2020 AJ Radik. All rights reserved.
+//  Created by AJ Radik on 12/11/19.
+//  Copyright © 2019 AJ Radik. All rights reserved.
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
         return true
     }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+      -> Bool {
+      return GIDSignIn.sharedInstance().handle(url)
+    }
 
+//    func application(_ app: UIApplication, open url: URL,
+//                     options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+//        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+//      if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+//        return true
+//      }
+//      // other URL handling goes here.
+//      return false
+//    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -34,4 +54,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

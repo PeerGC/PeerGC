@@ -1,23 +1,57 @@
 //
 //  SceneDelegate.swift
-//  PeerGC
+//  FBex
 //
-//  Created by AJ Radik on 2/5/20.
-//  Copyright © 2020 AJ Radik. All rights reserved.
+//  Created by AJ Radik on 12/11/19.
+//  Copyright © 2019 AJ Radik. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    func setInitialViewContoller(_ window:UIWindow) {
+        print("SET LOGIN")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if Auth.auth().currentUser != nil {
+            
+            let uid = Auth.auth().currentUser!.uid
+            let docRef = Firestore.firestore().collection("users").document(uid)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    print("Document EXISTS")
+                    self.showController(controller: storyboard.instantiateViewController(withIdentifier: "HomeViewController"), window: window)
+                } else {
+                    print("Document does not exist")
+                    self.showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
+                }
+            }
+            
+        }
+        
+        else {
+            showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
+        }
+        
+    }
+
+    func showController(controller: UIViewController, window: UIWindow) {
+        controller.modalPresentationStyle = .overFullScreen
+        window.rootViewController = controller
+        window.makeKeyAndVisible()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        setInitialViewContoller(window!)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

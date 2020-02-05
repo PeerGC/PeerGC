@@ -5,6 +5,177 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>08AC73C7-1589-4856-8268-0453222916E7</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>08AC73C7-1589-4856-8268-0453222916E7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PeerGC project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>PeerGC</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug PeerGC</string>
+			<key>timeStartedRecording</key>
+			<real>602631259.47497296</real>
+			<key>timeStoppedRecording</key>
+			<real>602631320.19056797</real>
+			<key>title</key>
+			<string>Debug PeerGC</string>
+			<key>uniqueIdentifier</key>
+			<string>08AC73C7-1589-4856-8268-0453222916E7</string>
+		</dict>
+		<key>64F652B8-906C-4DB6-A8AB-77E4D186E505</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>64F652B8-906C-4DB6-A8AB-77E4D186E505.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PeerGC project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>PeerGC</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug PeerGC</string>
+			<key>timeStartedRecording</key>
+			<real>602631027.93716705</real>
+			<key>timeStoppedRecording</key>
+			<real>602631149.74378204</real>
+			<key>title</key>
+			<string>Debug PeerGC</string>
+			<key>uniqueIdentifier</key>
+			<string>64F652B8-906C-4DB6-A8AB-77E4D186E505</string>
+		</dict>
+		<key>7DD67098-4D25-4E56-B9DA-C992DAE03F1B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7DD67098-4D25-4E56-B9DA-C992DAE03F1B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PeerGC project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>PeerGC</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug PeerGC</string>
+			<key>timeStartedRecording</key>
+			<real>602631328.52923298</real>
+			<key>timeStoppedRecording</key>
+			<real>602631372.90670598</real>
+			<key>title</key>
+			<string>Debug PeerGC</string>
+			<key>uniqueIdentifier</key>
+			<string>7DD67098-4D25-4E56-B9DA-C992DAE03F1B</string>
+		</dict>
+		<key>983136DB-677E-4A7B-A162-DEBC339CC1E1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>983136DB-677E-4A7B-A162-DEBC339CC1E1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PeerGC project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>PeerGC</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug PeerGC</string>
+			<key>timeStartedRecording</key>
+			<real>602630165.66501105</real>
+			<key>timeStoppedRecording</key>
+			<real>602630615.12793303</real>
+			<key>title</key>
+			<string>Debug PeerGC</string>
+			<key>uniqueIdentifier</key>
+			<string>983136DB-677E-4A7B-A162-DEBC339CC1E1</string>
+		</dict>
+		<key>E051AD14-4912-43D6-BB2E-9853D6BC18DB</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>E051AD14-4912-43D6-BB2E-9853D6BC18DB.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PeerGC project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>PeerGC</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug PeerGC</string>
+			<key>timeStartedRecording</key>
+			<real>602631160.25700295</real>
+			<key>timeStoppedRecording</key>
+			<real>602631253.59698606</real>
+			<key>title</key>
+			<string>Debug PeerGC</string>
+			<key>uniqueIdentifier</key>
+			<string>E051AD14-4912-43D6-BB2E-9853D6BC18DB</string>
+		</dict>
+	</dict>
 </dict>
 </plist>
