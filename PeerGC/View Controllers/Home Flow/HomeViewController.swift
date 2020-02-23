@@ -50,13 +50,24 @@ class HomeViewController: UIViewController {
         //logOutButton.titleLabel?.font = logOutButton.titleLabel?.font.withSize( (1.8/71) * UIScreen.main.bounds.height)
         label.font = label.font.withSize( (1.9/71) * UIScreen.main.bounds.height) // max 2.3
     
-        fetchCards()
+        let currentUser = Auth.auth().currentUser!
+        firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
+        
+        setCards(amount: 6)
+        
     }
     
-    func fetchCards() {
+    func setCards(amount: Int) {
+        
+        var count = 0
         
         let docRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
 
+        docRef.updateData([
+            "whitelist" : [],
+            "blacklist" : []
+        ])
+        
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data()
@@ -75,42 +86,151 @@ class HomeViewController: UIViewController {
                 
                 let usersRef = Firestore.firestore().collection("users")
                 
-                let query = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("gender", isEqualTo: gender).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
+                let query1 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("gender", isEqualTo: gender).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
                 
-                query.getDocuments() { (querySnapshot, err) in
+                query1.getDocuments() { (querySnapshot, err) in
                         if let err = err {
                             print("Error getting documents: \(err)")
                         } else {
                             print("query 1")
                             for document in querySnapshot!.documents {
+                                
+                                if count < amount {
+                                    docRef.updateData([
+                                        "whitelist": FieldValue.arrayUnion([document.documentID])
+                                    ])
+                                    count+=1
+                                }
+            
+                                else {
+                                    break
+                                }
+                                
                                 print("\(document.documentID) => \(document.data())")
                             }
-                        }
-                }
-                
-                let query2 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
+                            
+                            if count < amount {
+                                
+                                //START Q2
+                                let query2 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
 
-                query2.getDocuments() { (querySnapshot, err) in
-                        if let err = err {
-                            print("Error getting documents: \(err)")
-                        } else {
-                            print("query 2")
-                            for document in querySnapshot!.documents {
-                                print("\(document.documentID) => \(document.data())")
-                            }
-                        }
-                }
-                
-                let query3 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
+                                query2.getDocuments() { (querySnapshot, err) in
+                                        if let err = err {
+                                            print("Error getting documents: \(err)")
+                                        } else {
+                                            print("query 2")
+                                            for document in querySnapshot!.documents {
+                                                
+                                                if count < amount {
+                                                    docRef.updateData([
+                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
+                                                    ])
+                                                    count+=1
+                                                }
+                            
+                                                else {
+                                                    break
+                                                }
+                                                
+                                                print("\(document.documentID) => \(document.data())")
+                                            }
+                                            
+                                            if count < amount {
+                                            //START Q3
+                                                let query3 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
 
-                query3.getDocuments() { (querySnapshot, err) in
-                        if let err = err {
-                            print("Error getting documents: \(err)")
-                        } else {
-                            print("query 3")
-                            for document in querySnapshot!.documents {
-                                print("\(document.documentID) => \(document.data())")
+                                                query3.getDocuments() { (querySnapshot, err) in
+                                                        if let err = err {
+                                                            print("Error getting documents: \(err)")
+                                                        } else {
+                                                            print("query 3")
+                                                            for document in querySnapshot!.documents {
+                                                                
+                                                                if count < amount {
+                                                                    docRef.updateData([
+                                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
+                                                                    ])
+                                                                    count+=1
+                                                                }
+                                            
+                                                                else {
+                                                                    break
+                                                                }
+                                                                
+                                                                print("\(document.documentID) => \(document.data())")
+                                                            }
+                                                            
+                                                            if count < amount {
+                                                            //START Q4
+                                                                let query4 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
+
+                                                                query4.getDocuments() { (querySnapshot, err) in
+                                                                        if let err = err {
+                                                                            print("Error getting documents: \(err)")
+                                                                        } else {
+                                                                            print("query 4")
+                                                                            for document in querySnapshot!.documents {
+                                                                                
+                                                                                if count < amount {
+                                                                                    docRef.updateData([
+                                                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
+                                                                                    ])
+                                                                                    count+=1
+                                                                                }
+                                                            
+                                                                                else {
+                                                                                    break
+                                                                                }
+                                                                                
+                                                                                print("\(document.documentID) => \(document.data())")
+                                                                            }
+                                                                            
+                                                                            if count < amount {
+                                                                            //START Q5
+                                                                                let query5 = usersRef.whereField("accountType", isEqualTo: otherAccountType).limit(to: 10)
+
+                                                                                query5.getDocuments() { (querySnapshot, err) in
+                                                                                        if let err = err {
+                                                                                            print("Error getting documents: \(err)")
+                                                                                        } else {
+                                                                                            print("query 5")
+                                                                                            for document in querySnapshot!.documents {
+                                                                                                
+                                                                                                if count < amount {
+                                                                                                    docRef.updateData([
+                                                                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
+                                                                                                    ])
+                                                                                                    count+=1
+                                                                                                }
+                                                                                                
+                                                                                                else {
+                                                                                                    break
+                                                                                                }
+                                                                                                
+                                                                                                print("\(document.documentID) => \(document.data())")
+                                                                                            }
+                                                                                        }
+                                                                                }
+                                                                            //END Q5
+                                                                            }
+                                                                            
+                                                                        }
+                                                                }
+                                                            //END Q4
+                                                            }
+                                                            
+                                                        }
+                                                }
+                                            //END Q3
+                                            }
+                                            
+                                        }
+                                }
+                                //END Q2
+                                
+                                
                             }
+                            
                         }
                 }
                 
@@ -121,7 +241,6 @@ class HomeViewController: UIViewController {
                 print("Document does not exist")
             }
         }
-        
         
     }
     
