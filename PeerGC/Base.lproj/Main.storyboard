@@ -444,6 +444,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="NjB-zz-PZd" secondAttribute="height" multiplier="1:1" id="DR9-En-kL6"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -470,6 +475,7 @@
                                             <outlet property="button" destination="Ptf-4c-u4i" id="Wgv-0V-pI9"/>
                                             <outlet property="cityState" destination="pHz-Ld-iH7" id="U4X-lZ-RcX"/>
                                             <outlet property="firstname" destination="dQh-jz-bsx" id="5tD-c6-9c3"/>
+                                            <outlet property="imageView" destination="NjB-zz-PZd" id="IIa-Mf-TOP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

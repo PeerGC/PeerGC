@@ -32,6 +32,10 @@ class HomeViewController: UIViewController {
     
     public static var customData: [CustomData] = []
     
+    var firstTime = false
+    
+    var threadCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -55,6 +59,32 @@ class HomeViewController: UIViewController {
         let currentUser = Auth.auth().currentUser!
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
         
+        
+        Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).addSnapshotListener { documentSnapshot, error in
+          guard let document = documentSnapshot else {
+            print("Error fetching document: \(error!)")
+            return
+          }
+          guard let data = document.data() else {
+            print("Document data was empty.")
+            return
+          }
+          print("Current data: \(data)")
+            
+            if (data["whitelist"] as! NSArray).count == 0 {
+                self.firstTime = true
+                self.setCards(amount: 6)
+            }
+            
+            else if (data["whitelist"] as! NSArray).count != 0 && !self.firstTime  {
+                self.printCards()
+            }
+            
+        }
+        
+    }
+    
+    func printCards() {
         Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).addSnapshotListener { documentSnapshot, error in
           guard let document = documentSnapshot else {
             print("Error fetching document: \(error!)")
@@ -95,7 +125,7 @@ class HomeViewController: UIViewController {
                                 print(dataDescription)
                                 
                                 HomeViewController.customData.append(CustomData(firstName:
-                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String))
+                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!))
                                 
                                 self.collectionView.reloadData()
                                 self.pageControl.numberOfPages = HomeViewController.customData.count
@@ -106,33 +136,6 @@ class HomeViewController: UIViewController {
                             }
                         }
                         
-                        
-                        
-//                        Firestore.firestore().collection("users").document(uid as! String).addSnapshotListener { documentSnapshot, error in
-//                        guard let document = documentSnapshot else {
-//                          print("Error fetching document: \(error!)")
-//                          return
-//                        }
-//                        guard let data = document.data() else {
-//                          print("Document data was empty.")
-//                          return
-//                        }
-//                        print("Current data: \(data)")
-//
-//                            var doesExist2 = false
-//
-//                            for dataObject in HomeViewController.customData {
-//                                if dataObject.uid == uid as! String {
-//                                    doesExist2 = true
-//                                }
-//                            }
-//
-//                            if !doesExist2 {
-//                                HomeViewController.customData.append(CustomData(firstName: data["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: data["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: data["zipCode"] as! String)!, uid: uid as! String))
-//
-//                            }
-//
-//                        }
                         
                     }
                     
@@ -145,8 +148,12 @@ class HomeViewController: UIViewController {
             }
             
         }
-
-        
+    }
+    
+    func checkThreadCount() {
+        if threadCount >= 5 {
+            printCards()
+        }
     }
     
     func setCards(amount: Int) {
@@ -202,6 +209,9 @@ class HomeViewController: UIViewController {
                                 print("\(document.documentID) => \(document.data())")
                             }
                             
+                            self.threadCount+=1
+                            self.checkThreadCount()
+                            
                             if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                 
                                 //START Q2
@@ -228,6 +238,9 @@ class HomeViewController: UIViewController {
                                                 print("\(document.documentID) => \(document.data())")
                                             }
                                             
+                                            self.threadCount+=1
+                                            self.checkThreadCount()
+                                            
                                             if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                             //START Q3
                                                 let query3 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
@@ -252,6 +265,9 @@ class HomeViewController: UIViewController {
                                                                 
                                                                 print("\(document.documentID) => \(document.data())")
                                                             }
+                                                            
+                                                            self.threadCount+=1
+                                                            self.checkThreadCount()
                                                             
                                                             if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                             //START Q4
@@ -278,6 +294,9 @@ class HomeViewController: UIViewController {
                                                                                 print("\(document.documentID) => \(document.data())")
                                                                             }
                                                                             
+                                                                            self.threadCount+=1
+                                                                            self.checkThreadCount()
+                                                                            
                                                                             if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                             //START Q5
                                                                                 let query5 = usersRef.whereField("accountType", isEqualTo: otherAccountType).limit(to: 10)
@@ -302,6 +321,10 @@ class HomeViewController: UIViewController {
                                                                                                 
                                                                                                 print("\(document.documentID) => \(document.data())")
                                                                                             }
+                                                                                        
+                                                                                            self.threadCount+=1
+                                                                                            self.checkThreadCount()
+                                                                                            
                                                                                         }
                                                                                 }
                                                                             //END Q5
@@ -346,6 +369,7 @@ class HomeViewController: UIViewController {
         try! Auth.auth().signOut()
         print("logged out")
         HomeViewController.customData = []
+        firstTime = false
         transitionToStart()
     }
     
@@ -382,6 +406,7 @@ struct CustomData {
     var state: String
     var city: String
     var uid: String
+    var photoURL: URL
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -437,6 +462,7 @@ class CustomCell: UICollectionViewCell {
             button.backgroundColor = UIColor.systemPink
             firstname.text = data.firstName
             cityState.text = data.city.capitalized + ", " + data.state.capitalized
+            ProfilePictureViewController.downloadImage(url: data.photoURL, imageView: imageView)
         }
     }
     
@@ -444,6 +470,7 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet weak var firstname: UILabel!
     @IBOutlet weak var cityState: UILabel!
     @IBOutlet weak var blurb: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     
     @IBAction func buttonTouchDown(_ sender: UIButton) {
