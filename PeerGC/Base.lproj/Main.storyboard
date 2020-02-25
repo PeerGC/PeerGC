@@ -438,19 +438,26 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NjB-zz-PZd">
-                                                    <rect key="frame" x="239" y="107.66666666666669" width="134" height="128"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjB-zz-PZd">
+                                                    <rect key="frame" x="267" y="50" width="106" height="106"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="NjB-zz-PZd" secondAttribute="height" multiplier="1:1" id="DR9-En-kL6"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="bottomMargin" secondItem="IGD-Tz-Yg8" secondAttribute="bottom" constant="25.666666666666657" id="4eu-4m-VIh"/>
+                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" secondItem="NjB-zz-PZd" secondAttribute="trailing" constant="20" id="7ZJ-o6-9ya"/>
                                                 <constraint firstItem="IGD-Tz-Yg8" firstAttribute="top" secondItem="pHz-Ld-iH7" secondAttribute="bottom" constant="16" id="8ZZ-Oi-FI5"/>
                                                 <constraint firstItem="IGD-Tz-Yg8" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="19.999999999999986" id="Cqv-2h-ssN"/>
                                                 <constraint firstItem="dQh-jz-bsx" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="20" id="JUU-zW-uDB"/>
                                                 <constraint firstItem="NjB-zz-PZd" firstAttribute="centerY" secondItem="Ptf-4c-u4i" secondAttribute="centerY" id="Ke3-Ag-zW0"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="leading" secondItem="BMj-Vh-GnN" secondAttribute="leading" constant="20" id="Uey-cI-LPl"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="top" secondItem="BMj-Vh-GnN" secondAttribute="top" constant="30" id="Xe1-Fl-hxQ"/>
+                                                <constraint firstItem="NjB-zz-PZd" firstAttribute="top" secondItem="Ptf-4c-u4i" secondAttribute="top" constant="20" id="Y1h-c6-FsZ"/>
                                                 <constraint firstItem="pHz-Ld-iH7" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="20" id="aWF-ph-790"/>
+                                                <constraint firstItem="NjB-zz-PZd" firstAttribute="height" secondItem="Ptf-4c-u4i" secondAttribute="height" multiplier="0.45" id="qef-ll-6zJ"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" secondItem="NjB-zz-PZd" secondAttribute="trailing" constant="20" id="sLW-2y-h7U"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ptf-4c-u4i" secondAttribute="trailing" constant="20" id="tsn-iH-aFk"/>
                                                 <constraint firstItem="dQh-jz-bsx" firstAttribute="top" secondItem="Ptf-4c-u4i" secondAttribute="top" constant="10" id="zaK-BX-zXZ"/>
@@ -1408,16 +1415,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NxK-98-5a0">
-                                <rect key="frame" x="20" y="10" width="374" height="203.66666666666666"/>
+                                <rect key="frame" x="20" y="10" width="374" height="217.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85E-K5-jWa">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFh-Av-QwR">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="93.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="100"/>
                                         <string key="text">If you have an account, you will be asked to log in with your password. If not, you will be asked to create one with a password.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1426,7 +1433,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Php-Zt-sK2">
-                                <rect key="frame" x="30" y="243.66666666666669" width="354" height="50"/>
+                                <rect key="frame" x="30" y="257.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-F9-rB0">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1436,7 +1443,7 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-bc-Fq0">
-                                <rect key="frame" x="30" y="323.66666666666669" width="354" height="23.333333333333314"/>
+                                <rect key="frame" x="30" y="337.66666666666669" width="354" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

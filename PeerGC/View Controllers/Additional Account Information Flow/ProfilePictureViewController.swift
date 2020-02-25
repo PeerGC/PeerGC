@@ -38,7 +38,7 @@ class ProfilePictureViewController: UIViewController {
         let photoURL = Auth.auth().currentUser!.photoURL
         
         if photoURL != nil {
-            downloadImage(url: photoURL!, imageView: profilePicImageView)
+            ProfilePictureViewController.downloadImage(url: photoURL!, imageView: profilePicImageView)
         }
         
         profilePicImageView.cornerRadius = 40
@@ -46,7 +46,7 @@ class ProfilePictureViewController: UIViewController {
         imagePicker.delegate = self
     }
     
-    func downloadImage(url: URL, imageView: UIImageView) {
+    public static func downloadImage(url: URL, imageView: UIImageView) {
         let task = URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else { return }
             DispatchQueue.main.async { // Make sure you're on the main thread here
