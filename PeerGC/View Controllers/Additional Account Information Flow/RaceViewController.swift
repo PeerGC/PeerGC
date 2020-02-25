@@ -95,7 +95,7 @@ class RaceViewController: UIViewController {
             
             let uid = Auth.auth().currentUser!.uid
         
-            Firestore.firestore().collection("users").document(uid).setData(["accountType": AccountTypeViewController.data.accountType!, "zipCode": AccountTypeViewController.data.zipCode!, "value": AccountTypeViewController.data.value!, "gender": AccountTypeViewController.data.gender!, "interest": AccountTypeViewController.data.interest!, "race": AccountTypeViewController.data.race!, "firstName": Auth.auth().currentUser!.displayName!.split(separator: " ")[0], "photoURL": Auth.auth().currentUser!.photoURL ?? ""]) { (error) in
+            Firestore.firestore().collection("users").document(uid).setData(["accountType": AccountTypeViewController.data.accountType!, "zipCode": AccountTypeViewController.data.zipCode!, "value": AccountTypeViewController.data.value!, "gender": AccountTypeViewController.data.gender!, "interest": AccountTypeViewController.data.interest!, "race": AccountTypeViewController.data.race!, "firstName": Auth.auth().currentUser!.displayName!.split(separator: " ")[0]]) { (error) in
             
                 if error != nil {
                     // Show error message

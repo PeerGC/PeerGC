@@ -448,12 +448,32 @@ class HomeViewController: UIViewController {
     
 }
 
-struct CustomData: Hashable {
+class CustomData: Hashable {
+    
+    static func == (lhs: CustomData, rhs: CustomData) -> Bool {
+        return rhs.uid == lhs.uid
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uid)
+    }
+    
     var firstName: String
     var state: String
     var city: String
     var uid: String
     var photoURL: URL
+    var image: UIImage?
+    
+    init(firstName: String, state: String, city: String, uid: String, photoURL: URL) {
+        self.firstName = firstName
+        self.state = state
+        self.city = city
+        self.uid = uid
+        self.photoURL = photoURL
+        
+    }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -509,8 +529,27 @@ class CustomCell: UICollectionViewCell {
             button.backgroundColor = UIColor.systemPink
             firstname.text = data.firstName
             cityState.text = data.city.capitalized + ", " + data.state.capitalized
-            ProfilePictureViewController.downloadImage(url: data.photoURL, imageView: imageView)
+            
+            if data.image == nil {
+                downloadImage()
+            }
+            
+            else {
+                imageView.image = data.image
+            }
+            
         }
+    }
+    
+    func downloadImage() {
+        let task = URLSession.shared.dataTask(with: data!.photoURL) { data, _, _ in
+            guard let data = data else { return }
+            DispatchQueue.main.async { // Make sure you're on the main thread here
+                self.imageView.image = UIImage(data: data)
+                self.data!.image = self.imageView.image
+            }
+        }
+        task.resume()
     }
     
     @IBOutlet weak var button: DesignableButton!
