@@ -142,18 +142,34 @@ class HomeViewController: UIViewController {
                     
                 }
                 
+                HomeViewController.customData.removeDuplicates()
+                
                 self.collectionView.reloadData()
                 self.pageControl.numberOfPages = HomeViewController.customData.count
                 
             }
             
+            HomeViewController.customData.removeDuplicates()
+            
+            self.collectionView.reloadData()
+            self.pageControl.numberOfPages = HomeViewController.customData.count
+            
         }
+        
+        HomeViewController.customData.removeDuplicates()
+        
+        self.collectionView.reloadData()
+        self.pageControl.numberOfPages = HomeViewController.customData.count
+        
     }
     
-    func checkThreadCount() {
+    func checkThreadCount() -> Bool {
+        print("Thread Count: \(threadCount)")
         if threadCount >= 5 {
             printCards()
+            return true
         }
+        return false
     }
     
     func setCards(amount: Int) {
@@ -195,14 +211,19 @@ class HomeViewController: UIViewController {
                             print("query 1")
                             for document in querySnapshot!.documents {
                                 
-                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                     docRef.updateData([
                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                     ])
                                     count+=1
+                                    
                                 }
             
                                 else {
+                                    self.threadCount = 5
+                                    if self.checkThreadCount() {
+                                        return
+                                    }
                                     break
                                 }
                                 
@@ -210,9 +231,11 @@ class HomeViewController: UIViewController {
                             }
                             
                             self.threadCount+=1
-                            self.checkThreadCount()
+                            if self.checkThreadCount() {
+                                return
+                            }
                             
-                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                 
                                 //START Q2
                                 let query2 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
@@ -224,7 +247,7 @@ class HomeViewController: UIViewController {
                                             print("query 2")
                                             for document in querySnapshot!.documents {
                                                 
-                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                     docRef.updateData([
                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                     ])
@@ -232,6 +255,10 @@ class HomeViewController: UIViewController {
                                                 }
                             
                                                 else {
+                                                    self.threadCount = 5
+                                                    if self.checkThreadCount() {
+                                                        return
+                                                    }
                                                     break
                                                 }
                                                 
@@ -239,9 +266,11 @@ class HomeViewController: UIViewController {
                                             }
                                             
                                             self.threadCount+=1
-                                            self.checkThreadCount()
+                                            if self.checkThreadCount() {
+                                                return
+                                            }
                                             
-                                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                             //START Q3
                                                 let query3 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
 
@@ -252,7 +281,7 @@ class HomeViewController: UIViewController {
                                                             print("query 3")
                                                             for document in querySnapshot!.documents {
                                                                 
-                                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                     docRef.updateData([
                                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                                     ])
@@ -260,6 +289,10 @@ class HomeViewController: UIViewController {
                                                                 }
                                             
                                                                 else {
+                                                                    self.threadCount = 5
+                                                                    if self.checkThreadCount() {
+                                                                        return
+                                                                    }
                                                                     break
                                                                 }
                                                                 
@@ -267,9 +300,11 @@ class HomeViewController: UIViewController {
                                                             }
                                                             
                                                             self.threadCount+=1
-                                                            self.checkThreadCount()
+                                                            if self.checkThreadCount() {
+                                                                return
+                                                            }
                                                             
-                                                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                             //START Q4
                                                                 let query4 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
 
@@ -280,7 +315,7 @@ class HomeViewController: UIViewController {
                                                                             print("query 4")
                                                                             for document in querySnapshot!.documents {
                                                                                 
-                                                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                                     docRef.updateData([
                                                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                                                     ])
@@ -288,6 +323,10 @@ class HomeViewController: UIViewController {
                                                                                 }
                                                             
                                                                                 else {
+                                                                                    self.threadCount = 5
+                                                                                    if self.checkThreadCount() {
+                                                                                        return
+                                                                                    }
                                                                                     break
                                                                                 }
                                                                                 
@@ -295,9 +334,11 @@ class HomeViewController: UIViewController {
                                                                             }
                                                                             
                                                                             self.threadCount+=1
-                                                                            self.checkThreadCount()
+                                                                            if self.checkThreadCount() {
+                                                                                return
+                                                                            }
                                                                             
-                                                                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                                                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                             //START Q5
                                                                                 let query5 = usersRef.whereField("accountType", isEqualTo: otherAccountType).limit(to: 10)
 
@@ -308,7 +349,7 @@ class HomeViewController: UIViewController {
                                                                                             print("query 5")
                                                                                             for document in querySnapshot!.documents {
                                                                                                 
-                                                                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
+                                                                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                                                     docRef.updateData([
                                                                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                                                                     ])
@@ -316,6 +357,10 @@ class HomeViewController: UIViewController {
                                                                                                 }
                                                                                                 
                                                                                                 else {
+                                                                                                    self.threadCount = 5
+                                                                                                    if self.checkThreadCount() {
+                                                                                                        return
+                                                                                                    }
                                                                                                     break
                                                                                                 }
                                                                                                 
@@ -323,7 +368,9 @@ class HomeViewController: UIViewController {
                                                                                             }
                                                                                         
                                                                                             self.threadCount+=1
-                                                                                            self.checkThreadCount()
+                                                                                            if self.checkThreadCount() {
+                                                                                                return
+                                                                                            }
                                                                                             
                                                                                         }
                                                                                 }
@@ -401,7 +448,7 @@ class HomeViewController: UIViewController {
     
 }
 
-struct CustomData {
+struct CustomData: Hashable {
     var firstName: String
     var state: String
     var city: String
