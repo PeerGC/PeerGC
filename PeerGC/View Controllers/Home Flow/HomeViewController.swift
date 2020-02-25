@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var logOutButton: DesignableButton!
     
-    public static var whitelist: NSArray = []
-    
     public static var customData: [CustomData] = []
     
     override func viewDidLoad() {
@@ -77,7 +75,19 @@ class HomeViewController: UIViewController {
                 let currentWhiteList = data["whitelist"] as! NSArray
                 
                 for user in currentWhiteList {
-                    HomeViewController.customData.append(CustomData(firstName: user as! String, state: "null", city: "null"))
+                    
+                    var doesExist = false
+                    
+                    for dataObject in HomeViewController.customData {
+                        if dataObject.firstName == user as! String {
+                            doesExist = true
+                        }
+                    }
+            
+                    if !doesExist {
+                        HomeViewController.customData.append(CustomData(firstName: user as! String, state: "null", city: "null"))
+                    }
+                    
                 }
                 
                 self.collectionView.reloadData()
@@ -286,18 +296,12 @@ class HomeViewController: UIViewController {
     @IBAction func logOutButton(_ sender: Any) {
         try! Auth.auth().signOut()
         print("logged out")
+        HomeViewController.customData = []
         transitionToStart()
     }
     
     @IBAction func removeOrConfirmButtonPressed(_ sender: UIButton) {
         removeOrConfirmButtonCancel(sender)
-        
-        print("whitelist: ")
-        
-        for elem in HomeViewController.whitelist {
-            print(elem)
-        }
-        
     }
     
     @IBAction func removeOrConfirmButtonTouchDown(_ sender: UIButton) {
