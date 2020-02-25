@@ -74,19 +74,68 @@ class HomeViewController: UIViewController {
                 
                 let currentWhiteList = data["whitelist"] as! NSArray
                 
-                for user in currentWhiteList {
+                for uid in currentWhiteList {
                     
                     var doesExist = false
                     
                     for dataObject in HomeViewController.customData {
-                        if dataObject.firstName == user as! String {
+                        if dataObject.uid == uid as! String {
                             doesExist = true
                         }
                     }
-            
+                    
                     if !doesExist {
-                        HomeViewController.customData.append(CustomData(firstName: user as! String, state: "null", city: "null"))
+                        
+                        
+                        Firestore.firestore().collection("users").document(uid as! String).getDocument { (document, error) in
+                            if let document = document, document.exists {
+                                let dataDescription = document.data()
+                                
+                                print("check 45")
+                                print(dataDescription)
+                                
+                                HomeViewController.customData.append(CustomData(firstName:
+                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String))
+                                
+                                self.collectionView.reloadData()
+                                self.pageControl.numberOfPages = HomeViewController.customData.count
+                                
+                               
+                            } else {
+                                print("Document does not exist")
+                            }
+                        }
+                        
+                        
+                        
+//                        Firestore.firestore().collection("users").document(uid as! String).addSnapshotListener { documentSnapshot, error in
+//                        guard let document = documentSnapshot else {
+//                          print("Error fetching document: \(error!)")
+//                          return
+//                        }
+//                        guard let data = document.data() else {
+//                          print("Document data was empty.")
+//                          return
+//                        }
+//                        print("Current data: \(data)")
+//
+//                            var doesExist2 = false
+//
+//                            for dataObject in HomeViewController.customData {
+//                                if dataObject.uid == uid as! String {
+//                                    doesExist2 = true
+//                                }
+//                            }
+//
+//                            if !doesExist2 {
+//                                HomeViewController.customData.append(CustomData(firstName: data["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: data["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: data["zipCode"] as! String)!, uid: uid as! String))
+//
+//                            }
+//
+//                        }
+                        
                     }
+                    
                     
                 }
                 
@@ -332,6 +381,7 @@ struct CustomData {
     var firstName: String
     var state: String
     var city: String
+    var uid: String
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -382,8 +432,8 @@ class CustomCell: UICollectionViewCell {
             guard let data = data else { return }
             //button.backgroundColor = data.color
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
-            cityState.font = cityState.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
-            blurb.font = blurb.font.withSize( (2.3/71) * UIScreen.main.bounds.height)
+            cityState.font = cityState.font.withSize( (2.5/71) * UIScreen.main.bounds.height)
+            blurb.font = blurb.font.withSize( (2.0/71) * UIScreen.main.bounds.height)
             button.backgroundColor = UIColor.systemPink
             firstname.text = data.firstName
             cityState.text = data.city.capitalized + ", " + data.state.capitalized
