@@ -53,7 +53,27 @@ class HomeViewController: UIViewController {
         let currentUser = Auth.auth().currentUser!
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
         
-        setCards(amount: 6)
+        Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).addSnapshotListener { documentSnapshot, error in
+          guard let document = documentSnapshot else {
+            print("Error fetching document: \(error!)")
+            return
+          }
+          guard let data = document.data() else {
+            print("Document data was empty.")
+            return
+          }
+          print("Current data: \(data)")
+            
+            if (data["whitelist"] as! NSArray).contains("P3OaAqFEQJb5zM059KWuk8SbCIc2") {
+                print(true)
+            }
+            
+            else {
+                print(false)
+            }
+            
+        }
+
         
     }
     
@@ -244,13 +264,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    fileprivate let data = [
-        CustomData(color: UIColor.systemPink),
-        CustomData(color: UIColor.systemRed),
-        CustomData(color: UIColor.systemPink),
-        CustomData(color: UIColor.systemGreen),
-        CustomData(color: UIColor.systemPink)
-    ]
+    var data: [CustomData] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -292,7 +306,9 @@ class HomeViewController: UIViewController {
 }
 
 struct CustomData {
-    var color: UIColor
+    var firstName: String
+    var state: String
+    var city: String
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -341,7 +357,7 @@ class CustomCell: UICollectionViewCell {
     var data: CustomData? {
         didSet {
             guard let data = data else { return }
-            button.backgroundColor = data.color
+            //button.backgroundColor = data.color
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
             cityState.font = cityState.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (2.3/71) * UIScreen.main.bounds.height)
