@@ -102,6 +102,14 @@ class RaceViewController: UIViewController {
                     print("Error saving user data")
                 }
             }
+            
+            let docRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
+
+            docRef.updateData([
+                "whitelist" : [],
+                "blacklist" : []
+            ])
+            
             transitionToHome()
         }
         

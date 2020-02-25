@@ -30,11 +30,15 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var logOutButton: DesignableButton!
     
+    public static var whitelist: NSArray = []
+    
+    public static var customData: [CustomData] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        pageControl.numberOfPages = data.count
+        pageControl.numberOfPages = HomeViewController.customData.count
         
        
         collectionView.heightAnchor.constraint(equalToConstant:   UIScreen.main.bounds.height * 0.36).isActive = true // TODO: this can be done on storyboard?
@@ -64,12 +68,21 @@ class HomeViewController: UIViewController {
           }
           print("Current data: \(data)")
             
-            if (data["whitelist"] as! NSArray).contains("P3OaAqFEQJb5zM059KWuk8SbCIc2") {
-                print(true)
+            if (data["whitelist"] as! NSArray).count == 0 {
+                self.setCards(amount: 6)
             }
             
             else {
-                print(false)
+                
+                let currentWhiteList = data["whitelist"] as! NSArray
+                
+                for user in currentWhiteList {
+                    HomeViewController.customData.append(CustomData(firstName: user as! String, state: "null", city: "null"))
+                }
+                
+                self.collectionView.reloadData()
+                self.pageControl.numberOfPages = HomeViewController.customData.count
+                
             }
             
         }
@@ -82,14 +95,15 @@ class HomeViewController: UIViewController {
         var count = 0
         
         let docRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-
-        docRef.updateData([
-            "whitelist" : [],
-            "blacklist" : []
-        ])
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
+                
+                guard let data = document.data() else {
+                  print("Document data was empty.")
+                  return
+                }
+                
                 let dataDescription = document.data()
                 let accountType = (dataDescription!["accountType"] as! String)
                 let zipCode = (dataDescription!["zipCode"] as! String)
@@ -115,7 +129,7 @@ class HomeViewController: UIViewController {
                             print("query 1")
                             for document in querySnapshot!.documents {
                                 
-                                if count < amount {
+                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                     docRef.updateData([
                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                     ])
@@ -129,7 +143,7 @@ class HomeViewController: UIViewController {
                                 print("\(document.documentID) => \(document.data())")
                             }
                             
-                            if count < amount {
+                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                 
                                 //START Q2
                                 let query2 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
@@ -141,7 +155,7 @@ class HomeViewController: UIViewController {
                                             print("query 2")
                                             for document in querySnapshot!.documents {
                                                 
-                                                if count < amount {
+                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                     docRef.updateData([
                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                     ])
@@ -155,7 +169,7 @@ class HomeViewController: UIViewController {
                                                 print("\(document.documentID) => \(document.data())")
                                             }
                                             
-                                            if count < amount {
+                                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                             //START Q3
                                                 let query3 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
 
@@ -166,7 +180,7 @@ class HomeViewController: UIViewController {
                                                             print("query 3")
                                                             for document in querySnapshot!.documents {
                                                                 
-                                                                if count < amount {
+                                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                     docRef.updateData([
                                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                                     ])
@@ -180,7 +194,7 @@ class HomeViewController: UIViewController {
                                                                 print("\(document.documentID) => \(document.data())")
                                                             }
                                                             
-                                                            if count < amount {
+                                                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                             //START Q4
                                                                 let query4 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
 
@@ -191,7 +205,7 @@ class HomeViewController: UIViewController {
                                                                             print("query 4")
                                                                             for document in querySnapshot!.documents {
                                                                                 
-                                                                                if count < amount {
+                                                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                                     docRef.updateData([
                                                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                                                     ])
@@ -205,7 +219,7 @@ class HomeViewController: UIViewController {
                                                                                 print("\(document.documentID) => \(document.data())")
                                                                             }
                                                                             
-                                                                            if count < amount {
+                                                                            if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                             //START Q5
                                                                                 let query5 = usersRef.whereField("accountType", isEqualTo: otherAccountType).limit(to: 10)
 
@@ -216,7 +230,7 @@ class HomeViewController: UIViewController {
                                                                                             print("query 5")
                                                                                             for document in querySnapshot!.documents {
                                                                                                 
-                                                                                                if count < amount {
+                                                                                                if count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
                                                                                                     docRef.updateData([
                                                                                                         "whitelist": FieldValue.arrayUnion([document.documentID])
                                                                                                     ])
@@ -264,8 +278,6 @@ class HomeViewController: UIViewController {
         
     }
     
-    var data: [CustomData] = []
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -279,6 +291,13 @@ class HomeViewController: UIViewController {
     
     @IBAction func removeOrConfirmButtonPressed(_ sender: UIButton) {
         removeOrConfirmButtonCancel(sender)
+        
+        print("whitelist: ")
+        
+        for elem in HomeViewController.whitelist {
+            print(elem)
+        }
+        
     }
     
     @IBAction func removeOrConfirmButtonTouchDown(_ sender: UIButton) {
@@ -318,12 +337,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return HomeViewController.customData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.data = self.data[indexPath.item]
+        cell.data = HomeViewController.customData[indexPath.item]
 
         return cell
     }
@@ -341,7 +360,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return data.count
+        return HomeViewController.customData.count
     }
 
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
@@ -361,6 +380,9 @@ class CustomCell: UICollectionViewCell {
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
             cityState.font = cityState.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (2.3/71) * UIScreen.main.bounds.height)
+            button.backgroundColor = UIColor.systemPink
+            firstname.text = data.firstName
+            cityState.text = data.city.capitalized + ", " + data.state.capitalized
         }
     }
     
@@ -373,6 +395,7 @@ class CustomCell: UICollectionViewCell {
         UIView.animate(withDuration: 0.2) {
             sender.alpha = 0.7
         }
+        
     }
 
     @IBAction func buttonCancel(_ sender: UIButton) {
