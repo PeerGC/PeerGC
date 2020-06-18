@@ -10,7 +10,6 @@
 		13ED888637A22E902B3AC05E /* libPods-PeerGC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A4416D3AADE9304A4B7461 /* libPods-PeerGC.a */; };
 		641BC82358A4929396E4CF5F /* libPods-PeerGCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591FA7CABBF09D92B97256B /* libPods-PeerGCTests.a */; };
 		C700B14423EB647100816708 /* lastNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B13F23EB644400816708 /* lastNames.txt */; };
-		C700B14523EB647100816708 /* firstNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B14023EB644400816708 /* firstNames.txt */; };
 		C700B14623EB647100816708 /* zipCodesToValue.csv in Resources */ = {isa = PBXBuildFile; fileRef = C700B14123EB644F00816708 /* zipCodesToValue.csv */; };
 		C700B14723EB647100816708 /* zipCodesToLocation.csv in Resources */ = {isa = PBXBuildFile; fileRef = C700B14223EB646800816708 /* zipCodesToLocation.csv */; };
 		C700B14823EB647100816708 /* zipCodes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B14323EB647100816708 /* zipCodes.txt */; };
@@ -37,6 +36,7 @@
 		C75F3D1A23EB570B00C7B5E5 /* PeerGCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D1923EB570B00C7B5E5 /* PeerGCUITests.swift */; };
 		C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D2923EB58DB00C7B5E5 /* AppDelegate.swift */; };
 		C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */; };
+		C7B0D1B2249B1BD700476FB1 /* firstNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7B0D1B1249B1BD700476FB1 /* firstNames.txt */; };
 		C7CC451D23EB5A8400A086D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */; };
 		C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */; };
 		C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452223EB5AD600A086D7 /* Customizables.swift */; };
@@ -102,6 +102,7 @@
 		C75F3D1B23EB570B00C7B5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C75F3D2923EB58DB00C7B5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C7B0D1B1249B1BD700476FB1 /* firstNames.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = firstNames.txt; path = PeerGC/Utilities/Resources/firstNames.txt; sourceTree = "<group>"; };
 		C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		C7CC452223EB5AD600A086D7 /* Customizables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customizables.swift; sourceTree = "<group>"; };
@@ -230,6 +231,7 @@
 		C75F3CEB23EB570700C7B5E5 = {
 			isa = PBXGroup;
 			children = (
+				C7B0D1B1249B1BD700476FB1 /* firstNames.txt */,
 				C75F3CF623EB570700C7B5E5 /* PeerGC */,
 				C75F3D0D23EB570B00C7B5E5 /* PeerGCTests */,
 				C75F3D1823EB570B00C7B5E5 /* PeerGCUITests */,
@@ -439,10 +441,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B0D1B2249B1BD700476FB1 /* firstNames.txt in Resources */,
 				C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */,
 				C700B14623EB647100816708 /* zipCodesToValue.csv in Resources */,
 				C700B14823EB647100816708 /* zipCodes.txt in Resources */,
-				C700B14523EB647100816708 /* firstNames.txt in Resources */,
 				C75F3D0423EB570B00C7B5E5 /* LaunchScreen.storyboard in Resources */,
 				C7CC451D23EB5A8400A086D7 /* GoogleService-Info.plist in Resources */,
 				C700B14423EB647100816708 /* lastNames.txt in Resources */,
@@ -770,7 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2557GG3JCA;
+				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -789,7 +791,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2557GG3JCA;
+				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
