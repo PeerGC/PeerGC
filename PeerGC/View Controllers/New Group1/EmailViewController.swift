@@ -48,7 +48,7 @@ class EmailViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        Auth.auth().fetchProviders(forEmail: email.text!, completion: {
+        Auth.auth().fetchSignInMethods(forEmail: email.text!, completion: {
             (providers, error) in
             
             if let error = error {

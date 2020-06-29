@@ -104,17 +104,17 @@ class ProfilePictureViewController: UIViewController {
             }
         }
         
-        let camera = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default) { (action) in
-            
-            if UIImagePickerController.isSourceTypeAvailable( UIImagePickerController.SourceType.camera)
-            {
-                self.imagePicker.delegate = self
-                self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
-                self.imagePicker.allowsEditing = true
-                
-                self.present(self.imagePicker, animated: true, completion: nil)
-            }
-        }
+//        let camera = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default) { (action) in
+//
+//            if UIImagePickerController.isSourceTypeAvailable( UIImagePickerController.SourceType.camera)
+//            {
+//                self.imagePicker.delegate = self
+//                self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
+//                self.imagePicker.allowsEditing = true
+//
+//                self.present(self.imagePicker, animated: true, completion: nil)
+//            }
+//        }
         
         myActionSheet.addAction(photoGallery)
 //        myActionSheet.addAction(camera)
@@ -171,13 +171,13 @@ extension ProfilePictureViewController: UIImagePickerControllerDelegate {
             
             let profilePicStorageRef = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profilePicture")
             
-            let uploadTask = profilePicStorageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            _ = profilePicStorageRef.putData(imageData, metadata: nil) { (metadata, error) in
               guard let metadata = metadata else {
                 // Uh-oh, an error occurred!
                 return
               }
               // Metadata contains file metadata such as size, content-type.
-              let size = metadata.size
+                _ = metadata.size
               // You can also access to download URL after upload.
               profilePicStorageRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {

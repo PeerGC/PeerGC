@@ -121,9 +121,6 @@ class HomeViewController: UIViewController {
                             if let document = document, document.exists {
                                 let dataDescription = document.data()
                                 
-                                print("check 45")
-                                print(dataDescription)
-                                
                                 HomeViewController.customData.append(CustomData(firstName:
                                     dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!))
                                 
@@ -188,7 +185,7 @@ class HomeViewController: UIViewController {
                 
                 let dataDescription = document.data()
                 let accountType = (dataDescription!["accountType"] as! String)
-                let zipCode = (dataDescription!["zipCode"] as! String)
+//                let zipCode = (dataDescription!["zipCode"] as! String)
                 let value = (dataDescription!["value"] as! NSNumber).intValue
                 let gender = (dataDescription!["gender"] as! String)
                 let interest = (dataDescription!["interest"] as! String)
@@ -528,7 +525,7 @@ class CustomCell: UICollectionViewCell {
             blurb.font = blurb.font.withSize( (2.0/71) * UIScreen.main.bounds.height)
             button.backgroundColor = UIColor.systemPink
             firstname.text = data.firstName
-            cityState.text = data.city.capitalized + ", " + data.state.capitalized
+            cityState.text = data.state.capitalized
             
             if data.image == nil {
                 downloadImage()
