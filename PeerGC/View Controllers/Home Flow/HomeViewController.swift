@@ -13,47 +13,27 @@ import Firebase
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var removeButton: DesignableButton!
-    
     @IBOutlet weak var confirmButton: DesignableButton!
-    
     @IBOutlet weak var label: UILabel!
-    
     @IBOutlet weak var firstName: UILabel!
-    
     @IBOutlet weak var welcome: UILabel!
-    
     @IBOutlet weak var recTutors: UILabel!
-    
     @IBOutlet weak var logOutButton: DesignableButton!
-    
     public static var customData: [CustomData] = []
-    
-    var firstTime = false
-    
-    var threadCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
         pageControl.numberOfPages = HomeViewController.customData.count
-        
-       
-        collectionView.heightAnchor.constraint(equalToConstant:   UIScreen.main.bounds.height * 0.36).isActive = true // TODO: this can be done on storyboard?
-        
+        collectionView.heightAnchor.constraint(equalToConstant:   UIScreen.main.bounds.height * 0.36).isActive = true
         recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height) // max 2.3
-        
         firstName.font = firstName.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
-        
         welcome.font = welcome.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
-        
         removeButton.titleLabel?.font = removeButton.titleLabel?.font.withSize( (2.5/71) * UIScreen.main.bounds.height)
         confirmButton.titleLabel?.font = confirmButton.titleLabel?.font.withSize( (2.5/71) * UIScreen.main.bounds.height)
-        //logOutButton.titleLabel?.font = logOutButton.titleLabel?.font.withSize( (1.8/71) * UIScreen.main.bounds.height)
         label.font = label.font.withSize( (1.9/71) * UIScreen.main.bounds.height) // max 2.3
     
         let currentUser = Auth.auth().currentUser!
@@ -61,345 +41,68 @@ class HomeViewController: UIViewController {
         
         
         Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).addSnapshotListener { documentSnapshot, error in
-          guard let document = documentSnapshot else {
-            print("Error fetching document: \(error!)")
-            return
-          }
-          guard let data = document.data() else {
-            print("Document data was empty.")
-            return
-          }
-          print("Current data: \(data)")
-            
-            if (data["whitelist"] as! NSArray).count == 0 {
-                self.firstTime = true
-                self.setCards(amount: 6)
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            guard let data = document.data() else {
+                print("Document data was empty.")
+                return
             }
             
-            else if (data["whitelist"] as! NSArray).count != 0 && !self.firstTime  {
-                self.printCards()
-            }
+            let currentWhiteList = data["whitelist"] as! NSArray
             
-        }
-        
-    }
-    
-    func printCards() {
-        Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).addSnapshotListener { documentSnapshot, error in
-          guard let document = documentSnapshot else {
-            print("Error fetching document: \(error!)")
-            return
-          }
-          guard let data = document.data() else {
-            print("Document data was empty.")
-            return
-          }
-          print("Current data: \(data)")
-            
-            if (data["whitelist"] as! NSArray).count == 0 {
-                self.setCards(amount: 6)
-            }
-            
-            else {
+            for uid in currentWhiteList {
+                //check if already exists in the showing set
+                var doesExist = false
                 
-                let currentWhiteList = data["whitelist"] as! NSArray
-                
-                for uid in currentWhiteList {
-                    
-                    var doesExist = false
-                    
-                    for dataObject in HomeViewController.customData {
-                        if dataObject.uid == uid as! String {
-                            doesExist = true
-                        }
+                for dataObject in HomeViewController.customData {
+                    if dataObject.uid == uid as! String {
+                        doesExist = true
+                        break
                     }
-                    
-                    if !doesExist {
-                        
-                        
-                        Firestore.firestore().collection("users").document(uid as! String).getDocument { (document, error) in
-                            if let document = document, document.exists {
-                                let dataDescription = document.data()
-                                
-                                HomeViewController.customData.append(CustomData(firstName:
-                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!))
-                                
-                                self.collectionView.reloadData()
-                                self.pageControl.numberOfPages = HomeViewController.customData.count
-                                
-                               
-                            } else {
-                                print("Document does not exist")
-                            }
-                        }
-                        
-                        
-                    }
-                    
-                    
                 }
-                
-                HomeViewController.customData.removeDuplicates()
-                
-                self.collectionView.reloadData()
-                self.pageControl.numberOfPages = HomeViewController.customData.count
-                
-            }
-            
-            HomeViewController.customData.removeDuplicates()
-            
-            self.collectionView.reloadData()
-            self.pageControl.numberOfPages = HomeViewController.customData.count
-            
-        }
-        
-        HomeViewController.customData.removeDuplicates()
-        
-        self.collectionView.reloadData()
-        self.pageControl.numberOfPages = HomeViewController.customData.count
-        
-    }
-    
-    func checkThreadCount() -> Bool {
-        print("Thread Count: \(threadCount)")
-        if threadCount >= 5 {
-            printCards()
-            return true
-        }
-        return false
-    }
-    
-    func setCards(amount: Int) {
-        
-        var count = 0
-        
-        let docRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-        
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                
-                guard let data = document.data() else {
-                  print("Document data was empty.")
-                  return
-                }
-                
-                let dataDescription = document.data()
-                let accountType = (dataDescription!["accountType"] as! String)
-//                let zipCode = (dataDescription!["zipCode"] as! String)
-                let value = (dataDescription!["value"] as! NSNumber).intValue
-                let gender = (dataDescription!["gender"] as! String)
-                let interest = (dataDescription!["interest"] as! String)
-                let race = (dataDescription!["race"] as! String)
-                
-                let otherAccountType = accountType == "Tutor" ? "Student" : "Tutor"
-               
-                let doubleMax = value + 10000
-                let doubleMin = value - 10000
-                
-                
-                let usersRef = Firestore.firestore().collection("users")
-                
-                let query1 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("gender", isEqualTo: gender).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
-                
-                query1.getDocuments() { (querySnapshot, err) in
-                        if let err = err {
-                            print("Error getting documents: \(err)")
+  
+                //if it doesn't exist, then add it
+                if !doesExist {
+                    Firestore.firestore().collection("users").document(uid as! String).getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let dataDescription = document.data()
+                            
+                            HomeViewController.customData.append(CustomData(firstName:
+                                dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!))
+                            
+                            self.collectionView.reloadData()
+                            self.pageControl.numberOfPages = HomeViewController.customData.count
+                            
+                           
                         } else {
-                            print("query 1")
-                            for document in querySnapshot!.documents {
-                                
-                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                    docRef.updateData([
-                                        "whitelist": FieldValue.arrayUnion([document.documentID])
-                                    ])
-                                    count+=1
-                                    
-                                }
-            
-                                else {
-                                    self.threadCount = 5
-                                    if self.checkThreadCount() {
-                                        return
-                                    }
-                                    break
-                                }
-                                
-                                print("\(document.documentID) => \(document.data())")
-                            }
-                            
-                            self.threadCount+=1
-                            if self.checkThreadCount() {
-                                return
-                            }
-                            
-                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                
-                                //START Q2
-                                let query2 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("race", isEqualTo: race).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
-
-                                query2.getDocuments() { (querySnapshot, err) in
-                                        if let err = err {
-                                            print("Error getting documents: \(err)")
-                                        } else {
-                                            print("query 2")
-                                            for document in querySnapshot!.documents {
-                                                
-                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                                    docRef.updateData([
-                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
-                                                    ])
-                                                    count+=1
-                                                }
-                            
-                                                else {
-                                                    self.threadCount = 5
-                                                    if self.checkThreadCount() {
-                                                        return
-                                                    }
-                                                    break
-                                                }
-                                                
-                                                print("\(document.documentID) => \(document.data())")
-                                            }
-                                            
-                                            self.threadCount+=1
-                                            if self.checkThreadCount() {
-                                                return
-                                            }
-                                            
-                                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                            //START Q3
-                                                let query3 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("interest", isEqualTo: interest).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
-
-                                                query3.getDocuments() { (querySnapshot, err) in
-                                                        if let err = err {
-                                                            print("Error getting documents: \(err)")
-                                                        } else {
-                                                            print("query 3")
-                                                            for document in querySnapshot!.documents {
-                                                                
-                                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                                                    docRef.updateData([
-                                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
-                                                                    ])
-                                                                    count+=1
-                                                                }
-                                            
-                                                                else {
-                                                                    self.threadCount = 5
-                                                                    if self.checkThreadCount() {
-                                                                        return
-                                                                    }
-                                                                    break
-                                                                }
-                                                                
-                                                                print("\(document.documentID) => \(document.data())")
-                                                            }
-                                                            
-                                                            self.threadCount+=1
-                                                            if self.checkThreadCount() {
-                                                                return
-                                                            }
-                                                            
-                                                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                                            //START Q4
-                                                                let query4 = usersRef.whereField("accountType", isEqualTo: otherAccountType).whereField("value", isLessThan: doubleMax).whereField("value", isGreaterThan: doubleMin).order(by: "value").limit(to: 10)
-
-                                                                query4.getDocuments() { (querySnapshot, err) in
-                                                                        if let err = err {
-                                                                            print("Error getting documents: \(err)")
-                                                                        } else {
-                                                                            print("query 4")
-                                                                            for document in querySnapshot!.documents {
-                                                                                
-                                                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                                                                    docRef.updateData([
-                                                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
-                                                                                    ])
-                                                                                    count+=1
-                                                                                }
-                                                            
-                                                                                else {
-                                                                                    self.threadCount = 5
-                                                                                    if self.checkThreadCount() {
-                                                                                        return
-                                                                                    }
-                                                                                    break
-                                                                                }
-                                                                                
-                                                                                print("\(document.documentID) => \(document.data())")
-                                                                            }
-                                                                            
-                                                                            self.threadCount+=1
-                                                                            if self.checkThreadCount() {
-                                                                                return
-                                                                            }
-                                                                            
-                                                                            if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                                                            //START Q5
-                                                                                let query5 = usersRef.whereField("accountType", isEqualTo: otherAccountType).limit(to: 10)
-
-                                                                                query5.getDocuments() { (querySnapshot, err) in
-                                                                                        if let err = err {
-                                                                                            print("Error getting documents: \(err)")
-                                                                                        } else {
-                                                                                            print("query 5")
-                                                                                            for document in querySnapshot!.documents {
-                                                                                                
-                                                                                                if self.threadCount != 5 && count < amount && !(data["blacklist"] as! NSArray).contains(document.documentID) {
-                                                                                                    docRef.updateData([
-                                                                                                        "whitelist": FieldValue.arrayUnion([document.documentID])
-                                                                                                    ])
-                                                                                                    count+=1
-                                                                                                }
-                                                                                                
-                                                                                                else {
-                                                                                                    self.threadCount = 5
-                                                                                                    if self.checkThreadCount() {
-                                                                                                        return
-                                                                                                    }
-                                                                                                    break
-                                                                                                }
-                                                                                                
-                                                                                                print("\(document.documentID) => \(document.data())")
-                                                                                            }
-                                                                                        
-                                                                                            self.threadCount+=1
-                                                                                            if self.checkThreadCount() {
-                                                                                                return
-                                                                                            }
-                                                                                            
-                                                                                        }
-                                                                                }
-                                                                            //END Q5
-                                                                            }
-                                                                            
-                                                                        }
-                                                                }
-                                                            //END Q4
-                                                            }
-                                                            
-                                                        }
-                                                }
-                                            //END Q3
-                                            }
-                                            
-                                        }
-                                }
-                                //END Q2
-                                
-                                
-                            }
-                            
+                            print("Document does not exist")
                         }
+                    }
                 }
                 
-                print("got here")
                 
-                
-            } else {
-                print("Document does not exist")
             }
+            
+            for var i in 0..<HomeViewController.customData.count {
+                //if the new white list does not contain an old card, remove it
+                
+                if i >= HomeViewController.customData.count {
+                    break
+                }
+                
+                if !currentWhiteList.contains(HomeViewController.customData[i].uid) {
+                    HomeViewController.customData.remove(at: i)
+                    self.collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
+                    self.collectionView.reloadData()
+                    self.pageControl.numberOfPages = HomeViewController.customData.count
+                    i-=1
+                }
+                
+            }
+        
+            
         }
         
     }
@@ -413,12 +116,24 @@ class HomeViewController: UIViewController {
         try! Auth.auth().signOut()
         print("logged out")
         HomeViewController.customData = []
-        firstTime = false
         transitionToStart()
     }
     
     @IBAction func removeOrConfirmButtonPressed(_ sender: UIButton) {
-        removeOrConfirmButtonCancel(sender)
+        let functions = Functions.functions()
+        
+        functions.httpsCallable("setCards").call(["uid": Auth.auth().currentUser!.uid]) { (result, error) in
+          if let error = error as NSError? {
+            if error.domain == FunctionsErrorDomain {
+             
+            }
+            // ...
+          }
+          if let text = (result?.data as? [String: Any])?["success"] as? Bool {
+            print(text)
+          }
+        }
+        
     }
     
     @IBAction func removeOrConfirmButtonTouchDown(_ sender: UIButton) {
@@ -434,14 +149,10 @@ class HomeViewController: UIViewController {
     }
     
     func transitionToStart() {
-        
         let startViewController = storyboard?.instantiateViewController(identifier: "InitialNavController") as? UINavigationController
-        
         view.window?.rootViewController = startViewController
         view.window?.makeKeyAndVisible()
-        
     }
-    
     
 }
 

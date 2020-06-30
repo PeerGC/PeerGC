@@ -9,9 +9,9 @@ target 'PeerGC' do
 
 	pod 'Firebase'	
 	pod 'FirebaseUI'
-	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'	
 	pod 'Firebase/Core'
+	pod 'Firebase/Functions'
 	pod 'Firebase/Firestore'
 	pod 'FBSDKCoreKit', :modular_headers => true
 
