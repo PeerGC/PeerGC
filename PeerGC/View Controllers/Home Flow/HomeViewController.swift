@@ -50,61 +50,88 @@ class HomeViewController: UIViewController {
                 return
             }
             
-            let currentWhiteList = data["whitelist"] as! NSArray
-            
-            for uid in currentWhiteList {
-                //check if already exists in the showing set
-                var doesExist = false
-                
-                for dataObject in HomeViewController.customData {
-                    if dataObject.uid == uid as! String {
-                        doesExist = true
-                        break
-                    }
-                }
-  
-                //if it doesn't exist, then add it
-                if !doesExist {
-                    Firestore.firestore().collection("users").document(uid as! String).getDocument { (document, error) in
-                        if let document = document, document.exists {
-                            let dataDescription = document.data()
-                            
-                            HomeViewController.customData.append(CustomData(firstName:
-                                dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!))
-                            
-                            self.collectionView.reloadData()
-                            self.pageControl.numberOfPages = HomeViewController.customData.count
-                            
-                           
-                        } else {
-                            print("Document does not exist")
-                        }
-                    }
-                }
-                
-                
+            DispatchQueue.main.async {
+                print("Enqueing \(self.tempCounter)...")
+                self.updateCards(data: data)
             }
-            
-            for var i in 0..<HomeViewController.customData.count {
-                //if the new white list does not contain an old card, remove it
-                
-                if i >= HomeViewController.customData.count {
-                    break
-                }
-                
-                if !currentWhiteList.contains(HomeViewController.customData[i].uid) {
-                    HomeViewController.customData.remove(at: i)
-                    self.collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
-                    self.collectionView.reloadData()
-                    self.pageControl.numberOfPages = HomeViewController.customData.count
-                    i-=1
-                }
-                
-            }
-        
             
         }
         
+    }
+    
+    var tempCounter = 0
+    var processing: [String] = []
+    
+    func updateCards(data: [String: Any]) {
+        let currentWhiteList = data["whitelist"] as! NSArray
+        
+        for uid in currentWhiteList {
+            //check if already exists in the showing set
+            var doesExist = false
+
+            for dataObject in HomeViewController.customData {
+                if dataObject.uid == uid as! String {
+                    doesExist = true
+                    break
+                }
+            }
+            
+            if processing.contains(uid as! String) {
+                doesExist = true
+            }
+
+            print("Does Exist? => \(doesExist)")
+            
+            //if it doesn't exist, then add it
+            if !doesExist {
+                processing.append(uid as! String)
+                Firestore.firestore().collection("users").document(uid as! String).getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.data()
+
+                        HomeViewController.customData.append(CustomData(firstName:
+                            dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!))
+
+                        self.collectionView.reloadData()
+                        self.pageControl.numberOfPages = HomeViewController.customData.count
+                        
+                        for i in 0..<self.processing.count {
+                            if self.processing[i] == uid as! String {
+                                self.processing.remove(at: i)
+                                break
+                            }
+                        }
+
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+            }
+        }
+
+        for var i in 0..<HomeViewController.customData.count {
+            //if the new white list does not contain an old card, remove it
+
+            if i >= HomeViewController.customData.count {
+                break
+            }
+
+            if !currentWhiteList.contains(HomeViewController.customData[i].uid) {
+                HomeViewController.customData.remove(at: i)
+                self.collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
+                self.collectionView.reloadData()
+                self.pageControl.numberOfPages = HomeViewController.customData.count
+                i-=1
+            }
+
+        }
+        print("Executed \(tempCounter).")
+        print("CustomData Size: \(HomeViewController.customData.count)")
+        for element in HomeViewController.customData {
+            print(element.uid)
+        }
+        print()
+        tempCounter += 1
     }
     
     override func viewWillAppear(_ animated: Bool) {

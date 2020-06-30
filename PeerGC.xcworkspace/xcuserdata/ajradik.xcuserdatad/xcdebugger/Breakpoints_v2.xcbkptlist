@@ -7,64 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2BC0FD99-79DD-45EA-B8A4-29EC3BC5938F"
+            uuid = "0CCC36FD-A80C-4BB4-B9FC-2EC2E7A63A78"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PeerGC/View Controllers/Home Flow/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "removeOrConfirmButtonPressed(_:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2BC0FD99-79DD-45EA-B8A4-29EC3BC5938F - a7f473c39f1c532b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PeerGC.HomeViewController.removeOrConfirmButtonPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "PeerGC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Home%20Flow/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "423"
-                  endingLineNumber = "423"
-                  offsetFromSymbolStart = "123">
-               </Location>
-               <Location
-                  uuid = "2BC0FD99-79DD-45EA-B8A4-29EC3BC5938F - 53e807d716741635"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRHTTPSCallableResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PeerGC.HomeViewController.removeOrConfirmButtonPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "PeerGC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Home%20Flow/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "424"
-                  endingLineNumber = "424"
-                  offsetFromSymbolStart = "160">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC951D12-CC4D-4790-B91C-6A5903C5B7A8"
+            uuid = "4463C30D-BFDD-4ACF-93AE-811F72E7EEBA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PeerGC/View Controllers/Home Flow/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "removeOrConfirmButtonPressed(_:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "updateCards(data:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C7956F8-7CB9-4A12-BE0E-699DBB0859D0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PeerGC/View Controllers/Home Flow/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "updateCards(data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
