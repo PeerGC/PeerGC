@@ -14,6 +14,7 @@ target 'PeerGC' do
 	pod 'Firebase/Functions'
 	pod 'Firebase/Firestore'
 	pod 'FBSDKCoreKit', :modular_headers => true
+	pod 'MessageKit'
 
   target 'PeerGCTests' do
     inherit! :search_paths

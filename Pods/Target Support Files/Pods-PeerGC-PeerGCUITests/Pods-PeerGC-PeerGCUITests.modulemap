@@ -1,0 +1,6 @@
+module Pods_PeerGC_PeerGCUITests {
+  umbrella header "Pods-PeerGC-PeerGCUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

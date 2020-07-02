@@ -1,0 +1,6 @@
+module Pods_PeerGC {
+  umbrella header "Pods-PeerGC-umbrella.h"
+
+  export *
+  module * { export * }
+}
