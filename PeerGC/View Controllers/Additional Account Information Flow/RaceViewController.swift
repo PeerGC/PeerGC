@@ -60,35 +60,6 @@ class RaceViewController: UIViewController {
         
     }
     
-    func transitionToHome() {
-        
-        let window: UIWindow = (UIApplication.shared.connectedScenes
-        .filter({$0.activationState == .foregroundActive})
-        .map({$0 as? UIWindowScene})
-        .compactMap({$0})
-        .first?.windows
-        .filter({$0.isKeyWindow}).first)!
-        
-        let homeViewController = storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController
-        
-        
-        view.window?.rootViewController = homeViewController
-        
-        // A mask of options indicating how you want to perform the animations.
-        let options: UIView.AnimationOptions = .transitionFlipFromRight
-
-        // The duration of the transition animation, measured in seconds.
-        let duration: TimeInterval = 0.3
-
-        // Creates a transition animation.
-        // Though `animations` is optional, the documentation tells us that it must not be nil. ¯\_(ツ)_/¯
-        UIView.transition(with: window, duration: duration, options: options, animations: {}, completion:
-        { completed in
-            // maybe do something on completion here
-        })
-        
-    }
-    
     @IBAction func buttonPressed(_ sender: UIButton) {
         
         if sender == continueButton {
@@ -120,7 +91,6 @@ class RaceViewController: UIViewController {
                 "blacklist" : []
             ])
             
-            transitionToHome()
         }
         
         AccountTypeViewController.data.race = sender.titleLabel!.text

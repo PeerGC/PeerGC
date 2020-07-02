@@ -445,7 +445,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
+                                                            <real key="value" value="30"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
@@ -1093,6 +1093,7 @@
                                     <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchCancel" id="wAi-rU-24x"/>
                                     <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="bjk-jM-Z7w"/>
                                     <action selector="buttonTouchDown:" destination="j3K-cp-xc0" eventType="touchDown" id="Tod-Tt-Zhf"/>
+                                    <segue destination="Hqw-oH-RL2" kind="show" id="Nvm-hE-slG"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CqY-a3-xFL">
@@ -1278,7 +1279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMq-hJ-a62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10120" y="-428"/>
+            <point key="canvasLocation" x="10103" y="-429"/>
         </scene>
         <!--Email View Controller-->
         <scene sceneID="z9O-TW-b9E">
@@ -1874,6 +1875,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCk-PE-K6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5684" y="1407"/>
+        </scene>
+        <!--Matching View Controller-->
+        <scene sceneID="BfK-vX-Rqd">
+            <objects>
+                <viewController id="Hqw-oH-RL2" customClass="MatchingViewController" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eb2-qY-yyF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aIl-vy-ds9">
+                                <rect key="frame" x="20" y="103.99999999999999" width="374" height="192.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matching you now!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn0-Wa-OSQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
+                                        <nil key="textColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give us a moment while our matching algorithm pairs you with peers like you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9C-ft-rNn">
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="75"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Sfa-k5-Dne">
+                                <rect key="frame" x="188.66666666666666" y="429.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Sfa-k5-Dne" firstAttribute="centerX" secondItem="eb2-qY-yyF" secondAttribute="centerX" id="0sN-xA-LES"/>
+                            <constraint firstAttribute="trailing" secondItem="aIl-vy-ds9" secondAttribute="trailing" constant="20" id="5St-H6-xTP"/>
+                            <constraint firstItem="Sfa-k5-Dne" firstAttribute="centerY" secondItem="eb2-qY-yyF" secondAttribute="centerY" id="IoZ-Nt-6QQ"/>
+                            <constraint firstItem="aIl-vy-ds9" firstAttribute="top" secondItem="fBq-dq-Fut" secondAttribute="top" constant="60" id="cLb-jO-xnA"/>
+                            <constraint firstItem="aIl-vy-ds9" firstAttribute="leading" secondItem="fBq-dq-Fut" secondAttribute="leading" constant="20" id="xx2-a7-mfo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fBq-dq-Fut"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h4g-UI-rfr"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Sfa-k5-Dne" id="UOK-wm-ZER"/>
+                        <outlet property="mainLabel" destination="pn0-Wa-OSQ" id="eB9-3q-pCO"/>
+                        <outlet property="subLabel" destination="V9C-ft-rNn" id="aOP-LX-BXw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="66Y-w7-rx1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10935" y="-429"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
