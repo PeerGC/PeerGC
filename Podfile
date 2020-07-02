@@ -13,7 +13,6 @@ target 'PeerGC' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Functions'
 	pod 'Firebase/Crashlytics'
-	pod 'Crashlytics'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Performance'
 	pod 'Firebase/Firestore'
