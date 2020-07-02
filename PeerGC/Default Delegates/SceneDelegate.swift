@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     print("Document EXISTS")
-                    self.showController(controller: storyboard.instantiateViewController(withIdentifier: "HomeViewController"), window: window)
+                    self.showController(controller: storyboard.instantiateViewController(withIdentifier: "HomeNavigationController"), window: window)
                 } else {
                     print("Document does not exist")
                     self.showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)

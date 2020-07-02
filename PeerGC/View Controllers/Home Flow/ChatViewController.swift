@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 import MessageKit
+import Firebase
+import Crashlytics
 
 class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        Crashlytics.sharedInstance().crash()
     }
 }

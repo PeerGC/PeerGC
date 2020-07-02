@@ -76,7 +76,7 @@ class EntranceViewController: UIViewController {
         .first?.windows
         .filter({$0.isKeyWindow}).first)!
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController
+        let homeViewController = storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController
         
         
         view.window?.rootViewController = homeViewController
