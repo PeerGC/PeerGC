@@ -76,20 +76,26 @@ class RaceViewController: UIViewController {
                 urlString = "\(Auth.auth().currentUser!.photoURL!)"
             }
             
-            Firestore.firestore().collection("users").document(uid).setData(["accountType": AccountTypeViewController.data.accountType!, "zipCode": AccountTypeViewController.data.zipCode!, "value": AccountTypeViewController.data.value!, "gender": AccountTypeViewController.data.gender!, "interest": AccountTypeViewController.data.interest!, "race": AccountTypeViewController.data.race!, "firstName": Auth.auth().currentUser!.displayName!.split(separator: " ")[0], "photoURL": urlString]) { (error) in
+            Firestore.firestore().collection("users").document(uid).setData(
+                ["accountType": AccountTypeViewController.data.accountType!,
+                 "zipCode": AccountTypeViewController.data.zipCode!,
+                 "value": AccountTypeViewController.data.value!,
+                 "gender": AccountTypeViewController.data.gender!,
+                 "interest": AccountTypeViewController.data.interest!,
+                 "race": AccountTypeViewController.data.race!,
+                 "firstName": Auth.auth().currentUser!.displayName!.split(separator: " ")[0],
+                 "photoURL": urlString,
+                 "whitelist" : [],
+                 "blacklist" : [] ]
+                ) { (error) in
             
+                self.performSegue(withIdentifier: "goToMatching", sender: self)
+                
                 if error != nil {
                     // Show error message
                     print("Error saving user data")
                 }
             }
-            
-            let docRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-
-            docRef.updateData([
-                "whitelist" : [],
-                "blacklist" : []
-            ])
             
         }
         
