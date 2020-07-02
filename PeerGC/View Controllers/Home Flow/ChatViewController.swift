@@ -15,6 +15,5 @@ import Crashlytics
 class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        Crashlytics.sharedInstance().crash()
     }
 }
