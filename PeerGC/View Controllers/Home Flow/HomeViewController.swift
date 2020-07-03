@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logOutButton: DesignableButton!
     public static var customData: [CustomData] = []
     var timer = Timer()
+    static var currentUserImage : UIImage? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class HomeViewController: UIViewController {
         removeButton.titleLabel?.font = removeButton.titleLabel?.font.withSize( (2.5/71) * UIScreen.main.bounds.height)
         confirmButton.titleLabel?.font = confirmButton.titleLabel?.font.withSize( (2.5/71) * UIScreen.main.bounds.height)
         label.font = label.font.withSize( (1.9/71) * UIScreen.main.bounds.height) // max 2.3
-    
+        downloadCurrentUserImage()
         let currentUser = Auth.auth().currentUser!
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
         
@@ -184,6 +185,16 @@ class HomeViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
+    func downloadCurrentUserImage() {
+        let task = URLSession.shared.dataTask(with: Auth.auth().currentUser!.photoURL!) { data, _, _ in
+            guard let data = data else { return }
+            DispatchQueue.main.async { // Make sure you're on the main thread here
+                HomeViewController.currentUserImage = UIImage(data: data)!
+            }
+        }
+        task.resume()
+    }
+    
 }
 
 class CustomData: Hashable {
@@ -321,6 +332,8 @@ class CustomCell: UICollectionViewCell {
         }
         
         vc.header = data!.firstName
+        vc.remoteReceiverImage = data!.image
+        vc.currentSenderImage = HomeViewController.currentUserImage
         
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})

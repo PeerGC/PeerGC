@@ -62,6 +62,9 @@ class ChatViewController: MessagesViewController {
     var id: String = ""
     var header: String = ""
     
+    var currentSenderImage : UIImage? = nil
+    var remoteReceiverImage : UIImage? = nil
+    
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
     
@@ -80,6 +83,8 @@ class ChatViewController: MessagesViewController {
         title = header
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController!.navigationBar.titleTextAttributes = [.font: UIFont(name: "LexendDeca-Regular", size: 26)!]
+        
+        
         
         db.collection("chats").document(id).setData([
             "Student": id.components(separatedBy: "-")[0],
@@ -236,6 +241,18 @@ extension ChatViewController: MessagesDataSource, MessageCellDelegate {
 }
 
 extension ChatViewController: MessagesDisplayDelegate {
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        
+        if message.sender.senderId == currentSender().senderId {
+            avatarView.set(avatar: Avatar(image: currentSenderImage, initials: String(message.sender.senderId.prefix(1))))
+        }
+        
+        else {
+            avatarView.set(avatar: Avatar(image: remoteReceiverImage, initials: String(message.sender.senderId.prefix(1))))
+        }
+        
+    }
     
     func headerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return CGSize(width: 0, height: 0)
