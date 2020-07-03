@@ -420,7 +420,6 @@
                                                         <action selector="buttonCancel:" destination="0PV-me-Fhh" eventType="touchCancel" id="ToG-hW-qfK"/>
                                                         <action selector="buttonPressed:" destination="0PV-me-Fhh" eventType="touchUpInside" id="cRZ-BA-V8c"/>
                                                         <action selector="buttonTouchDown:" destination="0PV-me-Fhh" eventType="touchDown" id="2Gy-ap-QsR"/>
-                                                        <segue destination="L0Z-sx-3o4" kind="show" id="0gq-rp-V2E"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQh-jz-bsx">
@@ -619,22 +618,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj5-7w-wVN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13923.188405797102" y="125.89285714285714"/>
-        </scene>
-        <!--Chat View Controller-->
-        <scene sceneID="I5U-j6-p8I">
-            <objects>
-                <viewController id="L0Z-sx-3o4" customClass="ChatViewController" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Xv-qS-MyP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Vcd-8T-an0"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HLG-P7-ZZA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="35C-3P-P6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="14850.72463768116" y="125.89285714285714"/>
         </scene>
         <!--Zip Code View Controller-->
         <scene sceneID="lSA-0o-dWv">
@@ -1338,16 +1321,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NxK-98-5a0">
-                                <rect key="frame" x="20" y="10" width="374" height="203.66666666666666"/>
+                                <rect key="frame" x="20" y="10" width="374" height="217.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85E-K5-jWa">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFh-Av-QwR">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="93.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="100"/>
                                         <string key="text">If you have an account, you will be asked to log in with your password. If not, you will be asked to create one with a password.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1356,7 +1339,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Php-Zt-sK2">
-                                <rect key="frame" x="30" y="243.66666666666669" width="354" height="50"/>
+                                <rect key="frame" x="30" y="257.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-F9-rB0">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1367,7 +1350,7 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-bc-Fq0">
-                                <rect key="frame" x="20" y="323.66666666666669" width="374" height="23.333333333333314"/>
+                                <rect key="frame" x="20" y="337.66666666666669" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

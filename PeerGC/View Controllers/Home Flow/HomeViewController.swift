@@ -84,7 +84,7 @@ class HomeViewController: UIViewController {
                                 let dataDescription = document.data()
 
                                 HomeViewController.customData.append(CustomData(firstName:
-                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!))
+                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String))
 
                                 self.collectionView.reloadData()
                                 self.pageControl.numberOfPages = HomeViewController.customData.count
@@ -200,14 +200,15 @@ class CustomData: Hashable {
     var uid: String
     var photoURL: URL
     var image: UIImage?
+    var accountType: String
     
-    init(firstName: String, state: String, city: String, uid: String, photoURL: URL) {
+    init(firstName: String, state: String, city: String, uid: String, photoURL: URL, accountType: String) {
         self.firstName = firstName
         self.state = state
         self.city = city
         self.uid = uid
         self.photoURL = photoURL
-        
+        self.accountType = accountType
     }
     
 }
@@ -311,7 +312,31 @@ class CustomCell: UICollectionViewCell {
     
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        buttonCancel(sender)
+        let vc = ChatViewController()
+        
+        if data!.accountType == "Student" {
+            vc.id = "\(data!.uid)-\(Auth.auth().currentUser!.uid)"
+        }
+        
+        else if data!.accountType == "Tutor" {
+            vc.id = "\(Auth.auth().currentUser!.uid)-\(data!.uid)"
+        }
+        
+        vc.header = data!.firstName
+        
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        
+        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
+        //Do something
+            navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.pushViewController(vc, animated: true)
+        }
+        
     }
     
     required init?(coder: NSCoder) {
