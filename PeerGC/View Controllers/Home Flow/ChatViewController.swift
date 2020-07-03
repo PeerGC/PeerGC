@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MessageKit
 import Firebase
+import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController {
     
@@ -31,6 +32,28 @@ class ChatViewController: MessagesViewController {
             return lhs.sentDate < rhs.sentDate
         }
         
+        var representation: [String : Any] {
+          
+            var text: NSAttributedString
+            
+            switch kind {
+                case .attributedText(let attributedText):
+                    text = attributedText
+                default:
+                    return [:]
+            }
+            
+            let rep: [String : Any] = [
+            "senderID": sender.senderId,
+            "senderDisplayName": sender.displayName,
+            "messageID": messageId,
+            "dateStamp": sentDate,
+            "content": text.string
+          ]
+          
+          return rep
+        }
+        
     }
     
     private let db = Firestore.firestore()
@@ -49,6 +72,7 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
         title = header
         
         reference = db.collection(["chats", id, "thread"].joined(separator: "/"))
@@ -62,6 +86,17 @@ class ChatViewController: MessagesViewController {
         let testMessage2 = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: "AJ"), messageId: "abcdefg2", sentDate: Date(), kind: .text("Hello There!"))
         insertNewMessage(testMessage)
         insertNewMessage(testMessage2)
+    }
+    
+    private func save(_ message: Message) {
+      reference?.addDocument(data: message.representation) { error in
+        if let e = error {
+          print("Error sending message: \(e.localizedDescription)")
+          return
+        }
+        
+        self.messagesCollectionView.scrollToBottom()
+      }
     }
     
     private func insertNewMessage(_ message: Message) {
@@ -133,6 +168,7 @@ extension ChatViewController: MessagesDataSource {
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         return messages[indexPath.section]
     }
+    
 }
 
 extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
@@ -145,4 +181,19 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
         return .systemPink
     }
     
+}
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        print("called HIIII")
+        
+        // 1
+          let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]), messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: text)))
+
+        // 2
+        save(message)
+
+        // 3
+        inputBar.inputTextView.text = ""
+    }
 }
