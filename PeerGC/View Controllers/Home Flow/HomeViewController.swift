@@ -299,17 +299,13 @@ class CustomCell: UICollectionViewCell {
     
     
     @IBAction func buttonTouchDown(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.2) {
-            sender.alpha = 0.7
-        }
+        
         
     }
 
     @IBAction func buttonCancel(_ sender: UIButton) {
         
-        UIView.animate(withDuration: 0.2) {
-            sender.alpha = 1.0
-        }
+       
     }
     
     

@@ -71,6 +71,7 @@ class ChatViewController: MessagesViewController {
         setupCollectionView()
         inputStyle()
         messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messageCellDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         scrollsToBottomOnKeyboardBeginsEditing = true // default false
@@ -78,6 +79,7 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         title = header
         self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.titleTextAttributes = [.font: UIFont(name: "LexendDeca-Regular", size: 26)!]
         
         db.collection("chats").document(id).setData([
             "Student": id.components(separatedBy: "-")[0],
@@ -136,7 +138,14 @@ class ChatViewController: MessagesViewController {
     private func handleDocumentChange(_ change: DocumentChange) {
         let data = change.document.data()
         
-        let message = Message(sender: Sender(senderId: data["senderID"] as! String, displayName: data["senderDisplayName"] as! String), messageId: data["messageID"] as! String, sentDate: (data["dateStamp"] as! Timestamp).dateValue(), kind: .text(data["content"] as! String))
+        let color : UIColor = (data["senderID"] as! String == Auth.auth().currentUser!.uid) ? .white : .black
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "LexendDeca-Regular", size: UIFont.labelFontSize)!,
+            .foregroundColor: color
+        ]
+        
+        let message = Message(sender: Sender(senderId: data["senderID"] as! String, displayName: data["senderDisplayName"] as! String), messageId: data["messageID"] as! String, sentDate: (data["dateStamp"] as! Timestamp).dateValue(), kind: .attributedText(NSAttributedString(string: data["content"] as! String, attributes: attributes)))
 
         switch change.type {
             case .added:
@@ -179,7 +188,7 @@ class ChatViewController: MessagesViewController {
     }
 }
 
-extension ChatViewController: MessagesDataSource {
+extension ChatViewController: MessagesDataSource, MessageCellDelegate {
 
     public struct Sender: SenderType {
         public let senderId: String
@@ -199,20 +208,49 @@ extension ChatViewController: MessagesDataSource {
         return messages[indexPath.section]
     }
     
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        if indexPath.section % 3 == 0 {
+            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        }
+        return nil
+    }
+    
+    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let name = message.sender.displayName
+        return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
+    }
+    
+    func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        
+        let formatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            return formatter
+        }()
+        
+        let dateString = formatter.string(from: message.sentDate)
+        return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
+    }
+    
+    
 }
 
-extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
+extension ChatViewController: MessagesDisplayDelegate {
     
     func headerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 2)
+        return CGSize(width: 0, height: 0)
     }
     
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 6)
+        return CGSize(width: 0, height: 0)
+    }
+    
+    func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ? .white : .black
     }
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return .systemPink
+        return isFromCurrentSender(message: message) ? .systemPink : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
     
 }
@@ -233,4 +271,26 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         // 3
         inputBar.inputTextView.text = ""
     }
+}
+
+// MARK: - MessagesLayoutDelegate
+
+extension ChatViewController: MessagesLayoutDelegate {
+    
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 0
+    }
+    
+    func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 0
+    }
+    
+    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 20
+    }
+    
+    func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 16
+    }
+    
 }
