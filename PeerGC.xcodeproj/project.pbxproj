@@ -38,6 +38,7 @@
 		C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */; };
 		C797D85D24AD08AC0060FFDB /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797D85C24AD08AC0060FFDB /* MatchingViewController.swift */; };
 		C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797D85E24AD99580060FFDB /* ChatViewController.swift */; };
+		C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */; };
 		C7B0D1B2249B1BD700476FB1 /* firstNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7B0D1B1249B1BD700476FB1 /* firstNames.txt */; };
 		C7CC451D23EB5A8400A086D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */; };
 		C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */; };
@@ -107,6 +108,7 @@
 		C791D8BB24AA8DAF00358EB8 /* firstNames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = firstNames.txt; sourceTree = "<group>"; };
 		C797D85C24AD08AC0060FFDB /* MatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
 		C797D85E24AD99580060FFDB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		C7B0D1B1249B1BD700476FB1 /* firstNames.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = firstNames.txt; path = PeerGC/Utilities/Resources/firstNames.txt; sourceTree = "<group>"; };
 		C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		C7CC451F23EB5AAA00A086D7 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */,
 				C7CC452223EB5AD600A086D7 /* Customizables.swift */,
 				C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */,
 				C7CC452323EB5AE200A086D7 /* Utilities.swift */,
@@ -613,6 +616,7 @@
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
 				C700B16623EB655500816708 /* InterestViewController.swift in Sources */,
 				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,
+				C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */,
 				C700B16223EB654D00816708 /* CreatePasswordViewController.swift in Sources */,
 				C700B16823EB655500816708 /* ZipCodeViewController.swift in Sources */,
 				C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */,
