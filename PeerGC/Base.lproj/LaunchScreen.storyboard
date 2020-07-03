@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PeerGC-edited" translatesAutoresizingMaskIntoConstraints="NO" id="vsW-2N-25c">
-                                <rect key="frame" x="60" y="56.5" width="294" height="783"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PeerGC-Loading" translatesAutoresizingMaskIntoConstraints="NO" id="vsW-2N-25c">
+                                <rect key="frame" x="60" y="37" width="294" height="822"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PeerGC-edited" width="880" height="783"/>
+        <image name="PeerGC-Loading" width="704" height="822"/>
     </resources>
 </document>
