@@ -82,7 +82,9 @@ class HomeViewController: UIViewController {
                         Firestore.firestore().collection("users").document(uid as! String).getDocument { (document, error) in
                             if let document = document, document.exists {
                                 let dataDescription = document.data()
-
+                                
+                                print(uid)
+                                
                                 HomeViewController.customData.append(CustomData(firstName:
                                     dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String))
 

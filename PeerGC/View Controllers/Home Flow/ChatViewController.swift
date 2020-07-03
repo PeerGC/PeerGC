@@ -63,6 +63,7 @@ class ChatViewController: MessagesViewController {
     var header: String = ""
     
     private var messages: [Message] = []
+    private var messageListener: ListenerRegistration?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +73,11 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        scrollsToBottomOnKeyboardBeginsEditing = true // default false
+        maintainPositionOnKeyboardFrameChanged = true // default false
         messageInputBar.delegate = self
         title = header
+        self.navigationController?.navigationBar.isTranslucent = false
         
         db.collection("chats").document(id).setData([
             "Student": id.components(separatedBy: "-")[0],
@@ -81,6 +85,21 @@ class ChatViewController: MessagesViewController {
         ])
         
         reference = db.collection(["chats", id, "thread"].joined(separator: "/"))
+        
+        messageListener = reference?.addSnapshotListener { querySnapshot, error in
+          guard let snapshot = querySnapshot else {
+            print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+            return
+          }
+          
+          snapshot.documentChanges.forEach { change in
+            self.handleDocumentChange(change)
+          }
+        }
+    }
+    
+    deinit {
+      messageListener?.remove()
     }
     
     private func save(_ message: Message) {
@@ -113,6 +132,22 @@ class ChatViewController: MessagesViewController {
             }
         }
     }
+    
+    private func handleDocumentChange(_ change: DocumentChange) {
+        let data = change.document.data()
+        
+        let message = Message(sender: Sender(senderId: data["senderID"] as! String, displayName: data["senderDisplayName"] as! String), messageId: data["messageID"] as! String, sentDate: (data["dateStamp"] as! Timestamp).dateValue(), kind: .text(data["content"] as! String))
+
+        switch change.type {
+            case .added:
+                insertNewMessage(message)
+
+            default:
+                break
+        }
+        
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -169,7 +204,11 @@ extension ChatViewController: MessagesDataSource {
 extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     
     func headerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 16)
+        return CGSize(width: 0, height: 2)
+    }
+    
+    func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
+        return CGSize(width: 0, height: 6)
     }
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
@@ -181,6 +220,9 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         print("called HIIII")
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
         
         // 1
           let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]), messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: text)))
