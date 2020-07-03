@@ -75,17 +75,12 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         title = header
         
+        db.collection("chats").document(id).setData([
+            "Student": id.components(separatedBy: "-")[0],
+            "Tutor": id.components(separatedBy: "-")[1]
+        ])
+        
         reference = db.collection(["chats", id, "thread"].joined(separator: "/"))
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      
-        let testMessage = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: "AJ"), messageId: "abcdefg", sentDate: Date(), kind: .text("Hello There!"))
-      insertNewMessage(testMessage)
-        let testMessage2 = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: "AJ"), messageId: "abcdefg2", sentDate: Date(), kind: .text("Hello There!"))
-        insertNewMessage(testMessage)
-        insertNewMessage(testMessage2)
     }
     
     private func save(_ message: Message) {
