@@ -202,7 +202,7 @@ extension ChatViewController: MessagesDataSource, MessageCellDelegate {
     }
     
     func currentSender() -> SenderType {
-        return Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0])
+        return Sender(senderId: Auth.auth().currentUser?.uid ?? "nil", displayName: Auth.auth().currentUser?.displayName?.components(separatedBy: " ")[0] ?? "nil")
     }
 
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -268,6 +268,12 @@ extension ChatViewController: MessagesDisplayDelegate {
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .systemPink : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+    }
+    
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        
+        let tail: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+        return .bubbleTail(tail, .curved)
     }
     
 }

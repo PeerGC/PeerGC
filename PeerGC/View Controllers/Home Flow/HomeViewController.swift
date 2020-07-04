@@ -87,7 +87,7 @@ class HomeViewController: UIViewController {
                                 print(uid)
                                 
                                 HomeViewController.customData.append(CustomData(firstName:
-                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String))
+                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String))
 
                                 self.collectionView.reloadData()
                                 self.pageControl.numberOfPages = HomeViewController.customData.count
@@ -214,14 +214,20 @@ class CustomData: Hashable {
     var photoURL: URL
     var image: UIImage?
     var accountType: String
+    var interest: String
+    var gender: String
+    var race: String
     
-    init(firstName: String, state: String, city: String, uid: String, photoURL: URL, accountType: String) {
+    init(firstName: String, state: String, city: String, uid: String, photoURL: URL, accountType: String, interest: String, gender: String, race: String) {
         self.firstName = firstName
         self.state = state
         self.city = city
         self.uid = uid
         self.photoURL = photoURL
         self.accountType = accountType
+        self.interest = interest
+        self.gender = gender
+        self.race = race
     }
     
 }
@@ -322,6 +328,9 @@ class CustomCell: UICollectionViewCell {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         let vc = ChatViewController()
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
         
         if data!.accountType == "Student" {
             vc.id = "\(data!.uid)-\(Auth.auth().currentUser!.uid)"

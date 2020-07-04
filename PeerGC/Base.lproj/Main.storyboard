@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jiO-FI-dRs">
-    <device id="retina6_5" orientation="portrait" appearance="dark"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -28,7 +28,7 @@
                                 </userDefinedRuntimeAttributes>
                             </activityIndicatorView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PeerGC-Loading" translatesAutoresizingMaskIntoConstraints="NO" id="Dwm-14-Hnh">
-                                <rect key="frame" x="60" y="-63" width="294" height="822"/>
+                                <rect key="frame" x="60" y="155.33333333333334" width="294" height="385.33333333333326"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,6 +37,7 @@
                             <constraint firstItem="Dwm-14-Hnh" firstAttribute="leading" secondItem="3bN-b9-GDi" secondAttribute="leading" constant="60" id="Ush-ze-HB9"/>
                             <constraint firstItem="7md-df-wLW" firstAttribute="centerX" secondItem="yfK-0N-NtP" secondAttribute="centerX" id="WZy-2v-HXZ"/>
                             <constraint firstItem="3bN-b9-GDi" firstAttribute="trailing" secondItem="Dwm-14-Hnh" secondAttribute="trailing" constant="60" id="ZA9-T6-4mT"/>
+                            <constraint firstItem="Dwm-14-Hnh" firstAttribute="height" secondItem="yfK-0N-NtP" secondAttribute="height" multiplier="0.43" id="a3O-J0-dJG"/>
                             <constraint firstItem="7md-df-wLW" firstAttribute="centerY" secondItem="yfK-0N-NtP" secondAttribute="centerY" constant="150" id="lHX-m3-4m4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3bN-b9-GDi"/>
@@ -148,25 +149,35 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PeerGC-Loading" translatesAutoresizingMaskIntoConstraints="NO" id="BSX-yH-fMz">
-                                <rect key="frame" x="60" y="-107" width="294" height="822"/>
+                                <rect key="frame" x="60" y="130.33333333333334" width="294" height="347.33333333333326"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version X Build Y Alpha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oP-l0-XiY">
+                                <rect key="frame" x="20" y="477.66666666666663" width="374" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3df-j4-hEi" firstAttribute="leading" secondItem="fcX-QN-Z4Q" secondAttribute="leading" constant="15" id="3t3-WJ-9cl"/>
-                            <constraint firstItem="BSX-yH-fMz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="57Q-7E-m8J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0oP-l0-XiY" secondAttribute="trailing" constant="20" id="5Sp-Ew-aH6"/>
                             <constraint firstItem="SIf-3v-azR" firstAttribute="top" secondItem="fcX-QN-Z4Q" secondAttribute="bottom" constant="20" id="70z-4L-6cS"/>
                             <constraint firstItem="jUm-Je-zIa" firstAttribute="top" secondItem="SIf-3v-azR" secondAttribute="top" constant="15" id="7qy-tw-uqM"/>
+                            <constraint firstItem="BSX-yH-fMz" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.43" id="8pz-fF-tZ0"/>
                             <constraint firstItem="fcX-QN-Z4Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8xQ-FM-fdt"/>
                             <constraint firstItem="jUm-Je-zIa" firstAttribute="leading" secondItem="SIf-3v-azR" secondAttribute="leading" constant="15" id="Anz-Kj-ewK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BSX-yH-fMz" secondAttribute="trailing" constant="60" id="HDm-wb-laa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SIf-3v-azR" secondAttribute="trailing" constant="20" id="HMa-pH-nRJ"/>
                             <constraint firstItem="SIf-3v-azR" firstAttribute="bottom" secondItem="jUm-Je-zIa" secondAttribute="bottom" constant="15" id="HjF-jM-t7n"/>
+                            <constraint firstItem="BSX-yH-fMz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="Jc4-ZE-1dG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fcX-QN-Z4Q" secondAttribute="trailing" constant="20" id="KMl-t0-s3a"/>
-                            <constraint firstItem="BSX-yH-fMz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="Ydy-W8-6dl"/>
+                            <constraint firstItem="0oP-l0-XiY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bIK-lo-3GJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SIf-3v-azR" secondAttribute="bottom" constant="20" id="eyB-Mu-DKz"/>
                             <constraint firstItem="SIf-3v-azR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fJs-OZ-mL8"/>
+                            <constraint firstItem="BSX-yH-fMz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="fNE-v4-7Jg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BSX-yH-fMz" secondAttribute="trailing" constant="60" id="fQO-K4-rqq"/>
                             <constraint firstItem="3df-j4-hEi" firstAttribute="top" secondItem="fcX-QN-Z4Q" secondAttribute="top" constant="15" id="lRv-r1-74q"/>
+                            <constraint firstItem="0oP-l0-XiY" firstAttribute="top" secondItem="BSX-yH-fMz" secondAttribute="bottom" id="ptl-GF-Uok"/>
                             <constraint firstItem="fcX-QN-Z4Q" firstAttribute="bottom" secondItem="3df-j4-hEi" secondAttribute="bottom" constant="15" id="zg0-Fd-dPl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -175,6 +186,7 @@
                     <connections>
                         <outlet property="continueWithEmail" destination="fcX-QN-Z4Q" id="dun-6u-UPB"/>
                         <outlet property="continueWithGoogle" destination="SIf-3v-azR" id="hvI-la-ag4"/>
+                        <outlet property="versionLabel" destination="0oP-l0-XiY" id="tTb-U6-fgE"/>
                         <segue destination="tYW-ge-kaA" kind="show" identifier="goToFurther" id="E7N-63-BMM"/>
                     </connections>
                 </viewController>
@@ -371,7 +383,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="413" height="295.33333333333326"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptf-4c-u4i" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptf-4c-u4i" customClass="CardButton" customModule="PeerGC" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="30.000000000000014" width="373" height="235.33333333333337"/>
                                                     <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="39"/>

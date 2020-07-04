@@ -15,21 +15,29 @@ let BUTTON_ANIMATION_SPRING_WITH_DAMPING: CGFloat = 0.5
 let BUTTON_ANIMATION_INITIAL_SPRING_VELOCITY: CGFloat = 6
 let BUTTON_ANIMATION_X_Y_SCALE: CGFloat = 1.4
 
-extension UIButton {
+extension DesignableButton {
     
-//    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesBegan(touches, with: event)
-//        
-//        let generator = UIImpactFeedbackGenerator(style: .heavy)
-//        generator.impactOccurred()
-//        
-//        UIView.animate(withDuration: BUTTON_ANIMATION_DURATION, delay: BUTTON_ANIMATION_DELAY, usingSpringWithDamping: BUTTON_ANIMATION_SPRING_WITH_DAMPING, initialSpringVelocity: BUTTON_ANIMATION_INITIAL_SPRING_VELOCITY, options: .allowUserInteraction, animations: {
-//            self.transform = CGAffineTransform(scaleX: BUTTON_ANIMATION_X_Y_SCALE, y: BUTTON_ANIMATION_X_Y_SCALE)
-//        }, completion: nil)
-//        
-//        UIView.animate(withDuration: BUTTON_ANIMATION_DURATION, delay: BUTTON_ANIMATION_DELAY, usingSpringWithDamping: BUTTON_ANIMATION_SPRING_WITH_DAMPING, initialSpringVelocity: BUTTON_ANIMATION_INITIAL_SPRING_VELOCITY, options: .allowUserInteraction, animations: {
-//            self.transform = CGAffineTransform.identity
-//        }, completion: nil)
-//    }
+    var super_touchesBegan:(Set<UITouch>, UIEvent?)->() { return super.touchesBegan }
     
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+
+        UIView.animate(withDuration: BUTTON_ANIMATION_DURATION, delay: BUTTON_ANIMATION_DELAY, usingSpringWithDamping: BUTTON_ANIMATION_SPRING_WITH_DAMPING, initialSpringVelocity: BUTTON_ANIMATION_INITIAL_SPRING_VELOCITY, options: .allowUserInteraction, animations: {
+            self.transform = CGAffineTransform(scaleX: BUTTON_ANIMATION_X_Y_SCALE, y: BUTTON_ANIMATION_X_Y_SCALE)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: BUTTON_ANIMATION_DURATION, delay: BUTTON_ANIMATION_DELAY, usingSpringWithDamping: BUTTON_ANIMATION_SPRING_WITH_DAMPING, initialSpringVelocity: BUTTON_ANIMATION_INITIAL_SPRING_VELOCITY, options: .allowUserInteraction, animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+    
+}
+
+class CardButton: DesignableButton {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.super_touchesBegan(touches, event)
+    }
 }

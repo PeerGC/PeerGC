@@ -14,6 +14,7 @@ class EntranceViewController: UIViewController {
 
     @IBOutlet weak var continueWithEmail: DesignableButton!
     @IBOutlet weak var continueWithGoogle: DesignableButton!
+    @IBOutlet weak var versionLabel: UILabel!
     
     //edit
     override func viewDidLoad() {
@@ -23,6 +24,14 @@ class EntranceViewController: UIViewController {
         
         continueWithEmail.titleLabel!.font = continueWithEmail.titleLabel!.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
         continueWithGoogle.titleLabel!.font = continueWithGoogle.titleLabel!.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
+        
+        versionLabel.font = versionLabel.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
+        
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+            let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            versionLabel.text = "Version " + version + " Build " + build + " Alpha"
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
