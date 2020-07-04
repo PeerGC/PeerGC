@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    static var collectionViewStaticReference: UICollectionView?
+    static var pageControlStaticReference: UIPageControl?
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var welcome: UILabel!
@@ -23,8 +25,9 @@ class HomeViewController: UIViewController {
     var timer = Timer()
     static var currentUserImage : UIImage? = nil
     static var currentUserCustomData: CustomData? = nil
-    private var cardListener: ListenerRegistration?
-    private var reference: CollectionReference?
+    private static var cardListener: ListenerRegistration?
+    private static var reference: CollectionReference?
+    private static var action: () -> Void = {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +42,12 @@ class HomeViewController: UIViewController {
         downloadCurrentUserImage()
         let currentUser = Auth.auth().currentUser!
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
-        
-        
+        HomeViewController.collectionViewStaticReference = collectionView
+        HomeViewController.pageControlStaticReference = pageControl
+    }
+    
+    static func loadCardLoader(action: @escaping () -> Void) {
+        HomeViewController.action = action
         Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data()
@@ -48,35 +55,34 @@ class HomeViewController: UIViewController {
                 HomeViewController.currentUserCustomData = CustomData(firstName:
                     dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: Auth.auth().currentUser!.uid , photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String)
 
+                HomeViewController.reference = Firestore.firestore().collection(["users", Auth.auth().currentUser!.uid, "whitelist"].joined(separator: "/"))
+                
+                
+                self.cardListener = self.reference?.addSnapshotListener { querySnapshot, error in
+                  guard let snapshot = querySnapshot else {
+                    print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+                    return
+                  }
+                  
+                  snapshot.documentChanges.forEach { change in
+                    HomeViewController.handleDocumentChange(change)
+                  }
+                }
                 
             } else {
                 print("Document does not exist")
             }
         }
-        
-        reference = Firestore.firestore().collection(["users", Auth.auth().currentUser!.uid, "whitelist"].joined(separator: "/"))
-        
-        
-        cardListener = reference?.addSnapshotListener { querySnapshot, error in
-          guard let snapshot = querySnapshot else {
-            print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-            return
-          }
-          
-          snapshot.documentChanges.forEach { change in
-            self.handleDocumentChange(change)
-          }
-        }
     }
     
-    private func handleDocumentChange(_ change: DocumentChange) {
+    private static func handleDocumentChange(_ change: DocumentChange) {
         
         switch change.type {
             case .added:
-                addChange(change)
+                HomeViewController.addChange(change)
             
             case .removed:
-                removeChange(change)
+                HomeViewController.removeChange(change)
             
             default:
                 break
@@ -84,24 +90,33 @@ class HomeViewController: UIViewController {
         
     }
     
-    func addChange(_ change: DocumentChange) {
+    static func addChange(_ change: DocumentChange) {
         Firestore.firestore().collection("users").document(change.document.documentID).getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data()
                 
                 HomeViewController.customData.append(CustomData(firstName:
                     dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: change.document.documentID, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String))
+                
+                HomeViewController.customData.sort()
+                HomeViewController.collectionViewStaticReference?.reloadData()
+                HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.customData.count
 
-                self.collectionView.reloadData()
-                self.pageControl.numberOfPages = HomeViewController.customData.count
-
+                Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
+                    print("QuerySnapshot Count: \(querySnapshot!.count)")
+                    if querySnapshot!.count == HomeViewController.customData.count {
+                        action()
+                        action = {}
+                    }
+                })
+                
             } else {
                 print("Document does not exist")
             }
         }
     }
     
-    func removeChange(_ change: DocumentChange) {
+    static func removeChange(_ change: DocumentChange) {
         for i in 0..<HomeViewController.customData.count {
             if HomeViewController.customData[i].uid == change.document.documentID {
                 HomeViewController.customData.remove(at: i)
@@ -145,15 +160,22 @@ class HomeViewController: UIViewController {
     
 }
 
-class CustomData: Hashable {
+class CustomData: Comparable {
+    
+    static func < (lhs: CustomData, rhs: CustomData) -> Bool {
+        
+        if lhs.relevancyFactor != rhs.relevancyFactor {
+            return lhs.relevancyFactor > rhs.relevancyFactor
+        }
+        else {
+            return lhs.uid < rhs.uid
+        }
+    }
     
     static func == (lhs: CustomData, rhs: CustomData) -> Bool {
-        return rhs.uid == lhs.uid
+        return lhs.uid == rhs.uid
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(uid)
-    }
     
     var firstName: String
     var state: String
@@ -165,6 +187,7 @@ class CustomData: Hashable {
     var interest: String
     var gender: String
     var race: String
+    var relevancyFactor: Int = 0
     
     init(firstName: String, state: String, city: String, uid: String, photoURL: URL, accountType: String, interest: String, gender: String, race: String) {
         self.firstName = firstName
@@ -176,6 +199,18 @@ class CustomData: Hashable {
         self.interest = interest
         self.gender = gender
         self.race = race
+        
+        if race == HomeViewController.currentUserCustomData?.race {
+            relevancyFactor += 1
+        }
+        
+        if gender == HomeViewController.currentUserCustomData?.gender {
+            relevancyFactor += 1
+        }
+        
+        if interest == HomeViewController.currentUserCustomData?.interest {
+            relevancyFactor += 1
+        }
     }
     
 }

@@ -85,10 +85,8 @@ class EntranceViewController: UIViewController {
         .first?.windows
         .filter({$0.isKeyWindow}).first)!
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController
+        HomeViewController.loadCardLoader(action: {self.view.window?.rootViewController = self.storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
         
-        
-        view.window?.rootViewController = homeViewController
         
         // A mask of options indicating how you want to perform the animations.
         let options: UIView.AnimationOptions = .transitionFlipFromRight

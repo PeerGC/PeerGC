@@ -117,16 +117,13 @@ class EnterPasswordViewController: UIViewController, UITextFieldDelegate {
     func transitionToHome() {
         
         let window: UIWindow = (UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first)!
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first)!
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController
-        
-        
-        view.window?.rootViewController = homeViewController
+        HomeViewController.loadCardLoader(action: {self.view.window?.rootViewController = self.storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
         
         // A mask of options indicating how you want to perform the animations.
         let options: UIView.AnimationOptions = .transitionFlipFromRight

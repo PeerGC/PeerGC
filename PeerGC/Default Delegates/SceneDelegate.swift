@@ -28,7 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     Firestore.firestore().collection("users").document(uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
                         if querySnapshot!.count > 0 {
-                            self.showController(controller: storyboard.instantiateViewController(withIdentifier: "HomeNavigationController"), window: window)
+                            let window: UIWindow = (UIApplication.shared.connectedScenes
+                            .filter({$0.activationState == .foregroundActive})
+                            .map({$0 as? UIWindowScene})
+                            .compactMap({$0})
+                            .first?.windows
+                            .filter({$0.isKeyWindow}).first)!
+                            HomeViewController.loadCardLoader(action: {window.rootViewController = storyboard.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
                         }
                         else {
                             self.showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
