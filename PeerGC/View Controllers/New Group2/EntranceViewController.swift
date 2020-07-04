@@ -116,13 +116,13 @@ extension EntranceViewController: GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         
-        startIndicator()
-        
       // ...
         if error != nil {
         // ...
         return
       }
+        
+        startIndicator()
 
       guard let authentication = user.authentication else { return }
       let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,

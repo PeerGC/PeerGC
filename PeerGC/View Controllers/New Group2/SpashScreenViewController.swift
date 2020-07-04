@@ -12,11 +12,16 @@ import UIKit
 class SpashScreenViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var versionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         activityIndicator.startAnimating()
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+            let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            versionLabel.text = "Version " + version + " Build " + build + " Alpha"
+        }
     }
 
 }
