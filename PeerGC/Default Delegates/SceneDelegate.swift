@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 if let document = document, document.exists {
                     print("Document EXISTS")
                     Firestore.firestore().collection("users").document(uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
+                        print("QuerySnapshot Count: \(querySnapshot!.count)")
                         if querySnapshot!.count > 0 {
                             self.showController(controller: storyboard.instantiateViewController(withIdentifier: "HomeNavigationController"), window: window)
                         }

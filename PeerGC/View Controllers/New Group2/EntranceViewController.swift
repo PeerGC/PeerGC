@@ -130,19 +130,30 @@ extension EntranceViewController: GIDSignInDelegate {
             
             print("signed in with google!")
             
-             // Transition to home
-                   let uid = Auth.auth().currentUser!.uid
-                   let docRef = Firestore.firestore().collection("users").document(uid)
+            // Transition to home
+            
+           let uid = Auth.auth().currentUser!.uid
+           let docRef = Firestore.firestore().collection("users").document(uid)
 
-                   docRef.getDocument { (document, error) in
-                       if let document = document, document.exists {
-                           print("Document EXISTS")
-                           self.transitionToHome()
-                       } else {
-                           print("Document does not exist")
-                           self.performSegue(withIdentifier: "goToFurther", sender: self)
-                       }
-                   }
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    print("Document EXISTS")
+                    Firestore.firestore().collection("users").document(uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
+                        print("QuerySnapshot Count: \(querySnapshot!.count)")
+                        if querySnapshot!.count > 0 {
+                            self.transitionToHome()
+                        }
+                        else {
+                            self.performSegue(withIdentifier: "goToFurther", sender: self)
+                        }
+                    })
+                } else {
+                    print("Document does not exist")
+                    self.performSegue(withIdentifier: "goToFurther", sender: self)
+                }
+            }
+            
+            
         }
         
     }
