@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     var timer = Timer()
     static var currentUserImage : UIImage? = nil
     static var currentUserCustomData: CustomData? = nil
+    private var cardListener: ListenerRegistration?
+    private var reference: CollectionReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,106 +47,72 @@ class HomeViewController: UIViewController {
                 
                 HomeViewController.currentUserCustomData = CustomData(firstName:
                     dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: Auth.auth().currentUser!.uid , photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String)
-            
-                // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-                self.timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateCards), userInfo: nil, repeats: true)
-                self.updateCards()
+
                 
             } else {
                 print("Document does not exist")
             }
         }
         
+        reference = Firestore.firestore().collection(["users", Auth.auth().currentUser!.uid, "whitelist"].joined(separator: "/"))
+        
+        
+        cardListener = reference?.addSnapshotListener { querySnapshot, error in
+          guard let snapshot = querySnapshot else {
+            print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+            return
+          }
+          
+          snapshot.documentChanges.forEach { change in
+            self.handleDocumentChange(change)
+          }
+        }
+    }
+    
+    private func handleDocumentChange(_ change: DocumentChange) {
+        
+        switch change.type {
+            case .added:
+                addChange(change)
+            
+            case .removed:
+                removeChange(change)
+            
+            default:
+                break
+        }
+        
+    }
+    
+    func addChange(_ change: DocumentChange) {
+        Firestore.firestore().collection("users").document(change.document.documentID).getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data()
+                
+                HomeViewController.customData.append(CustomData(firstName:
+                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: change.document.documentID, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String))
+
+                self.collectionView.reloadData()
+                self.pageControl.numberOfPages = HomeViewController.customData.count
+
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func removeChange(_ change: DocumentChange) {
+        for i in 0..<HomeViewController.customData.count {
+            if HomeViewController.customData[i].uid == change.document.documentID {
+                HomeViewController.customData.remove(at: i)
+            }
+        }
     }
     
     var tempCounter = 0
     var processing: [String] = []
     
-    @objc func updateCards() {
-        print("updating...")
-        let docRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                let currentWhiteList = data!["whitelist"] as! NSArray
-                //Start
-                for uid in currentWhiteList {
-                    //check if already exists in the showing set
-                    var doesExist = false
-
-                    for dataObject in HomeViewController.customData {
-                        if dataObject.uid == uid as! String {
-                            doesExist = true
-                            break
-                        }
-                    }
-                    
-                    if self.processing.contains(uid as! String) {
-                        doesExist = true
-                    }
-
-                    print("Does Exist? => \(doesExist)")
-                    
-                    //if it doesn't exist, then add it
-                    if !doesExist {
-                        self.processing.append(uid as! String)
-                        Firestore.firestore().collection("users").document(uid as! String).getDocument { (document, error) in
-                            if let document = document, document.exists {
-                                let dataDescription = document.data()
-                                
-                                print(uid)
-                                
-                                HomeViewController.customData.append(CustomData(firstName:
-                                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: uid as! String, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String))
-
-                                self.collectionView.reloadData()
-                                self.pageControl.numberOfPages = HomeViewController.customData.count
-                                
-                                for i in 0..<self.processing.count {
-                                    if self.processing[i] == uid as! String {
-                                        self.processing.remove(at: i)
-                                        break
-                                    }
-                                }
-
-                            } else {
-                                print("Document does not exist")
-                            }
-                        }
-                    }
-                }
-
-                for var i in 0..<HomeViewController.customData.count {
-                    //if the new white list does not contain an old card, remove it
-
-                    if i >= HomeViewController.customData.count {
-                        break
-                    }
-
-                    if !currentWhiteList.contains(HomeViewController.customData[i].uid) {
-                        HomeViewController.customData.remove(at: i)
-                        self.collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
-                        self.collectionView.reloadData()
-                        self.pageControl.numberOfPages = HomeViewController.customData.count
-                        i-=1
-                    }
-
-                }
-                print("Executed \(self.tempCounter).")
-                print("CustomData Size: \(HomeViewController.customData.count)")
-                for element in HomeViewController.customData {
-                    print(element.uid)
-                }
-                print()
-                self.tempCounter += 1
-                //End
-            } else {
-                print("Document does not exist")
-            }
-        }
-        
-    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -157,35 +125,6 @@ class HomeViewController: UIViewController {
         print("logged out")
         HomeViewController.customData = []
         transitionToStart()
-    }
-    
-    @IBAction func removeOrConfirmButtonPressed(_ sender: UIButton) {
-        let functions = Functions.functions()
-        
-        functions.httpsCallable("setCards").call(["uid": Auth.auth().currentUser!.uid]) { (result, error) in
-          if let error = error as NSError? {
-            if error.domain == FunctionsErrorDomain {
-             
-            }
-            // ...
-          }
-          if let text = (result?.data as? [String: Any])?["success"] as? Bool {
-            print(text)
-          }
-        }
-        
-    }
-    
-    @IBAction func removeOrConfirmButtonTouchDown(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.2) {
-            sender.alpha = 0.7
-        }
-    }
-    
-    @IBAction func removeOrConfirmButtonCancel(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.2) {
-            sender.alpha = 1.0
-        }
     }
     
     func transitionToStart() {

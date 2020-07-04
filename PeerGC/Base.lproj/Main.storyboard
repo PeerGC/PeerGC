@@ -457,8 +457,8 @@
                                                         <constraint firstItem="IGD-Tz-Yg8" firstAttribute="top" secondItem="pHz-Ld-iH7" secondAttribute="bottom" constant="16" id="yGS-sm-y0t"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You and Person are both interested in STEM, African American, Female, and you likely come from similar financial backgrounds!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K9-2h-1Ip">
-                                                    <rect key="frame" x="33" y="271.33333333333337" width="341" height="144.66666666666669"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You and Person are both interested in STEM, African American, Female, and you likely come from similar financial backgrounds!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K9-2h-1Ip">
+                                                    <rect key="frame" x="36" y="272" width="341" height="144.66666666666669"/>
                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>

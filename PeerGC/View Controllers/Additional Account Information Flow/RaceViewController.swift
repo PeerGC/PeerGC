@@ -84,9 +84,7 @@ class RaceViewController: UIViewController {
                  "interest": AccountTypeViewController.data.interest!,
                  "race": AccountTypeViewController.data.race!,
                  "firstName": Auth.auth().currentUser!.displayName!.split(separator: " ")[0],
-                 "photoURL": urlString,
-                 "whitelist" : [],
-                 "blacklist" : [] ]
+                 "photoURL": urlString ]
                 ) { (error) in
             
                 self.performSegue(withIdentifier: "goToMatching", sender: self)

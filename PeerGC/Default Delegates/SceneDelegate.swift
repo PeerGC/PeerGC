@@ -25,7 +25,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     print("Document EXISTS")
-                    self.showController(controller: storyboard.instantiateViewController(withIdentifier: "HomeNavigationController"), window: window)
+                    Firestore.firestore().collection("users").document(uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
+                        if querySnapshot!.count > 0 {
+                            self.showController(controller: storyboard.instantiateViewController(withIdentifier: "HomeNavigationController"), window: window)
+                        }
+                        else {
+                            self.showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
+                        }
+                    })
                 } else {
                     print("Document does not exist")
                     self.showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
