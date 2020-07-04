@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     public static var customData: [CustomData] = []
     var timer = Timer()
     static var currentUserImage : UIImage? = nil
+    static var currentUserCustomData: CustomData? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,21 @@ class HomeViewController: UIViewController {
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
         
         
-        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        self.timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(updateCards), userInfo: nil, repeats: true)
-        self.updateCards()
+        Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data()
+                
+                HomeViewController.currentUserCustomData = CustomData(firstName:
+                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: Auth.auth().currentUser!.uid , photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String)
+            
+                // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+                self.timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateCards), userInfo: nil, repeats: true)
+                self.updateCards()
+                
+            } else {
+                print("Document does not exist")
+            }
+        }
         
     }
     
@@ -282,6 +295,11 @@ class CustomCell: UICollectionViewCell {
             button.backgroundColor = UIColor.systemPink
             firstname.text = data.firstName
             cityState.text = data.state.capitalized
+            race = data.race
+            gender = data.gender
+            interest = data.interest
+            
+            setSentenceText()
             
             if data.image == nil {
                 downloadImage()
@@ -292,6 +310,79 @@ class CustomCell: UICollectionViewCell {
             }
             
         }
+    }
+    
+    var race = ""
+    var gender = ""
+    var interest = ""
+    
+    func setSentenceText() {
+        
+        let sentence: NSMutableAttributedString = NSMutableAttributedString()
+        
+        var temp = NSMutableAttributedString(string: "You and ")
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+        sentence.append(temp)
+        
+        temp = NSMutableAttributedString(string: "\(firstname.text!) ")
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+        sentence.append(temp)
+        
+        temp = NSMutableAttributedString(string: "are both")
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+        sentence.append(temp)
+        
+        let raceEqual = HomeViewController.currentUserCustomData?.race == race
+        let genderEqual = HomeViewController.currentUserCustomData?.gender == gender
+        let interestEqual = HomeViewController.currentUserCustomData?.interest == interest
+        
+        let comma = NSMutableAttributedString(string: ",")
+        comma.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: comma.length))
+        
+        if raceEqual {
+            temp = NSMutableAttributedString(string: " \(race)")
+            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
+            sentence.append(temp)
+            sentence.append(comma)
+        }
+        
+        if genderEqual {
+            temp = NSMutableAttributedString(string: " \(gender)")
+            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
+            sentence.append(temp)
+            sentence.append(comma)
+        }
+        
+        if interestEqual {
+            temp = NSMutableAttributedString(string: " interested in")
+            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+            sentence.append(temp)
+            
+            temp = NSMutableAttributedString(string: " \(interest)")
+            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
+            sentence.append(temp)
+            sentence.append(comma)
+        }
+        
+        if raceEqual || genderEqual || interestEqual {
+            temp = NSMutableAttributedString(string: " and")
+            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+            sentence.append(temp)
+        }
+        
+        temp = NSMutableAttributedString(string: " likely to come from")
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+        sentence.append(temp)
+        
+        temp = NSMutableAttributedString(string: " similar financial backgrounds")
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
+        sentence.append(temp)
+        
+        temp = NSMutableAttributedString(string: "!")
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+        sentence.append(temp)
+        
+        self.sentence.attributedText = sentence
     }
     
     func downloadImage() {
