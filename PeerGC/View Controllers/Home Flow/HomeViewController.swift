@@ -277,7 +277,8 @@ class CustomCell: UICollectionViewCell {
             //button.backgroundColor = data.color
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
             cityState.font = cityState.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
-            blurb.font = blurb.font.withSize( (2.0/71) * UIScreen.main.bounds.height)
+            blurb.font = blurb.font.withSize( (1.9/71) * UIScreen.main.bounds.height)
+            sentence.font = sentence.font.withSize( (1.6/71) * UIScreen.main.bounds.height)
             button.backgroundColor = UIColor.systemPink
             firstname.text = data.firstName
             cityState.text = data.state.capitalized
@@ -309,6 +310,7 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet weak var cityState: UILabel!
     @IBOutlet weak var blurb: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var sentence: UILabel!
     
     
     @IBAction func buttonTouchDown(_ sender: UIButton) {
