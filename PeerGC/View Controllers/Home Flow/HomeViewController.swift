@@ -14,8 +14,6 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var removeButton: DesignableButton!
-    @IBOutlet weak var confirmButton: DesignableButton!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var welcome: UILabel!
@@ -34,8 +32,6 @@ class HomeViewController: UIViewController {
         recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height) // max 2.3
         firstName.font = firstName.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
         welcome.font = welcome.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
-        removeButton.titleLabel?.font = removeButton.titleLabel?.font.withSize( (2.5/71) * UIScreen.main.bounds.height)
-        confirmButton.titleLabel?.font = confirmButton.titleLabel?.font.withSize( (2.5/71) * UIScreen.main.bounds.height)
         label.font = label.font.withSize( (1.9/71) * UIScreen.main.bounds.height) // max 2.3
         downloadCurrentUserImage()
         let currentUser = Auth.auth().currentUser!

@@ -16,9 +16,7 @@ let BUTTON_ANIMATION_INITIAL_SPRING_VELOCITY: CGFloat = 6
 let BUTTON_ANIMATION_X_Y_SCALE: CGFloat = 1.4
 
 extension DesignableButton {
-    
-    var super_touchesBegan:(Set<UITouch>, UIEvent?)->() { return super.touchesBegan }
-    
+        
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
 
@@ -36,8 +34,7 @@ extension DesignableButton {
     
 }
 
-class CardButton: DesignableButton {
-    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.super_touchesBegan(touches, event)
-    }
+@IBDesignable
+class CardButton: UIButton {
+
 }
