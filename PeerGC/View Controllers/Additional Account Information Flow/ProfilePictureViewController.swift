@@ -22,6 +22,8 @@ class ProfilePictureViewController: UIViewController {
     
     @IBOutlet weak var profilePicImageView: UIImageView!
     
+    static var entranceVC: EntranceViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +46,11 @@ class ProfilePictureViewController: UIViewController {
         profilePicImageView.cornerRadius = 40
         
         imagePicker.delegate = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        ProfilePictureViewController.entranceVC?.cleanUp()
     }
     
     public static func downloadImage(url: URL, imageView: UIImageView) {

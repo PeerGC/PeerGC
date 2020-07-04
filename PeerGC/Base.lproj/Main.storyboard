@@ -16,13 +16,13 @@
         <!--Spash Screen View Controller-->
         <scene sceneID="CCk-Ir-vsP">
             <objects>
-                <viewController id="jiO-FI-dRs" customClass="SpashScreenViewController" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpashScreenViewController" id="jiO-FI-dRs" customClass="SpashScreenViewController" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfK-0N-NtP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="7md-df-wLW">
-                                <rect key="frame" x="188.66666666666666" y="579.66666666666663" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="629.66666666666663" width="37" height="37"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -38,7 +38,7 @@
                             <constraint firstItem="7md-df-wLW" firstAttribute="centerX" secondItem="yfK-0N-NtP" secondAttribute="centerX" id="WZy-2v-HXZ"/>
                             <constraint firstItem="3bN-b9-GDi" firstAttribute="trailing" secondItem="Dwm-14-Hnh" secondAttribute="trailing" constant="60" id="ZA9-T6-4mT"/>
                             <constraint firstItem="Dwm-14-Hnh" firstAttribute="height" secondItem="yfK-0N-NtP" secondAttribute="height" multiplier="0.43" id="a3O-J0-dJG"/>
-                            <constraint firstItem="7md-df-wLW" firstAttribute="centerY" secondItem="yfK-0N-NtP" secondAttribute="centerY" constant="150" id="lHX-m3-4m4"/>
+                            <constraint firstItem="7md-df-wLW" firstAttribute="centerY" secondItem="yfK-0N-NtP" secondAttribute="centerY" constant="200" id="lHX-m3-4m4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3bN-b9-GDi"/>
                     </view>
@@ -157,6 +157,12 @@
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-dK-fxH">
+                                <rect key="frame" x="188.66666666666666" y="585.66666666666663" width="37" height="37"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -171,11 +177,13 @@
                             <constraint firstItem="SIf-3v-azR" firstAttribute="bottom" secondItem="jUm-Je-zIa" secondAttribute="bottom" constant="15" id="HjF-jM-t7n"/>
                             <constraint firstItem="BSX-yH-fMz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="Jc4-ZE-1dG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fcX-QN-Z4Q" secondAttribute="trailing" constant="20" id="KMl-t0-s3a"/>
+                            <constraint firstItem="8dG-dK-fxH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rrk-b7-IcY"/>
                             <constraint firstItem="0oP-l0-XiY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bIK-lo-3GJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SIf-3v-azR" secondAttribute="bottom" constant="20" id="eyB-Mu-DKz"/>
                             <constraint firstItem="SIf-3v-azR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fJs-OZ-mL8"/>
                             <constraint firstItem="BSX-yH-fMz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="fNE-v4-7Jg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BSX-yH-fMz" secondAttribute="trailing" constant="60" id="fQO-K4-rqq"/>
+                            <constraint firstItem="8dG-dK-fxH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="iBF-zD-nkc"/>
                             <constraint firstItem="3df-j4-hEi" firstAttribute="top" secondItem="fcX-QN-Z4Q" secondAttribute="top" constant="15" id="lRv-r1-74q"/>
                             <constraint firstItem="0oP-l0-XiY" firstAttribute="top" secondItem="BSX-yH-fMz" secondAttribute="bottom" constant="6" id="ptl-GF-Uok"/>
                             <constraint firstItem="fcX-QN-Z4Q" firstAttribute="bottom" secondItem="3df-j4-hEi" secondAttribute="bottom" constant="15" id="zg0-Fd-dPl"/>
@@ -184,8 +192,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="fAY-kh-3Mt"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8dG-dK-fxH" id="EEu-ID-HE8"/>
                         <outlet property="continueWithEmail" destination="fcX-QN-Z4Q" id="dun-6u-UPB"/>
                         <outlet property="continueWithGoogle" destination="SIf-3v-azR" id="hvI-la-ag4"/>
+                        <outlet property="emailIcon" destination="3df-j4-hEi" id="urZ-Kc-sML"/>
+                        <outlet property="googleIcon" destination="jUm-Je-zIa" id="ai7-ub-jgd"/>
                         <outlet property="versionLabel" destination="0oP-l0-XiY" id="tTb-U6-fgE"/>
                         <segue destination="tYW-ge-kaA" kind="show" identifier="goToFurther" id="E7N-63-BMM"/>
                     </connections>
@@ -458,7 +469,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You and Person are both interested in STEM, African American, Female, and you likely come from similar financial backgrounds!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K9-2h-1Ip">
-                                                    <rect key="frame" x="36" y="272" width="341" height="144.66666666666669"/>
+                                                    <rect key="frame" x="36" y="271.33333333333331" width="341" height="144.66666666666669"/>
                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -491,7 +502,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="nLu-Vy-p8f">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nLu-Vy-p8f">
                                 <rect key="frame" x="187.66666666666666" y="551.33333333333337" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>

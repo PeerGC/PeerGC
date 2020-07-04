@@ -15,7 +15,9 @@ class EntranceViewController: UIViewController {
     @IBOutlet weak var continueWithEmail: DesignableButton!
     @IBOutlet weak var continueWithGoogle: DesignableButton!
     @IBOutlet weak var versionLabel: UILabel!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var googleIcon: UIImageView!
+    @IBOutlet weak var emailIcon: UIImageView!
     //edit
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,8 @@ class EntranceViewController: UIViewController {
             let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
             versionLabel.text = "Version " + version + " Build " + build + " Alpha"
         }
+        
+        ProfilePictureViewController.entranceVC = self
         
     }
     
@@ -85,21 +89,24 @@ class EntranceViewController: UIViewController {
         .first?.windows
         .filter({$0.isKeyWindow}).first)!
         
-        HomeViewController.loadCardLoader(action: {self.view.window?.rootViewController = self.storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
-        
-        
-        // A mask of options indicating how you want to perform the animations.
-        let options: UIView.AnimationOptions = .transitionFlipFromRight
-
-        // The duration of the transition animation, measured in seconds.
-        let duration: TimeInterval = 0.3
-
-        // Creates a transition animation.
-        // Though `animations` is optional, the documentation tells us that it must not be nil. ¯\_(ツ)_/¯
-        UIView.transition(with: window, duration: duration, options: options, animations: {}, completion:
-        { completed in
-            // maybe do something on completion here
+        HomeViewController.loadCardLoader(action: {
+            window.rootViewController = self.storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController
+            self.cleanUp()
         })
+        
+        
+//        // A mask of options indicating how you want to perform the animations.
+//        let options: UIView.AnimationOptions = .transitionFlipFromRight
+//
+//        // The duration of the transition animation, measured in seconds.
+//        let duration: TimeInterval = 0.3
+//
+//        // Creates a transition animation.
+//        // Though `animations` is optional, the documentation tells us that it must not be nil. ¯\_(ツ)_/¯
+//        UIView.transition(with: window, duration: duration, options: options, animations: {}, completion:
+//        { completed in
+//            // maybe do something on completion here
+//        })
         
     }
     
@@ -108,6 +115,9 @@ class EntranceViewController: UIViewController {
 extension EntranceViewController: GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        
+        startIndicator()
+        
       // ...
         if error != nil {
         // ...
@@ -159,6 +169,22 @@ extension EntranceViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
+    }
+    
+    func cleanUp() {
+        continueWithEmail.isHidden = false
+        continueWithGoogle.isHidden = false
+        activityIndicator.isHidden = true
+        emailIcon.isHidden = false
+        googleIcon.isHidden = false
+    }
+    
+    func startIndicator() {
+        continueWithEmail.isHidden = true
+        continueWithGoogle.isHidden = true
+        activityIndicator.isHidden = false
+        emailIcon.isHidden = true
+        googleIcon.isHidden = true
     }
     
 }

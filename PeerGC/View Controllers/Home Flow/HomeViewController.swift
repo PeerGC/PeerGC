@@ -103,10 +103,15 @@ class HomeViewController: UIViewController {
                 HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.customData.count
 
                 Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
-                    print("QuerySnapshot Count: \(querySnapshot!.count)")
-                    if querySnapshot!.count == HomeViewController.customData.count {
-                        action()
-                        action = {}
+                    DispatchQueue.main.async{
+                        print("QuerySnapshot Count: \(querySnapshot!.count)")
+                        if querySnapshot!.count == HomeViewController.customData.count {
+                            print("running action")
+                            print(action)
+                            action()
+                            action = {}
+                            //GCD here???
+                        }
                     }
                 })
                 
