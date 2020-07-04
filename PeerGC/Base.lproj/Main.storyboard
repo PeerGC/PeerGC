@@ -408,53 +408,73 @@
                                                         <action selector="buttonTouchDown:" destination="0PV-me-Fhh" eventType="touchDown" id="2Gy-ap-QsR"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQh-jz-bsx">
-                                                    <rect key="frame" x="40" y="40" width="215" height="55"/>
-                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="44"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHz-Ld-iH7">
-                                                    <rect key="frame" x="40" y="325.33333333333331" width="142" height="37.666666666666686"/>
-                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="30"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGD-Tz-Yg8">
-                                                    <rect key="frame" x="40" y="379" width="142" height="29"/>
-                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="23"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjB-zz-PZd">
-                                                    <rect key="frame" x="192" y="221" width="181" height="181"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvO-s9-WEb">
+                                                    <rect key="frame" x="20" y="30.000000000000014" width="373" height="241.33333333333337"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQh-jz-bsx">
+                                                            <rect key="frame" x="16" y="16" width="215" height="55"/>
+                                                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="44"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHz-Ld-iH7">
+                                                            <rect key="frame" x="16" y="142.33333333333334" width="79" height="38"/>
+                                                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="30"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGD-Tz-Yg8">
+                                                            <rect key="frame" x="16" y="196.33333333333334" width="176.66666666666666" height="29"/>
+                                                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="23"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjB-zz-PZd">
+                                                            <rect key="frame" x="236.33333333333329" y="104.66666666666666" width="120.66666666666666" height="120.66666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="NjB-zz-PZd" secondAttribute="height" multiplier="1:1" id="wdq-fC-Lk6"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="NjB-zz-PZd" secondAttribute="height" multiplier="1:1" id="DR9-En-kL6"/>
+                                                        <constraint firstItem="dQh-jz-bsx" firstAttribute="top" secondItem="XvO-s9-WEb" secondAttribute="top" constant="16" id="18c-H1-tOU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NjB-zz-PZd" secondAttribute="trailing" constant="16" id="2UN-r8-X49"/>
+                                                        <constraint firstItem="IGD-Tz-Yg8" firstAttribute="leading" secondItem="XvO-s9-WEb" secondAttribute="leading" constant="16" id="Gxb-Kv-D5B"/>
+                                                        <constraint firstItem="NjB-zz-PZd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IGD-Tz-Yg8" secondAttribute="trailing" constant="16" id="MFQ-u2-7Vz"/>
+                                                        <constraint firstItem="dQh-jz-bsx" firstAttribute="leading" secondItem="XvO-s9-WEb" secondAttribute="leading" constant="16" id="eKh-m2-KJN"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dQh-jz-bsx" secondAttribute="trailing" constant="16" id="fP8-aX-BhU"/>
+                                                        <constraint firstItem="NjB-zz-PZd" firstAttribute="height" secondItem="XvO-s9-WEb" secondAttribute="height" multiplier="0.5" id="hwI-gc-dMw"/>
+                                                        <constraint firstItem="pHz-Ld-iH7" firstAttribute="leading" secondItem="XvO-s9-WEb" secondAttribute="leading" constant="16" id="hyj-My-Fh4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="IGD-Tz-Yg8" secondAttribute="bottom" constant="16" id="jgU-xB-EFu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="NjB-zz-PZd" secondAttribute="bottom" constant="16" id="kYl-1H-xdP"/>
+                                                        <constraint firstItem="NjB-zz-PZd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pHz-Ld-iH7" secondAttribute="trailing" constant="16" id="nhq-BW-LWh"/>
+                                                        <constraint firstItem="IGD-Tz-Yg8" firstAttribute="top" secondItem="pHz-Ld-iH7" secondAttribute="bottom" constant="16" id="yGS-sm-y0t"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="30"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You and Person are both interested in STEM, African American, Female, and you likely come from similar financial backgrounds!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K9-2h-1Ip">
+                                                    <rect key="frame" x="36" y="287.33333333333331" width="341" height="128.66666666666669"/>
+                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="bottomMargin" secondItem="IGD-Tz-Yg8" secondAttribute="bottom" constant="16" id="4eu-4m-VIh"/>
-                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" secondItem="NjB-zz-PZd" secondAttribute="trailing" constant="20" id="7ZJ-o6-9ya"/>
-                                                <constraint firstItem="IGD-Tz-Yg8" firstAttribute="top" secondItem="pHz-Ld-iH7" secondAttribute="bottom" constant="16" id="8ZZ-Oi-FI5"/>
-                                                <constraint firstItem="IGD-Tz-Yg8" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="19.999999999999986" id="Cqv-2h-ssN"/>
-                                                <constraint firstItem="dQh-jz-bsx" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="20" id="JUU-zW-uDB"/>
-                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dQh-jz-bsx" secondAttribute="trailing" constant="10" id="KM3-n0-1E0"/>
+                                                <constraint firstItem="4K9-2h-1Ip" firstAttribute="top" secondItem="XvO-s9-WEb" secondAttribute="bottom" constant="16" id="1ms-UC-c2w"/>
+                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" secondItem="4K9-2h-1Ip" secondAttribute="trailing" constant="16" id="M1Y-dp-UYT"/>
+                                                <constraint firstItem="4K9-2h-1Ip" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="16" id="Qsc-Fb-72Q"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="leading" secondItem="BMj-Vh-GnN" secondAttribute="leading" constant="20" id="Uey-cI-LPl"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="top" secondItem="BMj-Vh-GnN" secondAttribute="top" constant="30" id="Xe1-Fl-hxQ"/>
-                                                <constraint firstItem="NjB-zz-PZd" firstAttribute="bottom" secondItem="Ptf-4c-u4i" secondAttribute="bottom" constant="-30" id="Y1h-c6-FsZ"/>
-                                                <constraint firstItem="pHz-Ld-iH7" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="20" id="aWF-ph-790"/>
-                                                <constraint firstItem="NjB-zz-PZd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pHz-Ld-iH7" secondAttribute="trailing" constant="10" id="elg-ms-TfW"/>
-                                                <constraint firstItem="pHz-Ld-iH7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dQh-jz-bsx" secondAttribute="bottom" constant="20" id="fhj-LN-t07"/>
-                                                <constraint firstItem="NjB-zz-PZd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IGD-Tz-Yg8" secondAttribute="trailing" constant="10" id="hVa-7v-Mtc"/>
-                                                <constraint firstItem="NjB-zz-PZd" firstAttribute="height" secondItem="Ptf-4c-u4i" secondAttribute="height" multiplier="0.45" id="qef-ll-6zJ"/>
+                                                <constraint firstItem="XvO-s9-WEb" firstAttribute="top" secondItem="Ptf-4c-u4i" secondAttribute="top" id="aQa-7r-Kkb"/>
+                                                <constraint firstItem="XvO-s9-WEb" firstAttribute="height" secondItem="Ptf-4c-u4i" secondAttribute="height" multiplier="0.6" id="cH4-70-6l1"/>
+                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="bottom" secondItem="4K9-2h-1Ip" secondAttribute="bottom" constant="16" id="eiX-6m-RoA"/>
+                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" secondItem="XvO-s9-WEb" secondAttribute="trailing" id="iaz-LQ-QRJ"/>
+                                                <constraint firstItem="XvO-s9-WEb" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" id="reQ-OQ-31C"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ptf-4c-u4i" secondAttribute="trailing" constant="20" id="tsn-iH-aFk"/>
-                                                <constraint firstItem="dQh-jz-bsx" firstAttribute="top" secondItem="Ptf-4c-u4i" secondAttribute="top" constant="10" id="zaK-BX-zXZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ptf-4c-u4i" secondAttribute="bottom" constant="30" id="zs2-tl-Cic"/>
                                             </constraints>
                                         </collectionViewCellContentView>
