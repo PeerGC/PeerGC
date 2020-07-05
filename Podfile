@@ -14,6 +14,7 @@ target 'PeerGC' do
 	pod 'Firebase/Functions'
 	pod 'Firebase/Crashlytics'
 	pod 'Firebase/Analytics'
+	pod 'Firebase/Messaging'
 	pod 'Firebase/Performance'
 	pod 'Firebase/Firestore'
 	pod 'FBSDKCoreKit', :modular_headers => true

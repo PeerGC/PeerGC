@@ -25,12 +25,13 @@
 			<string>com.googleusercontent.apps.494119397893-m8t9068a6ogb0jvuj0efdnivjhje9o90</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>com.googleusercontent.apps.494119397893-l9dvnau11aeu3gq94nllkiahclqmplo7</string>
 				<string>com.googleusercontent.apps.494119397893-m8t9068a6ogb0jvuj0efdnivjhje9o90</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2151</string>
+	<string>2172</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.education</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -203,6 +203,9 @@ PODS:
   - Firebase/Functions (6.16.0):
     - Firebase/CoreOnly
     - FirebaseFunctions (~> 2.5.1)
+  - Firebase/Messaging (6.16.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 4.2.0)
   - Firebase/Performance (6.16.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 3.1.9)
@@ -277,6 +280,15 @@ PODS:
     - FirebaseInstallations (~> 1.0)
     - GoogleUtilities/Environment (~> 6.5)
     - GoogleUtilities/UserDefaults (~> 6.5)
+  - FirebaseMessaging (4.2.1):
+    - FirebaseAnalyticsInterop (~> 1.5)
+    - FirebaseCore (~> 6.6)
+    - FirebaseInstanceID (~> 4.3)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.5)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Reachability (~> 6.5)
+    - GoogleUtilities/UserDefaults (~> 6.5)
+    - Protobuf (>= 3.9.2, ~> 3.9)
   - FirebasePerformance (3.1.11):
     - FirebaseCore (~> 6.6)
     - FirebaseInstallations (~> 1.1)
@@ -422,6 +434,7 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - Firebase/Firestore
   - Firebase/Functions
+  - Firebase/Messaging
   - Firebase/Performance
   - FirebaseUI
   - MessageKit
@@ -448,6 +461,7 @@ SPEC REPOS:
     - FirebaseFunctions
     - FirebaseInstallations
     - FirebaseInstanceID
+    - FirebaseMessaging
     - FirebasePerformance
     - FirebaseRemoteConfig
     - FirebaseStorage
@@ -491,6 +505,7 @@ SPEC CHECKSUMS:
   FirebaseFunctions: 5af7c35d1c5e41608fecbb667eb6c4e672e318d0
   FirebaseInstallations: 575cd32f2aec0feeb0e44f5d0110a09e5e60b47b
   FirebaseInstanceID: 6668efc1655a4052c083f287a7141f1ead12f9c2
+  FirebaseMessaging: 9e23f9d603b1fb71ccbeb48d79bf0d4ba0272c84
   FirebasePerformance: 5652d2004001e886da6dca04f478c695f87c4702
   FirebaseRemoteConfig: 1725314c4b89d8853c876099ded037f11bee26db
   FirebaseStorage: 6c5263796af3b1be82ed173598aade47535fe125
@@ -513,6 +528,6 @@ SPEC CHECKSUMS:
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
 
-PODFILE CHECKSUM: ca9becd50a51d14423cf8d9a239e14814e4d7a97
+PODFILE CHECKSUM: 918cec93ba11182706f64e4992b92204e8fc9545
 
 COCOAPODS: 1.9.3

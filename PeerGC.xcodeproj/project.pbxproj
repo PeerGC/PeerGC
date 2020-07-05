@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1393A95F81D62CCAD6CD4AC8 /* libPods-PeerGCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1456880FC2D602A043006C6 /* libPods-PeerGCTests.a */; };
-		6C84F2F126C7E9340B75FDB9 /* libPods-PeerGC-PeerGCUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A01B71C29AAD7368AF24811 /* libPods-PeerGC-PeerGCUITests.a */; };
+		304D391CDCA338C0DE48D4A2 /* libPods-PeerGC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF117241E358C91B1BBE5919 /* libPods-PeerGC.a */; };
+		90C4164975BEBC524F2939A4 /* libPods-PeerGC-PeerGCUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B651C1530592B2BC61001DC8 /* libPods-PeerGC-PeerGCUITests.a */; };
 		C700B14423EB647100816708 /* lastNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B13F23EB644400816708 /* lastNames.txt */; };
 		C700B14623EB647100816708 /* zipCodesToValue.csv in Resources */ = {isa = PBXBuildFile; fileRef = C700B14123EB644F00816708 /* zipCodesToValue.csv */; };
 		C700B14723EB647100816708 /* zipCodesToLocation.csv in Resources */ = {isa = PBXBuildFile; fileRef = C700B14223EB646800816708 /* zipCodesToLocation.csv */; };
@@ -29,6 +29,7 @@
 		C700B16923EB655500816708 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15D23EB654000816708 /* GenderViewController.swift */; };
 		C700B16A23EB655500816708 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B16423EB655500816708 /* RaceViewController.swift */; };
 		C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */; };
+		C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */; };
 		C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3CFD23EB570700C7B5E5 /* Main.storyboard */; };
 		C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */; };
 		C75F3D0423EB570B00C7B5E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0223EB570B00C7B5E5 /* LaunchScreen.storyboard */; };
@@ -40,11 +41,10 @@
 		C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797D85E24AD99580060FFDB /* ChatViewController.swift */; };
 		C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */; };
 		C7B0D1B2249B1BD700476FB1 /* firstNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7B0D1B1249B1BD700476FB1 /* firstNames.txt */; };
-		C7CC451D23EB5A8400A086D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */; };
 		C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */; };
 		C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452223EB5AD600A086D7 /* Customizables.swift */; };
 		C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452323EB5AE200A086D7 /* Utilities.swift */; };
-		DA3F0F5F12A561161DD674C8 /* libPods-PeerGC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C0E251F324CE834D1F4904 /* libPods-PeerGC.a */; };
+		FEFF7B8EAEE3777FFF597927 /* libPods-PeerGCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB5E684C82D1E3624F7A622 /* libPods-PeerGCTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +65,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		026F7EE1B8230DEBB71B0E1C /* Pods-PeerGC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC/Pods-PeerGC.debug.xcconfig"; sourceTree = "<group>"; };
-		530E4F3AEB6C3F3F6E89427D /* Pods-PeerGCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGCTests.release.xcconfig"; path = "Target Support Files/Pods-PeerGCTests/Pods-PeerGCTests.release.xcconfig"; sourceTree = "<group>"; };
-		66C0E251F324CE834D1F4904 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A01B71C29AAD7368AF24811 /* libPods-PeerGC-PeerGCUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC-PeerGCUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FA997A9A3CC68D0F1436207 /* Pods-PeerGC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC.release.xcconfig"; path = "Target Support Files/Pods-PeerGC/Pods-PeerGC.release.xcconfig"; sourceTree = "<group>"; };
-		C1456880FC2D602A043006C6 /* libPods-PeerGCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		013EC14F7F6D20804EFAC355 /* Pods-PeerGC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC/Pods-PeerGC.debug.xcconfig"; sourceTree = "<group>"; };
+		1ADA870B9597C31EB7709168 /* Pods-PeerGCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGCTests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGCTests/Pods-PeerGCTests.debug.xcconfig"; sourceTree = "<group>"; };
+		480DD466795B4B052FDAC09F /* Pods-PeerGCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGCTests.release.xcconfig"; path = "Target Support Files/Pods-PeerGCTests/Pods-PeerGCTests.release.xcconfig"; sourceTree = "<group>"; };
+		5FB5E684C82D1E3624F7A622 /* libPods-PeerGCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A34A7EB73F63606CEEAD24CE /* Pods-PeerGC-PeerGCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.release.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B651C1530592B2BC61001DC8 /* libPods-PeerGC-PeerGCUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC-PeerGCUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1D97A0912789FEF63A8751A /* Pods-PeerGC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC.release.xcconfig"; path = "Target Support Files/Pods-PeerGC/Pods-PeerGC.release.xcconfig"; sourceTree = "<group>"; };
 		C700B13F23EB644400816708 /* lastNames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lastNames.txt; sourceTree = "<group>"; };
 		C700B14123EB644F00816708 /* zipCodesToValue.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodesToValue.csv; sourceTree = "<group>"; };
 		C700B14223EB646800816708 /* zipCodesToLocation.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodesToLocation.csv; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		C700B16423EB655500816708 /* RaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
 		C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
+		C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C75F3CF423EB570700C7B5E5 /* PeerGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75F3CFE23EB570700C7B5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,13 +112,11 @@
 		C797D85E24AD99580060FFDB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		C7B0D1B1249B1BD700476FB1 /* firstNames.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = firstNames.txt; path = PeerGC/Utilities/Resources/firstNames.txt; sourceTree = "<group>"; };
-		C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		C7CC452223EB5AD600A086D7 /* Customizables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customizables.swift; sourceTree = "<group>"; };
 		C7CC452323EB5AE200A086D7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		C8A392683219D8AC8F84EBF9 /* Pods-PeerGC-PeerGCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.release.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.release.xcconfig"; sourceTree = "<group>"; };
-		CCACDC72E4D562204D92F2CF /* Pods-PeerGCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGCTests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGCTests/Pods-PeerGCTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D3F1A39E554B501C0517EF0D /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DBE0557B09B3BACF512ECA20 /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FF117241E358C91B1BBE5919 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3F0F5F12A561161DD674C8 /* libPods-PeerGC.a in Frameworks */,
+				304D391CDCA338C0DE48D4A2 /* libPods-PeerGC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1393A95F81D62CCAD6CD4AC8 /* libPods-PeerGCTests.a in Frameworks */,
+				FEFF7B8EAEE3777FFF597927 /* libPods-PeerGCTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C84F2F126C7E9340B75FDB9 /* libPods-PeerGC-PeerGCUITests.a in Frameworks */,
+				90C4164975BEBC524F2939A4 /* libPods-PeerGC-PeerGCUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,22 +150,22 @@
 		5DE275F85833841A72AC1B29 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				026F7EE1B8230DEBB71B0E1C /* Pods-PeerGC.debug.xcconfig */,
-				9FA997A9A3CC68D0F1436207 /* Pods-PeerGC.release.xcconfig */,
-				D3F1A39E554B501C0517EF0D /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */,
-				C8A392683219D8AC8F84EBF9 /* Pods-PeerGC-PeerGCUITests.release.xcconfig */,
-				CCACDC72E4D562204D92F2CF /* Pods-PeerGCTests.debug.xcconfig */,
-				530E4F3AEB6C3F3F6E89427D /* Pods-PeerGCTests.release.xcconfig */,
+				013EC14F7F6D20804EFAC355 /* Pods-PeerGC.debug.xcconfig */,
+				C1D97A0912789FEF63A8751A /* Pods-PeerGC.release.xcconfig */,
+				DBE0557B09B3BACF512ECA20 /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */,
+				A34A7EB73F63606CEEAD24CE /* Pods-PeerGC-PeerGCUITests.release.xcconfig */,
+				1ADA870B9597C31EB7709168 /* Pods-PeerGCTests.debug.xcconfig */,
+				480DD466795B4B052FDAC09F /* Pods-PeerGCTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		92C4E153C3D9A1845A2407C8 /* Frameworks */ = {
+		876C301A982C70C067545371 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				66C0E251F324CE834D1F4904 /* libPods-PeerGC.a */,
-				6A01B71C29AAD7368AF24811 /* libPods-PeerGC-PeerGCUITests.a */,
-				C1456880FC2D602A043006C6 /* libPods-PeerGCTests.a */,
+				FF117241E358C91B1BBE5919 /* libPods-PeerGC.a */,
+				B651C1530592B2BC61001DC8 /* libPods-PeerGC-PeerGCUITests.a */,
+				5FB5E684C82D1E3624F7A622 /* libPods-PeerGCTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				C75F3D1823EB570B00C7B5E5 /* PeerGCUITests */,
 				C75F3CF523EB570700C7B5E5 /* Products */,
 				5DE275F85833841A72AC1B29 /* Pods */,
-				92C4E153C3D9A1845A2407C8 /* Frameworks */,
+				876C301A982C70C067545371 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,7 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				C75F3D0523EB570B00C7B5E5 /* Info.plist */,
-				C7CC451C23EB5A8400A086D7 /* GoogleService-Info.plist */,
+				C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */,
 			);
 			name = Info;
 			sourceTree = "<group>";
@@ -350,12 +350,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C75F3D1E23EB570B00C7B5E5 /* Build configuration list for PBXNativeTarget "PeerGC" */;
 			buildPhases = (
-				C4CD127EB9B155827235EE56 /* [CP] Check Pods Manifest.lock */,
+				C3C468E8708147DA46D7F1BD /* [CP] Check Pods Manifest.lock */,
 				C75F3CF023EB570700C7B5E5 /* Sources */,
 				C75F3CF123EB570700C7B5E5 /* Frameworks */,
 				C75F3CF223EB570700C7B5E5 /* Resources */,
-				E3E84B44DACD59DE2B2C31FA /* [CP] Copy Pods Resources */,
 				C72E232924AE5DEA00550FD9 /* FirebaseCrashlytics */,
+				E656ABA1B236FFC972BFD2C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,7 +370,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C75F3D2123EB570B00C7B5E5 /* Build configuration list for PBXNativeTarget "PeerGCTests" */;
 			buildPhases = (
-				FC3F6453E000BD6ACAB67240 /* [CP] Check Pods Manifest.lock */,
+				50F8CD7B96BED4707A95CCF0 /* [CP] Check Pods Manifest.lock */,
 				C75F3D0623EB570B00C7B5E5 /* Sources */,
 				C75F3D0723EB570B00C7B5E5 /* Frameworks */,
 				C75F3D0823EB570B00C7B5E5 /* Resources */,
@@ -389,11 +389,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C75F3D2423EB570B00C7B5E5 /* Build configuration list for PBXNativeTarget "PeerGCUITests" */;
 			buildPhases = (
-				C40C261384B34FBB1D1E3EC8 /* [CP] Check Pods Manifest.lock */,
+				97990B5E9E966ACE85F0A1B0 /* [CP] Check Pods Manifest.lock */,
 				C75F3D1123EB570B00C7B5E5 /* Sources */,
 				C75F3D1223EB570B00C7B5E5 /* Frameworks */,
 				C75F3D1323EB570B00C7B5E5 /* Resources */,
-				33865CB32FB2F8DE386A2B3A /* [CP] Copy Pods Resources */,
+				9B00EF5BDDB7F20101568113 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -458,9 +458,9 @@
 				C700B14623EB647100816708 /* zipCodesToValue.csv in Resources */,
 				C700B14823EB647100816708 /* zipCodes.txt in Resources */,
 				C75F3D0423EB570B00C7B5E5 /* LaunchScreen.storyboard in Resources */,
-				C7CC451D23EB5A8400A086D7 /* GoogleService-Info.plist in Resources */,
 				C700B14423EB647100816708 /* lastNames.txt in Resources */,
 				C700B14723EB647100816708 /* zipCodesToLocation.csv in Resources */,
+				C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */,
 				C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */,
 				C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */,
 			);
@@ -483,24 +483,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		33865CB32FB2F8DE386A2B3A /* [CP] Copy Pods Resources */ = {
+		50F8CD7B96BED4707A95CCF0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PeerGCTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C40C261384B34FBB1D1E3EC8 /* [CP] Check Pods Manifest.lock */ = {
+		97990B5E9E966ACE85F0A1B0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -522,7 +527,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C4CD127EB9B155827235EE56 /* [CP] Check Pods Manifest.lock */ = {
+		9B00EF5BDDB7F20101568113 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3C468E8708147DA46D7F1BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -564,7 +586,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		E3E84B44DACD59DE2B2C31FA /* [CP] Copy Pods Resources */ = {
+		E656ABA1B236FFC972BFD2C7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -579,28 +601,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PeerGC/Pods-PeerGC-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC3F6453E000BD6ACAB67240 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PeerGCTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -803,12 +803,13 @@
 		};
 		C75F3D1F23EB570B00C7B5E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 026F7EE1B8230DEBB71B0E1C /* Pods-PeerGC.debug.xcconfig */;
+			baseConfigurationReference = 013EC14F7F6D20804EFAC355 /* Pods-PeerGC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2151;
+				CURRENT_PROJECT_VERSION = 2172;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -816,7 +817,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ajradik.PeerGC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aradik.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -827,12 +828,13 @@
 		};
 		C75F3D2023EB570B00C7B5E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FA997A9A3CC68D0F1436207 /* Pods-PeerGC.release.xcconfig */;
+			baseConfigurationReference = C1D97A0912789FEF63A8751A /* Pods-PeerGC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2151;
+				CURRENT_PROJECT_VERSION = 2172;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -840,7 +842,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ajradik.PeerGC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aradik.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -851,7 +853,7 @@
 		};
 		C75F3D2223EB570B00C7B5E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CCACDC72E4D562204D92F2CF /* Pods-PeerGCTests.debug.xcconfig */;
+			baseConfigurationReference = 1ADA870B9597C31EB7709168 /* Pods-PeerGCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -874,7 +876,7 @@
 		};
 		C75F3D2323EB570B00C7B5E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 530E4F3AEB6C3F3F6E89427D /* Pods-PeerGCTests.release.xcconfig */;
+			baseConfigurationReference = 480DD466795B4B052FDAC09F /* Pods-PeerGCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -897,7 +899,7 @@
 		};
 		C75F3D2523EB570B00C7B5E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3F1A39E554B501C0517EF0D /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */;
+			baseConfigurationReference = DBE0557B09B3BACF512ECA20 /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -918,7 +920,7 @@
 		};
 		C75F3D2623EB570B00C7B5E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8A392683219D8AC8F84EBF9 /* Pods-PeerGC-PeerGCUITests.release.xcconfig */;
+			baseConfigurationReference = A34A7EB73F63606CEEAD24CE /* Pods-PeerGC-PeerGCUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
