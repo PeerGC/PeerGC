@@ -162,7 +162,7 @@
                                 <rect key="frame" x="60" y="130.33333333333334" width="294" height="347.33333333333326"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version X Build Y Alpha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oP-l0-XiY">
-                                <rect key="frame" x="20" y="483.66666666666663" width="374" height="20"/>
+                                <rect key="frame" x="20" y="483.66666666666663" width="374" height="21.333333333333314"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -253,16 +253,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="51g-SV-BVa">
-                                <rect key="frame" x="20" y="10" width="374" height="157"/>
+                                <rect key="frame" x="20" y="10" width="374" height="167.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a student or a tutor?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52b-EV-ySi">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDyou uses this information to determine the type of your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6K-VW-Tep">
-                                        <rect key="frame" x="0.0" y="110.33333333333336" width="374" height="46.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="50"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -270,7 +270,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5t5-nS-dJN">
-                                <rect key="frame" x="30" y="197" width="354" height="110"/>
+                                <rect key="frame" x="30" y="207.66666666666669" width="354" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7y-eR-lzG" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -388,24 +388,24 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KU7-Ul-Xpy" customClass="ControlContainableCollectionView" customModule="PeerGC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="162.99999999999997" width="414" height="428.33333333333326"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="606"/>
                                 <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="hf6-Pm-vBE">
-                                    <size key="itemSize" width="413" height="462"/>
+                                    <size key="itemSize" width="415" height="605"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="cell" id="0PV-me-Fhh" customClass="CustomCell" customModule="PeerGC" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-17" width="413" height="462"/>
+                                        <rect key="frame" x="0.0" y="0.66666666666666663" width="415" height="605"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BMj-Vh-GnN">
-                                            <rect key="frame" x="0.0" y="0.0" width="413" height="462"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="415" height="605"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptf-4c-u4i" customClass="CardButton" customModule="PeerGC" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="30" width="373" height="402"/>
+                                                    <rect key="frame" x="20" y="20" width="375" height="565"/>
                                                     <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="39"/>
                                                     <state key="normal">
@@ -430,7 +430,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvO-s9-WEb" customClass="PassThroughView" customModule="PeerGC" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="30.000000000000014" width="373" height="241.33333333333337"/>
+                                                    <rect key="frame" x="20" y="20" width="375" height="339"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQh-jz-bsx">
                                                             <rect key="frame" x="16" y="16" width="215" height="55"/>
@@ -439,19 +439,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHz-Ld-iH7">
-                                                            <rect key="frame" x="16" y="142.66666666666666" width="78.333333333333329" height="37.666666666666657"/>
+                                                            <rect key="frame" x="16" y="240.33333333333329" width="78.333333333333329" height="37.666666666666657"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGD-Tz-Yg8">
-                                                            <rect key="frame" x="16" y="196.33333333333334" width="176.66666666666666" height="29"/>
+                                                            <rect key="frame" x="16" y="294" width="157.66666666666666" height="29"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="23"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjB-zz-PZd">
-                                                            <rect key="frame" x="236.33333333333329" y="104.66666666666666" width="120.66666666666666" height="120.66666666666666"/>
+                                                            <rect key="frame" x="189.66666666666663" y="153.66666666666663" width="169.33333333333337" height="169.33333333333337"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="NjB-zz-PZd" secondAttribute="height" multiplier="1:1" id="wdq-fC-Lk6"/>
                                                             </constraints>
@@ -479,7 +479,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You and Person are both interested in STEM, African American, Female, and you likely come from similar financial backgrounds!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K9-2h-1Ip">
-                                                    <rect key="frame" x="36" y="271.33333333333331" width="341" height="144.66666666666669"/>
+                                                    <rect key="frame" x="36" y="359" width="343" height="210"/>
                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -490,17 +490,17 @@
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" secondItem="4K9-2h-1Ip" secondAttribute="trailing" constant="16" id="M1Y-dp-UYT"/>
                                                 <constraint firstItem="4K9-2h-1Ip" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" constant="16" id="Qsc-Fb-72Q"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="leading" secondItem="BMj-Vh-GnN" secondAttribute="leading" constant="20" id="Uey-cI-LPl"/>
-                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="top" secondItem="BMj-Vh-GnN" secondAttribute="top" constant="30" id="Xe1-Fl-hxQ"/>
+                                                <constraint firstItem="Ptf-4c-u4i" firstAttribute="top" secondItem="BMj-Vh-GnN" secondAttribute="top" constant="20" id="Xe1-Fl-hxQ"/>
                                                 <constraint firstItem="XvO-s9-WEb" firstAttribute="top" secondItem="Ptf-4c-u4i" secondAttribute="top" id="aQa-7r-Kkb"/>
                                                 <constraint firstItem="XvO-s9-WEb" firstAttribute="height" secondItem="Ptf-4c-u4i" secondAttribute="height" multiplier="0.6" id="cH4-70-6l1"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="bottom" secondItem="4K9-2h-1Ip" secondAttribute="bottom" constant="16" id="eiX-6m-RoA"/>
                                                 <constraint firstItem="Ptf-4c-u4i" firstAttribute="trailing" secondItem="XvO-s9-WEb" secondAttribute="trailing" id="iaz-LQ-QRJ"/>
                                                 <constraint firstItem="XvO-s9-WEb" firstAttribute="leading" secondItem="Ptf-4c-u4i" secondAttribute="leading" id="reQ-OQ-31C"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ptf-4c-u4i" secondAttribute="trailing" constant="20" id="tsn-iH-aFk"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ptf-4c-u4i" secondAttribute="bottom" constant="30" id="zs2-tl-Cic"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ptf-4c-u4i" secondAttribute="bottom" constant="20" id="zs2-tl-Cic"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="413" height="462"/>
+                                        <size key="customSize" width="415" height="605"/>
                                         <connections>
                                             <outlet property="blurb" destination="IGD-Tz-Yg8" id="zRk-d4-Pvc"/>
                                             <outlet property="button" destination="Ptf-4c-u4i" id="Wgv-0V-pI9"/>
@@ -512,18 +512,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nLu-Vy-p8f">
-                                <rect key="frame" x="187.66666666666666" y="561.33333333333337" width="39" height="37"/>
-                                <color key="pageIndicatorTintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                            </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ng7-Ab-bPf">
-                                <rect key="frame" x="20" y="591.33333333333337" width="374" height="172.66666666666663"/>
-                                <string key="text">This tutor has not confirmed you yet nor have you confirmed them. Press confirm to proceed working with them, or press remove if you do not want to work with this tutor.</string>
-                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaC-pk-TBp">
                                 <rect key="frame" x="20" y="10" width="157" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
@@ -536,8 +524,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nLu-Vy-p8f">
+                                <rect key="frame" x="187.66666666666666" y="732" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RECCOMENDED TUTORS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69B-Ng-YPI">
-                                <rect key="frame" x="20" y="157" width="263" height="20.333333333333343"/>
+                                <rect key="frame" x="20" y="140.66666666666666" width="263" height="21.333333333333343"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -547,25 +540,19 @@
                         <constraints>
                             <constraint firstItem="zET-8J-Wam" firstAttribute="top" secondItem="fqv-Fy-Y6M" secondAttribute="top" constant="20" id="4FB-lA-Zdj"/>
                             <constraint firstItem="9bM-gb-ppE" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" constant="20" id="4v8-d5-hzt"/>
-                            <constraint firstItem="nLu-Vy-p8f" firstAttribute="top" secondItem="KU7-Ul-Xpy" secondAttribute="bottom" constant="-30" id="5Oj-nx-G4W"/>
+                            <constraint firstItem="KU7-Ul-Xpy" firstAttribute="top" secondItem="69B-Ng-YPI" secondAttribute="bottom" constant="-10" id="7d0-KZ-gHU"/>
                             <constraint firstItem="BaC-pk-TBp" firstAttribute="top" secondItem="fqv-Fy-Y6M" secondAttribute="top" constant="10" id="A5e-K8-cxC"/>
                             <constraint firstItem="fqv-Fy-Y6M" firstAttribute="trailing" secondItem="zET-8J-Wam" secondAttribute="trailing" constant="20" id="H4O-VX-pW8"/>
-                            <constraint firstItem="fqv-Fy-Y6M" firstAttribute="trailing" secondItem="69B-Ng-YPI" secondAttribute="trailing" constant="131" id="K7C-6N-iRl"/>
-                            <constraint firstItem="KU7-Ul-Xpy" firstAttribute="trailing" secondItem="fqv-Fy-Y6M" secondAttribute="trailing" id="LIa-4v-4oc"/>
-                            <constraint firstItem="fqv-Fy-Y6M" firstAttribute="bottom" secondItem="Ng7-Ab-bPf" secondAttribute="bottom" constant="10" id="PeQ-WV-Ric"/>
-                            <constraint firstItem="KU7-Ul-Xpy" firstAttribute="height" secondItem="G2W-ZS-CsE" secondAttribute="height" multiplier="0.53" id="RAr-tH-p2E"/>
-                            <constraint firstItem="69B-Ng-YPI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9bM-gb-ppE" secondAttribute="bottom" constant="16" id="TRu-71-5Q0"/>
-                            <constraint firstItem="69B-Ng-YPI" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" constant="20" id="UZC-VH-k5v"/>
-                            <constraint firstItem="Ng7-Ab-bPf" firstAttribute="top" secondItem="KU7-Ul-Xpy" secondAttribute="bottom" id="Xfd-0Q-pwl"/>
-                            <constraint firstItem="69B-Ng-YPI" firstAttribute="top" secondItem="KU7-Ul-Xpy" secondAttribute="top" constant="-6" id="ZK4-bK-3f1"/>
-                            <constraint firstItem="69B-Ng-YPI" firstAttribute="height" secondItem="fqv-Fy-Y6M" secondAttribute="height" multiplier="0.0260799" id="a2L-1g-BxX"/>
-                            <constraint firstItem="KU7-Ul-Xpy" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" id="fW2-w8-um8"/>
+                            <constraint firstItem="KU7-Ul-Xpy" firstAttribute="trailing" secondItem="fqv-Fy-Y6M" secondAttribute="trailing" id="N31-fJ-UJj"/>
+                            <constraint firstItem="nLu-Vy-p8f" firstAttribute="top" secondItem="KU7-Ul-Xpy" secondAttribute="bottom" constant="-26" id="OHh-Zu-hSZ"/>
+                            <constraint firstItem="69B-Ng-YPI" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" constant="20" id="Oex-jk-veh"/>
+                            <constraint firstItem="KU7-Ul-Xpy" firstAttribute="height" secondItem="G2W-ZS-CsE" secondAttribute="height" multiplier="0.75" id="PTP-D6-bOV"/>
                             <constraint firstItem="zET-8J-Wam" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BaC-pk-TBp" secondAttribute="trailing" constant="10" id="gSD-V3-uff"/>
-                            <constraint firstItem="Ng7-Ab-bPf" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" constant="20" id="j9Z-8y-Plu"/>
-                            <constraint firstItem="Ng7-Ab-bPf" firstAttribute="height" secondItem="G2W-ZS-CsE" secondAttribute="height" multiplier="0.213696" id="lz1-m4-Frp"/>
-                            <constraint firstItem="fqv-Fy-Y6M" firstAttribute="trailing" secondItem="Ng7-Ab-bPf" secondAttribute="trailing" constant="20" id="o7d-La-aZJ"/>
+                            <constraint firstItem="KU7-Ul-Xpy" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" id="jiJ-5a-Yxl"/>
+                            <constraint firstItem="fqv-Fy-Y6M" firstAttribute="bottom" secondItem="KU7-Ul-Xpy" secondAttribute="bottom" constant="16" id="pG8-tP-4Vr"/>
                             <constraint firstItem="fqv-Fy-Y6M" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9bM-gb-ppE" secondAttribute="trailing" constant="10" id="qzi-be-fUn"/>
                             <constraint firstItem="BaC-pk-TBp" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" constant="20" id="vQ6-Xz-se5"/>
+                            <constraint firstItem="fqv-Fy-Y6M" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="69B-Ng-YPI" secondAttribute="trailing" constant="20" id="y1m-xT-Tmh"/>
                             <constraint firstItem="nLu-Vy-p8f" firstAttribute="centerX" secondItem="G2W-ZS-CsE" secondAttribute="centerX" id="y9P-WN-bhn"/>
                             <constraint firstItem="9bM-gb-ppE" firstAttribute="top" secondItem="BaC-pk-TBp" secondAttribute="bottom" id="yhS-X3-rEM"/>
                         </constraints>
@@ -575,7 +562,6 @@
                     <connections>
                         <outlet property="collectionView" destination="KU7-Ul-Xpy" id="2iO-CY-ijF"/>
                         <outlet property="firstName" destination="9bM-gb-ppE" id="f0b-76-J3F"/>
-                        <outlet property="label" destination="Ng7-Ab-bPf" id="Mim-FX-Wpu"/>
                         <outlet property="logOutButton" destination="zET-8J-Wam" id="MPn-lW-wIl"/>
                         <outlet property="pageControl" destination="nLu-Vy-p8f" id="aM0-93-6ZG"/>
                         <outlet property="recTutors" destination="69B-Ng-YPI" id="40A-Di-Cjt"/>
@@ -623,16 +609,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kZC-bh-MWS">
-                                <rect key="frame" x="20" y="10" width="374" height="203.66666666666666"/>
+                                <rect key="frame" x="20" y="9.9999999999999858" width="374" height="242.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your zip code?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnv-It-uf5">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWj-Tz-4pN">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="93.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="125"/>
                                         <string key="text">EDyou uses this information to match you with tutors who lived in zip codes with similar economic statistics, and to display your city and state to your students.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -641,7 +627,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ej5-wQ-K6l">
-                                <rect key="frame" x="30" y="243.66666666666669" width="354" height="50"/>
+                                <rect key="frame" x="30" y="282.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oue-O6-b34">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -652,7 +638,7 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This zip code does not exist." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvQ-TU-Ytx">
-                                <rect key="frame" x="20" y="323.66666666666669" width="374" height="23.333333333333314"/>
+                                <rect key="frame" x="20" y="362.66666666666669" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -729,16 +715,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d1U-Pl-Mwn">
-                                <rect key="frame" x="20" y="10" width="374" height="230.33333333333334"/>
+                                <rect key="frame" x="20" y="10.000000000000014" width="374" height="246.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What area of study are you interested in?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPj-lX-13U">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="150.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="161.33333333333334"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDyou uses this information to match you with tutors who share similar interests to you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1b-6H-5TX">
-                                        <rect key="frame" x="0.0" y="160.33333333333331" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="171.33333333333331" width="374" height="75"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -746,7 +732,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jm9-wL-6gh">
-                                <rect key="frame" x="30" y="270.33333333333331" width="354" height="170"/>
+                                <rect key="frame" x="30" y="286.33333333333331" width="354" height="170"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSO-Ay-5Ya" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -898,16 +884,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MKx-Nj-EF2">
-                                <rect key="frame" x="20" y="10" width="374" height="180.33333333333334"/>
+                                <rect key="frame" x="20" y="10" width="374" height="192.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your gender?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui5-2W-UWx">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDyou uses this information to match you with tutors who are the same gender as you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-Di-CUP">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="75"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -915,7 +901,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ak6-4X-Ozy">
-                                <rect key="frame" x="30" y="220.33333333333331" width="354" height="170"/>
+                                <rect key="frame" x="30" y="232.66666666666669" width="354" height="170"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-Ia-e98" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1288,16 +1274,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NxK-98-5a0">
-                                <rect key="frame" x="20" y="10" width="374" height="203.66666666666666"/>
+                                <rect key="frame" x="20" y="10" width="374" height="217.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85E-K5-jWa">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFh-Av-QwR">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="93.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="100"/>
                                         <string key="text">If you have an account, you will be asked to log in with your password. If not, you will be asked to create one with a password.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1306,7 +1292,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Php-Zt-sK2">
-                                <rect key="frame" x="30" y="243.66666666666669" width="354" height="50"/>
+                                <rect key="frame" x="30" y="257.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-F9-rB0">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1317,7 +1303,7 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-bc-Fq0">
-                                <rect key="frame" x="20" y="323.66666666666669" width="374" height="23.333333333333314"/>
+                                <rect key="frame" x="20" y="337.66666666666669" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1394,16 +1380,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GOr-8f-11E">
-                                <rect key="frame" x="20" y="10" width="374" height="133.66666666666666"/>
+                                <rect key="frame" x="20" y="10" width="374" height="142.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a password for your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0b-p2-kik">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will use your password to log in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ds-a2-j2C">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="23.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="25"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -1411,7 +1397,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EIT-4e-NUy">
-                                <rect key="frame" x="30" y="173.66666666666669" width="354" height="50"/>
+                                <rect key="frame" x="30" y="182.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CZj-5z-KIe">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1422,7 +1408,7 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydn-gM-HgS">
-                                <rect key="frame" x="20" y="253.66666666666671" width="374" height="23.333333333333343"/>
+                                <rect key="frame" x="20" y="262.66666666666669" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1498,16 +1484,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FcG-Am-NcC">
-                                <rect key="frame" x="20" y="10" width="374" height="133.66666666666666"/>
+                                <rect key="frame" x="20" y="10" width="374" height="142.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXT-vd-B4O">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will log you in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNu-9j-Xxa">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="23.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="25"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -1515,7 +1501,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rde-vj-GnP">
-                                <rect key="frame" x="30" y="173.66666666666669" width="354" height="50"/>
+                                <rect key="frame" x="30" y="182.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qWH-SA-M6L">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1526,13 +1512,13 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJm-1j-Eye">
-                                <rect key="frame" x="20" y="275.66666666666669" width="374" height="23.333333333333314"/>
+                                <rect key="frame" x="20" y="284.66666666666669" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxy-Cf-9st">
-                                <rect key="frame" x="80" y="239.66666666666669" width="254" height="30"/>
+                                <rect key="frame" x="80" y="248.66666666666669" width="254" height="30"/>
                                 <state key="normal" title="Forgot Password?"/>
                                 <connections>
                                     <action selector="forgotPasswordButton:" destination="QiD-zu-KTO" eventType="touchUpInside" id="xgd-RC-wUI"/>
@@ -1613,16 +1599,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wkn-uJ-LJZ">
-                                <rect key="frame" x="20" y="10" width="374" height="157"/>
+                                <rect key="frame" x="20" y="10" width="374" height="167.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siX-Zf-Xda">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your first name will be displayed to other users." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzY-BZ-Zzd">
-                                        <rect key="frame" x="0.0" y="110.33333333333336" width="374" height="46.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="50"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -1630,7 +1616,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OI7-dR-u26">
-                                <rect key="frame" x="30" y="197" width="354" height="110"/>
+                                <rect key="frame" x="30" y="207.66666666666669" width="354" height="110"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PEV-EJ-VvI">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1647,7 +1633,7 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhI-5D-8aD">
-                                <rect key="frame" x="20" y="337" width="374" height="23.333333333333314"/>
+                                <rect key="frame" x="20" y="347.66666666666669" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1725,16 +1711,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xvv-f1-xW5">
-                                <rect key="frame" x="20" y="10" width="374" height="157"/>
+                                <rect key="frame" x="20" y="10" width="374" height="167.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload a profile picture." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk2-fC-V0A">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be displayed to other users and is highly reccomended." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K6-fj-Uc5">
-                                        <rect key="frame" x="0.0" y="110.33333333333336" width="374" height="46.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="50"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -1742,7 +1728,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a2V-Ga-uHJ">
-                                <rect key="frame" x="30" y="197" width="354" height="50"/>
+                                <rect key="frame" x="30" y="207.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7M-cM-Ipa" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1773,7 +1759,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="And-9O-F44">
-                                <rect key="frame" x="120" y="277" width="174" height="174"/>
+                                <rect key="frame" x="120" y="287.66666666666669" width="174" height="174"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="And-9O-F44" secondAttribute="height" multiplier="1:1" id="QTJ-tv-H05"/>
                                 </constraints>
@@ -1820,16 +1806,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KL2-cd-MDG">
-                                <rect key="frame" x="20" y="10" width="374" height="280.66666666666669"/>
+                                <rect key="frame" x="20" y="10" width="374" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A password reset email has been sent to your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSn-lL-VHX">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="200.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="215"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email and the spam folder to reset your password. Follow the given link." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDv-wY-EdG">
-                                        <rect key="frame" x="0.0" y="210.66666666666669" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="225" width="374" height="75"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -1864,16 +1850,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aIl-vy-ds9">
-                                <rect key="frame" x="20" y="104.00000000000001" width="374" height="130.33333333333337"/>
+                                <rect key="frame" x="20" y="103.99999999999999" width="374" height="192.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matching you now!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn0-Wa-OSQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give us a moment while our matching algorithm pairs you with peers similar to yourself!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9C-ft-rNn">
-                                        <rect key="frame" x="0.0" y="60.333333333333343" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="75"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>

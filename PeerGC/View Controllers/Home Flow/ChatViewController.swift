@@ -296,8 +296,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
 }
 
-// MARK: - MessagesLayoutDelegate
-
 extension ChatViewController: MessagesLayoutDelegate {
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {

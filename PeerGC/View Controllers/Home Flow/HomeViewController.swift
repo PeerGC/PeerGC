@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     static var collectionViewStaticReference: UICollectionView?
     static var pageControlStaticReference: UIPageControl?
-    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var welcome: UILabel!
     @IBOutlet weak var recTutors: UILabel!
@@ -34,26 +33,15 @@ class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         pageControl.numberOfPages = HomeViewController.customData.count
-        collectionView.heightAnchor.constraint(equalToConstant:   UIScreen.main.bounds.height * 0.36).isActive = true
         recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height) // max 2.3
         firstName.font = firstName.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
         welcome.font = welcome.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
-        label.font = label.font.withSize( (1.6/71) * UIScreen.main.bounds.height) // max 2.3
         downloadCurrentUserImage()
         let currentUser = Auth.auth().currentUser!
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
         HomeViewController.collectionViewStaticReference = collectionView
         HomeViewController.pageControlStaticReference = pageControl
         
-        if HomeViewController.currentUserCustomData?.accountType == "Student" {
-            recTutors.text = "YOUR MATCHED MENTORS"
-            label.text = "Hey there! Based on the info you've given us, we've matched you with some mentors we think went through a similar process to yourself. Don't be afraid to start a conversation, our mentors are here to help!"
-        }
-        
-        else if HomeViewController.currentUserCustomData?.accountType == "Tutor" {
-            recTutors.text = "YOUR MATCHED STUDENTS"
-            label.text = "Hello PeerGC Partner Program member! Please start the conversation with your students! Refer to the PeerGC Partner Program handbook for guidance. Thank you!"
-        }
     }
     
     static func loadCardLoader(action: @escaping () -> Void) {
