@@ -42,6 +42,11 @@
 		C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797D85E24AD99580060FFDB /* ChatViewController.swift */; };
 		C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */; };
 		C7B0D1B2249B1BD700476FB1 /* firstNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7B0D1B1249B1BD700476FB1 /* firstNames.txt */; };
+		C7B8E41A24BD16F700007C60 /* HumanitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B8E41924BD16F700007C60 /* HumanitiesViewController.swift */; };
+		C7B8E41C24BD1BFF00007C60 /* SocialSciencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B8E41B24BD1BFF00007C60 /* SocialSciencesViewController.swift */; };
+		C7B8E41E24BD1DA400007C60 /* NaturalSciencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B8E41D24BD1DA400007C60 /* NaturalSciencesViewController.swift */; };
+		C7B8E42024BD1E9E00007C60 /* FormalSciencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B8E41F24BD1E9E00007C60 /* FormalSciencesViewController.swift */; };
+		C7B8E42224BD1ED200007C60 /* AppliedSciencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B8E42124BD1ED200007C60 /* AppliedSciencesViewController.swift */; };
 		C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */; };
 		C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452223EB5AD600A086D7 /* Customizables.swift */; };
 		C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452323EB5AE200A086D7 /* Utilities.swift */; };
@@ -112,6 +117,11 @@
 		C797D85E24AD99580060FFDB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		C7B0D1B1249B1BD700476FB1 /* firstNames.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = firstNames.txt; path = PeerGC/Utilities/Resources/firstNames.txt; sourceTree = "<group>"; };
+		C7B8E41924BD16F700007C60 /* HumanitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanitiesViewController.swift; sourceTree = "<group>"; };
+		C7B8E41B24BD1BFF00007C60 /* SocialSciencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSciencesViewController.swift; sourceTree = "<group>"; };
+		C7B8E41D24BD1DA400007C60 /* NaturalSciencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalSciencesViewController.swift; sourceTree = "<group>"; };
+		C7B8E41F24BD1E9E00007C60 /* FormalSciencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalSciencesViewController.swift; sourceTree = "<group>"; };
+		C7B8E42124BD1ED200007C60 /* AppliedSciencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedSciencesViewController.swift; sourceTree = "<group>"; };
 		C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		C7CC452223EB5AD600A086D7 /* Customizables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customizables.swift; sourceTree = "<group>"; };
 		C7CC452323EB5AE200A086D7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -181,6 +191,11 @@
 				C700B16423EB655500816708 /* RaceViewController.swift */,
 				C700B15B23EB652800816708 /* ZipCodeViewController.swift */,
 				C797D85C24AD08AC0060FFDB /* MatchingViewController.swift */,
+				C7B8E41924BD16F700007C60 /* HumanitiesViewController.swift */,
+				C7B8E41B24BD1BFF00007C60 /* SocialSciencesViewController.swift */,
+				C7B8E41D24BD1DA400007C60 /* NaturalSciencesViewController.swift */,
+				C7B8E41F24BD1E9E00007C60 /* FormalSciencesViewController.swift */,
+				C7B8E42124BD1ED200007C60 /* AppliedSciencesViewController.swift */,
 			);
 			path = "Additional Account Information Flow";
 			sourceTree = "<group>";
@@ -611,9 +626,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C700B15923EB651F00816708 /* SpashScreenViewController.swift in Sources */,
+				C7B8E42224BD1ED200007C60 /* AppliedSciencesViewController.swift in Sources */,
 				C700B16523EB655500816708 /* ProfilePictureViewController.swift in Sources */,
 				C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */,
 				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
+				C7B8E42024BD1E9E00007C60 /* FormalSciencesViewController.swift in Sources */,
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
 				C700B16623EB655500816708 /* InterestViewController.swift in Sources */,
 				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,
@@ -623,6 +640,7 @@
 				C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */,
 				C797D85D24AD08AC0060FFDB /* MatchingViewController.swift in Sources */,
 				C700B16123EB654D00816708 /* CreateNameViewController.swift in Sources */,
+				C7B8E41C24BD1BFF00007C60 /* SocialSciencesViewController.swift in Sources */,
 				C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */,
 				C700B15A23EB651F00816708 /* EntranceViewController.swift in Sources */,
 				C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */,
@@ -632,7 +650,9 @@
 				C700B16723EB655500816708 /* AccountTypeViewController.swift in Sources */,
 				C700B16A23EB655500816708 /* RaceViewController.swift in Sources */,
 				C700B16323EB654D00816708 /* ResetPasswordViewController.swift in Sources */,
+				C7B8E41E24BD1DA400007C60 /* NaturalSciencesViewController.swift in Sources */,
 				C700B16923EB655500816708 /* GenderViewController.swift in Sources */,
+				C7B8E41A24BD16F700007C60 /* HumanitiesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,7 +829,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2204;
+				CURRENT_PROJECT_VERSION = 2231;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -834,7 +854,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2204;
+				CURRENT_PROJECT_VERSION = 2231;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

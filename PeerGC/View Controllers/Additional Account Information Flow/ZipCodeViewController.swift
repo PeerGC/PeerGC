@@ -31,12 +31,12 @@ class ZipCodeViewController: UIViewController, UITextFieldDelegate {
         errorLabel.font = errorLabel.font.withSize( (1.7/71) * UIScreen.main.bounds.height)
         
         if AccountTypeViewController.data.accountType == "Student" {
-            subLabel.text = "EDyou uses this information to match you with tutors who lived in zip codes with similar economic statistics, and to display your city and state to your tutors."
+            subLabel.text = "PeerGC uses this information to match you with mentors who lived in zip codes with similar economic statistics, and to display your state to your mentors. Your zip code is kept private."
             mainLabel.text = "What is your zip code?"
         }
         
         else if AccountTypeViewController.data.accountType == "Tutor" {
-            subLabel.text = "Enter the zip code you had in high school. It's used to match you with students with similar economic status, and to display your city and state to your students."
+            subLabel.text = "Enter the zip code you had in high school. It's used to match you with students with similar economic status, and to display your state to your students. Your zip code is kept private."
             mainLabel.text = "What was your zip code?"
         }
         

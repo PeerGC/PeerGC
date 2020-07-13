@@ -1,15 +1,16 @@
 //
-//  InterestsSpecificationViewController.swift
-//  FBex
+//  HumanitiesViewController.swift
+//  PeerGC
 //
-//  Created by AJ Radik on 1/11/20.
+//  Created by Artemas Radik on 7/13/20.
 //  Copyright © 2020 AJ Radik. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class InterestViewController: UIViewController {
+class HumanitiesViewController: UIViewController {
+    
     
     @IBOutlet var specificationButtons: [DesignableButton]!
     
@@ -21,7 +22,7 @@ class InterestViewController: UIViewController {
         super.viewDidLoad()
         
         for button in specificationButtons {
-            button.titleLabel!.font = button.titleLabel!.font.withSize( (1.7/71) * UIScreen.main.bounds.height)
+            button.titleLabel!.font = button.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
         }
         
         mainLabel.font = mainLabel.font.withSize( (3.5/71) * UIScreen.main.bounds.height)

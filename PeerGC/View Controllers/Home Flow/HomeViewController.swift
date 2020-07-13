@@ -42,6 +42,14 @@ class HomeViewController: UIViewController {
         HomeViewController.collectionViewStaticReference = collectionView
         HomeViewController.pageControlStaticReference = pageControl
         
+        if HomeViewController.currentUserCustomData?.accountType == "Student" {
+            recTutors.text = "YOUR MATCHED MENTORS"
+        }
+        
+        else if HomeViewController.currentUserCustomData?.accountType == "Tutor" {
+            recTutors.text = "YOUR MATCHED STUDENTS"
+        }
+        
     }
     
     static func loadCardLoader(action: @escaping () -> Void) {
@@ -275,7 +283,7 @@ class CustomCell: UICollectionViewCell {
             race = data.race
             gender = data.gender
             interest = data.interest
-            
+            //Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.
             setSentenceText()
             
             if data.image == nil {
