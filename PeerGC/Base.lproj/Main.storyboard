@@ -586,7 +586,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWj-Tz-4pN">
                                         <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="125"/>
-                                        <string key="text">PeerGC uses this information to match you with tutors who lived in zip codes with similar economic statistics, and to display your city and state to your students.</string>
+                                        <string key="text">PeerGC uses this information to match you with mentors who lived in zip codes with similar economic statistics, and to display your state to your mentors. Your zip code is kept private.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -831,49 +831,20 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
             <objects>
                 <viewController id="KEA-On-5lQ" customClass="GenderViewController" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7xd-tU-CBR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3m-yx-4Qc" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                <rect key="frame" x="30" y="796" width="354" height="50"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="XVB-Pb-jRa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.29999999999999999"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchCancel" id="EMr-MB-j7b"/>
-                                    <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchDragExit" id="Om9-Nm-pH1"/>
-                                    <action selector="buttonPressed:" destination="KEA-On-5lQ" eventType="touchUpInside" id="Sx8-Ez-q7o"/>
-                                    <action selector="buttonTouchDown:" destination="KEA-On-5lQ" eventType="touchDown" id="a1T-pV-MIc"/>
-                                    <segue destination="j3K-cp-xc0" kind="show" id="oyS-G5-siK"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MKx-Nj-EF2">
-                                <rect key="frame" x="20" y="54.000000000000014" width="374" height="180.33333333333337"/>
+                                <rect key="frame" x="20" y="10" width="374" height="167.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your gender?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui5-2W-UWx">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDyou uses this information to match you with tutors who are the same gender as you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-Di-CUP">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="70"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PeerGC uses your gender to match you with peers similar to yourself." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-Di-CUP">
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="50"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -881,14 +852,14 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ak6-4X-Ozy">
-                                <rect key="frame" x="30" y="264.33333333333331" width="354" height="170"/>
+                                <rect key="frame" x="30" y="207.66666666666669" width="354" height="170"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-Ia-e98" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="Female">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -902,18 +873,19 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchDragExit" id="Tjd-eM-7Uk"/>
-                                            <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchCancel" id="V3o-sy-oWK"/>
                                             <action selector="buttonPressed:" destination="KEA-On-5lQ" eventType="touchUpInside" id="si8-5l-gfr"/>
-                                            <action selector="buttonTouchDown:" destination="KEA-On-5lQ" eventType="touchDown" id="N6r-7R-Crd"/>
+                                            <segue destination="j3K-cp-xc0" kind="show" id="rNR-K9-rgV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4r-a7-ZSd" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="60" width="354" height="50"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="qwD-qV-XFq"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="Male">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -927,10 +899,8 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchCancel" id="3C0-jb-eND"/>
-                                            <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchDragExit" id="QxW-Md-bDG"/>
                                             <action selector="buttonPressed:" destination="KEA-On-5lQ" eventType="touchUpInside" id="J2y-mf-wtI"/>
-                                            <action selector="buttonTouchDown:" destination="KEA-On-5lQ" eventType="touchDown" id="kt1-9G-Nr6"/>
+                                            <segue destination="j3K-cp-xc0" kind="show" id="Y9V-QW-jpi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dm-Ad-KdG" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -938,7 +908,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="Other">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -952,10 +922,8 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchCancel" id="SJu-3m-dpc"/>
-                                            <action selector="buttonCancel:" destination="KEA-On-5lQ" eventType="touchDragExit" id="b1k-1u-S5T"/>
                                             <action selector="buttonPressed:" destination="KEA-On-5lQ" eventType="touchUpInside" id="yNx-sS-ri2"/>
-                                            <action selector="buttonTouchDown:" destination="KEA-On-5lQ" eventType="touchDown" id="Udz-oR-tPz"/>
+                                            <segue destination="j3K-cp-xc0" kind="show" id="w58-Uk-hGy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -967,23 +935,18 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FaQ-S9-fb2" firstAttribute="trailing" secondItem="t3m-yx-4Qc" secondAttribute="trailing" constant="30" id="1UH-ya-FxG"/>
                             <constraint firstItem="MKx-Nj-EF2" firstAttribute="leading" secondItem="FaQ-S9-fb2" secondAttribute="leading" constant="20" id="2m7-gy-fdf"/>
                             <constraint firstItem="Ak6-4X-Ozy" firstAttribute="top" secondItem="MKx-Nj-EF2" secondAttribute="bottom" constant="30" id="3HQ-IX-bik"/>
-                            <constraint firstItem="t3m-yx-4Qc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ak6-4X-Ozy" secondAttribute="bottom" constant="10" id="CuJ-7Q-Z73"/>
                             <constraint firstItem="MKx-Nj-EF2" firstAttribute="top" secondItem="FaQ-S9-fb2" secondAttribute="top" constant="10" id="IDS-L2-2ca"/>
                             <constraint firstItem="Ak6-4X-Ozy" firstAttribute="leading" secondItem="FaQ-S9-fb2" secondAttribute="leading" constant="30" id="MgU-kp-wPP"/>
-                            <constraint firstItem="t3m-yx-4Qc" firstAttribute="height" secondItem="aKh-Ia-e98" secondAttribute="height" id="Wmc-8k-36u"/>
                             <constraint firstAttribute="trailing" secondItem="MKx-Nj-EF2" secondAttribute="trailing" constant="20" id="dvY-uQ-fEI"/>
                             <constraint firstItem="FaQ-S9-fb2" firstAttribute="trailing" secondItem="Ak6-4X-Ozy" secondAttribute="trailing" constant="30" id="e99-dW-fCs"/>
-                            <constraint firstItem="FaQ-S9-fb2" firstAttribute="bottom" secondItem="t3m-yx-4Qc" secondAttribute="bottom" constant="16" id="exd-RR-rTU"/>
-                            <constraint firstItem="t3m-yx-4Qc" firstAttribute="leading" secondItem="FaQ-S9-fb2" secondAttribute="leading" constant="30" id="saj-zE-Pyi"/>
+                            <constraint firstItem="FaQ-S9-fb2" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ak6-4X-Ozy" secondAttribute="bottom" constant="16" id="jEn-XO-PcB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FaQ-S9-fb2"/>
                     </view>
                     <navigationItem key="navigationItem" id="vBB-5w-uJn"/>
                     <connections>
-                        <outlet property="continueButton" destination="t3m-yx-4Qc" id="QK4-DG-TwY"/>
                         <outlet property="mainLabel" destination="ui5-2W-UWx" id="mQM-Pq-yAi"/>
                         <outlet property="subLabel" destination="eQT-Di-CUP" id="Qps-4I-lvo"/>
                         <outletCollection property="specificationButtons" destination="aKh-Ia-e98" collectionClass="NSMutableArray" id="PyE-Mf-pUq"/>
@@ -993,55 +956,27 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gT5-1T-JWu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10687" y="-427"/>
+            <point key="canvasLocation" x="9984" y="-427"/>
         </scene>
         <!--Race View Controller-->
         <scene sceneID="1Y9-WZ-rZE">
             <objects>
                 <viewController id="j3K-cp-xc0" customClass="RaceViewController" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CFp-fj-UGo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8Y-wA-6fn" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                <rect key="frame" x="30" y="742" width="354" height="50"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="cgx-f0-iUa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
-                                <state key="normal" title="Finish">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.29999999999999999"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchDragExit" id="383-wl-S1l"/>
-                                    <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchCancel" id="wAi-rU-24x"/>
-                                    <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="bjk-jM-Z7w"/>
-                                    <action selector="buttonTouchDown:" destination="j3K-cp-xc0" eventType="touchDown" id="Tod-Tt-Zhf"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CqY-a3-xFL">
-                                <rect key="frame" x="20" y="10" width="374" height="107"/>
+                                <rect key="frame" x="20" y="10" width="374" height="167.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your race?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZR-uZ-kQm">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDyou uses this information to match you with tutors who are the same race as you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMU-Py-P5L">
-                                        <rect key="frame" x="0.0" y="60.333333333333329" width="374" height="46.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PeerGC uses your race to match you with peers similar to yourself." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMU-Py-P5L">
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="50"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -1049,14 +984,17 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ga7-WH-4H4">
-                                <rect key="frame" x="30" y="147" width="354" height="290"/>
+                                <rect key="frame" x="30" y="207.66666666666669" width="354" height="350.00000000000006"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woX-SD-kph" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Vnk-br-yFJ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="Asian American">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1070,10 +1008,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchDragExit" id="dUX-Ue-1EJ"/>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchCancel" id="l4B-8j-1vG"/>
                                             <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="yoI-DQ-hVZ"/>
-                                            <action selector="buttonTouchDown:" destination="j3K-cp-xc0" eventType="touchDown" id="HyB-Gw-wj8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDx-Zd-C2Y" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -1081,7 +1016,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="African American">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1095,10 +1030,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchCancel" id="Dhr-Ke-8au"/>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchDragExit" id="FEk-CS-AAQ"/>
                                             <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="Tfg-lW-TJ5"/>
-                                            <action selector="buttonTouchDown:" destination="j3K-cp-xc0" eventType="touchDown" id="fFY-uA-xRO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaT-Ze-Q6F" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -1106,7 +1038,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="Native American">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1120,10 +1052,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchCancel" id="EGT-Oy-TM5"/>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchDragExit" id="xY0-Sf-UBq"/>
                                             <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="QDW-9u-X1P"/>
-                                            <action selector="buttonTouchDown:" destination="j3K-cp-xc0" eventType="touchDown" id="Lug-l1-2HW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8O-b8-nxA" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -1131,7 +1060,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="Pacific Islander">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1145,18 +1074,15 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchDragExit" id="2tq-E5-RvC"/>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchCancel" id="Xda-Tx-5Rw"/>
                                             <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="Sg5-Ps-8Ge"/>
-                                            <action selector="buttonTouchDown:" destination="j3K-cp-xc0" eventType="touchDown" id="dve-Sl-dWc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRy-Uu-13w" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="240" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="239.99999999999994" width="354" height="50"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
                                         <state key="normal" title="White American">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1170,10 +1096,29 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchDragExit" id="SAJ-4S-jhI"/>
-                                            <action selector="buttonCancel:" destination="j3K-cp-xc0" eventType="touchCancel" id="SuV-xV-Wop"/>
                                             <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="XNJ-S4-6UF"/>
-                                            <action selector="buttonTouchDown:" destination="j3K-cp-xc0" eventType="touchDown" id="2Yq-WN-sJp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezg-yL-li9" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="299.99999999999994" width="354" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
+                                        <state key="normal" title="Other">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.29999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="j3K-cp-xc0" eventType="touchUpInside" id="bmK-zH-dJK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1188,21 +1133,15 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                         <constraints>
                             <constraint firstItem="ga7-WH-4H4" firstAttribute="top" secondItem="CqY-a3-xFL" secondAttribute="bottom" constant="30" id="3IS-2T-d7s"/>
                             <constraint firstItem="ga7-WH-4H4" firstAttribute="leading" secondItem="ss5-rE-JJs" secondAttribute="leading" constant="30" id="7UZ-Jw-A8M"/>
-                            <constraint firstItem="C8Y-wA-6fn" firstAttribute="leading" secondItem="ss5-rE-JJs" secondAttribute="leading" constant="30" id="9ZV-Uf-mo5"/>
-                            <constraint firstItem="ss5-rE-JJs" firstAttribute="trailing" secondItem="C8Y-wA-6fn" secondAttribute="trailing" constant="30" id="CE6-Bb-WVr"/>
                             <constraint firstAttribute="trailing" secondItem="CqY-a3-xFL" secondAttribute="trailing" constant="20" id="Dp1-JC-r7B"/>
                             <constraint firstItem="CqY-a3-xFL" firstAttribute="leading" secondItem="ss5-rE-JJs" secondAttribute="leading" constant="20" id="JtC-8f-aqr"/>
                             <constraint firstItem="ss5-rE-JJs" firstAttribute="trailing" secondItem="ga7-WH-4H4" secondAttribute="trailing" constant="30" id="K5V-bd-GMj"/>
-                            <constraint firstItem="C8Y-wA-6fn" firstAttribute="height" secondItem="woX-SD-kph" secondAttribute="height" id="hsv-jf-dMj"/>
                             <constraint firstItem="CqY-a3-xFL" firstAttribute="top" secondItem="ss5-rE-JJs" secondAttribute="top" constant="10" id="l0d-pD-Hpu"/>
-                            <constraint firstItem="ss5-rE-JJs" firstAttribute="bottom" secondItem="C8Y-wA-6fn" secondAttribute="bottom" constant="16" id="sHx-cy-EdR"/>
-                            <constraint firstItem="C8Y-wA-6fn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ga7-WH-4H4" secondAttribute="bottom" constant="10" id="yjm-rw-1Ks"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ss5-rE-JJs"/>
                     </view>
                     <navigationItem key="navigationItem" id="OCO-1u-Vn5"/>
                     <connections>
-                        <outlet property="continueButton" destination="C8Y-wA-6fn" id="a01-Sn-J6d"/>
                         <outlet property="mainLabel" destination="JZR-uZ-kQm" id="Q1z-Um-gbb"/>
                         <outlet property="subLabel" destination="vMU-Py-P5L" id="zgo-7b-wyN"/>
                         <outletCollection property="specificationButtons" destination="woX-SD-kph" collectionClass="NSMutableArray" id="c1K-6c-OTQ"/>
@@ -1210,11 +1149,12 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                         <outletCollection property="specificationButtons" destination="jaT-Ze-Q6F" collectionClass="NSMutableArray" id="qjX-9q-7XU"/>
                         <outletCollection property="specificationButtons" destination="C8O-b8-nxA" collectionClass="NSMutableArray" id="80C-ja-Mxf"/>
                         <outletCollection property="specificationButtons" destination="ZRy-Uu-13w" collectionClass="NSMutableArray" id="X3D-sO-wXo"/>
+                        <outletCollection property="specificationButtons" destination="Ezg-yL-li9" collectionClass="NSMutableArray" id="shz-uA-m3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMq-hJ-a62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11683" y="-429"/>
+            <point key="canvasLocation" x="10980" y="-429"/>
         </scene>
         <!--Email View Controller-->
         <scene sceneID="z9O-TW-b9E">
@@ -1944,6 +1884,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="6gh-1m-rj0"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="cho-o8-jus"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-cT-rrg" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -1966,6 +1907,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="lj0-3T-e7o"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="3ld-4X-ORY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9JR-z5-Q2r" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -1988,6 +1930,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="Sx7-EF-uCI"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="C9z-YH-YWk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31G-Iv-GeQ" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2010,6 +1953,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="TXz-gC-6Vy"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="NGz-xz-oPy"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2045,6 +1989,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="oPv-Tc-2w8"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="g7p-RL-gc2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVq-W6-Snq" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2067,6 +2012,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="z4d-Iz-BZS"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="Q28-Wm-cvy"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkY-Z6-x55" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2089,6 +2035,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="Xvk-vH-6bX"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="WaC-pQ-ydn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKg-zk-iFr" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2111,6 +2058,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="MmY-Pj-pCV" eventType="touchUpInside" id="95x-Hn-24t"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="4Gh-Nt-bm6"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2207,6 +2155,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="pvs-ac-dnV"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="rtW-h0-5Ih"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWL-uZ-8cS" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2229,6 +2178,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="GT3-o9-yoa"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="wX8-T9-Pw3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-w2-Iab" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2251,6 +2201,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="sZP-HQ-E1U"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="vEK-2f-JPL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18k-Dk-6Eb" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2273,6 +2224,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="jyK-RW-8fH"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="FOG-c7-RMe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2308,6 +2260,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="Qj9-lt-9ga"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="Jfc-z0-YnN"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zp6-oM-ihL" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2330,6 +2283,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="w9O-cU-Jrc"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="b4t-ze-gSU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5f-9M-fIW" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2352,6 +2306,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="Dxt-Mi-ngG"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="Sal-Oq-df4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNL-IU-zGd" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2374,6 +2329,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="nfN-MM-eEU" eventType="touchUpInside" id="xgM-Kg-emz"/>
+                                                    <segue destination="KEA-On-5lQ" kind="show" id="ggR-j0-olc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2467,6 +2423,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="UgR-iB-5h9" eventType="touchUpInside" id="eWW-lk-xEb"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="gfB-g1-5Yo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIb-JL-hDQ" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2489,6 +2446,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="UgR-iB-5h9" eventType="touchUpInside" id="HVb-f5-5qw"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="a4K-rc-NUg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm1-kF-HGX" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2511,6 +2469,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="UgR-iB-5h9" eventType="touchUpInside" id="b7m-oM-eJS"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="O0m-rx-Uia"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq8-Tq-k1b" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2533,6 +2492,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="UgR-iB-5h9" eventType="touchUpInside" id="cZY-OG-Ac4"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="ogM-es-YEy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wl3-4o-N4f" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2555,6 +2515,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="UgR-iB-5h9" eventType="touchUpInside" id="gpV-6V-Vja"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="jT9-dF-hC4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2644,6 +2605,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="bxN-SG-AMm" eventType="touchUpInside" id="HXG-cu-s1A"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="dio-oH-xgu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gut-q3-lY1" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2666,6 +2628,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="bxN-SG-AMm" eventType="touchUpInside" id="AFJ-ze-wet"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="45z-do-XbB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1Z-mC-8Rx" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2688,6 +2651,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="bxN-SG-AMm" eventType="touchUpInside" id="PlZ-Np-FRN"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="ZN3-zF-olI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2773,6 +2737,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="pEf-AX-PGm" eventType="touchUpInside" id="iYU-nA-NOV"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="G6l-yV-jEj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-vD-DIr" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2795,6 +2760,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="pEf-AX-PGm" eventType="touchUpInside" id="MqV-0R-yxQ"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="mqp-ES-XFF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhc-at-fLV" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2817,6 +2783,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="pEf-AX-PGm" eventType="touchUpInside" id="uYq-ne-0Rq"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="bC8-Zq-RIB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXJ-3D-8m2" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -2839,6 +2806,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="pEf-AX-PGm" eventType="touchUpInside" id="8oi-9d-R43"/>
+                                            <segue destination="KEA-On-5lQ" kind="show" id="iFV-hE-TPm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2879,6 +2847,8 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
     <inferredMetricsTieBreakers>
         <segue reference="MbN-KG-Z4f"/>
         <segue reference="elI-a6-uIu"/>
+        <segue reference="rNR-K9-rgV"/>
+        <segue reference="gfB-g1-5Yo"/>
         <segue reference="5V8-Mw-bDL"/>
     </inferredMetricsTieBreakers>
     <resources>
