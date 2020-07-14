@@ -25,7 +25,7 @@ class RaceViewController: UIViewController {
         
         //
         for button in specificationButtons {
-            button.titleLabel!.font = button.titleLabel!.font.withSize( (1.7/71) * UIScreen.main.bounds.height)
+            button.titleLabel!.font = button.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
         }
         
         mainLabel.font = mainLabel.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
