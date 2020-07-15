@@ -55,6 +55,7 @@
 		C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452323EB5AE200A086D7 /* Utilities.swift */; };
 		C7EFB7E124BD3FD700633070 /* SchoolNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EFB7E024BD3FD700633070 /* SchoolNameViewController.swift */; };
 		C7EFB7E324BD43B000633070 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EFB7E224BD43B000633070 /* ExamViewController.swift */; };
+		C7EFB7E524BF7EAA00633070 /* ExamScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EFB7E424BF7EAA00633070 /* ExamScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		C7CC452323EB5AE200A086D7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C7EFB7E024BD3FD700633070 /* SchoolNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolNameViewController.swift; sourceTree = "<group>"; };
 		C7EFB7E224BD43B000633070 /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
+		C7EFB7E424BF7EAA00633070 /* ExamScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamScoreViewController.swift; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -211,6 +213,7 @@
 				C7B8E42724BD363E00007C60 /* SchoolYearViewController.swift */,
 				C7EFB7E024BD3FD700633070 /* SchoolNameViewController.swift */,
 				C7EFB7E224BD43B000633070 /* ExamViewController.swift */,
+				C7EFB7E424BF7EAA00633070 /* ExamScoreViewController.swift */,
 			);
 			path = "Additional Account Information Flow";
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
 				C7B8E42024BD1E9E00007C60 /* FormalSciencesViewController.swift in Sources */,
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
+				C7EFB7E524BF7EAA00633070 /* ExamScoreViewController.swift in Sources */,
 				C700B16623EB655500816708 /* InterestViewController.swift in Sources */,
 				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,
 				C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */,

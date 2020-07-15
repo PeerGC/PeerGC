@@ -1767,7 +1767,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66Y-w7-rx1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16797" y="-427"/>
+            <point key="canvasLocation" x="17610" y="-429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="buT-tE-hh5">
@@ -3384,7 +3384,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -3479,6 +3479,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="D2W-li-udG" eventType="touchUpInside" id="lXA-0c-MnQ"/>
+                                            <segue destination="608-7I-EZS" kind="show" id="d9J-Wx-CO1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmT-0R-3we" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -3501,13 +3502,14 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="D2W-li-udG" eventType="touchUpInside" id="kyN-s1-WMw"/>
+                                            <segue destination="608-7I-EZS" kind="show" id="at0-Gl-vlb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd8-St-JtF" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120" width="354" height="50"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
-                                        <state key="normal" title="pSAT">
+                                        <state key="normal" title="PSAT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -3523,13 +3525,14 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="D2W-li-udG" eventType="touchUpInside" id="FYO-ub-osJ"/>
+                                            <segue destination="608-7I-EZS" kind="show" id="T5E-UP-tV7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOy-Nv-cbA" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="180.00000000000006" width="354" height="50"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
-                                        <state key="normal" title="pACT">
+                                        <state key="normal" title="PACT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -3545,6 +3548,7 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonPressed:" destination="D2W-li-udG" eventType="touchUpInside" id="LGO-fE-L1U"/>
+                                            <segue destination="608-7I-EZS" kind="show" id="HUV-sM-gCJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grN-P6-d3G" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
@@ -3601,10 +3605,146 @@ Firstname is African American, male, identifies as LGBTQ, majors in Computer Sci
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rB-V9-lEm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15287" y="-427"/>
+            <point key="canvasLocation" x="15354" y="-427"/>
+        </scene>
+        <!--Exam Score View Controller-->
+        <scene sceneID="Oax-Vu-bNO">
+            <objects>
+                <viewController id="608-7I-EZS" customClass="ExamScoreViewController" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B29-WF-cGU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bn1-Ox-NaP" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                <rect key="frame" x="30" y="708" width="354" height="50"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6Tn-WH-Kdc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonCancel:" destination="608-7I-EZS" eventType="touchCancel" id="6ey-Wu-rJR"/>
+                                    <action selector="buttonCancel:" destination="608-7I-EZS" eventType="touchDragExit" id="NEz-7K-6bF"/>
+                                    <action selector="buttonPressed:" destination="608-7I-EZS" eventType="touchUpInside" id="Sug-lk-tDF"/>
+                                    <action selector="buttonTouchDown:" destination="608-7I-EZS" eventType="touchDown" id="DwH-uv-8My"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ew7-rX-VeC">
+                                <rect key="frame" x="20" y="10.000000000000014" width="374" height="246.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you score on your exam?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRg-XW-aSV">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="161.33333333333334"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
+                                        <nil key="textColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PeerGC uses this to match you with peers similar to yourself. Use the scale from when you took your exam." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDY-2K-igr">
+                                        <rect key="frame" x="0.0" y="171.33333333333331" width="374" height="75"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bNM-Xp-wIF">
+                                <rect key="frame" x="30" y="286.33333333333331" width="354" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q9f-37-tIv">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter something into the text field." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNQ-Kg-NSq">
+                                <rect key="frame" x="20" y="366.33333333333331" width="374" height="50"/>
+                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moa-1i-MUf" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                <rect key="frame" x="30" y="632" width="354" height="50"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1CT-Mu-sza"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="26"/>
+                                <state key="normal" title="Continue &amp; Add Another Exam">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonCancel:" destination="608-7I-EZS" eventType="touchDragExit" id="9Fm-I2-4Hj"/>
+                                    <action selector="buttonCancel:" destination="608-7I-EZS" eventType="touchCancel" id="DUW-tW-5Uq"/>
+                                    <action selector="buttonPressed:" destination="608-7I-EZS" eventType="touchUpInside" id="Mrr-sD-jMP"/>
+                                    <action selector="buttonTouchDown:" destination="608-7I-EZS" eventType="touchDown" id="Zqd-hx-5rS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="moa-1i-MUf" firstAttribute="leading" secondItem="xUG-VH-vlk" secondAttribute="leading" constant="30" id="6lv-Sr-sOY"/>
+                            <constraint firstItem="xUG-VH-vlk" firstAttribute="bottom" secondItem="Bn1-Ox-NaP" secondAttribute="bottom" constant="16" id="8BT-th-2i9"/>
+                            <constraint firstItem="Bn1-Ox-NaP" firstAttribute="top" secondItem="moa-1i-MUf" secondAttribute="bottom" constant="26" id="8xj-gY-M9a"/>
+                            <constraint firstItem="ew7-rX-VeC" firstAttribute="leading" secondItem="xUG-VH-vlk" secondAttribute="leading" constant="20" id="IqE-Nh-g01"/>
+                            <constraint firstItem="ew7-rX-VeC" firstAttribute="top" secondItem="xUG-VH-vlk" secondAttribute="top" constant="10" id="Q3b-Sf-i1N"/>
+                            <constraint firstItem="hNQ-Kg-NSq" firstAttribute="top" secondItem="bNM-Xp-wIF" secondAttribute="bottom" constant="30" id="ROK-MY-7n0"/>
+                            <constraint firstItem="moa-1i-MUf" firstAttribute="height" secondItem="Bn1-Ox-NaP" secondAttribute="height" id="VSM-7K-nob"/>
+                            <constraint firstItem="bNM-Xp-wIF" firstAttribute="leading" secondItem="xUG-VH-vlk" secondAttribute="leading" constant="30" id="Wnq-uM-eUT"/>
+                            <constraint firstItem="xUG-VH-vlk" firstAttribute="trailing" secondItem="Bn1-Ox-NaP" secondAttribute="trailing" constant="30" id="ayy-8b-hXj"/>
+                            <constraint firstAttribute="trailing" secondItem="ew7-rX-VeC" secondAttribute="trailing" constant="20" id="bvr-Ky-0QQ"/>
+                            <constraint firstItem="hNQ-Kg-NSq" firstAttribute="leading" secondItem="xUG-VH-vlk" secondAttribute="leading" constant="20" id="h3X-CZ-igE"/>
+                            <constraint firstItem="Bn1-Ox-NaP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bNM-Xp-wIF" secondAttribute="bottom" constant="10" id="iNg-GD-fdC"/>
+                            <constraint firstItem="Bn1-Ox-NaP" firstAttribute="height" secondItem="q9f-37-tIv" secondAttribute="height" id="ju2-Zd-1q1"/>
+                            <constraint firstItem="xUG-VH-vlk" firstAttribute="trailing" secondItem="bNM-Xp-wIF" secondAttribute="trailing" constant="30" id="oYK-SO-zdg"/>
+                            <constraint firstItem="bNM-Xp-wIF" firstAttribute="top" secondItem="ew7-rX-VeC" secondAttribute="bottom" constant="30" id="rug-Uw-iDT"/>
+                            <constraint firstItem="xUG-VH-vlk" firstAttribute="trailing" secondItem="hNQ-Kg-NSq" secondAttribute="trailing" constant="20" id="sda-dJ-2IV"/>
+                            <constraint firstItem="Bn1-Ox-NaP" firstAttribute="leading" secondItem="xUG-VH-vlk" secondAttribute="leading" constant="30" id="uxy-rI-qKh"/>
+                            <constraint firstItem="xUG-VH-vlk" firstAttribute="trailing" secondItem="moa-1i-MUf" secondAttribute="trailing" constant="30" id="xeU-2E-qda"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xUG-VH-vlk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wf7-WD-31l"/>
+                    <connections>
+                        <outlet property="continueButton" destination="Bn1-Ox-NaP" id="sWH-HQ-sna"/>
+                        <outlet property="errorLabel" destination="hNQ-Kg-NSq" id="Ahv-zz-Las"/>
+                        <outlet property="examScore" destination="q9f-37-tIv" id="Rdn-4d-4UZ"/>
+                        <outlet property="mainLabel" destination="sRg-XW-aSV" id="QuI-3U-ymh"/>
+                        <outlet property="subLabel" destination="ZDY-2K-igr" id="XrJ-Qc-hRM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJM-K5-LAT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16348" y="-429"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="d9J-Wx-CO1"/>
         <segue reference="7Xh-HM-Yef"/>
         <segue reference="sJG-Nk-FGr"/>
         <segue reference="WXW-lj-Xdj"/>
