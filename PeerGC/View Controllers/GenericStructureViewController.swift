@@ -10,47 +10,43 @@ import Foundation
 import UIKit
 import Firebase
 
-//MARK: GenericStructureViewController
-class ConcreteGenericStructureViewController: UIViewController {
+class GenericStructureViewController: UIViewController {
     
-    static var dbData: [String: String] = [:]
+    static var sendToDatabaseData: [String: String] = [:]
     
-    var headerDelegate: HeaderDelegate?
+    var genericStructureViewControllerMetadataDelegate: GenericStructureViewControllerMetadataDelegate?
     var buttonsDelegate: ButtonsDelegate?
-    var nextViewControllerDelegate: NextViewControllerDelegate?
-    var databaseDelegate: DatabaseDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if genericStructureViewControllerMetadataDelegate == nil {
+            return
+        }
+        
         layout()
     }
     
     //MARK: Layout
-    
     func layout() {
+            
+        let headerStack = initializeCustomStack(spacing: 10, distribution: .fill)
+        headerStack.addArrangedSubview(initializeCustomLabel(title: genericStructureViewControllerMetadataDelegate!.title(), size: Double(TITLE_TEXT_SIZE), color: .label))
         
-        var headerStack: UIStackView? = nil
-        
-        if headerDelegate != nil {
-            
-            headerStack = initializeCustomStack(spacing: 10, distribution: .fill)
-            headerStack!.addArrangedSubview(initializeCustomLabel(title: headerDelegate!.title(), size: Double(TITLE_TEXT_SIZE), color: .label))
-            
-            if headerDelegate!.subtitle() != nil {
-                headerStack!.addArrangedSubview(initializeCustomLabel(title: headerDelegate!.subtitle()!, size: Double(SUBTITLE_TEXT_SIZE), color: .gray))
-            }
-            
-            let headerStackConstraints: [NSLayoutConstraint] = [
-                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: headerStack!.trailingAnchor, constant: 20),
-                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: headerStack!.leadingAnchor, constant: -20),
-                view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: headerStack!.topAnchor, constant: -10)
-            ]
-            
-            headerStack!.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(headerStack!)
-            NSLayoutConstraint.activate(headerStackConstraints)
-            
+        if genericStructureViewControllerMetadataDelegate!.subtitle() != nil {
+            headerStack.addArrangedSubview(initializeCustomLabel(title: genericStructureViewControllerMetadataDelegate!.subtitle()!, size: Double(SUBTITLE_TEXT_SIZE), color: .gray))
         }
+        
+        let headerStackConstraints: [NSLayoutConstraint] = [
+            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor, constant: 20),
+            view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor, constant: -20),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: headerStack.topAnchor, constant: -10)
+        ]
+        
+        headerStack.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(headerStack)
+        NSLayoutConstraint.activate(headerStackConstraints)
+            
         
         if buttonsDelegate != nil {
             
@@ -62,17 +58,7 @@ class ConcreteGenericStructureViewController: UIViewController {
             
             var buttonStackConstraints: [NSLayoutConstraint] = []
             
-            if headerStack != nil {
-                buttonStackConstraints = [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)]
-            }
-            
-            else {
-                buttonStackConstraints = [
-                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20),
-                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20),
-                view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: buttonStack.topAnchor, constant: -30)
-                ]
-            }
+            buttonStackConstraints = [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)]
             
             buttonStack.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(buttonStack)
@@ -120,26 +106,33 @@ class ConcreteGenericStructureViewController: UIViewController {
     
     //MARK: Handlers
     @objc func selectionButtonHandler(sender: UIButton) {
-        ConcreteGenericStructureViewController.dbData[databaseDelegate!.databaseIdentifier()] = sender.titleLabel!.text!
+        GenericStructureViewController.sendToDatabaseData[genericStructureViewControllerMetadataDelegate!.databaseIdentifier()] = sender.titleLabel!.text!
+        
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        
+        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
+            guard let nextViewController = genericStructureViewControllerMetadataDelegate?.nextViewController() else { return }
+            navigationController.pushViewController(nextViewController, animated: true)
+        }
     }
     
 }
 
 //MARK: Delegate Protocols
-
-protocol DatabaseDelegate {
+protocol GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String
-}
-
-protocol HeaderDelegate {
+    
     func title() -> String
     func subtitle() -> String?
+    
+    func nextViewController() -> UIViewController
 }
 
 protocol ButtonsDelegate {
     func buttons() -> [String]
-}
-
-protocol NextViewControllerDelegate {
-    func nextViewController() -> UIViewController
 }

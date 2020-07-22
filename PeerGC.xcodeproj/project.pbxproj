@@ -16,13 +16,6 @@
 		C700B14823EB647100816708 /* zipCodes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B14323EB647100816708 /* zipCodes.txt */; };
 		C700B15523EB650500816708 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15023EB64D800816708 /* HomeViewController.swift */; };
 		C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15423EB650500816708 /* AccountInfoViewController.swift */; };
-		C700B15923EB651F00816708 /* SpashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15223EB64EF00816708 /* SpashScreenViewController.swift */; };
-		C700B15A23EB651F00816708 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15823EB651F00816708 /* EntranceViewController.swift */; };
-		C700B15F23EB654D00816708 /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B14E23EB64C100816708 /* EnterPasswordViewController.swift */; };
-		C700B16023EB654D00816708 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15123EB64E500816708 /* EmailViewController.swift */; };
-		C700B16123EB654D00816708 /* CreateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15723EB650F00816708 /* CreateNameViewController.swift */; };
-		C700B16223EB654D00816708 /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15C23EB653400816708 /* CreatePasswordViewController.swift */; };
-		C700B16323EB654D00816708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */; };
 		C700B16523EB655500816708 /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B14D23EB64B500816708 /* ProfilePictureViewController.swift */; };
 		C700B16623EB655500816708 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B14F23EB64CD00816708 /* InterestViewController.swift */; };
 		C700B16723EB655500816708 /* AccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15323EB64F600816708 /* AccountTypeViewController.swift */; };
@@ -30,8 +23,15 @@
 		C700B16923EB655500816708 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15D23EB654000816708 /* GenderViewController.swift */; };
 		C700B16A23EB655500816708 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B16423EB655500816708 /* RaceViewController.swift */; };
 		C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */; };
-		C71F13C524C8CC8900CBED1A /* GenericTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F13C424C8CC8900CBED1A /* GenericTypeViewController.swift */; };
+		C71F13C524C8CC8900CBED1A /* GenericStructureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F13C424C8CC8900CBED1A /* GenericStructureViewController.swift */; };
 		C71F13C724C8EAD800CBED1A /* GenericExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F13C624C8EAD800CBED1A /* GenericExampleVC.swift */; };
+		C72ED27024C909EE00419E74 /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED26B24C909ED00419E74 /* CreatePasswordViewController.swift */; };
+		C72ED27124C909EE00419E74 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED26C24C909ED00419E74 /* ResetPasswordViewController.swift */; };
+		C72ED27224C909EE00419E74 /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED26D24C909ED00419E74 /* EnterPasswordViewController.swift */; };
+		C72ED27324C909EE00419E74 /* CreateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED26E24C909ED00419E74 /* CreateNameViewController.swift */; };
+		C72ED27424C909EE00419E74 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED26F24C909ED00419E74 /* EmailViewController.swift */; };
+		C72ED27824C90A1600419E74 /* SpashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */; };
+		C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27724C90A1600419E74 /* EntranceViewController.swift */; };
 		C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */; };
 		C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3CFD23EB570700C7B5E5 /* Main.storyboard */; };
 		C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */; };
@@ -90,23 +90,23 @@
 		C700B14223EB646800816708 /* zipCodesToLocation.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodesToLocation.csv; sourceTree = "<group>"; };
 		C700B14323EB647100816708 /* zipCodes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodes.txt; sourceTree = "<group>"; };
 		C700B14D23EB64B500816708 /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
-		C700B14E23EB64C100816708 /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
 		C700B14F23EB64CD00816708 /* InterestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
 		C700B15023EB64D800816708 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C700B15123EB64E500816708 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
-		C700B15223EB64EF00816708 /* SpashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpashScreenViewController.swift; sourceTree = "<group>"; };
 		C700B15323EB64F600816708 /* AccountTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeViewController.swift; sourceTree = "<group>"; };
 		C700B15423EB650500816708 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
-		C700B15723EB650F00816708 /* CreateNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNameViewController.swift; sourceTree = "<group>"; };
-		C700B15823EB651F00816708 /* EntranceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
 		C700B15B23EB652800816708 /* ZipCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeViewController.swift; sourceTree = "<group>"; };
-		C700B15C23EB653400816708 /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
 		C700B15D23EB654000816708 /* GenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
-		C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		C700B16423EB655500816708 /* RaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
 		C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
-		C71F13C424C8CC8900CBED1A /* GenericTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericTypeViewController.swift; path = "PeerGC/View Controllers/GenericTypeViewController.swift"; sourceTree = SOURCE_ROOT; };
+		C71F13C424C8CC8900CBED1A /* GenericStructureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericStructureViewController.swift; path = "PeerGC/View Controllers/GenericStructureViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C71F13C624C8EAD800CBED1A /* GenericExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericExampleVC.swift; sourceTree = "<group>"; };
+		C72ED26B24C909ED00419E74 /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
+		C72ED26C24C909ED00419E74 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		C72ED26D24C909ED00419E74 /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
+		C72ED26E24C909ED00419E74 /* CreateNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNameViewController.swift; sourceTree = "<group>"; };
+		C72ED26F24C909ED00419E74 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpashScreenViewController.swift; sourceTree = "<group>"; };
+		C72ED27724C90A1600419E74 /* EntranceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
 		C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C75F3CF423EB570700C7B5E5 /* PeerGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75F3CFE23EB570700C7B5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,10 +189,10 @@
 		C700B13E23EB644400816708 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C71F13C424C8CC8900CBED1A /* GenericTypeViewController.swift */,
-				C700B14C23EB649700816708 /* Splash Flow */,
+				C72ED27524C909FF00419E74 /* Splash Flow */,
+				C72ED26024C9098200419E74 /* Email Flow */,
+				C71F13C424C8CC8900CBED1A /* GenericStructureViewController.swift */,
 				C700B14B23EB649100816708 /* Home Flow */,
-				C700B14A23EB648300816708 /* Continue With Email Flow */,
 				C700B14923EB647900816708 /* Additional Account Information Flow */,
 			);
 			path = "View Controllers";
@@ -224,19 +224,6 @@
 			path = "Additional Account Information Flow";
 			sourceTree = "<group>";
 		};
-		C700B14A23EB648300816708 /* Continue With Email Flow */ = {
-			isa = PBXGroup;
-			children = (
-				C700B15723EB650F00816708 /* CreateNameViewController.swift */,
-				C700B15C23EB653400816708 /* CreatePasswordViewController.swift */,
-				C700B15123EB64E500816708 /* EmailViewController.swift */,
-				C700B14E23EB64C100816708 /* EnterPasswordViewController.swift */,
-				C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */,
-			);
-			name = "Continue With Email Flow";
-			path = "New Group1";
-			sourceTree = "<group>";
-		};
 		C700B14B23EB649100816708 /* Home Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,16 +234,6 @@
 			path = "Home Flow";
 			sourceTree = "<group>";
 		};
-		C700B14C23EB649700816708 /* Splash Flow */ = {
-			isa = PBXGroup;
-			children = (
-				C700B15823EB651F00816708 /* EntranceViewController.swift */,
-				C700B15223EB64EF00816708 /* SpashScreenViewController.swift */,
-			);
-			name = "Splash Flow";
-			path = "New Group2";
-			sourceTree = "<group>";
-		};
 		C700B16D23EB696000816708 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +241,27 @@
 				C75F3CFD23EB570700C7B5E5 /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C72ED26024C9098200419E74 /* Email Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C72ED26E24C909ED00419E74 /* CreateNameViewController.swift */,
+				C72ED26B24C909ED00419E74 /* CreatePasswordViewController.swift */,
+				C72ED26F24C909ED00419E74 /* EmailViewController.swift */,
+				C72ED26D24C909ED00419E74 /* EnterPasswordViewController.swift */,
+				C72ED26C24C909ED00419E74 /* ResetPasswordViewController.swift */,
+			);
+			path = "Email Flow";
+			sourceTree = "<group>";
+		};
+		C72ED27524C909FF00419E74 /* Splash Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C72ED27724C90A1600419E74 /* EntranceViewController.swift */,
+				C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */,
+			);
+			path = "Splash Flow";
 			sourceTree = "<group>";
 		};
 		C75F3CEB23EB570700C7B5E5 = {
@@ -649,13 +647,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C700B15923EB651F00816708 /* SpashScreenViewController.swift in Sources */,
 				C7EFB7E124BD3FD700633070 /* SchoolNameViewController.swift in Sources */,
-				C71F13C524C8CC8900CBED1A /* GenericTypeViewController.swift in Sources */,
+				C71F13C524C8CC8900CBED1A /* GenericStructureViewController.swift in Sources */,
+				C72ED27324C909EE00419E74 /* CreateNameViewController.swift in Sources */,
 				C7B8E42224BD1ED200007C60 /* AppliedSciencesViewController.swift in Sources */,
 				C700B16523EB655500816708 /* ProfilePictureViewController.swift in Sources */,
+				C72ED27224C909EE00419E74 /* EnterPasswordViewController.swift in Sources */,
+				C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */,
 				C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */,
 				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
+				C72ED27124C909EE00419E74 /* ResetPasswordViewController.swift in Sources */,
 				C7B8E42024BD1E9E00007C60 /* FormalSciencesViewController.swift in Sources */,
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
 				C7EFB7E524BF7EAA00633070 /* ExamScoreViewController.swift in Sources */,
@@ -664,27 +665,24 @@
 				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,
 				C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */,
 				C7EFB7E324BD43B000633070 /* ExamViewController.swift in Sources */,
-				C700B16223EB654D00816708 /* CreatePasswordViewController.swift in Sources */,
 				C7B8E42824BD363E00007C60 /* SchoolYearViewController.swift in Sources */,
 				C700B16823EB655500816708 /* ZipCodeViewController.swift in Sources */,
 				C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */,
 				C7B8E42424BD330400007C60 /* LGBTQViewController.swift in Sources */,
+				C72ED27424C909EE00419E74 /* EmailViewController.swift in Sources */,
 				C797D85D24AD08AC0060FFDB /* MatchingViewController.swift in Sources */,
-				C700B16123EB654D00816708 /* CreateNameViewController.swift in Sources */,
+				C72ED27024C909EE00419E74 /* CreatePasswordViewController.swift in Sources */,
 				C7B8E41C24BD1BFF00007C60 /* SocialSciencesViewController.swift in Sources */,
 				C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */,
-				C700B15A23EB651F00816708 /* EntranceViewController.swift in Sources */,
 				C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */,
-				C700B15F23EB654D00816708 /* EnterPasswordViewController.swift in Sources */,
-				C700B16023EB654D00816708 /* EmailViewController.swift in Sources */,
 				C700B15523EB650500816708 /* HomeViewController.swift in Sources */,
 				C700B16723EB655500816708 /* AccountTypeViewController.swift in Sources */,
 				C700B16A23EB655500816708 /* RaceViewController.swift in Sources */,
-				C700B16323EB654D00816708 /* ResetPasswordViewController.swift in Sources */,
 				C7B8E41E24BD1DA400007C60 /* NaturalSciencesViewController.swift in Sources */,
 				C7B8E42624BD34FA00007C60 /* SportsViewController.swift in Sources */,
 				C700B16923EB655500816708 /* GenderViewController.swift in Sources */,
 				C7B8E41A24BD16F700007C60 /* HumanitiesViewController.swift in Sources */,
+				C72ED27824C90A1600419E74 /* SpashScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
