@@ -14,6 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func setInitialViewContoller(_ window:UIWindow) {
+        
+        showController(controller: GenericExampleVC(), window: window)
+        return
+        
         print("SET LOGIN")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -31,12 +35,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             HomeViewController.loadCardLoader(action: {window.rootViewController = storyboard.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
                         }
                         else {
-                            self.showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
+                            window.rootViewController = storyboard.instantiateViewController(identifier: "InitialNavController") as? UINavigationController
                         }
                     })
                 } else {
                     print("Document does not exist")
-                    self.showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
+                    window.rootViewController = storyboard.instantiateViewController(identifier: "InitialNavController") as? UINavigationController
                 }
             }
             

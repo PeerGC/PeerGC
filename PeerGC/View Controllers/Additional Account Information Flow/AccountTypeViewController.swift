@@ -49,8 +49,19 @@ class AccountTypeViewController: UIViewController {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-        AccountTypeViewController.data.accountType = sender.titleLabel!.text
+//        let keyWindow = UIApplication.shared.connectedScenes
+//        .filter({$0.activationState == .foregroundActive})
+//        .map({$0 as? UIWindowScene})
+//        .compactMap({$0})
+//        .first?.windows
+//        .filter({$0.isKeyWindow}).first
+//
+//        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
+//            navigationController.pushViewController(GenericExampleVC(), animated: true)
+//        }
         
+        let newVC = GenericExampleVC()
+        self.present(newVC, animated: true, completion: nil)
     }
     
 }

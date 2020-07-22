@@ -30,6 +30,8 @@
 		C700B16923EB655500816708 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15D23EB654000816708 /* GenderViewController.swift */; };
 		C700B16A23EB655500816708 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B16423EB655500816708 /* RaceViewController.swift */; };
 		C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */; };
+		C71F13C524C8CC8900CBED1A /* GenericTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F13C424C8CC8900CBED1A /* GenericTypeViewController.swift */; };
+		C71F13C724C8EAD800CBED1A /* GenericExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F13C624C8EAD800CBED1A /* GenericExampleVC.swift */; };
 		C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */; };
 		C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3CFD23EB570700C7B5E5 /* Main.storyboard */; };
 		C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		C700B15E23EB654D00816708 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		C700B16423EB655500816708 /* RaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
 		C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
+		C71F13C424C8CC8900CBED1A /* GenericTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericTypeViewController.swift; path = "PeerGC/View Controllers/GenericTypeViewController.swift"; sourceTree = SOURCE_ROOT; };
+		C71F13C624C8EAD800CBED1A /* GenericExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericExampleVC.swift; sourceTree = "<group>"; };
 		C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C75F3CF423EB570700C7B5E5 /* PeerGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75F3CFE23EB570700C7B5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		C700B13E23EB644400816708 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C71F13C424C8CC8900CBED1A /* GenericTypeViewController.swift */,
 				C700B14C23EB649700816708 /* Splash Flow */,
 				C700B14B23EB649100816708 /* Home Flow */,
 				C700B14A23EB648300816708 /* Continue With Email Flow */,
@@ -214,6 +219,7 @@
 				C7EFB7E024BD3FD700633070 /* SchoolNameViewController.swift */,
 				C7EFB7E224BD43B000633070 /* ExamViewController.swift */,
 				C7EFB7E424BF7EAA00633070 /* ExamScoreViewController.swift */,
+				C71F13C624C8EAD800CBED1A /* GenericExampleVC.swift */,
 			);
 			path = "Additional Account Information Flow";
 			sourceTree = "<group>";
@@ -645,6 +651,7 @@
 			files = (
 				C700B15923EB651F00816708 /* SpashScreenViewController.swift in Sources */,
 				C7EFB7E124BD3FD700633070 /* SchoolNameViewController.swift in Sources */,
+				C71F13C524C8CC8900CBED1A /* GenericTypeViewController.swift in Sources */,
 				C7B8E42224BD1ED200007C60 /* AppliedSciencesViewController.swift in Sources */,
 				C700B16523EB655500816708 /* ProfilePictureViewController.swift in Sources */,
 				C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */,
@@ -653,6 +660,7 @@
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
 				C7EFB7E524BF7EAA00633070 /* ExamScoreViewController.swift in Sources */,
 				C700B16623EB655500816708 /* InterestViewController.swift in Sources */,
+				C71F13C724C8EAD800CBED1A /* GenericExampleVC.swift in Sources */,
 				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,
 				C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */,
 				C7EFB7E324BD43B000633070 /* ExamViewController.swift in Sources */,
@@ -853,7 +861,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2235;
+				CURRENT_PROJECT_VERSION = 2250;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -878,7 +886,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2235;
+				CURRENT_PROJECT_VERSION = 2250;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
