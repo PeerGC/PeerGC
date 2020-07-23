@@ -12,7 +12,8 @@ import UIKit
 class GenericExampleVC: GenericStructureViewController {
     override func viewDidLoad() {
         genericStructureViewControllerMetadataDelegate = self
-        buttonsDelegate = self
+//        buttonsDelegate = self
+        textFieldDelegate = self
         super.viewDidLoad()
     }
 }
@@ -45,5 +46,22 @@ extension GenericExampleVC: ButtonsDelegate {
             "I may have done this?",
             "Absolutely not."
         ]
+    }
+}
+
+extension GenericExampleVC: TextFieldDelegate {
+    func continuePressed(textInput: String?) -> String? {
+        if textInput == "12345" {
+            print("success!")
+            return nil
+        }
+            
+        else {
+            return "Incorrect. This is an error."
+        }
+    }
+    
+    func placeHolderText() -> String {
+        return "Password"
     }
 }

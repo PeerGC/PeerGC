@@ -149,9 +149,11 @@ class GenericStructureViewController: UIViewController {
     func initializeCustomTextField(placeHolderText: String) -> UITextField {
         let toReturn = UITextField()
         toReturn.delegate = self
+        toReturn.borderStyle = .roundedRect
         toReturn.backgroundColor = .secondarySystemBackground
         toReturn.font = UIFont.init(name: FONT_NAME, size: toReturn.font!.pointSize)
         toReturn.placeholder = placeHolderText
+        toReturn.textAlignment = .center
         toReturn.isUserInteractionEnabled = true
         let textFieldConstraints = [toReturn.heightAnchor.constraint(equalToConstant: 50)]
         NSLayoutConstraint.activate(textFieldConstraints)
