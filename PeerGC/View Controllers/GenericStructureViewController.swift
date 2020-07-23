@@ -29,6 +29,8 @@ class GenericStructureViewController: UIViewController {
     
     //MARK: Layout
     func layout() {
+        
+        view.backgroundColor = .secondarySystemGroupedBackground
             
         let headerStack = initializeCustomStack(spacing: 10, distribution: .fill)
         headerStack.addArrangedSubview(initializeCustomLabel(title: genericStructureViewControllerMetadataDelegate!.title(), size: Double(TITLE_TEXT_SIZE), color: .label))
@@ -76,8 +78,9 @@ class GenericStructureViewController: UIViewController {
     func initializeCustomButton(title: String, color: UIColor, action: Selector) -> UIButton {
         let toReturn = UIButton()
         toReturn.setTitle(title, for: .normal)
+        toReturn.setTitleColor(.white, for: .normal)
         toReturn.titleLabel!.font = UIFont(name: FONT_NAME, size: BUTTON_TEXT_SIZE)
-        toReturn.setTitleColor(UIColor.label, for: .normal)
+        toReturn.setTitleColor(UIColor.white, for: .normal)
         toReturn.backgroundColor = color
         toReturn.cornerRadius = CGFloat(16)
         toReturn.addTarget(self, action: action, for: .touchUpInside)
@@ -89,6 +92,8 @@ class GenericStructureViewController: UIViewController {
     func initializeCustomLabel(title: String, size: Double, color: UIColor) -> UILabel {
         let toReturn = UILabel()
         toReturn.textColor = color
+        toReturn.numberOfLines = 0
+        toReturn.textAlignment = .center
         toReturn.text = title
         toReturn.font = UIFont.init(name: FONT_NAME, size: CGFloat(size))
         return toReturn
