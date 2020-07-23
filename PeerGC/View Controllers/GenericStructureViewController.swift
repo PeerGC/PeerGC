@@ -29,11 +29,12 @@ class GenericStructureViewController: UIViewController {
             print("ERROR: You cannot set both a ButtonsDelegate and a TextFieldDelegate.")
         }
         
-        layout()
+        _ = layout()
     }
     
     //MARK: Layout
-    func layout() {
+    var topBuffer: CGFloat = -10
+    func layout() -> UIView {
         
         view.backgroundColor = .secondarySystemGroupedBackground
             
@@ -47,7 +48,7 @@ class GenericStructureViewController: UIViewController {
         let headerStackConstraints: [NSLayoutConstraint] = [
             view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor, constant: 20),
             view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor, constant: -20),
-            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: headerStack.topAnchor, constant: -10)
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: headerStack.topAnchor, constant: topBuffer)
         ]
         
         headerStack.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +104,8 @@ class GenericStructureViewController: UIViewController {
             
         }
         
+        
+        return headerStack
     }
     
     //MARK: Custom UI Initializers
