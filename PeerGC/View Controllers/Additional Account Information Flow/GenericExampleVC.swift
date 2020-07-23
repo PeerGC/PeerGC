@@ -20,15 +20,15 @@ class GenericExampleVC: GenericStructureViewController {
 extension GenericExampleVC: GenericStructureViewControllerMetadataDelegate {
     
     func databaseIdentifier() -> String {
-        "ExampleID"
+        return "ExampleID"
     }
     
     func title() -> String {
-        "Hello! This is what a title might look like."
+        return "Hello! This is what a title might look like."
     }
     
     func subtitle() -> String? {
-        "This is where we can explain stuff or whatever. We don't use your data."
+        return nil
     }
     
     func nextViewController() -> UIViewController {

@@ -16,12 +16,17 @@ class GenericStructureViewController: UIViewController {
     
     var genericStructureViewControllerMetadataDelegate: GenericStructureViewControllerMetadataDelegate?
     var buttonsDelegate: ButtonsDelegate?
+    var textFieldDelegate: TextFieldDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if genericStructureViewControllerMetadataDelegate == nil {
-            return
+            print("ERROR: You must set the GenericStructureViewControllerMetadataDelegate.")
+        }
+        
+        if buttonsDelegate != nil && textFieldDelegate != nil {
+            print("ERROR: You cannot set both a ButtonsDelegate and a TextFieldDelegate.")
         }
         
         layout()
@@ -58,14 +63,46 @@ class GenericStructureViewController: UIViewController {
                 buttonStack.addArrangedSubview(initializeCustomButton(title: buttonText, color: .systemPink, action: #selector(selectionButtonHandler(sender:))))
             }
             
-            var buttonStackConstraints: [NSLayoutConstraint] = []
-            
-            buttonStackConstraints = [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)]
+            let buttonStackConstraints = [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)]
             
             buttonStack.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(buttonStack)
             NSLayoutConstraint.activate(buttonStackConstraints)
         }
+        
+        if textFieldDelegate != nil {
+            
+            textField = initializeCustomTextField(placeHolderText: textFieldDelegate!.placeHolderText())
+            
+            let textFieldConstraints = [NSLayoutConstraint(item: textField!, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: textField!.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: textField!.leadingAnchor, constant: -30)]
+            
+            textField!.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(textField!)
+            NSLayoutConstraint.activate(textFieldConstraints)
+            
+            errorLabel = initializeCustomLabel(title: "Error.", size: Double(SUBTITLE_TEXT_SIZE), color: .systemPink)
+            errorLabel!.isHidden = true
+            
+            let errorLabelConstraints = [NSLayoutConstraint(item: errorLabel!, attribute: .top, relatedBy: .equal, toItem: textField, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: errorLabel!.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: errorLabel!.leadingAnchor, constant: -20)]
+            
+            errorLabel!.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(errorLabel!)
+            NSLayoutConstraint.activate(errorLabelConstraints)
+            
+            let continueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(continueButtonHandler))
+            
+            let continueButtonConstraints: [NSLayoutConstraint] = [
+                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: continueButton.trailingAnchor, constant: 30),
+                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: continueButton.leadingAnchor, constant: -30),
+                view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 16)
+            ]
+            
+            continueButton.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(continueButton)
+            NSLayoutConstraint.activate(continueButtonConstraints)
+            
+        }
+        
     }
     
     //MARK: Custom UI Initializers
@@ -75,8 +112,8 @@ class GenericStructureViewController: UIViewController {
     let TITLE_TEXT_SIZE = (3.5/71) * UIScreen.main.bounds.height
     let SUBTITLE_TEXT_SIZE = (1.7/71) * UIScreen.main.bounds.height
     
-    func initializeCustomButton(title: String, color: UIColor, action: Selector) -> UIButton {
-        let toReturn = UIButton()
+    func initializeCustomButton(title: String, color: UIColor, action: Selector) -> DesignableButton {
+        let toReturn = DesignableButton()
         toReturn.setTitle(title, for: .normal)
         toReturn.setTitleColor(.white, for: .normal)
         toReturn.titleLabel!.font = UIFont(name: FONT_NAME, size: BUTTON_TEXT_SIZE)
@@ -109,10 +146,49 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
+    func initializeCustomTextField(placeHolderText: String) -> UITextField {
+        let toReturn = UITextField()
+        toReturn.delegate = self
+        toReturn.backgroundColor = .secondarySystemBackground
+        toReturn.font = UIFont.init(name: FONT_NAME, size: toReturn.font!.pointSize)
+        toReturn.placeholder = placeHolderText
+        toReturn.isUserInteractionEnabled = true
+        let textFieldConstraints = [toReturn.heightAnchor.constraint(equalToConstant: 50)]
+        NSLayoutConstraint.activate(textFieldConstraints)
+        return toReturn
+    }
+    
     //MARK: Handlers
     @objc func selectionButtonHandler(sender: UIButton) {
-        GenericStructureViewController.sendToDatabaseData[genericStructureViewControllerMetadataDelegate!.databaseIdentifier()] = sender.titleLabel!.text!
+        selectionButtonTextHandler(text: sender.titleLabel!.text!)
+    }
+    
+    func selectionButtonTextHandler(text: String) { //override this for custom button exceptions
+        GenericStructureViewController.sendToDatabaseData[genericStructureViewControllerMetadataDelegate!.databaseIdentifier()] = text
         
+        nextViewControllerHandler()
+    }
+    
+    var textField: UITextField?
+    var errorLabel: UILabel?
+    
+    @objc func continueButtonHandler() {
+        if textFieldDelegate != nil {
+            let error = textFieldDelegate?.continuePressed(textInput: textField!.text)
+            
+            if error == nil {
+                nextViewControllerHandler()
+                errorLabel!.isHidden = true
+            }
+            
+            else {
+                errorLabel!.text = error
+                errorLabel!.isHidden = false
+            }
+        }
+    }
+    
+    func nextViewControllerHandler() {
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
         .map({$0 as? UIWindowScene})
@@ -128,6 +204,13 @@ class GenericStructureViewController: UIViewController {
     
 }
 
+extension GenericStructureViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      textField.resignFirstResponder()
+      return true
+    }
+}
+
 //MARK: Delegate Protocols
 protocol GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String
@@ -140,4 +223,9 @@ protocol GenericStructureViewControllerMetadataDelegate {
 
 protocol ButtonsDelegate {
     func buttons() -> [String]
+}
+
+protocol TextFieldDelegate {
+    func continuePressed(textInput: String?) -> String?
+    func placeHolderText() -> String
 }
