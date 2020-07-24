@@ -69,7 +69,7 @@ class GenericStructureViewController: UIViewController {
         view.addSubview(headerStack)
         NSLayoutConstraint.activate(headerStackConstraints)
             
-        
+        //Buttons Delegate
         if buttonsDelegate != nil {
             
             let buttonStack = initializeCustomStack(spacing: 10, distribution: .fillEqually)
@@ -85,6 +85,7 @@ class GenericStructureViewController: UIViewController {
             NSLayoutConstraint.activate(buttonStackConstraints)
         }
         
+        //Text Field Delegate
         if textFieldDelegate != nil {
             
             textField = initializeCustomTextField(placeHolderText: textFieldDelegate!.placeHolderText())
@@ -118,6 +119,7 @@ class GenericStructureViewController: UIViewController {
             
         }
         
+        //Image Picker Delegate
         if imagePickerDelegate != nil {
             
             let selectButton = initializeCustomButton(title: "Select", color: .systemGreen, action: #selector(imagePickerSelectButtonHandler))
@@ -129,6 +131,7 @@ class GenericStructureViewController: UIViewController {
             NSLayoutConstraint.activate(selectButtonConstraints)
             
             let imageView = initializeCustomImageView()
+            imagePickerDelegate?.setInitialImage(imageView: imageView)
             
             let imageViewConstraints = [NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: selectButton, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 120), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -120), NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: selectButton, attribute: .height, multiplier: 1, constant: 0)]
             
@@ -315,10 +318,8 @@ extension GenericStructureViewController: UIImagePickerControllerDelegate {
             return
         }
         
-        imageView!.image = image
         imagePickerContinueButton?.alpha = 1.0
-        
-        imagePickerDelegate?.imageWasSelected(image: image)
+        imagePickerDelegate?.imageWasSelected(imageView: imageView!, image: image)
     
         self.dismiss(animated: true, completion: nil)
     }
@@ -348,6 +349,6 @@ protocol TextFieldDelegate {
 }
 
 protocol ImagePickerDelegate {
-    func setInitialImage() -> UIImage
-    func imageWasSelected(image: UIImage)
+    func setInitialImage(imageView: UIImageView)
+    func imageWasSelected(imageView: UIImageView, image: UIImage)
 }
