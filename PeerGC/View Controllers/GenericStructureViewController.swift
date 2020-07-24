@@ -6,20 +6,22 @@
 //  Copyright © 2020 AJ Radik. All rights reserved.
 //
 
+//MARK: Imports
 import Foundation
 import UIKit
 import Firebase
 
-//MARK: Header
 class GenericStructureViewController: UIViewController {
     
     static var sendToDatabaseData: [String: String] = [:]
     
+    //MARK: Delegates
     var genericStructureViewControllerMetadataDelegate: GenericStructureViewControllerMetadataDelegate?
     var buttonsDelegate: ButtonsDelegate?
     var textFieldDelegate: TextFieldDelegate?
     var imagePickerDelegate: ImagePickerDelegate?
     
+    //MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +71,7 @@ class GenericStructureViewController: UIViewController {
         view.addSubview(headerStack)
         NSLayoutConstraint.activate(headerStackConstraints)
             
-        //Buttons Delegate
+        //MARK: Buttons Layout
         if buttonsDelegate != nil {
             
             let buttonStack = initializeCustomStack(spacing: 10, distribution: .fillEqually)
@@ -85,7 +87,7 @@ class GenericStructureViewController: UIViewController {
             NSLayoutConstraint.activate(buttonStackConstraints)
         }
         
-        //Text Field Delegate
+        //MARK: Text Field Layout
         if textFieldDelegate != nil {
             
             textField = initializeCustomTextField(placeHolderText: textFieldDelegate!.placeHolderText())
@@ -119,7 +121,7 @@ class GenericStructureViewController: UIViewController {
             
         }
         
-        //Image Picker Delegate
+        //MARK: Image Picker Layout
         if imagePickerDelegate != nil {
             
             let selectButton = initializeCustomButton(title: "Select", color: .systemGreen, action: #selector(imagePickerSelectButtonHandler))
@@ -162,6 +164,7 @@ class GenericStructureViewController: UIViewController {
     let TITLE_TEXT_SIZE = (3.5/71) * UIScreen.main.bounds.height
     let SUBTITLE_TEXT_SIZE = (1.7/71) * UIScreen.main.bounds.height
     
+    //MARK: Custom Button
     func initializeCustomButton(title: String, color: UIColor, action: Selector) -> DesignableButton {
         let toReturn = DesignableButton()
         toReturn.setTitle(title, for: .normal)
@@ -176,6 +179,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
+    //MARK: Custom Label
     func initializeCustomLabel(title: String, size: Double, color: UIColor) -> UILabel {
         let toReturn = UILabel()
         toReturn.textColor = color
@@ -186,6 +190,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
+    //MARK: Custom Stack
     func initializeCustomStack(spacing: Int, distribution: UIStackView.Distribution) -> UIStackView {
         let toReturn = UIStackView()
         toReturn.axis = .vertical
@@ -196,6 +201,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
+    //MARK: Custom Text Field
     func initializeCustomTextField(placeHolderText: String) -> UITextField {
         let toReturn = UITextField()
         toReturn.delegate = self
@@ -210,6 +216,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
+    //MARK: Custom Image View
     func initializeCustomImageView() -> UIImageView {
         let toReturn = UIImageView()
         toReturn.cornerRadius = 20
@@ -220,7 +227,22 @@ class GenericStructureViewController: UIViewController {
     }
     
     //MARK: Handlers
-    //Buttons Delegate
+    //MARK: General Handlers
+    func nextViewControllerHandler() {
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        
+        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
+            guard let nextViewController = genericStructureViewControllerMetadataDelegate?.nextViewController() else { return }
+            navigationController.pushViewController(nextViewController, animated: true)
+        }
+    }
+    
+    //MARK: Button Handlers
     @objc func selectionButtonHandler(sender: UIButton) {
         selectionButtonTextHandler(text: sender.titleLabel!.text!)
     }
@@ -231,7 +253,7 @@ class GenericStructureViewController: UIViewController {
         nextViewControllerHandler()
     }
     
-    //Text Field Delegate
+    //MARK: Text Field Handlers
     var textField: UITextField?
     var errorLabel: UILabel?
     
@@ -251,7 +273,7 @@ class GenericStructureViewController: UIViewController {
         }
     }
     
-    //Image Picker Delegate
+    //MARK: Image Picker Handlers
     var imageView: UIImageView?
     var imagePickerContinueButton: UIButton?
     
@@ -280,21 +302,6 @@ class GenericStructureViewController: UIViewController {
     @objc func imagePickerContinueButtonHandler(sender: UIButton) {
         if imageView!.image != nil {
             nextViewControllerHandler()
-        }
-    }
-    
-    //General
-    func nextViewControllerHandler() {
-        let keyWindow = UIApplication.shared.connectedScenes
-        .filter({$0.activationState == .foregroundActive})
-        .map({$0 as? UIWindowScene})
-        .compactMap({$0})
-        .first?.windows
-        .filter({$0.isKeyWindow}).first
-        
-        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
-            guard let nextViewController = genericStructureViewControllerMetadataDelegate?.nextViewController() else { return }
-            navigationController.pushViewController(nextViewController, animated: true)
         }
     }
     
