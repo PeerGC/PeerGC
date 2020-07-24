@@ -130,13 +130,12 @@ class GenericStructureViewController: UIViewController {
             view.addSubview(selectButton)
             NSLayoutConstraint.activate(selectButtonConstraints)
             
-            let imageView = initializeCustomImageView()
-            imagePickerDelegate?.setInitialImage(imageView: imageView)
+            imageView = initializeCustomImageView()
             
-            let imageViewConstraints = [NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: selectButton, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 120), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -120), NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: selectButton, attribute: .height, multiplier: 1, constant: 0)]
+            let imageViewConstraints = [NSLayoutConstraint(item: imageView!, attribute: .top, relatedBy: .equal, toItem: selectButton, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: imageView!.trailingAnchor, constant: 120), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: imageView!.leadingAnchor, constant: -120), NSLayoutConstraint(item: imageView!, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: 1, constant: 0)]
             
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(imageView)
+            imageView!.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(imageView!)
             NSLayoutConstraint.activate(imageViewConstraints)
             
             imagePickerContinueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(imagePickerContinueButtonHandler(sender:)))
@@ -152,6 +151,7 @@ class GenericStructureViewController: UIViewController {
             view.addSubview(imagePickerContinueButton!)
             NSLayoutConstraint.activate(continueButtonConstraints)
             
+            imagePickerDelegate!.setInitialImage(imageView: imageView!, continueButton: imagePickerContinueButton!)
         }
         
     }
@@ -213,6 +213,8 @@ class GenericStructureViewController: UIViewController {
     func initializeCustomImageView() -> UIImageView {
         let toReturn = UIImageView()
         toReturn.cornerRadius = 20
+        toReturn.clipsToBounds = true
+        view.clipsToBounds = true
         toReturn.contentMode = .scaleAspectFill
         return toReturn
     }
@@ -318,8 +320,7 @@ extension GenericStructureViewController: UIImagePickerControllerDelegate {
             return
         }
         
-        imagePickerContinueButton?.alpha = 1.0
-        imagePickerDelegate?.imageWasSelected(imageView: imageView!, image: image)
+        imagePickerDelegate?.imageWasSelected(imageView: imageView!, continueButton: imagePickerContinueButton!, image: image)
     
         self.dismiss(animated: true, completion: nil)
     }
@@ -349,6 +350,6 @@ protocol TextFieldDelegate {
 }
 
 protocol ImagePickerDelegate {
-    func setInitialImage(imageView: UIImageView)
-    func imageWasSelected(imageView: UIImageView, image: UIImage)
+    func setInitialImage(imageView: UIImageView, continueButton: UIButton)
+    func imageWasSelected(imageView: UIImageView, continueButton: UIButton, image: UIImage)
 }
