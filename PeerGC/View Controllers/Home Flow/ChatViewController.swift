@@ -6,6 +6,7 @@
 //  Copyright © 2020 AJ Radik. All rights reserved.
 //
 
+//MARK: Imports
 import Foundation
 import UIKit
 import MessageKit
@@ -14,14 +15,12 @@ import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController {
     
+    //MARK: Message Structure
     public struct Message: MessageType, Equatable, Comparable {
         
         public var sender: SenderType
-        
         public var messageId: String
-        
         public var sentDate: Date
-        
         public var kind: MessageKind
         
         public static func == (lhs: Message, rhs: Message) -> Bool {
@@ -43,7 +42,7 @@ class ChatViewController: MessagesViewController {
                     return [:]
             }
             
-            let rep: [String : Any] = [
+            let toReturn: [String : Any] = [
             "senderID": sender.senderId,
             "senderDisplayName": sender.displayName,
             "messageID": messageId,
@@ -51,11 +50,18 @@ class ChatViewController: MessagesViewController {
             "content": text.string
           ]
           
-          return rep
+          return toReturn
         }
-        
     }
     
+    //MARK: Sender Structure
+    public struct Sender: SenderType {
+        public let senderId: String
+
+        public let displayName: String
+    }
+    
+    //MARK: Variables
     private let db = Firestore.firestore()
     private var reference: CollectionReference?
     
@@ -68,6 +74,9 @@ class ChatViewController: MessagesViewController {
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
     
+    let FONT_NAME = "LexendDeca-Regular"
+    
+    //MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         super.view.backgroundColor = .secondarySystemGroupedBackground
@@ -82,9 +91,7 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         title = header
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController!.navigationBar.titleTextAttributes = [.font: UIFont(name: "LexendDeca-Regular", size: 26)!]
-        
-        
+        self.navigationController!.navigationBar.titleTextAttributes = [.font: UIFont(name: FONT_NAME, size: 26)!]
         
         db.collection("chats").document(id).setData([
             "Student": id.components(separatedBy: "-")[0],
@@ -109,7 +116,36 @@ class ChatViewController: MessagesViewController {
       messageListener?.remove()
     }
     
-    private func save(_ message: Message) {
+    //MARK: View Customization
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillDisappear(animated)
+    }
+    
+    private func setupCollectionView() {
+        guard let flowLayout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout else {
+            return
+        }
+        if #available(iOS 13.0, *) {
+            flowLayout.collectionView?.backgroundColor = .secondarySystemGroupedBackground
+        }
+    }
+    
+    func inputStyle() {
+        if #available(iOS 13.0, *) {
+            messageInputBar.inputTextView.textColor = .label
+            messageInputBar.inputTextView.placeholderLabel.textColor = .secondaryLabel
+            messageInputBar.backgroundView.backgroundColor = .secondarySystemGroupedBackground
+        }
+    }
+    
+    //MARK: Message Operations
+    private func saveMessageToDatabase(_ message: Message) {
       reference?.addDocument(data: message.representation) { error in
         if let e = error {
           print("Error sending message: \(e.localizedDescription)")
@@ -120,7 +156,7 @@ class ChatViewController: MessagesViewController {
       }
     }
     
-    private func insertNewMessage(_ message: Message) {
+    private func insertNewMessageToCollectionView(_ message: Message) {
         guard !messages.contains(message) else {
             return
         }
@@ -146,7 +182,7 @@ class ChatViewController: MessagesViewController {
         let color : UIColor = (data["senderID"] as! String == Auth.auth().currentUser!.uid) ? .white : .black
         
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont(name: "LexendDeca-Regular", size: UIFont.labelFontSize)!,
+            .font: UIFont(name: FONT_NAME, size: UIFont.labelFontSize)!,
             .foregroundColor: color
         ]
         
@@ -154,52 +190,17 @@ class ChatViewController: MessagesViewController {
 
         switch change.type {
             case .added:
-                insertNewMessage(message)
+                insertNewMessageToCollectionView(message)
 
             default:
                 break
         }
         
     }
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        super.viewWillAppear(animated)
-        print("nav bar not hidden")
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        super.viewWillDisappear(animated)
-    }
-    
-    private func setupCollectionView() {
-        guard let flowLayout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout else {
-            print("Can't get flowLayout")
-            return
-        }
-        if #available(iOS 13.0, *) {
-            flowLayout.collectionView?.backgroundColor = .secondarySystemGroupedBackground
-        }
-    }
-    
-    func inputStyle() {
-        if #available(iOS 13.0, *) {
-            messageInputBar.inputTextView.textColor = .label
-            messageInputBar.inputTextView.placeholderLabel.textColor = .secondaryLabel
-            messageInputBar.backgroundView.backgroundColor = .secondarySystemGroupedBackground
-        }
-    }
 }
 
-extension ChatViewController: MessagesDataSource, MessageCellDelegate {
-
-    public struct Sender: SenderType {
-        public let senderId: String
-
-        public let displayName: String
-    }
+//MARK: Messages Data Source
+extension ChatViewController: MessagesDataSource {
     
     func currentSender() -> SenderType {
         return Sender(senderId: Auth.auth().currentUser?.uid ?? "nil", displayName: Auth.auth().currentUser?.displayName?.components(separatedBy: " ")[0] ?? "nil")
@@ -240,6 +241,7 @@ extension ChatViewController: MessagesDataSource, MessageCellDelegate {
     
 }
 
+//MARK: Messages Display Delegate
 extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
@@ -251,7 +253,6 @@ extension ChatViewController: MessagesDisplayDelegate {
         else {
             avatarView.set(avatar: Avatar(image: remoteReceiverImage, initials: String(message.sender.senderId.prefix(1))))
         }
-        
     }
     
     func headerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
@@ -278,6 +279,7 @@ extension ChatViewController: MessagesDisplayDelegate {
     
 }
 
+//MARK: Input Bar Delegate
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         print("called HIIII")
@@ -289,13 +291,14 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
           let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]), messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: text)))
 
         // 2
-        save(message)
+        saveMessageToDatabase(message)
 
         // 3
         inputBar.inputTextView.text = ""
     }
 }
 
+//MARK: Messages Layout Delegate
 extension ChatViewController: MessagesLayoutDelegate {
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
@@ -313,5 +316,9 @@ extension ChatViewController: MessagesLayoutDelegate {
     func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 16
     }
+}
+
+//MARK: Message Cell Delegate
+extension ChatViewController: MessageCellDelegate {
     
 }
