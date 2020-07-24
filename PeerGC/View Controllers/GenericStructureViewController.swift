@@ -18,16 +18,29 @@ class GenericStructureViewController: UIViewController {
     var genericStructureViewControllerMetadataDelegate: GenericStructureViewControllerMetadataDelegate?
     var buttonsDelegate: ButtonsDelegate?
     var textFieldDelegate: TextFieldDelegate?
+    var imagePickerDelegate: ImagePickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if genericStructureViewControllerMetadataDelegate == nil {
             print("ERROR: You must set the GenericStructureViewControllerMetadataDelegate.")
+            return
         }
         
-        if buttonsDelegate != nil && textFieldDelegate != nil {
-            print("ERROR: You cannot set both a ButtonsDelegate and a TextFieldDelegate.")
+        let optionalDelegates: [Any?] = [buttonsDelegate, textFieldDelegate, imagePickerDelegate]
+        
+        var numberOfNonNilOptionalDelegates = 0
+        
+        for delegate in optionalDelegates {
+            if delegate != nil {
+                numberOfNonNilOptionalDelegates += 1
+            }
+        }
+        
+        if numberOfNonNilOptionalDelegates > 1 {
+            print("ERROR: You cannot set more than one optional delegate.")
+            return
         }
         
         layout()
@@ -91,16 +104,49 @@ class GenericStructureViewController: UIViewController {
             view.addSubview(errorLabel!)
             NSLayoutConstraint.activate(errorLabelConstraints)
             
-            let continueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(continueButtonHandler))
+            let textFieldContinueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(textFieldContinueButtonHandler))
             
             let continueButtonConstraints: [NSLayoutConstraint] = [
-                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: continueButton.trailingAnchor, constant: 30),
-                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: continueButton.leadingAnchor, constant: -30),
-                view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 16)
+                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: textFieldContinueButton.trailingAnchor, constant: 30),
+                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: textFieldContinueButton.leadingAnchor, constant: -30),
+                view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: textFieldContinueButton.bottomAnchor, constant: 16)
             ]
             
-            continueButton.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(continueButton)
+            textFieldContinueButton.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(textFieldContinueButton)
+            NSLayoutConstraint.activate(continueButtonConstraints)
+            
+        }
+        
+        if imagePickerDelegate != nil {
+            
+            let selectButton = initializeCustomButton(title: "Select", color: .systemGreen, action: #selector(imagePickerSelectButtonHandler))
+            
+            let selectButtonConstraints = [NSLayoutConstraint(item: selectButton, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -30)]
+            
+            selectButton.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(selectButton)
+            NSLayoutConstraint.activate(selectButtonConstraints)
+            
+            let imageView = initializeCustomImageView()
+            
+            let imageViewConstraints = [NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: selectButton, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 120), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -120), NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: selectButton, attribute: .height, multiplier: 1, constant: 0)]
+            
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(imageView)
+            NSLayoutConstraint.activate(imageViewConstraints)
+            
+            imagePickerContinueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(imagePickerContinueButtonHandler(sender:)))
+            imagePickerContinueButton!.alpha = 0.6
+            
+            let continueButtonConstraints: [NSLayoutConstraint] = [
+                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: imagePickerContinueButton!.trailingAnchor, constant: 30),
+                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: imagePickerContinueButton!.leadingAnchor, constant: -30),
+                view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: imagePickerContinueButton!.bottomAnchor, constant: 16)
+            ]
+            
+            imagePickerContinueButton!.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(imagePickerContinueButton!)
             NSLayoutConstraint.activate(continueButtonConstraints)
             
         }
@@ -161,7 +207,15 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
+    func initializeCustomImageView() -> UIImageView {
+        let toReturn = UIImageView()
+        toReturn.cornerRadius = 20
+        toReturn.contentMode = .scaleAspectFill
+        return toReturn
+    }
+    
     //MARK: Handlers
+    //Buttons Delegate
     @objc func selectionButtonHandler(sender: UIButton) {
         selectionButtonTextHandler(text: sender.titleLabel!.text!)
     }
@@ -172,10 +226,11 @@ class GenericStructureViewController: UIViewController {
         nextViewControllerHandler()
     }
     
+    //Text Field Delegate
     var textField: UITextField?
     var errorLabel: UILabel?
     
-    @objc func continueButtonHandler() {
+    @objc func textFieldContinueButtonHandler() {
         if textFieldDelegate != nil {
             let error = textFieldDelegate?.continuePressed(textInput: textField!.text)
             
@@ -191,6 +246,39 @@ class GenericStructureViewController: UIViewController {
         }
     }
     
+    //Image Picker Delegate
+    var imageView: UIImageView?
+    var imagePickerContinueButton: UIButton?
+    
+    @objc func imagePickerSelectButtonHandler() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        let myActionSheet = UIAlertController(title:"Profile Picture",message:"Select",preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let photoGallery = UIAlertAction(title: "Photos", style: UIAlertAction.Style.default) { (action) in
+            
+            if UIImagePickerController.isSourceTypeAvailable( UIImagePickerController.SourceType.savedPhotosAlbum)
+            {
+                imagePickerController.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
+                imagePickerController.allowsEditing = true
+                self.present(imagePickerController, animated: true
+                    , completion: nil)
+            }
+        }
+        
+        myActionSheet.addAction(photoGallery)
+        myActionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        
+        self.present(myActionSheet, animated: true, completion: nil)
+    }
+    
+    @objc func imagePickerContinueButtonHandler(sender: UIButton) {
+        if imageView!.image != nil {
+            nextViewControllerHandler()
+        }
+    }
+    
+    //General
     func nextViewControllerHandler() {
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
@@ -215,6 +303,31 @@ extension GenericStructureViewController: UITextFieldDelegate {
     }
 }
 
+extension GenericStructureViewController: UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let image = info[.editedImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        
+        imageView!.image = image
+        imagePickerContinueButton?.alpha = 1.0
+        
+        imagePickerDelegate?.imageWasSelected(image: image)
+    
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension GenericStructureViewController: UINavigationControllerDelegate {
+    
+}
+
 //MARK: Delegate Protocols
 protocol GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String
@@ -234,3 +347,7 @@ protocol TextFieldDelegate {
     func placeHolderText() -> String
 }
 
+protocol ImagePickerDelegate {
+    func setInitialImage() -> UIImage
+    func imageWasSelected(image: UIImage)
+}
