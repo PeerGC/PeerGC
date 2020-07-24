@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
+//MARK: Header
 class GenericStructureViewController: UIViewController {
     
     static var sendToDatabaseData: [String: String] = [:]
@@ -29,12 +30,12 @@ class GenericStructureViewController: UIViewController {
             print("ERROR: You cannot set both a ButtonsDelegate and a TextFieldDelegate.")
         }
         
-        _ = layout()
+        layout()
     }
     
     //MARK: Layout
     var topBuffer: CGFloat = -10
-    func layout() -> UIView {
+    func layout() {
         
         view.backgroundColor = .secondarySystemGroupedBackground
             
@@ -104,12 +105,9 @@ class GenericStructureViewController: UIViewController {
             
         }
         
-        
-        return headerStack
     }
     
     //MARK: Custom UI Initializers
-    
     let FONT_NAME = "LexendDeca-Regular"
     let BUTTON_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
     let TITLE_TEXT_SIZE = (3.5/71) * UIScreen.main.bounds.height
@@ -209,6 +207,7 @@ class GenericStructureViewController: UIViewController {
     
 }
 
+//MARK: Extensions
 extension GenericStructureViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       textField.resignFirstResponder()
@@ -234,3 +233,4 @@ protocol TextFieldDelegate {
     func continuePressed(textInput: String?) -> String?
     func placeHolderText() -> String
 }
+
