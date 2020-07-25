@@ -33,6 +33,14 @@ extension OtherFirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
 
 extension OtherFirstLanguageVC: TextFieldDelegate {    
     func continuePressed(textInput: String?) -> String? {
+        guard let text = textInput else { return "Invalid." }
+        
+        if text.count == 0 {
+            return "Please enter a language."
+        }
+        
+        GenericStructureViewController.sendToDatabaseData["firstLanguage"] = text
+        
         return nil
     }
 }

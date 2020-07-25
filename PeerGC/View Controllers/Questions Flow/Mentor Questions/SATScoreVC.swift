@@ -14,6 +14,7 @@ class SATScoreVC: GenericStructureViewController {
         genericStructureViewControllerMetadataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
+        textField?.keyboardType = .numberPad
     }
 }
 
@@ -33,6 +34,14 @@ extension SATScoreVC: GenericStructureViewControllerMetadataDelegate {
 
 extension SATScoreVC: TextFieldDelegate {
     func continuePressed(textInput: String?) -> String? {
+        guard let text = textInput else { return "Invalid." }
+        
+        if text.count == 0 {
+            return "Please enter a score."
+        }
+        
+        GenericStructureViewController.sendToDatabaseData["testScore"] = text
+        
         return nil
     }
 }

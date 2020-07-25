@@ -209,6 +209,7 @@ class GenericStructureViewController: UIViewController {
         toReturn.font = UIFont.init(name: FONT_NAME, size: toReturn.font!.pointSize)
         toReturn.textAlignment = .center
         toReturn.isUserInteractionEnabled = true
+        toReturn.addDoneButtonOnKeyboard()
         let textFieldConstraints = [toReturn.heightAnchor.constraint(equalToConstant: 50)]
         NSLayoutConstraint.activate(textFieldConstraints)
         return toReturn

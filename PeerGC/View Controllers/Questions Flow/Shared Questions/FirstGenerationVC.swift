@@ -47,6 +47,6 @@ extension FirstGenerationVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["Yes", "No", "Partially, but no degree."]
+        return ["Yes", "No", "Partially, but no degree"]
     }
 }

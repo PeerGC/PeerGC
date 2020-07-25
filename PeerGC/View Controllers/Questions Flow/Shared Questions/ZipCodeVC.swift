@@ -13,8 +13,8 @@ class ZipCodeVC: GenericStructureViewController {
     override func viewDidLoad() {
         genericStructureViewControllerMetadataDelegate = self
         textFieldDelegate = self
-        textField?.keyboardType = .numberPad
         super.viewDidLoad()
+        textField?.keyboardType = .numberPad
     }
 }
 

@@ -26,6 +26,7 @@ class HighSchoolScoresVC: GenericStructureViewController {
         }
             
         else {
+            GenericStructureViewController.sendToDatabaseData["testScore"] = "N/A"
             super.selectionButtonTextHandler(text: text)
         }
     }
@@ -47,7 +48,7 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
 
 extension HighSchoolScoresVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
-        return "highSchoolTestScore"
+        return "testTaken"
     }
     
     func buttons() -> [String] {

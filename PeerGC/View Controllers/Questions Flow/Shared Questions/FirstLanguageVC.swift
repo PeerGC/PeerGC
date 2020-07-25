@@ -17,7 +17,7 @@ class FirstLanguageVC: GenericStructureViewController {
     }
     
     override func selectionButtonTextHandler(text: String) {
-        if text == "Other." {
+        if text == "Other" {
             nextViewControllerHandler(viewController: OtherFirstLanguageVC())
         }
             
@@ -47,6 +47,6 @@ extension FirstLanguageVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["English.", "Other."]
+        return ["English", "Other"]
     }
 }

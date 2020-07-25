@@ -59,11 +59,11 @@ class MatchingVC: GenericStructureViewController {
 
 extension MatchingVC: GenericStructureViewControllerMetadataDelegate {
     func title() -> String {
-        return "Matching You Now..."
+        return "Matching You Now!"
     }
     
     func subtitle() -> String? {
-        return "Please wait a minute while our matching algorithm matches you with your peers..."
+        return "Please wait a minute while our matching algorithm matches you with your peers."
     }
     
     func nextViewController() -> UIViewController? {
