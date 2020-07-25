@@ -32,6 +32,23 @@
 		C72ED27424C909EE00419E74 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED26F24C909ED00419E74 /* EmailViewController.swift */; };
 		C72ED27824C90A1600419E74 /* SpashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */; };
 		C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27724C90A1600419E74 /* EntranceViewController.swift */; };
+		C74133A924CBA08E003FC549 /* AccountTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133A824CBA08E003FC549 /* AccountTypeVC.swift */; };
+		C74133AB24CBA35C003FC549 /* ProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */; };
+		C74133AD24CBA5F1003FC549 /* ZipCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */; };
+		C74133AF24CBA848003FC549 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AE24CBA848003FC549 /* GenderVC.swift */; };
+		C74133B124CBAA54003FC549 /* LGBTQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133B024CBAA54003FC549 /* LGBTQVC.swift */; };
+		C74133B324CBAAEF003FC549 /* RaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133B224CBAAEF003FC549 /* RaceVC.swift */; };
+		C74133B524CBAC5C003FC549 /* FirstGenerationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133B424CBAC5C003FC549 /* FirstGenerationVC.swift */; };
+		C74133B724CBADFE003FC549 /* HighSchoolYearVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133B624CBADFE003FC549 /* HighSchoolYearVC.swift */; };
+		C74133B924CBAEAE003FC549 /* CollegeYearVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133B824CBAEAE003FC549 /* CollegeYearVC.swift */; };
+		C74133BB24CBAF4B003FC549 /* InterestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133BA24CBAF4B003FC549 /* InterestVC.swift */; };
+		C74133BD24CBAFF1003FC549 /* LookingForVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133BC24CBAFF1003FC549 /* LookingForVC.swift */; };
+		C74133BF24CBB082003FC549 /* WhereInProcessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133BE24CBB082003FC549 /* WhereInProcessVC.swift */; };
+		C74133C124CBB141003FC549 /* FeelAboutApplyingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133C024CBB141003FC549 /* FeelAboutApplyingVC.swift */; };
+		C74133C324CBB1A8003FC549 /* KindOfCollegeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133C224CBB1A8003FC549 /* KindOfCollegeVC.swift */; };
+		C74133C724CBB226003FC549 /* WhyCollegeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133C624CBB226003FC549 /* WhyCollegeVC.swift */; };
+		C74133C924CBB299003FC549 /* FirstLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133C824CBB299003FC549 /* FirstLanguageVC.swift */; };
+		C74133CB24CBB5DB003FC549 /* OtherFirstLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133CA24CBB5DB003FC549 /* OtherFirstLanguageVC.swift */; };
 		C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */; };
 		C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3CFD23EB570700C7B5E5 /* Main.storyboard */; };
 		C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */; };
@@ -98,7 +115,7 @@
 		C700B15D23EB654000816708 /* GenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		C700B16423EB655500816708 /* RaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
 		C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
-		C71F13C424C8CC8900CBED1A /* GenericStructureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericStructureViewController.swift; path = "PeerGC/View Controllers/GenericStructureViewController.swift"; sourceTree = SOURCE_ROOT; };
+		C71F13C424C8CC8900CBED1A /* GenericStructureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericStructureViewController.swift; path = "PeerGC/View Controllers/General/GenericStructureViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C71F13C624C8EAD800CBED1A /* GenericExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericExampleVC.swift; sourceTree = "<group>"; };
 		C72ED26B24C909ED00419E74 /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
 		C72ED26C24C909ED00419E74 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +124,23 @@
 		C72ED26F24C909ED00419E74 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpashScreenViewController.swift; sourceTree = "<group>"; };
 		C72ED27724C90A1600419E74 /* EntranceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
+		C74133A824CBA08E003FC549 /* AccountTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTypeVC.swift; sourceTree = "<group>"; };
+		C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureVC.swift; sourceTree = "<group>"; };
+		C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeVC.swift; sourceTree = "<group>"; };
+		C74133AE24CBA848003FC549 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
+		C74133B024CBAA54003FC549 /* LGBTQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGBTQVC.swift; sourceTree = "<group>"; };
+		C74133B224CBAAEF003FC549 /* RaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceVC.swift; sourceTree = "<group>"; };
+		C74133B424CBAC5C003FC549 /* FirstGenerationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstGenerationVC.swift; sourceTree = "<group>"; };
+		C74133B624CBADFE003FC549 /* HighSchoolYearVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighSchoolYearVC.swift; sourceTree = "<group>"; };
+		C74133B824CBAEAE003FC549 /* CollegeYearVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeYearVC.swift; sourceTree = "<group>"; };
+		C74133BA24CBAF4B003FC549 /* InterestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestVC.swift; sourceTree = "<group>"; };
+		C74133BC24CBAFF1003FC549 /* LookingForVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookingForVC.swift; sourceTree = "<group>"; };
+		C74133BE24CBB082003FC549 /* WhereInProcessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereInProcessVC.swift; sourceTree = "<group>"; };
+		C74133C024CBB141003FC549 /* FeelAboutApplyingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelAboutApplyingVC.swift; sourceTree = "<group>"; };
+		C74133C224CBB1A8003FC549 /* KindOfCollegeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindOfCollegeVC.swift; sourceTree = "<group>"; };
+		C74133C624CBB226003FC549 /* WhyCollegeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyCollegeVC.swift; sourceTree = "<group>"; };
+		C74133C824CBB299003FC549 /* FirstLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLanguageVC.swift; sourceTree = "<group>"; };
+		C74133CA24CBB5DB003FC549 /* OtherFirstLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFirstLanguageVC.swift; sourceTree = "<group>"; };
 		C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C75F3CF423EB570700C7B5E5 /* PeerGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75F3CFE23EB570700C7B5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,9 +223,10 @@
 		C700B13E23EB644400816708 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C74133CC24CBB847003FC549 /* General */,
+				C74133A424CBA014003FC549 /* Questions Flow */,
 				C72ED27524C909FF00419E74 /* Splash Flow */,
 				C72ED26024C9098200419E74 /* Email Flow */,
-				C71F13C424C8CC8900CBED1A /* GenericStructureViewController.swift */,
 				C700B14B23EB649100816708 /* Home Flow */,
 				C700B14923EB647900816708 /* Additional Account Information Flow */,
 			);
@@ -262,6 +297,62 @@
 				C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */,
 			);
 			path = "Splash Flow";
+			sourceTree = "<group>";
+		};
+		C74133A424CBA014003FC549 /* Questions Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C74133A724CBA03D003FC549 /* Student Questions */,
+				C74133A624CBA033003FC549 /* Mentor Questions */,
+				C74133A524CBA023003FC549 /* Shared Questions */,
+			);
+			path = "Questions Flow";
+			sourceTree = "<group>";
+		};
+		C74133A524CBA023003FC549 /* Shared Questions */ = {
+			isa = PBXGroup;
+			children = (
+				C74133A824CBA08E003FC549 /* AccountTypeVC.swift */,
+				C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */,
+				C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */,
+				C74133AE24CBA848003FC549 /* GenderVC.swift */,
+				C74133B024CBAA54003FC549 /* LGBTQVC.swift */,
+				C74133B224CBAAEF003FC549 /* RaceVC.swift */,
+				C74133B424CBAC5C003FC549 /* FirstGenerationVC.swift */,
+			);
+			path = "Shared Questions";
+			sourceTree = "<group>";
+		};
+		C74133A624CBA033003FC549 /* Mentor Questions */ = {
+			isa = PBXGroup;
+			children = (
+				C74133B824CBAEAE003FC549 /* CollegeYearVC.swift */,
+			);
+			path = "Mentor Questions";
+			sourceTree = "<group>";
+		};
+		C74133A724CBA03D003FC549 /* Student Questions */ = {
+			isa = PBXGroup;
+			children = (
+				C74133B624CBADFE003FC549 /* HighSchoolYearVC.swift */,
+				C74133BA24CBAF4B003FC549 /* InterestVC.swift */,
+				C74133BC24CBAFF1003FC549 /* LookingForVC.swift */,
+				C74133BE24CBB082003FC549 /* WhereInProcessVC.swift */,
+				C74133C024CBB141003FC549 /* FeelAboutApplyingVC.swift */,
+				C74133C224CBB1A8003FC549 /* KindOfCollegeVC.swift */,
+				C74133C624CBB226003FC549 /* WhyCollegeVC.swift */,
+				C74133C824CBB299003FC549 /* FirstLanguageVC.swift */,
+				C74133CA24CBB5DB003FC549 /* OtherFirstLanguageVC.swift */,
+			);
+			path = "Student Questions";
+			sourceTree = "<group>";
+		};
+		C74133CC24CBB847003FC549 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				C71F13C424C8CC8900CBED1A /* GenericStructureViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		C75F3CEB23EB570700C7B5E5 = {
@@ -647,25 +738,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74133B524CBAC5C003FC549 /* FirstGenerationVC.swift in Sources */,
 				C7EFB7E124BD3FD700633070 /* SchoolNameViewController.swift in Sources */,
+				C74133BD24CBAFF1003FC549 /* LookingForVC.swift in Sources */,
 				C71F13C524C8CC8900CBED1A /* GenericStructureViewController.swift in Sources */,
 				C72ED27324C909EE00419E74 /* CreateNameViewController.swift in Sources */,
 				C7B8E42224BD1ED200007C60 /* AppliedSciencesViewController.swift in Sources */,
+				C74133C924CBB299003FC549 /* FirstLanguageVC.swift in Sources */,
 				C700B16523EB655500816708 /* ProfilePictureViewController.swift in Sources */,
+				C74133BB24CBAF4B003FC549 /* InterestVC.swift in Sources */,
 				C72ED27224C909EE00419E74 /* EnterPasswordViewController.swift in Sources */,
 				C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */,
+				C74133B324CBAAEF003FC549 /* RaceVC.swift in Sources */,
+				C74133AF24CBA848003FC549 /* GenderVC.swift in Sources */,
 				C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */,
+				C74133A924CBA08E003FC549 /* AccountTypeVC.swift in Sources */,
 				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
 				C72ED27124C909EE00419E74 /* ResetPasswordViewController.swift in Sources */,
 				C7B8E42024BD1E9E00007C60 /* FormalSciencesViewController.swift in Sources */,
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
 				C7EFB7E524BF7EAA00633070 /* ExamScoreViewController.swift in Sources */,
+				C74133B924CBAEAE003FC549 /* CollegeYearVC.swift in Sources */,
+				C74133C124CBB141003FC549 /* FeelAboutApplyingVC.swift in Sources */,
 				C700B16623EB655500816708 /* InterestViewController.swift in Sources */,
 				C71F13C724C8EAD800CBED1A /* GenericExampleVC.swift in Sources */,
 				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,
 				C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */,
 				C7EFB7E324BD43B000633070 /* ExamViewController.swift in Sources */,
 				C7B8E42824BD363E00007C60 /* SchoolYearViewController.swift in Sources */,
+				C74133B724CBADFE003FC549 /* HighSchoolYearVC.swift in Sources */,
+				C74133BF24CBB082003FC549 /* WhereInProcessVC.swift in Sources */,
 				C700B16823EB655500816708 /* ZipCodeViewController.swift in Sources */,
 				C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */,
 				C7B8E42424BD330400007C60 /* LGBTQViewController.swift in Sources */,
@@ -679,10 +781,16 @@
 				C700B16723EB655500816708 /* AccountTypeViewController.swift in Sources */,
 				C700B16A23EB655500816708 /* RaceViewController.swift in Sources */,
 				C7B8E41E24BD1DA400007C60 /* NaturalSciencesViewController.swift in Sources */,
+				C74133CB24CBB5DB003FC549 /* OtherFirstLanguageVC.swift in Sources */,
+				C74133AD24CBA5F1003FC549 /* ZipCodeVC.swift in Sources */,
+				C74133AB24CBA35C003FC549 /* ProfilePictureVC.swift in Sources */,
+				C74133B124CBAA54003FC549 /* LGBTQVC.swift in Sources */,
+				C74133C324CBB1A8003FC549 /* KindOfCollegeVC.swift in Sources */,
 				C7B8E42624BD34FA00007C60 /* SportsViewController.swift in Sources */,
 				C700B16923EB655500816708 /* GenderViewController.swift in Sources */,
 				C7B8E41A24BD16F700007C60 /* HumanitiesViewController.swift in Sources */,
 				C72ED27824C90A1600419E74 /* SpashScreenViewController.swift in Sources */,
+				C74133C724CBB226003FC549 /* WhyCollegeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,7 +967,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2270;
+				CURRENT_PROJECT_VERSION = 2272;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -884,7 +992,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2270;
+				CURRENT_PROJECT_VERSION = 2272;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

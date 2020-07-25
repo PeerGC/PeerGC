@@ -228,7 +228,7 @@ class GenericStructureViewController: UIViewController {
     
     //MARK: Handlers
     //MARK: General Handlers
-    func nextViewControllerHandler() {
+    func nextViewControllerHandler(viewController: UIViewController) {
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
         .map({$0 as? UIWindowScene})
@@ -237,8 +237,7 @@ class GenericStructureViewController: UIViewController {
         .filter({$0.isKeyWindow}).first
         
         if let navigationController = keyWindow?.rootViewController as? UINavigationController {
-            guard let nextViewController = genericStructureViewControllerMetadataDelegate?.nextViewController() else { return }
-            navigationController.pushViewController(nextViewController, animated: true)
+            navigationController.pushViewController(viewController, animated: true)
         }
     }
     
@@ -250,7 +249,7 @@ class GenericStructureViewController: UIViewController {
     func selectionButtonTextHandler(text: String) { //override this for custom button exceptions
         GenericStructureViewController.sendToDatabaseData[genericStructureViewControllerMetadataDelegate!.databaseIdentifier()] = text
         
-        nextViewControllerHandler()
+        nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
     }
     
     //MARK: Text Field Handlers
@@ -262,7 +261,8 @@ class GenericStructureViewController: UIViewController {
             let error = textFieldDelegate?.continuePressed(textInput: textField!.text)
             
             if error == nil {
-                nextViewControllerHandler()
+                GenericStructureViewController.sendToDatabaseData[genericStructureViewControllerMetadataDelegate!.databaseIdentifier()] = textField!.text
+                nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
                 errorLabel!.isHidden = true
             }
             
@@ -301,7 +301,7 @@ class GenericStructureViewController: UIViewController {
     
     @objc func imagePickerContinueButtonHandler(sender: UIButton) {
         if imageView!.image != nil {
-            nextViewControllerHandler()
+            nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
         }
     }
     
