@@ -13,6 +13,7 @@ class ZipCodeVC: GenericStructureViewController {
     override func viewDidLoad() {
         genericStructureViewControllerMetadataDelegate = self
         textFieldDelegate = self
+        textField?.keyboardType = .numberPad
         super.viewDidLoad()
     }
 }
@@ -33,6 +34,37 @@ extension ZipCodeVC: GenericStructureViewControllerMetadataDelegate {
 
 extension ZipCodeVC: TextFieldDelegate {
     func continuePressed(textInput: String?) -> String? {
+        
+        guard let text = textInput else { return "Invalid." }
+        
+        if text.count > 5 {
+            return "Please enter a valid zip code."
+        }
+        
+        var zipCodeEdited = ""
+        var hasStarted = false
+        
+        for char in text {
+        
+            if char != "0" {
+                hasStarted = true
+                zipCodeEdited += String(char)
+            }
+            
+            if char == "0" {
+                if hasStarted {
+                    zipCodeEdited += String(char)
+                }
+            }
+        }
+        
+        if !Utilities.zipCodeDoesExist(zipcode: zipCodeEdited) {
+            return "Please enter a valid zip code."
+        }
+        
+        GenericStructureViewController.sendToDatabaseData["zipCode"] = zipCodeEdited
+        GenericStructureViewController.sendToDatabaseData["value"] = Utilities.getValueByZipCode(zipcode: zipCodeEdited)
+        
         return nil
     }
 }
