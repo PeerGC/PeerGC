@@ -39,8 +39,4 @@ extension ZipCodeVC: TextFieldDelegate {
     func continuePressed(textInput: String?) -> String? {
         return nil
     }
-    
-    func placeHolderText() -> String {
-        return "Zip Code"
-    }
 }

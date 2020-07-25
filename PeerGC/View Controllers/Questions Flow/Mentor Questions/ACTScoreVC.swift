@@ -1,5 +1,5 @@
 //
-//  CollegeYearVC.swift
+//  ACTScoreVC.swift
 //  PeerGC
 //
 //  Created by Artemas Radik on 7/24/20.
@@ -9,21 +9,21 @@
 import Foundation
 import UIKit
 
-class CollegeYearVC: GenericStructureViewController {
+class ACTScoreVC: GenericStructureViewController {
     override func viewDidLoad() {
         genericStructureViewControllerMetadataDelegate = self
-        buttonsDelegate = self
+        textFieldDelegate = self
         super.viewDidLoad()
     }
 }
 
-extension CollegeYearVC: GenericStructureViewControllerMetadataDelegate {
+extension ACTScoreVC: GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String {
-        return "schoolYear"
+        return "highSchoolTestScore"
     }
     
     func title() -> String {
-        return "What year of college are you in?"
+        return "Please enter your ACT score."
     }
     
     func subtitle() -> String? {
@@ -31,12 +31,12 @@ extension CollegeYearVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return MajorVC()
+        return HelpMostVC()
     }
 }
 
-extension CollegeYearVC: ButtonsDelegate {
-    func buttons() -> [String] {
-        return ["Freshman", "Sophomore", "Junior", "Senior"]
+extension ACTScoreVC: TextFieldDelegate {
+    func continuePressed(textInput: String?) -> String? {
+        return nil
     }
 }

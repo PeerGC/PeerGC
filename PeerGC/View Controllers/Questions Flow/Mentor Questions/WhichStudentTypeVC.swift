@@ -1,5 +1,5 @@
 //
-//  WhereInProcessVC.swift
+//  WhichStudentTypeVC.swift
 //  PeerGC
 //
 //  Created by Artemas Radik on 7/24/20.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WhereInProcessVC: GenericStructureViewController {
+class WhichStudentTypeVC: GenericStructureViewController {
     override func viewDidLoad() {
         BUTTON_TEXT_SIZE = (1.2/71) * UIScreen.main.bounds.height
         genericStructureViewControllerMetadataDelegate = self
@@ -18,13 +18,13 @@ class WhereInProcessVC: GenericStructureViewController {
     }
 }
 
-extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
+extension WhichStudentTypeVC: GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String {
-        return "whereInProcess"
+        return "whichStudentType"
     }
     
     func title() -> String {
-        return "Where you are in the college application process?"
+        return "What kind of student would you be most excited to mentor?"
     }
     
     func subtitle() -> String? {
@@ -32,12 +32,12 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return FeelAboutApplyingVC()
+        return WhichDegreeVC()
     }
 }
 
-extension WhereInProcessVC: ButtonsDelegate {
+extension WhichStudentTypeVC: ButtonsDelegate {
     func buttons() -> [String] {
-        return ["I haven’t started looking.", "I started looking but haven’t picked any schools.", "I've picked schools but have started applying.", "I've started applications but I'm stuck.", "I'm done with applications."]
+        return ["Financially underprivileged.", "LGBTQ.", "Women in STEM.", "Similar cultural/religious background as you.", "Similar racial background as you."]
     }
 }

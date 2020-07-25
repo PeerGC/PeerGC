@@ -1,5 +1,5 @@
 //
-//  CollegeYearVC.swift
+//  OtherFirstLanguageVC.swift
 //  PeerGC
 //
 //  Created by Artemas Radik on 7/24/20.
@@ -9,21 +9,21 @@
 import Foundation
 import UIKit
 
-class CollegeYearVC: GenericStructureViewController {
+class OtherFirstLanguageVC: GenericStructureViewController {
     override func viewDidLoad() {
         genericStructureViewControllerMetadataDelegate = self
-        buttonsDelegate = self
+        textFieldDelegate = self
         super.viewDidLoad()
     }
 }
 
-extension CollegeYearVC: GenericStructureViewControllerMetadataDelegate {
+extension OtherFirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String {
-        return "schoolYear"
+        return "firstLanguage"
     }
     
     func title() -> String {
-        return "What year of college are you in?"
+        return "Please fill in your first language."
     }
     
     func subtitle() -> String? {
@@ -31,12 +31,12 @@ extension CollegeYearVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return MajorVC()
+        return GenderVC()
     }
 }
 
-extension CollegeYearVC: ButtonsDelegate {
-    func buttons() -> [String] {
-        return ["Freshman", "Sophomore", "Junior", "Senior"]
+extension OtherFirstLanguageVC: TextFieldDelegate {
+    func continuePressed(textInput: String?) -> String? {
+        return nil
     }
 }

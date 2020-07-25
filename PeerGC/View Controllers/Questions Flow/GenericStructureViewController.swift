@@ -90,7 +90,7 @@ class GenericStructureViewController: UIViewController {
         //MARK: Text Field Layout
         if textFieldDelegate != nil {
             
-            textField = initializeCustomTextField(placeHolderText: textFieldDelegate!.placeHolderText())
+            textField = initializeCustomTextField()
             
             let textFieldConstraints = [NSLayoutConstraint(item: textField!, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: textField!.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: textField!.leadingAnchor, constant: -30)]
             
@@ -160,9 +160,9 @@ class GenericStructureViewController: UIViewController {
     
     //MARK: Custom UI Initializers
     let FONT_NAME = "LexendDeca-Regular"
-    let BUTTON_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
-    let TITLE_TEXT_SIZE = (3.5/71) * UIScreen.main.bounds.height
-    let SUBTITLE_TEXT_SIZE = (1.7/71) * UIScreen.main.bounds.height
+    let TITLE_TEXT_SIZE = (3.0/71) * UIScreen.main.bounds.height
+    let SUBTITLE_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
+    var BUTTON_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
     
     //MARK: Custom Button
     func initializeCustomButton(title: String, color: UIColor, action: Selector) -> DesignableButton {
@@ -202,13 +202,12 @@ class GenericStructureViewController: UIViewController {
     }
     
     //MARK: Custom Text Field
-    func initializeCustomTextField(placeHolderText: String) -> UITextField {
+    func initializeCustomTextField() -> UITextField {
         let toReturn = UITextField()
         toReturn.delegate = self
         toReturn.borderStyle = .roundedRect
         toReturn.backgroundColor = .secondarySystemBackground
         toReturn.font = UIFont.init(name: FONT_NAME, size: toReturn.font!.pointSize)
-        toReturn.placeholder = placeHolderText
         toReturn.textAlignment = .center
         toReturn.isUserInteractionEnabled = true
         let textFieldConstraints = [toReturn.heightAnchor.constraint(equalToConstant: 50)]
@@ -261,7 +260,6 @@ class GenericStructureViewController: UIViewController {
             let error = textFieldDelegate?.continuePressed(textInput: textField!.text)
             
             if error == nil {
-                GenericStructureViewController.sendToDatabaseData[genericStructureViewControllerMetadataDelegate!.databaseIdentifier()] = textField!.text
                 nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
                 errorLabel!.isHidden = true
             }
@@ -353,7 +351,6 @@ protocol ButtonsDelegate {
 
 protocol TextFieldDelegate {
     func continuePressed(textInput: String?) -> String?
-    func placeHolderText() -> String
 }
 
 protocol ImagePickerDelegate {

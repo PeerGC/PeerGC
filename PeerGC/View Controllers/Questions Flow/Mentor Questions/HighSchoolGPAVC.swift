@@ -1,5 +1,5 @@
 //
-//  WhereInProcessVC.swift
+//  HighSchoolGPAVC.swift
 //  PeerGC
 //
 //  Created by Artemas Radik on 7/24/20.
@@ -9,22 +9,21 @@
 import Foundation
 import UIKit
 
-class WhereInProcessVC: GenericStructureViewController {
+class HighSchoolGPAVC: GenericStructureViewController {
     override func viewDidLoad() {
-        BUTTON_TEXT_SIZE = (1.2/71) * UIScreen.main.bounds.height
         genericStructureViewControllerMetadataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
 }
 
-extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
+extension HighSchoolGPAVC: GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String {
-        return "whereInProcess"
+        return "highSchoolGPA"
     }
     
     func title() -> String {
-        return "Where you are in the college application process?"
+        return "What was your high school GPA?"
     }
     
     func subtitle() -> String? {
@@ -32,12 +31,12 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return FeelAboutApplyingVC()
+        return HighSchoolScoresVC()
     }
 }
 
-extension WhereInProcessVC: ButtonsDelegate {
+extension HighSchoolGPAVC: ButtonsDelegate {
     func buttons() -> [String] {
-        return ["I haven’t started looking.", "I started looking but haven’t picked any schools.", "I've picked schools but have started applying.", "I've started applications but I'm stuck.", "I'm done with applications."]
+        return ["2 or under.", "Between 2 and 3.", "Between 3 and 4.", "4+"]
     }
 }

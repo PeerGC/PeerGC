@@ -1,5 +1,5 @@
 //
-//  WhereInProcessVC.swift
+//  HelpMostVC.swift
 //  PeerGC
 //
 //  Created by Artemas Radik on 7/24/20.
@@ -9,22 +9,21 @@
 import Foundation
 import UIKit
 
-class WhereInProcessVC: GenericStructureViewController {
+class HelpMostVC: GenericStructureViewController {
     override func viewDidLoad() {
-        BUTTON_TEXT_SIZE = (1.2/71) * UIScreen.main.bounds.height
         genericStructureViewControllerMetadataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
 }
 
-extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
+extension HelpMostVC: GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String {
-        return "whereInProcess"
+        return "helpMost"
     }
     
     func title() -> String {
-        return "Where you are in the college application process?"
+        return "Where can you help a student most?"
     }
     
     func subtitle() -> String? {
@@ -32,12 +31,12 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return FeelAboutApplyingVC()
+        return WhyYourCollegeVC()
     }
 }
 
-extension WhereInProcessVC: ButtonsDelegate {
+extension HelpMostVC: ButtonsDelegate {
     func buttons() -> [String] {
-        return ["I haven’t started looking.", "I started looking but haven’t picked any schools.", "I've picked schools but have started applying.", "I've started applications but I'm stuck.", "I'm done with applications."]
+        return ["General guidance / keeping on track.", "Info on what colleges look for.", "Finding a support system in college.", "College entrance tests.", "Application essays."]
     }
 }

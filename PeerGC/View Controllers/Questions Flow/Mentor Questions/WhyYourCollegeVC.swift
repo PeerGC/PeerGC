@@ -1,5 +1,5 @@
 //
-//  WhereInProcessVC.swift
+//  WhyYourCollegeVC.swift
 //  PeerGC
 //
 //  Created by Artemas Radik on 7/24/20.
@@ -9,22 +9,21 @@
 import Foundation
 import UIKit
 
-class WhereInProcessVC: GenericStructureViewController {
+class WhyYourCollegeVC: GenericStructureViewController {
     override func viewDidLoad() {
-        BUTTON_TEXT_SIZE = (1.2/71) * UIScreen.main.bounds.height
         genericStructureViewControllerMetadataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
 }
 
-extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
+extension WhyYourCollegeVC: GenericStructureViewControllerMetadataDelegate {
     func databaseIdentifier() -> String {
-        return "whereInProcess"
+        return "whyYourCollege"
     }
     
     func title() -> String {
-        return "Where you are in the college application process?"
+        return "Why did you choose the college you are in?"
     }
     
     func subtitle() -> String? {
@@ -32,12 +31,12 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return FeelAboutApplyingVC()
+        return PostGradAspirationsVC()
     }
 }
 
-extension WhereInProcessVC: ButtonsDelegate {
+extension WhyYourCollegeVC: ButtonsDelegate {
     func buttons() -> [String] {
-        return ["I haven’t started looking.", "I started looking but haven’t picked any schools.", "I've picked schools but have started applying.", "I've started applications but I'm stuck.", "I'm done with applications."]
+        return ["Close to home.", "Big name school.", "Best scholarship.", "Best fit with your religion or culture.", "Something else."]
     }
 }

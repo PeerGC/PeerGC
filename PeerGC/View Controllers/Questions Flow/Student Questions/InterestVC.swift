@@ -37,6 +37,6 @@ extension InterestVC: GenericStructureViewControllerMetadataDelegate {
 
 extension InterestVC: ButtonsDelegate {
     func buttons() -> [String] {
-        return ["Humanities", "Math / Computer Science", "Sciences", "Business", "Art / Theatre", "A Specific Trade"]
+        return ["Humanities", "Math / Computer Science", "Sciences", "Business", "Art / Theatre"]
     }
 }

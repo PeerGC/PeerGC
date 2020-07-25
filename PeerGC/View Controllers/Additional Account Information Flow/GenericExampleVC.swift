@@ -61,10 +61,6 @@ extension GenericExampleVC: TextFieldDelegate {
             return "Incorrect. This is an error."
         }
     }
-    
-    func placeHolderText() -> String {
-        return "Password"
-    }
 }
 
 extension GenericExampleVC: ImagePickerDelegate {
