@@ -37,6 +37,6 @@ extension WhichDegreeVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["AA.", "AA for transfer.", "Bachelor of Art or Science.", "Trade school degree.", "Other."]
+        return ["AA", "AA for transfer", "Bachelor of Art or Science", "Trade school degree", "Other"]
     }
 }

@@ -308,7 +308,9 @@ class GenericStructureViewController: UIViewController {
     var activityIndicatorContinueButton: UIButton?
     
     @objc func activityIndicatorContinueButtonHandler() {
-        nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
+        if activityIndicatorContinueButton!.alpha == 1.0 {
+            nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
+        }
     }
     
     func doneLoading() {

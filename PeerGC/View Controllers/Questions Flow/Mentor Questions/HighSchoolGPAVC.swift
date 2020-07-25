@@ -37,6 +37,6 @@ extension HighSchoolGPAVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["2 or under.", "Between 2 and 3.", "Between 3 and 4.", "4+"]
+        return ["2 or under", "Between 2 and 3", "Between 3 and 4", "4+"]
     }
 }

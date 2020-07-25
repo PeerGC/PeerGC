@@ -38,6 +38,6 @@ extension PostGradAspirationsVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["Continued study [masters, PhD, MD, etc].", "Athletics.", "Work in an industry related to your major.", "Earn money with your degree.", "Something else."]
+        return ["Continued study [masters, PhD, MD, etc]", "Athletics", "Work in an industry related to your major", "Earn money with your degree", "Something else"]
     }
 }

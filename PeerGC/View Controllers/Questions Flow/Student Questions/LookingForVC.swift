@@ -39,6 +39,6 @@ extension LookingForVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["To help keep me on track.", "To provide info on what colleges look for.", "To find a support system in college.", "To help with college entrance tests.", "To help with essays."]
+        return ["To help keep me on track", "To provide info on what colleges look for", "To find a support system in college", "To help with college entrance tests", "To help with essays"]
     }
 }

@@ -38,6 +38,6 @@ extension WhereInProcessVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["I haven’t started looking.", "I started looking but haven’t picked any schools.", "I've picked schools but have started applying.", "I've started applications but I'm stuck.", "I'm done with applications."]
+        return ["I haven’t started looking", "I started looking but haven’t picked any schools", "I've picked schools but have started applying", "I've started applications but I'm stuck", "I'm done with applications"]
     }
 }

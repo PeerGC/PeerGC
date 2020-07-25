@@ -38,6 +38,6 @@ extension WhyCollegeVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["To move away from home.", "Specific field of study.", "To earn money.", "Athletics.", "I don’t know."]
+        return ["To move away from home", "Specific field of study", "To earn money", "Athletics", "I don’t know"]
     }
 }

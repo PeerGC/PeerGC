@@ -37,6 +37,6 @@ extension KindOfCollegeVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["Local community colleges only.", "Four year city colleges.", "Trade schools.", "Universities.", "I don’t know."]
+        return ["Local community colleges only", "Four year city colleges", "Trade schools", "Universities", "I don’t know"]
     }
 }

@@ -38,6 +38,6 @@ extension WhichStudentTypeVC: ButtonsDelegate {
     }
     
     func buttons() -> [String] {
-        return ["Financially underprivileged.", "LGBTQ.", "Women in STEM.", "Similar cultural/religious background as you.", "Similar racial background as you."]
+        return ["Financially underprivileged", "LGBTQ", "Women in STEM", "Similar cultural/religious background as you", "Similar racial background as you"]
     }
 }
