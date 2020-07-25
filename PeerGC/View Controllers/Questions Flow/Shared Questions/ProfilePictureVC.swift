@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class ProfilePictureVC: GenericStructureViewController {
     override func viewDidLoad() {
@@ -33,12 +34,45 @@ extension ProfilePictureVC: GenericStructureViewControllerMetadataDelegate {
 
 extension ProfilePictureVC: ImagePickerDelegate {
     func setInitialImage(imageView: UIImageView, continueButton: UIButton) {
-        downloadImage(url: URL(string: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80")!, imageView: imageView, continueButton: continueButton)
+        let photoURL = Auth.auth().currentUser!.photoURL
+        
+        if photoURL != nil {
+            ProfilePictureViewController.downloadImage(url: photoURL!, imageView: imageView)
+        }
     }
     
     func imageWasSelected(imageView: UIImageView, continueButton: UIButton, image: UIImage) {
-        continueButton.alpha = 1.0
-        imageView.image = image
+        
+        guard let imageData = image.pngData() else { return }
+        
+        let profilePicStorageRef = Storage.storage().reference().child("users/\(Auth.auth().currentUser!.uid)/profilePicture")
+        
+        profilePicStorageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            
+            profilePicStorageRef.downloadURL { (url, error) in
+                guard let url = url else { return }
+                let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
+                changeRequest.photoURL = url
+                changeRequest.commitChanges { error in
+                    if let error = error {
+                        let errorCode = AuthErrorCode(rawValue: error._code)
+                        switch errorCode {
+                            case .wrongPassword:
+                                print("Wrong Password.")
+                            case .networkError:
+                                print("Network Error.")
+                            default:
+                                print("Error setting name.")
+                        }
+                    }
+                    
+                    else {
+                        continueButton.alpha = 1.0
+                        imageView.image = image
+                    }
+                }
+            }
+        }
     }
     
     func downloadImage(url: URL, imageView: UIImageView, continueButton: UIButton) {
