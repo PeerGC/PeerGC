@@ -41,7 +41,7 @@ extension FirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return RaceVC()
+        return FirstLanguageVC()
     }
 }
 

@@ -23,7 +23,7 @@ extension InterestVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func title() -> String {
-        return "What year of High School are you in?"
+        return "Which of these interests you most?"
     }
     
     func subtitle() -> String? {

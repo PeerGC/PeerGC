@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setInitialViewContoller(_ window:UIWindow) {
         
-        showController(controller: GenericExampleVC(), window: window)
-        return
+//        showController(controller: GenericExampleVC(), window: window)
+//        return
         
         print("SET LOGIN")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

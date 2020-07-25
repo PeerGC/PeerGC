@@ -31,7 +31,7 @@ extension WhyCollegeVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController {
-        return RaceVC()
+        return FirstLanguageVC()
     }
 }
 

@@ -152,18 +152,31 @@ extension EntranceViewController: GIDSignInDelegate {
                             self.transitionToHome()
                         }
                         else {
-                            self.performSegue(withIdentifier: "goToFurther", sender: self)
+                            self.nextViewControllerHandler(viewController: AccountTypeVC())
                         }
                     })
                 } else {
                     print("Document does not exist")
-                    self.performSegue(withIdentifier: "goToFurther", sender: self)
+                    self.nextViewControllerHandler(viewController: AccountTypeVC())
                 }
             }
             
             
         }
         
+    }
+    
+    func nextViewControllerHandler(viewController: UIViewController) {
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        
+        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
+            navigationController.pushViewController(viewController, animated: true)
+        }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
