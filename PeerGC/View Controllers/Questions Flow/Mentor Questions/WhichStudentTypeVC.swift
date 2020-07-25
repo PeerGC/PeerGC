@@ -19,10 +19,6 @@ class WhichStudentTypeVC: GenericStructureViewController {
 }
 
 extension WhichStudentTypeVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "whichStudentType"
-    }
-    
     func title() -> String {
         return "What kind of student would you be most excited to mentor?"
     }
@@ -31,12 +27,16 @@ extension WhichStudentTypeVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return WhichDegreeVC()
     }
 }
 
 extension WhichStudentTypeVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "whichStudentType"
+    }
+    
     func buttons() -> [String] {
         return ["Financially underprivileged.", "LGBTQ.", "Women in STEM.", "Similar cultural/religious background as you.", "Similar racial background as you."]
     }

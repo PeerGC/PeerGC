@@ -18,10 +18,6 @@ class InterestVC: GenericStructureViewController {
 }
 
 extension InterestVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "interest"
-    }
-    
     func title() -> String {
         return "Which of these interests you most?"
     }
@@ -30,12 +26,16 @@ extension InterestVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return LookingForVC()
     }
 }
 
 extension InterestVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "interest"
+    }
+    
     func buttons() -> [String] {
         return ["Humanities", "Math / Computer Science", "Sciences", "Business", "Art / Theatre"]
     }

@@ -18,10 +18,6 @@ class WhichDegreeVC: GenericStructureViewController {
 }
 
 extension WhichDegreeVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "whichDegree"
-    }
-    
     func title() -> String {
         return "What kind of degree are you currently pursuing?"
     }
@@ -30,12 +26,16 @@ extension WhichDegreeVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return FirstLanguageVC()
     }
 }
 
 extension WhichDegreeVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "whichDegree"
+    }
+    
     func buttons() -> [String] {
         return ["AA.", "AA for transfer.", "Bachelor of Art or Science.", "Trade school degree.", "Other."]
     }

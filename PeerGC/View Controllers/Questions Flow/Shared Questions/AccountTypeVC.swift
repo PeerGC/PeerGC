@@ -18,10 +18,6 @@ class AccountTypeVC: GenericStructureViewController {
 }
 
 extension AccountTypeVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "accountType"
-    }
-    
     func title() -> String {
         return "Are you a student or a mentor?"
     }
@@ -30,12 +26,16 @@ extension AccountTypeVC: GenericStructureViewControllerMetadataDelegate {
         return "PeerGC uses this information to determine the type of your account."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return ProfilePictureVC()
     }
 }
 
 extension AccountTypeVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "accountType"
+    }
+    
     func buttons() -> [String] {
         return ["Student", "Mentor"]
     }

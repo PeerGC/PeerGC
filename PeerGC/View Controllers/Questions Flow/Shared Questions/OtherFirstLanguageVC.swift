@@ -17,11 +17,7 @@ class OtherFirstLanguageVC: GenericStructureViewController {
     }
 }
 
-extension OtherFirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "firstLanguage"
-    }
-    
+extension OtherFirstLanguageVC: GenericStructureViewControllerMetadataDelegate {    
     func title() -> String {
         return "Please fill in your first language."
     }
@@ -30,12 +26,12 @@ extension OtherFirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
-        return GenderVC()
+    func nextViewController() -> UIViewController? {
+        return MatchingVC()
     }
 }
 
-extension OtherFirstLanguageVC: TextFieldDelegate {
+extension OtherFirstLanguageVC: TextFieldDelegate {    
     func continuePressed(textInput: String?) -> String? {
         return nil
     }

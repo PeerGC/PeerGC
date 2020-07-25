@@ -18,10 +18,6 @@ class GenderVC: GenericStructureViewController {
 }
 
 extension GenderVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "gender"
-    }
-    
     func title() -> String {
         return "What is your gender?"
     }
@@ -30,7 +26,7 @@ extension GenderVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return LGBTQVC()
     }
     
@@ -38,6 +34,10 @@ extension GenderVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension GenderVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "gender"
+    }
+    
     func buttons() -> [String] {
         return ["Male", "Female", "Non-Binary", "Other"]
     }

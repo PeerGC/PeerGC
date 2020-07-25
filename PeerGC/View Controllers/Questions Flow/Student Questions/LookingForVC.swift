@@ -20,10 +20,6 @@ class LookingForVC: GenericStructureViewController {
 }
 
 extension LookingForVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "lookingFor"
-    }
-    
     func title() -> String {
         return "What are you looking for from a peer counselor?"
     }
@@ -32,12 +28,16 @@ extension LookingForVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return WhereInProcessVC()
     }
 }
 
 extension LookingForVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "lookingFor"
+    }
+    
     func buttons() -> [String] {
         return ["To help keep me on track.", "To provide info on what colleges look for.", "To find a support system in college.", "To help with college entrance tests.", "To help with essays."]
     }

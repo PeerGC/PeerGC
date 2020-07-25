@@ -19,10 +19,6 @@ class PostGradAspirationsVC: GenericStructureViewController {
 }
 
 extension PostGradAspirationsVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "postGradAspirations"
-    }
-    
     func title() -> String {
         return "What are your post-grad aspirations?"
     }
@@ -31,12 +27,16 @@ extension PostGradAspirationsVC: GenericStructureViewControllerMetadataDelegate 
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return WhichStudentTypeVC()
     }
 }
 
 extension PostGradAspirationsVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "postGradAspirations"
+    }
+    
     func buttons() -> [String] {
         return ["Continued study [masters, PhD, MD, etc].", "Athletics.", "Work in an industry related to your major.", "Earn money with your degree.", "Something else."]
     }

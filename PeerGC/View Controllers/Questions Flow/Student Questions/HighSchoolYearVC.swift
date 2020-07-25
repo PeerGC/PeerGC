@@ -18,10 +18,6 @@ class HighSchoolYearVC: GenericStructureViewController {
 }
 
 extension HighSchoolYearVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "schoolYear"
-    }
-    
     func title() -> String {
         return "What year of High School are you in?"
     }
@@ -30,12 +26,16 @@ extension HighSchoolYearVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return InterestVC()
     }
 }
 
 extension HighSchoolYearVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "schoolYear"
+    }
+    
     func buttons() -> [String] {
         return ["Freshman", "Sophomore", "Junior", "Senior"]
     }

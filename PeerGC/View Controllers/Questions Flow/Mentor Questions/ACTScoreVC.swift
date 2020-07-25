@@ -18,10 +18,6 @@ class ACTScoreVC: GenericStructureViewController {
 }
 
 extension ACTScoreVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "highSchoolTestScore"
-    }
-    
     func title() -> String {
         return "Please enter your ACT score."
     }
@@ -30,7 +26,7 @@ extension ACTScoreVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return HelpMostVC()
     }
 }

@@ -18,10 +18,6 @@ class MajorVC: GenericStructureViewController {
 }
 
 extension MajorVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "major"
-    }
-    
     func title() -> String {
         return "What field of study are you currently pursuing?"
     }
@@ -30,12 +26,16 @@ extension MajorVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return HighSchoolGPAVC()
     }
 }
 
 extension MajorVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "major"
+    }
+    
     func buttons() -> [String] {
         return ["Humanities", "Math / Computer Science", "Sciences", "Business", "Art / Theatre"]
     }

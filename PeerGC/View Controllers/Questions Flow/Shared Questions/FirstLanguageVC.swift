@@ -28,10 +28,6 @@ class FirstLanguageVC: GenericStructureViewController {
 }
 
 extension FirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "firstLanguage"
-    }
-    
     func title() -> String {
         return "What is your first language?"
     }
@@ -40,12 +36,16 @@ extension FirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
-        return FirstLanguageVC()
+    func nextViewController() -> UIViewController? {
+        return MatchingVC()
     }
 }
 
 extension FirstLanguageVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "firstLanguage"
+    }
+    
     func buttons() -> [String] {
         return ["English.", "Other."]
     }

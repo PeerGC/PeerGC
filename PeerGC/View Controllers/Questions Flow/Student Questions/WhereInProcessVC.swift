@@ -19,10 +19,6 @@ class WhereInProcessVC: GenericStructureViewController {
 }
 
 extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "whereInProcess"
-    }
-    
     func title() -> String {
         return "Where you are in the college application process?"
     }
@@ -31,12 +27,16 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return FeelAboutApplyingVC()
     }
 }
 
 extension WhereInProcessVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "whereInProcess"
+    }
+    
     func buttons() -> [String] {
         return ["I haven’t started looking.", "I started looking but haven’t picked any schools.", "I've picked schools but have started applying.", "I've started applications but I'm stuck.", "I'm done with applications."]
     }

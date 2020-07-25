@@ -20,11 +20,6 @@ class GenericExampleVC: GenericStructureViewController {
 }
 
 extension GenericExampleVC: GenericStructureViewControllerMetadataDelegate {
-    
-    func databaseIdentifier() -> String {
-        return "ExampleID"
-    }
-    
     func title() -> String {
         return "Hello! This is what a title might look like."
     }
@@ -33,13 +28,17 @@ extension GenericExampleVC: GenericStructureViewControllerMetadataDelegate {
         return nil
     }
     
-    func nextViewController() -> UIViewController {
-        return UIViewController()
+    func nextViewController() -> UIViewController? {
+        return nil
     }
     
 }
 
 extension GenericExampleVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "ExampleID"
+    }
+    
     func buttons() -> [String] {
         return [
             "Yes, I have done this.",

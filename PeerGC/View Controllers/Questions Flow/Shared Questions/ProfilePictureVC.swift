@@ -18,10 +18,6 @@ class ProfilePictureVC: GenericStructureViewController {
 }
 
 extension ProfilePictureVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "profilePicturePhotoURL"
-    }
-    
     func title() -> String {
         return "Please upload a profile picture."
     }
@@ -30,7 +26,7 @@ extension ProfilePictureVC: GenericStructureViewControllerMetadataDelegate {
         return "Your profile picture is mandatory and will be displayed publicly."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return ZipCodeVC()
     }
 }

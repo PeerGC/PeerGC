@@ -18,9 +18,6 @@ class WhyCollegeVC: GenericStructureViewController {
 }
 
 extension WhyCollegeVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "whyCollege"
-    }
     
     func title() -> String {
         return "Why do you want to go to college?"
@@ -30,12 +27,16 @@ extension WhyCollegeVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return FirstLanguageVC()
     }
 }
 
 extension WhyCollegeVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "whyCollege"
+    }
+    
     func buttons() -> [String] {
         return ["To move away from home.", "Specific field of study.", "To earn money.", "Athletics.", "I don’t know."]
     }

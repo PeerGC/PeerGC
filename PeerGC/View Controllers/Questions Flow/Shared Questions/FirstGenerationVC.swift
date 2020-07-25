@@ -18,10 +18,6 @@ class FirstGenerationVC: GenericStructureViewController {
 }
 
 extension FirstGenerationVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "firstGeneration"
-    }
-    
     func title() -> String {
         return "Did either of your parents attend higher education?"
     }
@@ -30,7 +26,7 @@ extension FirstGenerationVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         if GenericStructureViewController.sendToDatabaseData["accountType"] == "Student" {
             return HighSchoolYearVC()
         }
@@ -40,12 +36,16 @@ extension FirstGenerationVC: GenericStructureViewControllerMetadataDelegate {
         }
         
         else {
-            return self
+            return nil
         }
     }
 }
 
 extension FirstGenerationVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "firstGeneration"
+    }
+    
     func buttons() -> [String] {
         return ["Yes", "No", "Partially, but no degree."]
     }

@@ -18,10 +18,6 @@ class LGBTQVC: GenericStructureViewController {
 }
 
 extension LGBTQVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "lgbtq"
-    }
-    
     func title() -> String {
         return "Are you LGBTQ?"
     }
@@ -30,14 +26,16 @@ extension LGBTQVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return RaceVC()
     }
-    
-    
 }
 
 extension LGBTQVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "lgbtq"
+    }
+    
     func buttons() -> [String] {
         return ["Yes", "No"]
     }

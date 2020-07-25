@@ -20,6 +20,7 @@ class GenericStructureViewController: UIViewController {
     var buttonsDelegate: ButtonsDelegate?
     var textFieldDelegate: TextFieldDelegate?
     var imagePickerDelegate: ImagePickerDelegate?
+    var activityIndicatorDelegate: ActivityIndicatorDelegate?
     
     //MARK: View Did Load
     override func viewDidLoad() {
@@ -30,7 +31,7 @@ class GenericStructureViewController: UIViewController {
             return
         }
         
-        let optionalDelegates: [Any?] = [buttonsDelegate, textFieldDelegate, imagePickerDelegate]
+        let optionalDelegates: [Any?] = [buttonsDelegate, textFieldDelegate, imagePickerDelegate, activityIndicatorDelegate]
         
         var numberOfNonNilOptionalDelegates = 0
         
@@ -77,14 +78,10 @@ class GenericStructureViewController: UIViewController {
             let buttonStack = initializeCustomStack(spacing: 10, distribution: .fillEqually)
             
             for buttonText in buttonsDelegate!.buttons() {
-                buttonStack.addArrangedSubview(initializeCustomButton(title: buttonText, color: .systemPink, action: #selector(selectionButtonHandler(sender:))))
+                buttonStack.addArrangedSubview(initializeCustomButton(title: buttonText, color: .systemPink, action: #selector(selectionButtonHandler(sender:)), alpha: 1.0))
             }
             
-            let buttonStackConstraints = [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)]
-            
-            buttonStack.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(buttonStack)
-            NSLayoutConstraint.activate(buttonStackConstraints)
+            addAndConstraint(customView: buttonStack, constraints: [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)])
         }
         
         //MARK: Text Field Layout
@@ -92,70 +89,64 @@ class GenericStructureViewController: UIViewController {
             
             textField = initializeCustomTextField()
             
-            let textFieldConstraints = [NSLayoutConstraint(item: textField!, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: textField!.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: textField!.leadingAnchor, constant: -30)]
-            
-            textField!.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(textField!)
-            NSLayoutConstraint.activate(textFieldConstraints)
-            
+            addAndConstraint(customView: textField!, constraints: [NSLayoutConstraint(item: textField!, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: textField!.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: textField!.leadingAnchor, constant: -30)])
+
             errorLabel = initializeCustomLabel(title: "Error.", size: Double(SUBTITLE_TEXT_SIZE), color: .systemPink)
             errorLabel!.isHidden = true
             
-            let errorLabelConstraints = [NSLayoutConstraint(item: errorLabel!, attribute: .top, relatedBy: .equal, toItem: textField, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: errorLabel!.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: errorLabel!.leadingAnchor, constant: -20)]
+            addAndConstraint(customView: errorLabel!, constraints: [NSLayoutConstraint(item: errorLabel!, attribute: .top, relatedBy: .equal, toItem: textField, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: errorLabel!.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: errorLabel!.leadingAnchor, constant: -20)])
             
-            errorLabel!.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(errorLabel!)
-            NSLayoutConstraint.activate(errorLabelConstraints)
+            let textFieldContinueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(textFieldContinueButtonHandler), alpha: 1.0)
             
-            let textFieldContinueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(textFieldContinueButtonHandler))
-            
-            let continueButtonConstraints: [NSLayoutConstraint] = [
+            addAndConstraint(customView: textFieldContinueButton, constraints: [
                 view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: textFieldContinueButton.trailingAnchor, constant: 30),
                 view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: textFieldContinueButton.leadingAnchor, constant: -30),
                 view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: textFieldContinueButton.bottomAnchor, constant: 16)
-            ]
-            
-            textFieldContinueButton.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(textFieldContinueButton)
-            NSLayoutConstraint.activate(continueButtonConstraints)
+            ])
             
         }
         
         //MARK: Image Picker Layout
         if imagePickerDelegate != nil {
             
-            let selectButton = initializeCustomButton(title: "Select", color: .systemGreen, action: #selector(imagePickerSelectButtonHandler))
+            let selectButton = initializeCustomButton(title: "Select", color: .systemGreen, action: #selector(imagePickerSelectButtonHandler), alpha: 1.0)
             
-            let selectButtonConstraints = [NSLayoutConstraint(item: selectButton, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -30)]
-            
-            selectButton.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(selectButton)
-            NSLayoutConstraint.activate(selectButtonConstraints)
+            addAndConstraint(customView: selectButton, constraints: [NSLayoutConstraint(item: selectButton, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -30)])
             
             imageView = initializeCustomImageView()
             
-            let imageViewConstraints = [NSLayoutConstraint(item: imageView!, attribute: .top, relatedBy: .equal, toItem: selectButton, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: imageView!.trailingAnchor, constant: 120), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: imageView!.leadingAnchor, constant: -120), NSLayoutConstraint(item: imageView!, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: 1, constant: 0)]
+            addAndConstraint(customView: imageView!, constraints: [NSLayoutConstraint(item: imageView!, attribute: .top, relatedBy: .equal, toItem: selectButton, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: imageView!.trailingAnchor, constant: 120), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: imageView!.leadingAnchor, constant: -120), NSLayoutConstraint(item: imageView!, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: 1, constant: 0)])
             
-            imageView!.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(imageView!)
-            NSLayoutConstraint.activate(imageViewConstraints)
+            imagePickerContinueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(imagePickerContinueButtonHandler(sender:)), alpha: 0.6)
             
-            imagePickerContinueButton = initializeCustomButton(title: "Continue", color: .systemPink, action: #selector(imagePickerContinueButtonHandler(sender:)))
-            imagePickerContinueButton!.alpha = 0.6
-            
-            let continueButtonConstraints: [NSLayoutConstraint] = [
+            addAndConstraint(customView: imagePickerContinueButton!, constraints: [
                 view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: imagePickerContinueButton!.trailingAnchor, constant: 30),
                 view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: imagePickerContinueButton!.leadingAnchor, constant: -30),
                 view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: imagePickerContinueButton!.bottomAnchor, constant: 16)
-            ]
-            
-            imagePickerContinueButton!.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(imagePickerContinueButton!)
-            NSLayoutConstraint.activate(continueButtonConstraints)
+            ])
             
             imagePickerDelegate!.setInitialImage(imageView: imageView!, continueButton: imagePickerContinueButton!)
         }
         
+        //MARK: Activity Indicator Layout
+        if activityIndicatorDelegate != nil {
+            
+            activityIndicator = initializeCustomActivityIndicator()
+            
+            addAndConstraint(customView: activityIndicator!, constraints: [
+                view.safeAreaLayoutGuide.centerXAnchor.constraint(equalTo: activityIndicator!.centerXAnchor, constant: 0),
+                view.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: activityIndicator!.centerYAnchor, constant: 0)
+            ])
+            
+            activityIndicatorContinueButton = initializeCustomButton(title: "Finish", color: .systemGreen, action: #selector(activityIndicatorContinueButtonHandler), alpha: 0.6)
+            
+            addAndConstraint(customView: activityIndicatorContinueButton!, constraints: [
+                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: activityIndicatorContinueButton!.trailingAnchor, constant: 30),
+                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: activityIndicatorContinueButton!.leadingAnchor, constant: -30),
+                view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: activityIndicatorContinueButton!.bottomAnchor, constant: 16)
+            ])
+            
+        }
     }
     
     //MARK: Custom UI Initializers
@@ -164,11 +155,19 @@ class GenericStructureViewController: UIViewController {
     let SUBTITLE_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
     var BUTTON_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
     
+    //MARK: Add And Constraint
+    func addAndConstraint(customView: UIView, constraints: [NSLayoutConstraint]) {
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(customView)
+        NSLayoutConstraint.activate(constraints)
+    }
+    
     //MARK: Custom Button
-    func initializeCustomButton(title: String, color: UIColor, action: Selector) -> DesignableButton {
+    func initializeCustomButton(title: String, color: UIColor, action: Selector, alpha: Double) -> DesignableButton {
         let toReturn = DesignableButton()
         toReturn.setTitle(title, for: .normal)
         toReturn.setTitleColor(.white, for: .normal)
+        toReturn.alpha = CGFloat(alpha)
         toReturn.titleLabel!.font = UIFont(name: FONT_NAME, size: BUTTON_TEXT_SIZE)
         toReturn.setTitleColor(UIColor.white, for: .normal)
         toReturn.backgroundColor = color
@@ -225,18 +224,19 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
+    //MARK: Custom Activity Indicator
+    func initializeCustomActivityIndicator() -> UIActivityIndicatorView {
+        let toReturn = UIActivityIndicatorView()
+        toReturn.startAnimating()
+        toReturn.style = .large
+        return toReturn
+    }
+    
     //MARK: Handlers
     //MARK: General Handlers
-    func nextViewControllerHandler(viewController: UIViewController) {
-        let keyWindow = UIApplication.shared.connectedScenes
-        .filter({$0.activationState == .foregroundActive})
-        .map({$0 as? UIWindowScene})
-        .compactMap({$0})
-        .first?.windows
-        .filter({$0.isKeyWindow}).first
-        
-        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
-            navigationController.pushViewController(viewController, animated: true)
+    func nextViewControllerHandler(viewController: UIViewController?) {
+        if viewController != nil {
+            navigationController?.pushViewController(viewController!, animated: true)
         }
     }
     
@@ -246,7 +246,7 @@ class GenericStructureViewController: UIViewController {
     }
     
     func selectionButtonTextHandler(text: String) { //override this for custom button exceptions
-        GenericStructureViewController.sendToDatabaseData[genericStructureViewControllerMetadataDelegate!.databaseIdentifier()] = text
+        GenericStructureViewController.sendToDatabaseData[buttonsDelegate!.databaseIdentifier()] = text
         
         nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
     }
@@ -303,6 +303,19 @@ class GenericStructureViewController: UIViewController {
         }
     }
     
+    //MARK: Activity Indicator Handlers
+    var activityIndicator: UIActivityIndicatorView?
+    var activityIndicatorContinueButton: UIButton?
+    
+    @objc func activityIndicatorContinueButtonHandler() {
+        nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
+    }
+    
+    func doneLoading() {
+        activityIndicator?.isHidden = true
+        activityIndicatorContinueButton!.alpha = 1.0
+    }
+    
 }
 
 //MARK: Extensions
@@ -337,15 +350,14 @@ extension GenericStructureViewController: UINavigationControllerDelegate {
 
 //MARK: Delegate Protocols
 protocol GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String
-    
     func title() -> String
     func subtitle() -> String?
     
-    func nextViewController() -> UIViewController
+    func nextViewController() -> UIViewController?
 }
 
 protocol ButtonsDelegate {
+    func databaseIdentifier() -> String
     func buttons() -> [String]
 }
 
@@ -356,4 +368,8 @@ protocol TextFieldDelegate {
 protocol ImagePickerDelegate {
     func setInitialImage(imageView: UIImageView, continueButton: UIButton)
     func imageWasSelected(imageView: UIImageView, continueButton: UIButton, image: UIImage)
+}
+
+protocol ActivityIndicatorDelegate {
+
 }

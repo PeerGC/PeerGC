@@ -18,10 +18,6 @@ class HighSchoolGPAVC: GenericStructureViewController {
 }
 
 extension HighSchoolGPAVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "highSchoolGPA"
-    }
-    
     func title() -> String {
         return "What was your high school GPA?"
     }
@@ -30,12 +26,16 @@ extension HighSchoolGPAVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return HighSchoolScoresVC()
     }
 }
 
 extension HighSchoolGPAVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "highSchoolGPA"
+    }
+    
     func buttons() -> [String] {
         return ["2 or under.", "Between 2 and 3.", "Between 3 and 4.", "4+"]
     }

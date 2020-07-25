@@ -18,10 +18,6 @@ class RaceVC: GenericStructureViewController {
 }
 
 extension RaceVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "race"
-    }
-    
     func title() -> String {
         return "What is your race?"
     }
@@ -30,7 +26,7 @@ extension RaceVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return FirstGenerationVC()
     }
     
@@ -38,6 +34,10 @@ extension RaceVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension RaceVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "race"
+    }
+    
     func buttons() -> [String] {
         return ["White", "Black / African American", "American Indian / Alaska Native", "Asian", "Native Hawaiian / Pacific Islander", "Other"]
     }

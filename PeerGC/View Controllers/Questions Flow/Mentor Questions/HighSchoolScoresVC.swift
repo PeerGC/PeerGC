@@ -32,10 +32,6 @@ class HighSchoolScoresVC: GenericStructureViewController {
 }
 
 extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "highSchoolTestScore"
-    }
-    
     func title() -> String {
         return "Which test did you use for your college application?"
     }
@@ -44,12 +40,16 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return HelpMostVC()
     }
 }
 
 extension HighSchoolScoresVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "highSchoolTestScore"
+    }
+    
     func buttons() -> [String] {
         return ["SAT", "ACT", "Other / None"]
     }

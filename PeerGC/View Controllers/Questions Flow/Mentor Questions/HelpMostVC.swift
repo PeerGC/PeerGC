@@ -18,10 +18,6 @@ class HelpMostVC: GenericStructureViewController {
 }
 
 extension HelpMostVC: GenericStructureViewControllerMetadataDelegate {
-    func databaseIdentifier() -> String {
-        return "helpMost"
-    }
-    
     func title() -> String {
         return "Where can you help a student most?"
     }
@@ -30,12 +26,16 @@ extension HelpMostVC: GenericStructureViewControllerMetadataDelegate {
         return "This information will be displayed on your public profile and is used by our matching algorithm."
     }
     
-    func nextViewController() -> UIViewController {
+    func nextViewController() -> UIViewController? {
         return WhyYourCollegeVC()
     }
 }
 
 extension HelpMostVC: ButtonsDelegate {
+    func databaseIdentifier() -> String {
+        return "helpMost"
+    }
+    
     func buttons() -> [String] {
         return ["General guidance / keeping on track.", "Info on what colleges look for.", "Finding a support system in college.", "College entrance tests.", "Application essays."]
     }
