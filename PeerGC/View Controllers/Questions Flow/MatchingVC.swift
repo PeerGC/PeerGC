@@ -55,6 +55,20 @@ class MatchingVC: GenericStructureViewController {
         }
         
     }
+    
+    override func activityIndicatorContinueButtonHandler() {
+        if activityIndicatorContinueButton?.alpha == 1.0 {
+            let window: UIWindow = (UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first)!
+            
+            HomeViewController.loadCardLoader(action: {window.rootViewController = self.storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
+        }
+    }
+    
 }
 
 extension MatchingVC: GenericStructureViewControllerMetadataDelegate {
