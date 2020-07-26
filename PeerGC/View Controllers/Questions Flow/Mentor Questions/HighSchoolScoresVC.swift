@@ -17,19 +17,14 @@ class HighSchoolScoresVC: GenericStructureViewController {
     }
     
     override func selectionButtonTextHandler(text: String) {
-        if text == "SAT" {
-            nextViewControllerHandler(viewController: SATScoreVC())
-        }
-            
-        else if text == "ACT" {
-            nextViewControllerHandler(viewController: ACTScoreVC())
-        }
-            
-        else {
+        if text == "Other / None" {
             GenericStructureViewController.sendToDatabaseData["testScore"] = "N/A"
             super.selectionButtonTextHandler(text: text)
         }
+        
+        super.selectionButtonTextHandler(text: text)
     }
+
 }
 
 extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
@@ -42,7 +37,19 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController? {
-        return HelpMostVC()
+        let testTaken = GenericStructureViewController.sendToDatabaseData["testTaken"]
+        
+        if testTaken == "SAT" {
+            return SATScoreVC()
+        }
+        
+        else if testTaken == "ACT" {
+            return ACTScoreVC()
+        }
+        
+        else {
+            return HelpMostVC()
+        }
     }
 }
 

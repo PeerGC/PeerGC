@@ -43,7 +43,7 @@ extension FirstGenerationVC: GenericStructureViewControllerMetadataDelegate {
 
 extension FirstGenerationVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
-        return "firstGeneration"
+        return "parentsGoToCollege"
     }
     
     func buttons() -> [String] {
