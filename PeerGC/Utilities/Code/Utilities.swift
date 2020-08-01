@@ -8,8 +8,34 @@
 
 import Foundation
 import Firebase
+import UIKit
 
 class Utilities {
+    
+    static func blueText(text: String) -> NSMutableAttributedString {
+        let components = text.components(separatedBy: "/b")
+        let toReturn = NSMutableAttributedString(string: "")
+        
+        var makeBlue = false
+        
+        for component in components {
+            if makeBlue {
+                let temp = NSMutableAttributedString(string: component)
+                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
+                toReturn.append(temp)
+            }
+            
+            else {
+                let temp = NSMutableAttributedString(string: component)
+                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+                toReturn.append(temp)
+            }
+            
+            makeBlue = !makeBlue
+        }
+        
+        return toReturn
+    }
     
     static func getSimilarZipCodes(zipcode: String) -> [String] {
         let zipCodeValue = Double(getValueByZipCode(zipcode: zipcode)!)
