@@ -35,8 +35,4 @@ extension KindOfCollegeVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "kindOfCollege"
     }
-    
-    func buttons() -> [String] {
-        return ["Local community colleges only", "Four year city colleges", "Trade schools", "Universities", "I don’t know"]
-    }
 }

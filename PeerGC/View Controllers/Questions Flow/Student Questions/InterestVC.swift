@@ -35,8 +35,4 @@ extension InterestVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "interest"
     }
-    
-    func buttons() -> [String] {
-        return ["Humanities", "Math / Computer Science", "Sciences", "Business", "Art / Theatre"]
-    }
 }

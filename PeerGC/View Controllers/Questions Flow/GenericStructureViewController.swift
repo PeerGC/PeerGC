@@ -77,8 +77,8 @@ class GenericStructureViewController: UIViewController {
             
             let buttonStack = initializeCustomStack(spacing: 10, distribution: .fillEqually)
             
-            for buttonText in buttonsDelegate!.buttons() {
-                buttonStack.addArrangedSubview(initializeCustomButton(title: buttonText, color: .systemPink, action: #selector(selectionButtonHandler(sender:)), alpha: 1.0))
+            for answerID in DatabaseParser.getAnswerIDsFromQuestionID(questionID: buttonsDelegate!.databaseIdentifier()) {
+                buttonStack.addArrangedSubview(initializeCustomButton(title: DatabaseParser.getDisplayTextFromAnswerID(answerID: answerID), color: .systemPink, action: #selector(selectionButtonHandler(sender:)), alpha: 1.0))
             }
             
             addAndConstraint(customView: buttonStack, constraints: [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)])
@@ -247,7 +247,7 @@ class GenericStructureViewController: UIViewController {
     }
     
     func selectionButtonTextHandler(text: String) { //override this for custom button exceptions
-        GenericStructureViewController.sendToDatabaseData[buttonsDelegate!.databaseIdentifier()] = text
+        GenericStructureViewController.sendToDatabaseData[buttonsDelegate!.databaseIdentifier()] = DatabaseParser.getAnswerIDFromDisplayText(displayText: text)
         
         nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
     }
@@ -361,7 +361,6 @@ protocol GenericStructureViewControllerMetadataDelegate {
 
 protocol ButtonsDelegate {
     func databaseIdentifier() -> String
-    func buttons() -> [String]
 }
 
 protocol TextFieldDelegate {

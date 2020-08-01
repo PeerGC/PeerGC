@@ -35,8 +35,4 @@ extension WhichDegreeVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "whichDegree"
     }
-    
-    func buttons() -> [String] {
-        return ["AA", "AA for transfer", "Bachelor of Art or Science", "Trade school degree", "Other"]
-    }
 }

@@ -36,8 +36,4 @@ extension FeelAboutApplyingVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "feelAboutApplying"
     }
-    
-    func buttons() -> [String] {
-        return ["No idea what I’m doing", "Some idea of where to start", "Started but stuck", "Pretty good idea of what I have to do", "Have taken all known steps"]
-    }
 }

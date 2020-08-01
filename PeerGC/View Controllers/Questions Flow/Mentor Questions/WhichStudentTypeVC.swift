@@ -36,8 +36,4 @@ extension WhichStudentTypeVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "whichStudentType"
     }
-    
-    func buttons() -> [String] {
-        return ["Financially underprivileged", "LGBTQ", "Women in STEM", "Similar cultural/religious background as you", "Similar racial background as you"]
-    }
 }

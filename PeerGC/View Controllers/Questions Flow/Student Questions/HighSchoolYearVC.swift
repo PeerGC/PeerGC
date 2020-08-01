@@ -35,8 +35,4 @@ extension HighSchoolYearVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "schoolYear"
     }
-    
-    func buttons() -> [String] {
-        return ["Freshman", "Sophomore", "Junior", "Senior"]
-    }
 }

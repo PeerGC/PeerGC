@@ -15,7 +15,7 @@ race, 12, Native Hawaiian / Pacific Islander
 race, 13, Other
 parentsGoToCollege, 14, Yes
 parentsGoToCollege, 15, No
-parentsGoToCollege, 16, Partially with no degree
+parentsGoToCollege, 16, Partially but with no degree
 schoolYear, 17, Freshman
 schoolYear, 18, Sophomore
 schoolYear, 19, Junior
@@ -87,3 +87,5 @@ whichDegree, 84, AA for transfer
 whichDegree, 85, Bachelor of Art or Science
 whichDegree, 86, Trade school degree
 whichDegree, 87, Other
+firstLanguage, 88, English
+firstLanguage, 89, Other

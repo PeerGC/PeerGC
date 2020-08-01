@@ -36,8 +36,4 @@ extension WhyCollegeVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "whyCollege"
     }
-    
-    func buttons() -> [String] {
-        return ["To move away from home", "Specific field of study", "To earn money", "Athletics", "I don’t know"]
-    }
 }

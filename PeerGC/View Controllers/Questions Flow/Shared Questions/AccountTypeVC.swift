@@ -35,8 +35,4 @@ extension AccountTypeVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "accountType"
     }
-    
-    func buttons() -> [String] {
-        return ["Student", "Mentor"]
-    }
 }

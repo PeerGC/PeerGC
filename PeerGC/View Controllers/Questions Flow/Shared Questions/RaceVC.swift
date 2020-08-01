@@ -37,8 +37,4 @@ extension RaceVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "race"
     }
-    
-    func buttons() -> [String] {
-        return ["White", "Black / African American", "American Indian / Alaska Native", "Asian", "Native Hawaiian / Pacific Islander", "Other"]
-    }
 }

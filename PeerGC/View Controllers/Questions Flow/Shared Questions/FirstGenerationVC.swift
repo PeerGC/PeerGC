@@ -27,11 +27,11 @@ extension FirstGenerationVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController? {
-        if GenericStructureViewController.sendToDatabaseData["accountType"] == "Student" {
+        if GenericStructureViewController.sendToDatabaseData["accountType"] == DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student") {
             return HighSchoolYearVC()
         }
         
-        else if GenericStructureViewController.sendToDatabaseData["accountType"] == "Mentor" {
+        else if GenericStructureViewController.sendToDatabaseData["accountType"] == DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") {
             return CollegeYearVC()
         }
         
@@ -44,9 +44,5 @@ extension FirstGenerationVC: GenericStructureViewControllerMetadataDelegate {
 extension FirstGenerationVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "parentsGoToCollege"
-    }
-    
-    func buttons() -> [String] {
-        return ["Yes", "No", "Partially, but no degree"]
     }
 }

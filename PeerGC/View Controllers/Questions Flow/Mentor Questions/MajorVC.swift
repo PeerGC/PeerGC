@@ -35,8 +35,4 @@ extension MajorVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "major"
     }
-    
-    func buttons() -> [String] {
-        return ["Humanities", "Math / Computer Science", "Sciences", "Business", "Art / Theatre"]
-    }
 }

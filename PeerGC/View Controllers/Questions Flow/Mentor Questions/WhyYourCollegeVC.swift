@@ -35,8 +35,4 @@ extension WhyYourCollegeVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "whyYourCollege"
     }
-    
-    func buttons() -> [String] {
-        return ["Close to home", "Big name school", "Best scholarship", "Best fit with your religion or culture", "Something else"]
-    }
 }

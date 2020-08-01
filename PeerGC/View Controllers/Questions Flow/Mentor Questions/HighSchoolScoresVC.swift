@@ -37,7 +37,7 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController? {
-        let testTaken = GenericStructureViewController.sendToDatabaseData["testTaken"]
+        let testTaken = DatabaseParser.getDisplayTextFromAnswerID(answerID: GenericStructureViewController.sendToDatabaseData["testTaken"]!)
         
         if testTaken == "SAT" {
             return SATScoreVC()
@@ -56,9 +56,5 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
 extension HighSchoolScoresVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "testTaken"
-    }
-    
-    func buttons() -> [String] {
-        return ["SAT", "ACT", "Other / None"]
     }
 }

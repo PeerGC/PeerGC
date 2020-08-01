@@ -35,8 +35,4 @@ extension LGBTQVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "lgbtq"
     }
-    
-    func buttons() -> [String] {
-        return ["Yes", "No"]
-    }
 }

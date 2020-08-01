@@ -35,8 +35,4 @@ extension HelpMostVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "helpMost"
     }
-    
-    func buttons() -> [String] {
-        return ["General guidance / keeping on track", "Info on what colleges look for", "Finding a support system in college", "College entrance tests", "Application essays"]
-    }
 }

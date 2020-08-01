@@ -37,8 +37,4 @@ extension GenderVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "gender"
     }
-    
-    func buttons() -> [String] {
-        return ["Male", "Female", "Non-Binary", "Other"]
-    }
 }

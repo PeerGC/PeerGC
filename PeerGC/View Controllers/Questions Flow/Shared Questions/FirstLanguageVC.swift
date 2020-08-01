@@ -45,8 +45,4 @@ extension FirstLanguageVC: ButtonsDelegate {
     func databaseIdentifier() -> String {
         return "firstLanguage"
     }
-    
-    func buttons() -> [String] {
-        return ["English", "Other"]
-    }
 }
