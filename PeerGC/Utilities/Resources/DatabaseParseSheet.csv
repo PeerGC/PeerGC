@@ -1,0 +1,89 @@
+questionIdentifier, answerIdentifier, answerDisplayText
+accountType, 0, Student
+accountType, 1, Mentor
+gender, 2, Male
+gender, 3, Female
+gender, 4, Non-Binary
+gender, 5, Other
+lgbtq, 6, Yes
+lgbtq, 7, No
+race, 8, White
+race, 9, Black / African American
+race, 10, American Indian / Alaska Native
+race, 11, Asian
+race, 12, Native Hawaiian / Pacific Islander
+race, 13, Other
+parentsGoToCollege, 14, Yes
+parentsGoToCollege, 15, No
+parentsGoToCollege, 16, Partially with no degree
+schoolYear, 17, Freshman
+schoolYear, 18, Sophomore
+schoolYear, 19, Junior
+schoolYear, 20, Senior
+interest, 21, Humanities
+interest, 22, Math / Computer Science
+interest, 23, Sciences
+interest, 24, Business
+interest, 25, Art / Theatre
+lookingFor, 26, To help keep me on track
+lookingFor, 27, To provide info on what colleges look for
+lookingFor, 28, To find a support system in college
+lookingFor, 29, To help with college entrance tests
+lookingFor, 30, To help with essays
+whereInProcess, 31, I haven’t started looking
+whereInProcess, 32, I started looking but haven’t picked any schools
+whereInProcess, 33, I've picked schools but have started applying
+whereInProcess, 34, I've started applications but I'm stuck
+whereInProcess, 35, I'm done with applications
+feelAboutApplying, 36, No idea what I’m doing
+feelAboutApplying, 37, Some idea of where to start
+feelAboutApplying, 38, Started but stuck
+feelAboutApplying, 39, Pretty good idea of what I have to do
+feelAboutApplying, 40, Have taken all known steps
+kindOfCollege, 41, Local community colleges only
+kindOfCollege, 42, Four year city colleges
+kindOfCollege, 43, Trade schools
+kindOfCollege, 44, Universities
+kindOfCollege, 45, I don’t know
+whyCollege, 46, To move away from home
+whyCollege, 47, Specific field of study
+whyCollege, 48, To earn money
+whyCollege, 49, Athletics
+whyCollege, 50, I don’t know
+major, 51, Humanities
+major, 52, Math / Computer Science
+major, 53, Sciences
+major, 54, Business
+major, 55, Art / Theatre
+highSchoolGPA, 56, 2 or under
+highSchoolGPA, 57, Between 2 and 3
+highSchoolGPA, 58, Between 3 and 4
+highSchoolGPA, 59, 4+
+testTaken, 60, SAT
+testTaken, 61, ACT
+testTaken, 62, Other / None
+helpMost, 63, General guidance / keeping on track
+helpMost, 64, Info on what colleges look for
+helpMost, 65, Finding a support system in college
+helpMost, 66, College entrance tests
+helpMost, 67, Application essays
+whyYourCollege, 68, Close to home
+whyYourCollege, 69, Big name school
+whyYourCollege, 70, Best scholarship
+whyYourCollege, 71, Best fit with your religion or culture
+whyYourCollege, 72, Something else
+postGradAspirations, 73, Continued study [masters / PhD / MD ...]
+postGradAspirations, 74, Athletics
+postGradAsprations, 75, Work in an industry related to your major
+postGradAspirations, 76, Earn money with your degree
+postGradAspirations, 77, Something else
+whichStudentType, 78, Financially underprivileged
+whichStudentType, 79, LGBTQ
+whichStudentType, 80, Women in STEM
+whichStudentType, 81, Similar cultural/religious background as you
+whichStudentType, 82, Similar racial background as you
+whichDegree, 83, AA
+whichDegree, 84, AA for transfer
+whichDegree, 85, Bachelor of Art or Science
+whichDegree, 86, Trade school degree
+whichDegree, 87, Other

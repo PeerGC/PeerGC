@@ -84,6 +84,7 @@
 		C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */; };
 		C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452223EB5AD600A086D7 /* Customizables.swift */; };
 		C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452323EB5AE200A086D7 /* Utilities.swift */; };
+		C7DEBBBF24D60D0D00E4E465 /* DatabaseParseSheet.csv in Resources */ = {isa = PBXBuildFile; fileRef = C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */; };
 		C7EFB7E124BD3FD700633070 /* SchoolNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EFB7E024BD3FD700633070 /* SchoolNameViewController.swift */; };
 		C7EFB7E324BD43B000633070 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EFB7E224BD43B000633070 /* ExamViewController.swift */; };
 		C7EFB7E524BF7EAA00633070 /* ExamScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EFB7E424BF7EAA00633070 /* ExamScoreViewController.swift */; };
@@ -196,6 +197,7 @@
 		C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		C7CC452223EB5AD600A086D7 /* Customizables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customizables.swift; sourceTree = "<group>"; };
 		C7CC452323EB5AE200A086D7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = DatabaseParseSheet.csv; sourceTree = "<group>"; };
 		C7EFB7E024BD3FD700633070 /* SchoolNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolNameViewController.swift; sourceTree = "<group>"; };
 		C7EFB7E224BD43B000633070 /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
 		C7EFB7E424BF7EAA00633070 /* ExamScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamScoreViewController.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				C700B14323EB647100816708 /* zipCodes.txt */,
 				C700B14223EB646800816708 /* zipCodesToLocation.csv */,
 				C700B14123EB644F00816708 /* zipCodesToValue.csv */,
+				C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */,
 				C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */,
 				C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */,
+				C7DEBBBF24D60D0D00E4E465 /* DatabaseParseSheet.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
