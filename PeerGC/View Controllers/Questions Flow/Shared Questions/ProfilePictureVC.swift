@@ -37,8 +37,7 @@ extension ProfilePictureVC: ImagePickerDelegate {
         let photoURL = Auth.auth().currentUser!.photoURL
         
         if photoURL != nil {
-            ProfilePictureViewController.downloadImage(url: photoURL!, imageView: imageView)
-            continueButton.alpha = 1.0
+            downloadImage(url: photoURL!, imageView: imageView, continueButton: continueButton)
         }
     }
     

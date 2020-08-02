@@ -34,8 +34,6 @@ class EntranceViewController: UIViewController {
             versionLabel.text = "Version " + version + " Build " + build + " Alpha"
         }
         
-        ProfilePictureViewController.entranceVC = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

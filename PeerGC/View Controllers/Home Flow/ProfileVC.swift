@@ -11,7 +11,7 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
-    var data: [String: String]?
+    var customCell: CustomCell?
     
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -24,6 +24,9 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         super.view.backgroundColor = .secondarySystemGroupedBackground
         self.navigationController?.navigationBar.isTranslucent = false
+        imageView.image = customCell!.imageView.image
+        firstName.text = customCell!.data!["firstName"]!
+        setSectionText()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,38 +34,33 @@ class ProfileVC: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    func loadSectionText() {
-        if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student") == data!["accountType"]! {
+    func setSectionText() {
+        let firstName = customCell!.data!["firstName"]!
+        
+        if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student") == customCell!.data!["accountType"]! {
             
         }
             
-        else if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") == data!["accountType"]! {
-            
-            
-            
-            let firstName = data!["firstName"]!
-            let schoolYear = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["schoolYear"]!)
-            let degree = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["whichDegree"]!)
-            let major = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["major"]!)
+        else if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") == customCell!.data!["accountType"]! {
+            //Section 1: Education
+            let collegeYear = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["schoolYear"]!)
+            let degree = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["whichDegree"]!)
+            let major = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["major"]!)
             let university = "University"
-            let testScore = data!["testScore"]!
-            let testTaken = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["testTaken"]!)
-            let firstGenerationStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["parentsGoToCollege"]!)
-            var firstGenerationString = ""
+            let testTaken = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["testTaken"]!)
+            let testScore = customCell!.data!["testScore"]!
             
-            if firstGenerationStatus == "Yes" {
-                firstGenerationString = "isn't"
+            var sentenceString = "\(firstName) is a /b\(collegeYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. "
+            
+            if testTaken == "Other / None" {
+                sentenceString.append("\(firstName) did not take any college entrance exams.")
             }
             
             else {
-                firstGenerationString = "is"
+                sentenceString.append("\(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam.")
             }
             
-            let firstLanguge = data!["firstLanguage"]!
-            
-            let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. \(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
-            
-            
+            section1.attributedText = Utilities.blueText(text: sentenceString)
         }
     }
     

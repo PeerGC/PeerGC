@@ -305,11 +305,9 @@ class CustomCell: UICollectionViewCell {
     
     @IBAction func viewProfileButtonPressed(_ sender: Any) {
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ProfileVC") as! ProfileVC
         
-        vc.imageView.image = imageView.image
-        vc.firstName.text = firstname.text
-        vc.data = data
+        vc.customCell = self
         
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
