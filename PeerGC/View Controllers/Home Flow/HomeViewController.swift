@@ -212,13 +212,44 @@ class CustomCell: UICollectionViewCell {
             sentence.font = sentence.font.withSize( (1.6/71) * UIScreen.main.bounds.height)
             button.backgroundColor = UIColor.systemPink
 
+            firstname.text = data!["firstName"]!
+            cityState.text = Utilities.getStateByZipCode(zipcode: data!["zipCode"]!)
+            
             setSentenceText()
             downloadImage(url: URL(string: data!["photoURL"]!)!, imageView: imageView)
         }
     }
     
     func setSentenceText() {
-        
+        if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student") == data!["accountType"]! {
+            
+        }
+            
+        else if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") == data!["accountType"]! {
+            let firstName = data!["firstName"]!
+            let schoolYear = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["schoolYear"]!)
+            let degree = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["whichDegree"]!)
+            let major = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["major"]!)
+            let university = "University"
+            let testScore = data!["testScore"]!
+            let testTaken = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["testTaken"]!)
+            let firstGenerationStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["parentsGoToCollege"]!)
+            var firstGenerationString = ""
+            
+            if firstGenerationStatus == "Yes" {
+                firstGenerationString = "isn't"
+            }
+            
+            else {
+                firstGenerationString = "is"
+            }
+            
+            let firstLanguge = data!["firstLanguage"]!
+            
+            let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. \(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
+            
+            sentence.attributedText = Utilities.blueText(text: sentenceString)
+        }
     }
     
     func downloadImage(url: URL, imageView: UIImageView) {

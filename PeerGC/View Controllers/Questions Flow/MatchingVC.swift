@@ -39,7 +39,7 @@ class MatchingVC: GenericStructureViewController {
         }
         
         GenericStructureViewController.sendToDatabaseData["photoURL"] = photoURLString
-        GenericStructureViewController.sendToDatabaseData["firstName"] = Auth.auth().currentUser!.displayName!
+        GenericStructureViewController.sendToDatabaseData["firstName"] = Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]
         
         //Upload Data
         

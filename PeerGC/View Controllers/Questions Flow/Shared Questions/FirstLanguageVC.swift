@@ -22,7 +22,8 @@ class FirstLanguageVC: GenericStructureViewController {
         }
             
         else {
-            super.selectionButtonTextHandler(text: text)
+            GenericStructureViewController.sendToDatabaseData[databaseIdentifier()] = text
+            nextViewControllerHandler(viewController: nextViewController())
         }
     }
 }
