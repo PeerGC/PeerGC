@@ -112,11 +112,11 @@ class ProfileVC: UIViewController {
             
             switch customCell!.data!["whyCollege"] {
                 case "46":
-                    whyCollege = "to /bmove away/b from home"
+                    whyCollege = "to /bget out/b from their current living situation"
                 case "47":
                     whyCollege = "to pursue a specific field of /bstudy/b"
                 case "48":
-                    whyCollege = "to earn /bmoney/b"
+                    whyCollege = "to get a high paying job"
                 case "49":
                     whyCollege = "to compete in /bathletics/b"
                 case "50":
