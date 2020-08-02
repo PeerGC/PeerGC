@@ -476,11 +476,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="KAS-gv-Wz6">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KAS-gv-Wz6">
                                 <rect key="frame" x="20" y="20" width="374" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLf-8m-6kJ" customClass="DesignableView" customModule="PeerGC" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="179"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="183.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A5-fx-kqN">
                                                 <rect key="frame" x="20" y="19.999999999999996" width="166" height="42.666666666666657"/>
@@ -489,7 +489,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="09p-b0-6lP">
-                                                <rect key="frame" x="219.66666666666663" y="22.333333333333343" width="134.33333333333337" height="134.33333333333334"/>
+                                                <rect key="frame" x="216.33333333333337" y="23" width="137.66666666666663" height="137.66666666666666"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="09p-b0-6lP" secondAttribute="height" multiplier="1:1" id="dlr-8U-1dx"/>
                                                 </constraints>
@@ -500,7 +500,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFt-cq-1ik" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="78.666666666666657" width="153" height="80.333333333333343"/>
+                                                <rect key="frame" x="20" y="78.666666666666657" width="153" height="85"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                 <state key="normal" title="Message">
@@ -533,23 +533,23 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ym-p9-BEE">
-                                        <rect key="frame" x="0.0" y="185" width="374" height="179"/>
+                                        <rect key="frame" x="0.0" y="183.66666666666669" width="374" height="183.33333333333331"/>
                                         <string key="text">Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.</string>
-                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WY-RH-UPc">
-                                        <rect key="frame" x="0.0" y="370" width="374" height="179"/>
+                                        <rect key="frame" x="0.0" y="367" width="374" height="183.66666666666663"/>
                                         <string key="text">Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.</string>
-                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fas-DX-CWk">
-                                        <rect key="frame" x="0.0" y="555" width="374" height="179"/>
+                                        <rect key="frame" x="0.0" y="550.66666666666663" width="374" height="183.33333333333337"/>
                                         <string key="text">Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.</string>
-                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>

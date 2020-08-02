@@ -42,6 +42,7 @@ class ProfileVC: UIViewController {
         }
             
         else if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") == customCell!.data!["accountType"]! {
+            
             //Section 1: Education
             let collegeYear = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["schoolYear"]!)
             let degree = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["whichDegree"]!)
@@ -49,18 +50,24 @@ class ProfileVC: UIViewController {
             let university = "University"
             let testTaken = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["testTaken"]!)
             let testScore = customCell!.data!["testScore"]!
+            let highSchoolGPA = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["highSchoolGPA"]!)
             
-            var sentenceString = "\(firstName) is a /b\(collegeYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. "
+            var sentenceString = "\n\(firstName) is a /b\(collegeYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. "
             
             if testTaken == "Other / None" {
-                sentenceString.append("\(firstName) did not take any college entrance exams.")
+                sentenceString.append("\(firstName) did not take any college entrance exams. ")
             }
             
             else {
-                sentenceString.append("\(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam.")
+                sentenceString.append("\(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. ")
             }
             
+            sentenceString.append("In high school, \(firstName) had a GPA that was /b\(highSchoolGPA)/b. ")
+            
             section1.attributedText = Utilities.blueText(text: sentenceString)
+            
+            //Section 2: Demographics
+            
         }
     }
     
