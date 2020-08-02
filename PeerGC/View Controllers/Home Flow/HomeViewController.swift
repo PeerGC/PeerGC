@@ -303,6 +303,28 @@ class CustomCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func viewProfileButtonPressed(_ sender: Any) {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        
+        vc.imageView.image = imageView.image
+        vc.firstName.text = firstname.text
+        vc.data = data
+        
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        
+        if let navigationController = keyWindow?.rootViewController as? UINavigationController {
+        //Do something
+            navigationController.navigationBar.prefersLargeTitles = false
+            navigationController.pushViewController(vc, animated: true)
+        }
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

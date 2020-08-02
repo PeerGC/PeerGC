@@ -121,11 +121,6 @@ class ChatViewController: MessagesViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillAppear(animated)
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        super.viewWillDisappear(animated)
-    }
     
     private func setupCollectionView() {
         guard let flowLayout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout else {
