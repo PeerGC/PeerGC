@@ -66,7 +66,13 @@ class MatchingVC: GenericStructureViewController {
             .first?.windows
             .filter({$0.isKeyWindow}).first)!
             
-            HomeViewController.loadCardLoader(action: {window.rootViewController = self.storyboard?.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
+            HomeViewController.loadCardLoader(action: {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "HomeNavigationController") as! UINavigationController
+                vc.modalPresentationStyle = .overFullScreen
+                window.rootViewController = vc
+                window.makeKeyAndVisible()
+            })
         }
     }
     

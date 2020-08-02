@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     print("Document EXISTS")
-                    Firestore.firestore().collection("users").document(uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
+                    Firestore.firestore().collection("users").document(uid).collection("allowList").getDocuments(completion: { (querySnapshot, error) in
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
                         if querySnapshot!.count > 0 {
                             HomeViewController.loadCardLoader(action: {window.rootViewController = storyboard.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})

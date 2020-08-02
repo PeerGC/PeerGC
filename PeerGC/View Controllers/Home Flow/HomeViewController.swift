@@ -20,10 +20,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var welcome: UILabel!
     @IBOutlet weak var recTutors: UILabel!
     @IBOutlet weak var logOutButton: DesignableButton!
-    public static var customData: [CustomData] = []
+    public static var remoteUserData: [[String: String]] = []
     var timer = Timer()
     static var currentUserImage : UIImage? = nil
-    static var currentUserCustomData: CustomData? = nil
+    static var currentUserData: [String: String]? = nil
     private static var cardListener: ListenerRegistration?
     private static var reference: CollectionReference?
     private static var action: () -> Void = {}
@@ -32,8 +32,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        pageControl.numberOfPages = HomeViewController.customData.count
-        recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height) // max 2.3
+        pageControl.numberOfPages = HomeViewController.remoteUserData.count
+        recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height)
         firstName.font = firstName.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
         welcome.font = welcome.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
         downloadCurrentUserImage()
@@ -42,11 +42,11 @@ class HomeViewController: UIViewController {
         HomeViewController.collectionViewStaticReference = collectionView
         HomeViewController.pageControlStaticReference = pageControl
         
-        if HomeViewController.currentUserCustomData?.accountType == "Student" {
+        if HomeViewController.currentUserData?["accountType"] == DatabaseParser.getDisplayTextFromAnswerID(answerID: "Student") {
             recTutors.text = "YOUR MATCHED MENTORS"
         }
         
-        else if HomeViewController.currentUserCustomData?.accountType == "Tutor" {
+        else if HomeViewController.currentUserData?["accountType"] == DatabaseParser.getDisplayTextFromAnswerID(answerID: "Tutor") {
             recTutors.text = "YOUR MATCHED STUDENTS"
         }
         
@@ -56,13 +56,12 @@ class HomeViewController: UIViewController {
         HomeViewController.action = action
         Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data()
+                var dataDescription = document.data()
                 
-                HomeViewController.currentUserCustomData = CustomData(firstName:
-                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: Auth.auth().currentUser!.uid , photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String)
+                dataDescription!["uid"] = Auth.auth().currentUser!.uid
+                HomeViewController.currentUserData = (dataDescription as! [String : String])
 
-                HomeViewController.reference = Firestore.firestore().collection(["users", Auth.auth().currentUser!.uid, "whitelist"].joined(separator: "/"))
-                
+                HomeViewController.reference = Firestore.firestore().collection(["users", Auth.auth().currentUser!.uid, "allowList"].joined(separator: "/"))
                 
                 self.cardListener = self.reference?.addSnapshotListener { querySnapshot, error in
                   guard let snapshot = querySnapshot else {
@@ -99,19 +98,18 @@ class HomeViewController: UIViewController {
     static func addChange(_ change: DocumentChange) {
         Firestore.firestore().collection("users").document(change.document.documentID).getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data()
+                var dataDescription = document.data() as! [String: String]
+                dataDescription["uid"] = change.document.documentID
                 
-                HomeViewController.customData.append(CustomData(firstName:
-                    dataDescription!["firstName"] as! String, state: Utilities.getStateByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, city: Utilities.getCityByZipCode(zipcode: dataDescription!["zipCode"] as! String)!, uid: change.document.documentID, photoURL: URL(string: dataDescription!["photoURL"] as! String)!, accountType: dataDescription!["accountType"] as! String, interest: dataDescription!["interest"] as! String, gender: dataDescription!["gender"] as! String, race: dataDescription!["race"] as! String))
+                HomeViewController.remoteUserData.append(dataDescription)
                 
-                HomeViewController.customData.sort()
                 HomeViewController.collectionViewStaticReference?.reloadData()
-                HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.customData.count
+                HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.remoteUserData.count
 
-                Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
+                Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("allowList").getDocuments(completion: { (querySnapshot, error) in
                     DispatchQueue.main.async{
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
-                        if querySnapshot!.count == HomeViewController.customData.count {
+                        if querySnapshot!.count == HomeViewController.remoteUserData.count {
                             print("running action")
                             print(action)
                             action()
@@ -128,17 +126,12 @@ class HomeViewController: UIViewController {
     }
     
     static func removeChange(_ change: DocumentChange) {
-        for i in 0..<HomeViewController.customData.count {
-            if HomeViewController.customData[i].uid == change.document.documentID {
-                HomeViewController.customData.remove(at: i)
+        for i in 0..<HomeViewController.remoteUserData.count {
+            if HomeViewController.remoteUserData[i]["uid"] == change.document.documentID {
+                HomeViewController.remoteUserData.remove(at: i)
             }
         }
     }
-    
-    var tempCounter = 0
-    var processing: [String] = []
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -149,7 +142,7 @@ class HomeViewController: UIViewController {
         try! Auth.auth().signOut()
         timer.invalidate()
         print("logged out")
-        HomeViewController.customData = []
+        HomeViewController.remoteUserData = []
         transitionToStart()
     }
     
@@ -171,61 +164,6 @@ class HomeViewController: UIViewController {
     
 }
 
-class CustomData: Comparable {
-    
-    static func < (lhs: CustomData, rhs: CustomData) -> Bool {
-        
-        if lhs.relevancyFactor != rhs.relevancyFactor {
-            return lhs.relevancyFactor > rhs.relevancyFactor
-        }
-        else {
-            return lhs.uid < rhs.uid
-        }
-    }
-    
-    static func == (lhs: CustomData, rhs: CustomData) -> Bool {
-        return lhs.uid == rhs.uid
-    }
-    
-    
-    var firstName: String
-    var state: String
-    var city: String
-    var uid: String
-    var photoURL: URL
-    var image: UIImage?
-    var accountType: String
-    var interest: String
-    var gender: String
-    var race: String
-    var relevancyFactor: Int = 0
-    
-    init(firstName: String, state: String, city: String, uid: String, photoURL: URL, accountType: String, interest: String, gender: String, race: String) {
-        self.firstName = firstName
-        self.state = state
-        self.city = city
-        self.uid = uid
-        self.photoURL = photoURL
-        self.accountType = accountType
-        self.interest = interest
-        self.gender = gender
-        self.race = race
-        
-        if race == HomeViewController.currentUserCustomData?.race {
-            relevancyFactor += 1
-        }
-        
-        if gender == HomeViewController.currentUserCustomData?.gender {
-            relevancyFactor += 1
-        }
-        
-        if interest == HomeViewController.currentUserCustomData?.interest {
-            relevancyFactor += 1
-        }
-    }
-    
-}
-
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -233,12 +171,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HomeViewController.customData.count
+        return HomeViewController.remoteUserData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.data = HomeViewController.customData[indexPath.item]
+        cell.data = HomeViewController.remoteUserData[indexPath.item]
 
         return cell
     }
@@ -256,126 +194,38 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return HomeViewController.customData.count
+        return HomeViewController.remoteUserData.count
     }
 
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
     }
-    
 }
-
-
 
 class CustomCell: UICollectionViewCell {
     
-    var data: CustomData? {
+    var data: [String: String]? {
         didSet {
-            guard let data = data else { return }
-            //button.backgroundColor = data.color
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
             cityState.font = cityState.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (1.9/71) * UIScreen.main.bounds.height)
             sentence.font = sentence.font.withSize( (1.6/71) * UIScreen.main.bounds.height)
             button.backgroundColor = UIColor.systemPink
-            firstname.text = data.firstName
-            cityState.text = data.state.capitalized
-            race = data.race
-            gender = data.gender
-            interest = data.interest
-            //Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.
+
             setSentenceText()
-            
-            if data.image == nil {
-                downloadImage()
-            }
-            
-            else {
-                imageView.image = data.image
-            }
-            
+            downloadImage(url: URL(string: data!["photoURL"]!)!, imageView: imageView)
         }
     }
-    
-    var race = ""
-    var gender = ""
-    var interest = ""
     
     func setSentenceText() {
         
-        let sentence: NSMutableAttributedString = NSMutableAttributedString()
-        
-        var temp = NSMutableAttributedString(string: "You and ")
-        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
-        sentence.append(temp)
-        
-        temp = NSMutableAttributedString(string: "\(firstname.text!) ")
-        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
-        sentence.append(temp)
-        
-        temp = NSMutableAttributedString(string: "are both")
-        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
-        sentence.append(temp)
-        
-        let raceEqual = HomeViewController.currentUserCustomData?.race == race
-        let genderEqual = HomeViewController.currentUserCustomData?.gender == gender
-        let interestEqual = HomeViewController.currentUserCustomData?.interest == interest
-        
-        let comma = NSMutableAttributedString(string: ",")
-        comma.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: comma.length))
-        
-        if raceEqual {
-            temp = NSMutableAttributedString(string: " \(race)")
-            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
-            sentence.append(temp)
-            sentence.append(comma)
-        }
-        
-        if genderEqual {
-            temp = NSMutableAttributedString(string: " \(gender)")
-            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
-            sentence.append(temp)
-            sentence.append(comma)
-        }
-        
-        if interestEqual {
-            temp = NSMutableAttributedString(string: " interested in")
-            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
-            sentence.append(temp)
-            
-            temp = NSMutableAttributedString(string: " \(interest)")
-            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
-            sentence.append(temp)
-            sentence.append(comma)
-        }
-        
-        if raceEqual || genderEqual || interestEqual {
-            temp = NSMutableAttributedString(string: " and")
-            temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
-            sentence.append(temp)
-        }
-        
-        temp = NSMutableAttributedString(string: " likely to come from")
-        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
-        sentence.append(temp)
-        
-        temp = NSMutableAttributedString(string: " similar financial backgrounds")
-        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
-        sentence.append(temp)
-        
-        temp = NSMutableAttributedString(string: "!")
-        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
-        sentence.append(temp)
-        
-        self.sentence.attributedText = sentence
     }
     
-    func downloadImage() {
-        let task = URLSession.shared.dataTask(with: data!.photoURL) { data, _, _ in
+    func downloadImage(url: URL, imageView: UIImageView) {
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else { return }
             DispatchQueue.main.async { // Make sure you're on the main thread here
-                self.imageView.image = UIImage(data: data)
-                self.data!.image = self.imageView.image
+                imageView.image = UIImage(data: data)
             }
         }
         task.resume()
@@ -388,34 +238,24 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sentence: UILabel!
     
-    
-    @IBAction func buttonTouchDown(_ sender: UIButton) {
-        
-        
-    }
-
-    @IBAction func buttonCancel(_ sender: UIButton) {
-        
-       
-    }
-    
-    
-    @IBAction func buttonPressed(_ sender: UIButton) {
+    @IBAction func messageButtonPressed(_ sender: UIButton) {
         let vc = ChatViewController()
         
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
         
-        if data!.accountType == "Student" {
-            vc.id = "\(data!.uid)-\(Auth.auth().currentUser!.uid)"
+        if data!["accountType"] == DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student")  {
+            vc.id = "\(data!["uid"]!)-\(Auth.auth().currentUser!.uid)"
+            print("set ChatVC ID to \(vc.id)")
         }
         
-        else if data!.accountType == "Tutor" {
-            vc.id = "\(Auth.auth().currentUser!.uid)-\(data!.uid)"
+        else if data!["accountType"] == DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") {
+            vc.id = "\(Auth.auth().currentUser!.uid)-\(data!["uid"]!)"
+            print("set ChatVC ID to \(vc.id)")
         }
         
-        vc.header = data!.firstName
-        vc.remoteReceiverImage = data!.image
+        vc.header = data!["firstName"]!
+        vc.remoteReceiverImage = imageView.image
         vc.currentSenderImage = HomeViewController.currentUserImage
         
         let keyWindow = UIApplication.shared.connectedScenes
@@ -430,7 +270,6 @@ class CustomCell: UICollectionViewCell {
             navigationController.navigationBar.prefersLargeTitles = true
             navigationController.pushViewController(vc, animated: true)
         }
-        
     }
     
     required init?(coder: NSCoder) {
