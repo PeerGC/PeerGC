@@ -38,8 +38,8 @@ class MatchingVC: GenericStructureViewController {
             photoURLString = "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
         }
         
-        GenericStructureViewController.sendToDatabaseData["photoURL"] = photoURLString
-        GenericStructureViewController.sendToDatabaseData["firstName"] = Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.photoURL.name] = photoURLString
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.firstName.name] = Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]
         
         //Upload Data
         

@@ -32,7 +32,11 @@ extension KindOfCollegeVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension KindOfCollegeVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "kindOfCollege"
+    func databaseIdentifier() -> DatabaseKey {
+        return .kindOfCollege
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.localCommunityColleges, .fourYearCityColleges, .tradeSchools, .topTierUniversites, .dontKnow]
     }
 }

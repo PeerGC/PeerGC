@@ -33,7 +33,11 @@ extension WhichStudentTypeVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension WhichStudentTypeVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "whichStudentType"
+    func databaseIdentifier() -> DatabaseKey {
+        return .whichStudentType
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.financiallyUnderprivileged, .lgbtq, .womenInStem, .similarCultureReligion, .similarRacialBackground]
     }
 }

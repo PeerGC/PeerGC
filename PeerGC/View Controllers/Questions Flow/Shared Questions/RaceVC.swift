@@ -34,7 +34,11 @@ extension RaceVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension RaceVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "race"
+    func databaseIdentifier() -> DatabaseKey {
+        return .race
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.white, .blackAfricanAmerican, .americanIndianAlaskaNative, .asian, .nativeHawaiianPacificIslander, .other]
     }
 }

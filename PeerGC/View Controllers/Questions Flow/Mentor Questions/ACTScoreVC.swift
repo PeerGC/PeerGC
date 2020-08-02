@@ -40,7 +40,7 @@ extension ACTScoreVC: TextFieldDelegate {
             return "Please enter a score."
         }
         
-        GenericStructureViewController.sendToDatabaseData["testScore"] = text
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.testScore.name] = text
         
         return nil
     }

@@ -17,8 +17,8 @@ class HighSchoolScoresVC: GenericStructureViewController {
     }
     
     override func selectionButtonTextHandler(text: String) {
-        if text == "Other / None" {
-            GenericStructureViewController.sendToDatabaseData["testScore"] = "N/A"
+        if text == DatabaseValue.otherNone.rawValue {
+            GenericStructureViewController.sendToDatabaseData[DatabaseKey.testScore.name] = DatabaseValue.na.name
             super.selectionButtonTextHandler(text: text)
         }
         
@@ -37,13 +37,13 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController? {
-        let testTaken = DatabaseParser.getDisplayTextFromAnswerID(answerID: GenericStructureViewController.sendToDatabaseData["testTaken"]!)
+        let testTaken = GenericStructureViewController.sendToDatabaseData[databaseIdentifier().name]!
         
-        if testTaken == "SAT" {
+        if testTaken == DatabaseValue.sat.name {
             return SATScoreVC()
         }
         
-        else if testTaken == "ACT" {
+        else if testTaken == DatabaseValue.act.name {
             return ACTScoreVC()
         }
         
@@ -54,7 +54,11 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension HighSchoolScoresVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "testTaken"
+    func databaseIdentifier() -> DatabaseKey {
+        return .testTaken
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.sat, .act, .otherNone]
     }
 }

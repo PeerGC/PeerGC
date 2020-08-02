@@ -32,7 +32,11 @@ extension AccountTypeVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension AccountTypeVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "accountType"
+    func databaseIdentifier() -> DatabaseKey {
+        return .accountType
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.student, .mentor]
     }
 }

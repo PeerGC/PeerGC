@@ -34,7 +34,11 @@ extension LookingForVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension LookingForVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "lookingFor"
+    func databaseIdentifier() -> DatabaseKey {
+        return .lookingFor
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.keepOnTrack, .infoOnCollegeWants, .findingSupportSystem, .entranceTests, .essays]
     }
 }

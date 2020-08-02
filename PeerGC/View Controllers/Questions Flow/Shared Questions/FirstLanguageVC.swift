@@ -17,12 +17,12 @@ class FirstLanguageVC: GenericStructureViewController {
     }
     
     override func selectionButtonTextHandler(text: String) {
-        if text == "Other" {
+        if text == DatabaseValue.other.name {
             nextViewControllerHandler(viewController: OtherFirstLanguageVC())
         }
             
         else {
-            GenericStructureViewController.sendToDatabaseData[databaseIdentifier()] = text
+            GenericStructureViewController.sendToDatabaseData[databaseIdentifier().name] = text
             nextViewControllerHandler(viewController: nextViewController())
         }
     }
@@ -43,7 +43,11 @@ extension FirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension FirstLanguageVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "firstLanguage"
+    func databaseIdentifier() -> DatabaseKey {
+        return .firstLanguage
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.english, .other]
     }
 }

@@ -32,7 +32,11 @@ extension WhichDegreeVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension WhichDegreeVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "whichDegree"
+    func databaseIdentifier() -> DatabaseKey {
+        return .whichDegree
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.aa, .aaForTransfer, .bachelorArtScience, .tradeSchoolDegree, .other]
     }
 }

@@ -33,7 +33,11 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension WhereInProcessVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "whereInProcess"
+    func databaseIdentifier() -> DatabaseKey {
+        return .whereInProcess
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.hasntStartedLooking, .startedLookingNoPicks, .pickedNotApplying, .startedAppsButStuck, .doneWithApps]
     }
 }

@@ -33,7 +33,11 @@ extension FeelAboutApplyingVC: GenericStructureViewControllerMetadataDelegate {
 }
 
 extension FeelAboutApplyingVC: ButtonsDelegate {
-    func databaseIdentifier() -> String {
-        return "feelAboutApplying"
+    func databaseIdentifier() -> DatabaseKey {
+        return .feelAboutApplying
+    }
+    
+    func buttons() -> [DatabaseValue] {
+        return [.noIdea, .someIdea, .startedButStuck, .prettyGoodIdea, .takenAllKnownSteps]
     }
 }

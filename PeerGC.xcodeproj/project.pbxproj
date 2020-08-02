@@ -71,6 +71,8 @@
 		C7DEBBBF24D60D0D00E4E465 /* DatabaseParseSheet.csv in Resources */ = {isa = PBXBuildFile; fileRef = C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */; };
 		C7DEBBC124D6172200E4E465 /* DatabaseSheetParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC024D6172200E4E465 /* DatabaseSheetParser.swift */; };
 		C7DEBBC324D657E900E4E465 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC224D657E900E4E465 /* ProfileVC.swift */; };
+		C7DEBBC724D7640F00E4E465 /* DatabaseValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */; };
+		C7DEBBC924D76D3800E4E465 /* DatabaseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,8 @@
 		C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = DatabaseParseSheet.csv; sourceTree = "<group>"; };
 		C7DEBBC024D6172200E4E465 /* DatabaseSheetParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSheetParser.swift; sourceTree = "<group>"; };
 		C7DEBBC224D657E900E4E465 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseValue.swift; sourceTree = "<group>"; };
+		C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseKey.swift; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -423,6 +427,8 @@
 				C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */,
 				C7CC452323EB5AE200A086D7 /* Utilities.swift */,
 				C7DEBBC024D6172200E4E465 /* DatabaseSheetParser.swift */,
+				C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */,
+				C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -733,9 +739,11 @@
 				C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */,
 				C74133A924CBA08E003FC549 /* AccountTypeVC.swift in Sources */,
 				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
+				C7DEBBC924D76D3800E4E465 /* DatabaseKey.swift in Sources */,
 				C72ED27124C909EE00419E74 /* ResetPasswordViewController.swift in Sources */,
 				C74133D024CBBDB4003FC549 /* HighSchoolGPAVC.swift in Sources */,
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
+				C7DEBBC724D7640F00E4E465 /* DatabaseValue.swift in Sources */,
 				C74133B924CBAEAE003FC549 /* CollegeYearVC.swift in Sources */,
 				C74133C124CBB141003FC549 /* FeelAboutApplyingVC.swift in Sources */,
 				C74133D424CBBF67003FC549 /* SATScoreVC.swift in Sources */,
@@ -943,7 +951,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2363;
+				CURRENT_PROJECT_VERSION = 2364;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -968,7 +976,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2363;
+				CURRENT_PROJECT_VERSION = 2364;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

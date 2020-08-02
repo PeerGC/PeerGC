@@ -461,7 +461,7 @@
                         <outlet property="pageControl" destination="nLu-Vy-p8f" id="aM0-93-6ZG"/>
                         <outlet property="recTutors" destination="69B-Ng-YPI" id="40A-Di-Cjt"/>
                         <outlet property="welcome" destination="BaC-pk-TBp" id="1OC-ua-FVT"/>
-                        <segue destination="kFm-Wv-bWj" kind="show" id="fQC-Fi-ara"/>
+                        <segue destination="kFm-Wv-bWj" kind="show" identifier="placeHolder" id="fQC-Fi-ara"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj5-7w-wVN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -520,6 +520,7 @@
                                             <constraint firstItem="xFt-cq-1ik" firstAttribute="width" secondItem="CLf-8m-6kJ" secondAttribute="width" multiplier="0.409091" id="AKI-63-3K6"/>
                                             <constraint firstItem="xFt-cq-1ik" firstAttribute="top" secondItem="8A5-fx-kqN" secondAttribute="bottom" constant="16" id="EOi-yg-77T"/>
                                             <constraint firstAttribute="trailing" secondItem="09p-b0-6lP" secondAttribute="trailing" constant="20" id="IcV-tR-dc6"/>
+                                            <constraint firstItem="09p-b0-6lP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xFt-cq-1ik" secondAttribute="trailing" constant="6" id="USb-ey-Rrn"/>
                                             <constraint firstItem="09p-b0-6lP" firstAttribute="height" secondItem="CLf-8m-6kJ" secondAttribute="height" multiplier="0.75" id="d7Y-Pz-ujw"/>
                                             <constraint firstItem="09p-b0-6lP" firstAttribute="centerY" secondItem="CLf-8m-6kJ" secondAttribute="centerY" id="fVH-9E-2Hz"/>
                                             <constraint firstItem="8A5-fx-kqN" firstAttribute="top" secondItem="CLf-8m-6kJ" secondAttribute="top" constant="20" id="j7a-ry-Ax4"/>
