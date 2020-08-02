@@ -125,7 +125,11 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            sentenceString = "\(firstName) is looking for someone /b\(lookingFor)/b, and has \(feelAboutApplying). \(firstName) \(kindOfCollege), \(whyCollege)."
+            let firstGenerationStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["parentsGoToCollege"]!)
+            let firstGenerationString = firstGenerationStatus == "Yes" ? "won't" : "will"
+            let firstLanguge = customCell!.data!["firstLanguage"]!
+            
+            sentenceString = "\(firstName) is looking for someone /b\(lookingFor)/b, and has \(feelAboutApplying). \(firstName) \(kindOfCollege), \(whyCollege). \(firstName) /b\(firstGenerationString)/b be a first generation college student, and their first language is /b\(firstLanguge)/b."
             
             section2.attributedText = Utilities.blueText(text: sentenceString)
             
