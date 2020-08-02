@@ -18,6 +18,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var section1: UILabel!
     @IBOutlet weak var section2: UILabel!
     @IBOutlet weak var section3: UILabel!
+    @IBOutlet weak var messageButton: DesignableButton!
     
     
     override func viewDidLoad() {
@@ -27,6 +28,12 @@ class ProfileVC: UIViewController {
         imageView.image = customCell!.imageView.image
         firstName.text = customCell!.data!["firstName"]!
         setSectionText()
+        
+        firstName.font = firstName.font.withSize((2.8/71) * UIScreen.main.bounds.height)
+        section1.font = section1.font.withSize((1.5/71) * UIScreen.main.bounds.height)
+        section2.font = section2.font.withSize((1.5/71) * UIScreen.main.bounds.height)
+        section3.font = section3.font.withSize((1.5/71) * UIScreen.main.bounds.height)
+        messageButton.titleLabel!.font = messageButton.titleLabel!.font.withSize((1.5/71) * UIScreen.main.bounds.height)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +65,50 @@ class ProfileVC: UIViewController {
             
             section1.attributedText = Utilities.blueText(text: sentenceString)
             
-            //Section 2: Demographics
+            //Section 2: Other
+            let firstGenerationStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["parentsGoToCollege"]!)
+            let firstGenerationString = firstGenerationStatus == "Yes" ? "isn't" : "is"
+            let firstLanguge = customCell!.data!["firstLanguage"]!
+            
+            var whyTheirCollegeReasoning = ""
+            
+            switch customCell!.data!["whyYourCollege"] {
+                case "68":
+                whyTheirCollegeReasoning = "it was /bClose to Home/b"
+                case "69":
+                whyTheirCollegeReasoning = "it was a /bBig Name School/b"
+                case "70":
+                whyTheirCollegeReasoning = "it offered the /bBest Scholarship/b"
+                case "71":
+                whyTheirCollegeReasoning = "it had the best fit with their /bReligion/b and/or /bCulture/b"
+                case "72":
+                whyTheirCollegeReasoning = "of an /bUnspecified Reason/b"
+                default:
+                break
+            }
+            
+            var postGradAspiration = ""
+            
+            switch customCell!.data!["postGradAspirations"] {
+                case "73":
+                postGradAspiration = " perform /bContinued Study/b [masters, PHD, MD, etc...]."
+                case "74":
+                postGradAspiration = " compete in /bAthletics/b."
+                case "75":
+                postGradAspiration = " /bWork in an Industry/b related to their major."
+                case "76":
+                postGradAspiration = " /bEarn Money/b with their degree."
+                case "77":
+                postGradAspiration = " ... /bContinue Living Life/b!"
+                default:
+                break
+            }
+            
+            sentenceString = "\(firstName) chose their college because \(whyTheirCollegeReasoning). After they graduate from college, \(firstName) aspires to \(postGradAspiration) \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
+            
+            section2.attributedText = Utilities.blueText(text: sentenceString)
+            
+            //Section 3: Demographics
             let state = customCell!.cityState.text!
             let zipCodeValue = Utilities.getValueByZipCode(zipcode: customCell!.data!["zipCode"]!)!
             var zipCodeMedianIncomeClassification = zipCodeValue < "50000" ? "Below Average" : "Average"
@@ -67,16 +117,10 @@ class ProfileVC: UIViewController {
             let lgbtqStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["lgbtq"]!)
             let lgbtqString = lgbtqStatus == "Yes" ? "does" : "does not"
             let race = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["race"]!)
-            let firstGenerationStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["parentsGoToCollege"]!)
-            let firstGenerationString = firstGenerationStatus == "Yes" ? "isn't" : "is"
-            let firstLanguge = customCell!.data!["firstLanguage"]!
             
-            sentenceString = "\(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
+            sentenceString = "\(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
             
-            section2.attributedText = Utilities.blueText(text: sentenceString)
-            
-            //Section 3: Other
-            
+            section3.attributedText = Utilities.blueText(text: sentenceString)
         }
     }
     

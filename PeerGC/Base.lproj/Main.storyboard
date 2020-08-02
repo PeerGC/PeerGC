@@ -569,6 +569,7 @@
                     <connections>
                         <outlet property="firstName" destination="8A5-fx-kqN" id="Ybb-E9-iep"/>
                         <outlet property="imageView" destination="09p-b0-6lP" id="e0M-s8-An6"/>
+                        <outlet property="messageButton" destination="xFt-cq-1ik" id="fJD-Qs-kOa"/>
                         <outlet property="section1" destination="0ym-p9-BEE" id="BJx-ik-KzI"/>
                         <outlet property="section2" destination="7WY-RH-UPc" id="c4A-es-3vl"/>
                         <outlet property="section3" destination="Fas-DX-CWk" id="FPb-lo-kjx"/>
