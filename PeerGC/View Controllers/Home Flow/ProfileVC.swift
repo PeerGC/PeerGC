@@ -45,8 +45,106 @@ class ProfileVC: UIViewController {
         let firstName = customCell!.data!["firstName"]!
         
         if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student") == customCell!.data!["accountType"]! {
+            //Section 1: Education
+            let highSchoolYear = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["schoolYear"]!)
+            let interest = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["interest"]!)
+            
+            var whereInProcess = ""
+            
+            switch customCell!.data!["whereInProcess"] {
+                case "31":
+                    whereInProcess = "has /bnot started/b looking"
+                case "32":
+                    whereInProcess = "has /bstarted looking/b but hasn't picked any schools"
+                case "33":
+                    whereInProcess = "has /bpicked schools/b but hasn't began applying"
+                case "34":
+                    whereInProcess = "has /bstarted applications/b but is stuck"
+                case "35":
+                    whereInProcess = "is /bdone/b with applications"
+                default:
+                    break
+            }
+            
+            var sentenceString = "\n\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college appliction process, \(firstName) has \(whereInProcess)."
+            
+            section1.attributedText = Utilities.blueText(text: sentenceString)
+            
+            
+            //Section 2: Questions
+            var lookingFor = ""
+            
+            switch customCell!.data!["lookingFor"] {
+                case "26":
+                    lookingFor = "to help keep them /bon track/b"
+                case "27":
+                    lookingFor = "to provide info on what /bcolleges look for/b"
+                case "28":
+                    lookingFor = "that can provide a /bsupport system/b in college"
+                case "29":
+                    lookingFor = "to help with college /bentrance tests/b"
+                case "30":
+                    lookingFor = "to help with /bessays/b"
+                default:
+                    break
+            }
+            
+            var feelAboutApplying = ""
+            
+            switch customCell!.data!["feelAboutApplying"] {
+                case "36":
+                    feelAboutApplying = "/bno idea/b what to do"
+                case "37":
+                    feelAboutApplying = "/bsome idea/b of where to start"
+                case "38":
+                    feelAboutApplying = "/bstarted/b but is stuck"
+                case "39":
+                    feelAboutApplying = "/bpretty good idea/b of what to do"
+                case "40":
+                    feelAboutApplying = "/btaken all known steps/b"
+                default:
+                    break
+            }
+            
+            let kindOfCollege = customCell!.data!["feelAboutApplying"] == "45" ? "/bdoesn't know/b what types of colleges they're interested in" : "is interested in /b\(DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["kindOfCollege"]!))/b"
+            
+            var whyCollege = ""
+            
+            switch customCell!.data!["whyCollege"] {
+                case "46":
+                    whyCollege = "to /bmove away/b from home"
+                case "47":
+                    whyCollege = "to pursue a specific field of /bstudy/b"
+                case "48":
+                    whyCollege = "to earn /bmoney/b"
+                case "49":
+                    whyCollege = "to compete in /bathletics/b"
+                case "50":
+                    whyCollege = "for an /bunknown reason/b"
+                default:
+                    break
+            }
+            
+            sentenceString = "\(firstName) is looking for someone /b\(lookingFor)/b, and has \(feelAboutApplying). \(firstName) \(kindOfCollege), \(whyCollege)."
+            
+            section2.attributedText = Utilities.blueText(text: sentenceString)
+            
+            //Section 3: Demographics
+            let state = customCell!.cityState.text!
+            let zipCodeValue = Utilities.getValueByZipCode(zipcode: customCell!.data!["zipCode"]!)!
+            var zipCodeMedianIncomeClassification = zipCodeValue < "50000" ? "Below Average" : "Average"
+            zipCodeMedianIncomeClassification = zipCodeValue > "100000" ? "Above Average" : "Average"
+            let gender = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["gender"]!)
+            let lgbtqStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["lgbtq"]!)
+            let lgbtqString = lgbtqStatus == "Yes" ? "does" : "does not"
+            let race = DatabaseParser.getDisplayTextFromAnswerID(answerID: customCell!.data!["race"]!)
+            
+            sentenceString = "\(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
+            
+            section3.attributedText = Utilities.blueText(text: sentenceString)
             
         }
+            
             
         else if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") == customCell!.data!["accountType"]! {
             
@@ -84,7 +182,7 @@ class ProfileVC: UIViewController {
                 case "72":
                 whyTheirCollegeReasoning = "of an /bUnspecified Reason/b"
                 default:
-                break
+                    break
             }
             
             var postGradAspiration = ""
@@ -101,7 +199,7 @@ class ProfileVC: UIViewController {
                 case "77":
                 postGradAspiration = " ... /bContinue Living Life/b!"
                 default:
-                break
+                    break
             }
             
             sentenceString = "\(firstName) chose their college because \(whyTheirCollegeReasoning). After they graduate from college, \(firstName) aspires to \(postGradAspiration) \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
