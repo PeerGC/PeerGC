@@ -66,7 +66,7 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            var sentenceString = "\n\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) has \(whereInProcess)."
+            var sentenceString = "\n\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) \(whereInProcess)."
             
             section1.attributedText = Utilities.blueLabelText(text: sentenceString)
             
