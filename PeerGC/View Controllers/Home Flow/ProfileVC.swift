@@ -30,9 +30,9 @@ class ProfileVC: UIViewController {
         setSectionText()
         
         firstName.font = firstName.font.withSize((2.8/71) * UIScreen.main.bounds.height)
-        section1.font = section1.font.withSize((1.4/71) * UIScreen.main.bounds.height)
-        section2.font = section2.font.withSize((1.4/71) * UIScreen.main.bounds.height)
-        section3.font = section3.font.withSize((1.4/71) * UIScreen.main.bounds.height)
+        section1.font = section1.font.withSize((1.3/71) * UIScreen.main.bounds.height)
+        section2.font = section2.font.withSize((1.3/71) * UIScreen.main.bounds.height)
+        section3.font = section3.font.withSize((1.3/71) * UIScreen.main.bounds.height)
         messageButton.titleLabel!.font = messageButton.titleLabel!.font.withSize((1.5/71) * UIScreen.main.bounds.height)
     }
     
@@ -154,7 +154,7 @@ class ProfileVC: UIViewController {
             let collegeYear = DatabaseValue(name: customCell!.data![DatabaseKey.schoolYear.name]!)!.rawValue
             let degree = DatabaseValue(name: customCell!.data![DatabaseKey.whichDegree.name]!)!.rawValue
             let major = DatabaseValue(name: customCell!.data![DatabaseKey.major.name]!)!.rawValue
-            let university = "University"
+            let university = customCell!.data![DatabaseKey.collegeName.name]!
             let testTaken = DatabaseValue(name: customCell!.data![DatabaseKey.testTaken.name]!)!.rawValue
             let testScore = customCell!.data![DatabaseKey.testScore.name]!
             let highSchoolGPA = DatabaseValue(name: customCell!.data![DatabaseKey.highSchoolGPA.name]!)!.rawValue
@@ -204,11 +204,46 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            sentenceString = "\(firstName) chose their college because \(whyTheirCollegeReasoning). After they graduate from college, \(firstName) aspires to \(postGradAspiration) \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
+            var helpMost = ""
+            
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.helpMost.name]!) {
+                case .generalGuidance:
+                    helpMost = "/bgeneral guidance/b and keeping you on track"
+                case .infoCollegeLookFor:
+                    helpMost = "/binfo/b on what colleges look for"
+                case .findingSupportSystem:
+                    helpMost = "finding a /bsupport system/b in college"
+                case .collegeEntranceTests:
+                    helpMost = "college entrance /btests/b"
+                case .applicationEssays:
+                    helpMost = "application /bessays/b"
+                default:
+                    break
+            }
+            
+            sentenceString = "\(firstName) chose their college because \(whyTheirCollegeReasoning). \(firstName) is most capable of helping with \(helpMost). After they graduate from college, \(firstName) aspires to \(postGradAspiration) \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
             
             section2.attributedText = Utilities.blueLabelText(text: sentenceString)
             
-            //Section 3: Demographics
+            //Section 3: Demographics & other...
+            
+            var whyTheyWantToBeCounselor = ""
+            
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.whyYouWantBeCounselor.name]!) {
+                case .wishSomethingLikeThisExisted:
+                    whyTheyWantToBeCounselor = "they wish they knew /bsomething like this/b existed for them"
+                case .canHelpWriteStrongEssays:
+                    whyTheyWantToBeCounselor = "they can help write /bstrong essays/b"
+                case .scoredWellOnAdmissionsTests:
+                    whyTheyWantToBeCounselor = "they /bscored well/b on admissions tests"
+                case .sociallyEmotionallySupport:
+                    whyTheyWantToBeCounselor = "they can /bsocially and emotionally/b support you"
+                case .somethingElse:
+                    whyTheyWantToBeCounselor = "of an /bUnspecified Reason/b"
+                default:
+                    break
+            }
+            
             let state = customCell!.state.text!
             let zipCodeValue = customCell!.data![DatabaseKey.zipCodeMedianIncome.name]!
             var zipCodeMedianIncomeClassification = zipCodeValue < "50000" ? "Below Average" : "Average"
@@ -218,7 +253,9 @@ class ProfileVC: UIViewController {
             let lgbtqString = lgbtqStatus == .yes ? "does" : "does not"
             let race = DatabaseValue(name: customCell!.data![DatabaseKey.race.name]!)!.rawValue
             
-            sentenceString = "\(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
+            sentenceString = "\(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor). \(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
+            
+            print(state)
             
             section3.attributedText = Utilities.blueLabelText(text: sentenceString)
         }

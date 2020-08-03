@@ -135,7 +135,7 @@ class Utilities {
                
                for row in data {
                    if row[0] == zipcode {
-                       return row[2]
+                    return row[2].trimmingCharacters(in: ["\r"])
                    }
                }
                return nil
