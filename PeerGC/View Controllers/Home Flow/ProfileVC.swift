@@ -105,7 +105,7 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            let kindOfCollege = customCell!.data!["feelAboutApplying"] == "45" ? "/bdoesn't know/b what types of colleges they're interested in" : "is interested in /b\(DatabaseValue(name: customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
+            let kindOfCollege = DatabaseValue(name: customCell!.data![DatabaseKey.feelAboutApplying.name]!) == .dontKnow ? "/bdoesn't know/b what types of colleges they're interested in" : "is interested in /b\(DatabaseValue(name: customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
             
             var whyCollege = ""
             
@@ -254,8 +254,6 @@ class ProfileVC: UIViewController {
             let race = DatabaseValue(name: customCell!.data![DatabaseKey.race.name]!)!.rawValue
             
             sentenceString = "\(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor). \(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
-            
-            print(state)
             
             section3.attributedText = Utilities.blueLabelText(text: sentenceString)
         }

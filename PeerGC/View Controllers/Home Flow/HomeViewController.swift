@@ -261,7 +261,7 @@ class CustomCell: UICollectionViewCell {
                     break
             }
             
-            let kindOfCollege = data!["feelAboutApplying"] == "45" ? "/bdoesn't know/b what types of colleges they're interested in" : "is interested in /b\(DatabaseValue(name: data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
+            let kindOfCollege = DatabaseValue(name: data![DatabaseKey.feelAboutApplying.name]!) == .dontKnow ? "/bdoesn't know/b what types of colleges they're interested in" : "is interested in /b\(DatabaseValue(name: data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
             
             let sentenceString = "\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) \(whereInProcess). \(firstName) is looking for someone /b\(lookingFor)/b, and \(kindOfCollege)."
             
@@ -269,18 +269,37 @@ class CustomCell: UICollectionViewCell {
         }
             
         else if data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
-            let firstName = data![DatabaseKey.firstName.name]!
-            let schoolYear = data![DatabaseKey.schoolYear.name]!
-            let degree = data![DatabaseKey.whichDegree.name]!
-            let major = data![DatabaseKey.major.name]!
-            let university = "University"
+            let schoolYear = DatabaseValue(name: data![DatabaseKey.schoolYear.name]!)!.rawValue
+            let degree = DatabaseValue(name: data![DatabaseKey.whichDegree.name]!)!.rawValue
+            let major = DatabaseValue(name: data![DatabaseKey.major.name]!)!.rawValue
+            let university = data![DatabaseKey.collegeName.name]!
             let testScore = data![DatabaseKey.testScore.name]!
-            let testTaken = data![DatabaseKey.testTaken.name]!
-            let firstGenerationStatus = data![DatabaseKey.parentsGoToCollege.name]!
-            let firstGenerationString = firstGenerationStatus == "Yes" ? "isn't" : "is"
-            let firstLanguge = data!["firstLanguage"]!
+            let testTaken = DatabaseValue(name: data![DatabaseKey.testTaken.name]!)!.rawValue
+            let highSchoolGPA = DatabaseValue(name: data![DatabaseKey.highSchoolGPA.name]!)!.rawValue
+            let firstGenerationStatus = DatabaseValue(name: data![DatabaseKey.parentsGoToCollege.name]!)!
+            let firstGenerationString = firstGenerationStatus == .yes ? "isn't" : "is"
+            let firstLanguge = data![DatabaseKey.firstLanguage.name]!
             
-            let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. \(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
+            let testingString = testTaken == DatabaseValue.otherNone.rawValue ? "applied to college /bwithout/b the SAT or ACT" : "applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam"
+            
+            var whyTheyWantToBeCounselor = ""
+            
+            switch DatabaseValue(name: data![DatabaseKey.whyYouWantBeCounselor.name]!) {
+                case .wishSomethingLikeThisExisted:
+                    whyTheyWantToBeCounselor = "they wish they knew /bsomething like this/b existed for them"
+                case .canHelpWriteStrongEssays:
+                    whyTheyWantToBeCounselor = "they can help write /bstrong essays/b"
+                case .scoredWellOnAdmissionsTests:
+                    whyTheyWantToBeCounselor = "they /bscored well/b on admissions tests"
+                case .sociallyEmotionallySupport:
+                    whyTheyWantToBeCounselor = "they can /bsocially and emotionally/b support you"
+                case .somethingElse:
+                    whyTheyWantToBeCounselor = "of an /bUnspecified Reason/b"
+                default:
+                    break
+            }
+            
+            let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. \(firstName) \(testingString), and with a GPA of /b\(highSchoolGPA)/b. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b. \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor)."
             
             sentence.attributedText = Utilities.blueWhiteText(text: sentenceString)
         }
