@@ -17,6 +17,18 @@ class EnterPasswordVC: GenericStructureViewController {
         genericStructureViewControllerMetadataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
+        addForgotPasswordButton()
+    }
+    
+    func addForgotPasswordButton() {
+        let forgotPasswordButton = DesignableButton()
+        forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
+        forgotPasswordButton.setTitleColor(.link, for: .normal)
+        forgotPasswordButton.titleLabel!.font = UIFont(name: FONT_NAME, size: 16)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
+        let forgotPasswordButtonConstraints = [view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: forgotPasswordButton.trailingAnchor, constant: 60),
+        view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: forgotPasswordButton.leadingAnchor, constant: -60), NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal, toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 6)]
+        NSLayoutConstraint.activate(forgotPasswordButtonConstraints)
     }
     
     func error(text: String) {
@@ -56,10 +68,34 @@ class EnterPasswordVC: GenericStructureViewController {
                 self?.errorLabel!.isHidden = true
                 Utilities.loadHomeScreen()
             }
-            
-            
         }
     }
+    
+    @objc func forgotPassword(_ sender: UIButton) {
+        Auth.auth().sendPasswordReset(withEmail: EmailViewController.emailString) { [weak self] error in
+            
+            if error != nil {
+                
+                let errorCode = AuthErrorCode(rawValue: error!._code)
+                
+                switch errorCode {
+                    case .wrongPassword:
+                        self!.errorLabel!.text = "Wrong Password."
+                    case .networkError:
+                        self!.errorLabel!.text = "Network Error."
+                    default:
+                        self!.errorLabel!.text = "Error Signing In."
+                }
+                
+                self!.errorLabel!.isHidden = false
+            }
+            
+            else {
+                self!.nextViewControllerHandler(viewController: ResetPasswordVC())
+            }
+        }
+    }
+    
 }
 
 extension EnterPasswordVC: GenericStructureViewControllerMetadataDelegate {

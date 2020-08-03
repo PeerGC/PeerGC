@@ -169,7 +169,6 @@ class GenericStructureViewController: UIViewController {
         toReturn.setTitleColor(.white, for: .normal)
         toReturn.alpha = CGFloat(alpha)
         toReturn.titleLabel!.font = UIFont(name: FONT_NAME, size: BUTTON_TEXT_SIZE)
-        toReturn.setTitleColor(UIColor.white, for: .normal)
         toReturn.backgroundColor = color
         toReturn.cornerRadius = CGFloat(16)
         toReturn.addTarget(self, action: action, for: .touchUpInside)

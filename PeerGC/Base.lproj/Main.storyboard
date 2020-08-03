@@ -834,16 +834,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FcG-Am-NcC">
-                                <rect key="frame" x="20" y="10" width="374" height="133.66666666666666"/>
+                                <rect key="frame" x="20" y="10" width="374" height="142.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXT-vd-B4O">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="107.66666666666667"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="43"/>
                                         <nil key="textColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will log you in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNu-9j-Xxa">
-                                        <rect key="frame" x="0.0" y="110.33333333333334" width="374" height="23.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="25"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -851,7 +851,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rde-vj-GnP">
-                                <rect key="frame" x="30" y="173.66666666666669" width="354" height="50"/>
+                                <rect key="frame" x="30" y="182.66666666666669" width="354" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qWH-SA-M6L">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -862,14 +862,16 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJm-1j-Eye">
-                                <rect key="frame" x="20" y="275.66666666666669" width="374" height="23.333333333333314"/>
+                                <rect key="frame" x="20" y="284.66666666666669" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxy-Cf-9st">
-                                <rect key="frame" x="80" y="239.66666666666669" width="254" height="30"/>
-                                <state key="normal" title="Forgot Password?"/>
+                                <rect key="frame" x="80" y="248.66666666666669" width="254" height="30"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="forgotPasswordButton:" destination="QiD-zu-KTO" eventType="touchUpInside" id="xgd-RC-wUI"/>
                                 </connections>

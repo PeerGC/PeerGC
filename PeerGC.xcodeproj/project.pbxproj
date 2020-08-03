@@ -75,6 +75,7 @@
 		C7DEBBCD24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBCC24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift */; };
 		C7DEBBCF24D811ED00E4E465 /* EnterPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBCE24D811ED00E4E465 /* EnterPasswordVC.swift */; };
 		C7DEBBD124D811FB00E4E465 /* CreatePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */; };
+		C7DEBBD324D8A47300E4E465 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		C7DEBBCC24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyYouBeCounselorVC.swift; sourceTree = "<group>"; };
 		C7DEBBCE24D811ED00E4E465 /* EnterPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordVC.swift; sourceTree = "<group>"; };
 		C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordVC.swift; sourceTree = "<group>"; };
+		C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -340,6 +342,7 @@
 			children = (
 				C74133E624CE2085003FC549 /* EmailVC.swift */,
 				C7DEBBCE24D811ED00E4E465 /* EnterPasswordVC.swift */,
+				C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */,
 				C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */,
 			);
 			path = "Email Flow";
@@ -735,6 +738,7 @@
 				C72ED27324C909EE00419E74 /* CreateNameViewController.swift in Sources */,
 				C74133C924CBB299003FC549 /* FirstLanguageVC.swift in Sources */,
 				C74133BB24CBAF4B003FC549 /* InterestVC.swift in Sources */,
+				C7DEBBD324D8A47300E4E465 /* ResetPasswordVC.swift in Sources */,
 				C7DEBBCB24D7E7AA00E4E465 /* CollegeNameVC.swift in Sources */,
 				C74133DC24CBC1B8003FC549 /* PostGradAspirationsVC.swift in Sources */,
 				C72ED27224C909EE00419E74 /* EnterPasswordViewController.swift in Sources */,
