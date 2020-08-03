@@ -424,10 +424,16 @@
                                 <color key="pageIndicatorTintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RECCOMENDED MENTORS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69B-Ng-YPI">
-                                <rect key="frame" x="20" y="156.66666666666666" width="279.33333333333331" height="21.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR MATCHED MENTORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69B-Ng-YPI">
+                                <rect key="frame" x="20.000000000000014" y="156.66666666666666" width="224.33333333333337" height="21.333333333333343"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing to see here! We'll notify you via both an email and a push notification when we find some peer matches for you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ata-Yu-jBq">
+                                <rect key="frame" x="40" y="374" width="334" height="60"/>
+                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -442,14 +448,18 @@
                             <constraint firstItem="nLu-Vy-p8f" firstAttribute="top" secondItem="KU7-Ul-Xpy" secondAttribute="bottom" constant="-26" id="OHh-Zu-hSZ"/>
                             <constraint firstItem="69B-Ng-YPI" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" constant="20" id="Oex-jk-veh"/>
                             <constraint firstItem="KU7-Ul-Xpy" firstAttribute="height" secondItem="G2W-ZS-CsE" secondAttribute="height" multiplier="0.73" id="PTP-D6-bOV"/>
+                            <constraint firstItem="Ata-Yu-jBq" firstAttribute="leading" secondItem="G2W-ZS-CsE" secondAttribute="leading" constant="40" id="dAw-BY-xPz"/>
+                            <constraint firstAttribute="trailing" secondItem="Ata-Yu-jBq" secondAttribute="trailing" constant="40" id="eSL-r8-T1v"/>
                             <constraint firstItem="zET-8J-Wam" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BaC-pk-TBp" secondAttribute="trailing" constant="10" id="gSD-V3-uff"/>
                             <constraint firstItem="KU7-Ul-Xpy" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" id="jiJ-5a-Yxl"/>
+                            <constraint firstItem="Ata-Yu-jBq" firstAttribute="centerX" secondItem="G2W-ZS-CsE" secondAttribute="centerX" id="msS-kK-p5w"/>
                             <constraint firstItem="fqv-Fy-Y6M" firstAttribute="bottom" secondItem="KU7-Ul-Xpy" secondAttribute="bottom" constant="16" id="pG8-tP-4Vr"/>
                             <constraint firstItem="fqv-Fy-Y6M" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9bM-gb-ppE" secondAttribute="trailing" constant="10" id="qzi-be-fUn"/>
                             <constraint firstItem="BaC-pk-TBp" firstAttribute="leading" secondItem="fqv-Fy-Y6M" secondAttribute="leading" constant="20" id="vQ6-Xz-se5"/>
                             <constraint firstItem="fqv-Fy-Y6M" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="69B-Ng-YPI" secondAttribute="trailing" constant="20" id="y1m-xT-Tmh"/>
                             <constraint firstItem="nLu-Vy-p8f" firstAttribute="centerX" secondItem="G2W-ZS-CsE" secondAttribute="centerX" id="y9P-WN-bhn"/>
                             <constraint firstItem="9bM-gb-ppE" firstAttribute="top" secondItem="BaC-pk-TBp" secondAttribute="bottom" id="yhS-X3-rEM"/>
+                            <constraint firstItem="Ata-Yu-jBq" firstAttribute="centerY" secondItem="G2W-ZS-CsE" secondAttribute="centerY" id="zQv-F7-q2B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fqv-Fy-Y6M"/>
                     </view>
@@ -458,6 +468,7 @@
                         <outlet property="collectionView" destination="KU7-Ul-Xpy" id="2iO-CY-ijF"/>
                         <outlet property="firstName" destination="9bM-gb-ppE" id="f0b-76-J3F"/>
                         <outlet property="logOutButton" destination="zET-8J-Wam" id="MPn-lW-wIl"/>
+                        <outlet property="nothingToSeeHereLabel" destination="Ata-Yu-jBq" id="ymY-1o-Ref"/>
                         <outlet property="pageControl" destination="nLu-Vy-p8f" id="aM0-93-6ZG"/>
                         <outlet property="recTutors" destination="69B-Ng-YPI" id="40A-Di-Cjt"/>
                         <outlet property="welcome" destination="BaC-pk-TBp" id="1OC-ua-FVT"/>

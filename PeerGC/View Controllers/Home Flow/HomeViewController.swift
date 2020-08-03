@@ -14,8 +14,10 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var nothingToSeeHereLabel: UILabel!
     static var collectionViewStaticReference: UICollectionView?
     static var pageControlStaticReference: UIPageControl?
+    static var nothingToSeeHereLabelStaticReference: UILabel?
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var welcome: UILabel!
     @IBOutlet weak var recTutors: UILabel!
@@ -36,11 +38,13 @@ class HomeViewController: UIViewController {
         recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height)
         firstName.font = firstName.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
         welcome.font = welcome.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
+        nothingToSeeHereLabel.font = nothingToSeeHereLabel.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
         downloadCurrentUserImage()
         let currentUser = Auth.auth().currentUser!
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
         HomeViewController.collectionViewStaticReference = collectionView
         HomeViewController.pageControlStaticReference = pageControl
+        HomeViewController.nothingToSeeHereLabelStaticReference = nothingToSeeHereLabel
         
         if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name {
             recTutors.text = "YOUR MATCHED MENTORS"
@@ -54,20 +58,30 @@ class HomeViewController: UIViewController {
     
     static func loadCardLoader(action: @escaping () -> Void) {
         HomeViewController.action = action
-        Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
+        Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
             if let document = document, document.exists {
                 var dataDescription = document.data()
                 
-                dataDescription!["uid"] = Auth.auth().currentUser!.uid
+                dataDescription![DatabaseKey.uid.name] = Auth.auth().currentUser!.uid
                 HomeViewController.currentUserData = (dataDescription as! [String : String])
 
-                HomeViewController.reference = Firestore.firestore().collection(["users", Auth.auth().currentUser!.uid, "allowList"].joined(separator: "/"))
+                HomeViewController.reference = Firestore.firestore().collection([DatabaseKey.users.name, Auth.auth().currentUser!.uid, DatabaseKey.allowList.name].joined(separator: "/"))
                 
                 self.cardListener = self.reference?.addSnapshotListener { querySnapshot, error in
                   guard let snapshot = querySnapshot else {
                     print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
                     return
                   }
+                    
+                    print("snapshot count:  \(snapshot.count)")
+                    
+                    if snapshot.count == 0 {
+                        print("running action")
+                        print(action)
+                        HomeViewController.action()
+                        HomeViewController.action = {}
+                        nothingToSeeHereLabelStaticReference?.isHidden = false
+                    }
                   
                   snapshot.documentChanges.forEach { change in
                     HomeViewController.handleDocumentChange(change)
@@ -96,25 +110,26 @@ class HomeViewController: UIViewController {
     }
     
     static func addChange(_ change: DocumentChange) {
-        Firestore.firestore().collection("users").document(change.document.documentID).getDocument { (document, error) in
+        Firestore.firestore().collection(DatabaseKey.users.name).document(change.document.documentID).getDocument { (document, error) in
             if let document = document, document.exists {
                 var dataDescription = document.data() as! [String: String]
-                dataDescription["uid"] = change.document.documentID
+                dataDescription[DatabaseKey.uid.name] = change.document.documentID
                 
                 HomeViewController.remoteUserData.append(dataDescription)
                 
                 HomeViewController.collectionViewStaticReference?.reloadData()
                 HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.remoteUserData.count
 
-                Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("allowList").getDocuments(completion: { (querySnapshot, error) in
+                Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
                     DispatchQueue.main.async{
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
                         if querySnapshot!.count == HomeViewController.remoteUserData.count {
                             print("running action")
                             print(action)
-                            action()
-                            action = {}
+                            HomeViewController.action()
+                            HomeViewController.action = {}
                             //GCD here???
+                            nothingToSeeHereLabelStaticReference?.isHidden = true
                         }
                     }
                 })
@@ -127,9 +142,14 @@ class HomeViewController: UIViewController {
     
     static func removeChange(_ change: DocumentChange) {
         for i in 0..<HomeViewController.remoteUserData.count {
-            if HomeViewController.remoteUserData[i]["uid"] == change.document.documentID {
+            if HomeViewController.remoteUserData[i][DatabaseKey.uid.name] == change.document.documentID {
                 HomeViewController.remoteUserData.remove(at: i)
+                collectionViewStaticReference?.reloadData()
             }
+        }
+        
+        if HomeViewController.remoteUserData.count == 0 {
+            nothingToSeeHereLabelStaticReference?.isHidden = false
         }
     }
     
@@ -209,7 +229,7 @@ class CustomCell: UICollectionViewCell {
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
             state.font = state.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (1.9/71) * UIScreen.main.bounds.height)
-            sentence.font = sentence.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
+            sentence.font = sentence.font.withSize( (1.4/71) * UIScreen.main.bounds.height) //TODO: Font too large?
             button.backgroundColor = UIColor.systemPink
 
             firstname.text = data![DatabaseKey.firstName.name]!

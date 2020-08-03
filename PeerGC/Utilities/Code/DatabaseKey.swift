@@ -37,6 +37,9 @@ enum DatabaseKey: CaseIterable {
     case whichStudentType
     case whichDegree
     case firstLanguage
+    case users
+    case uid
+    case allowList
     
     var name: String {
         return String(describing: self)
