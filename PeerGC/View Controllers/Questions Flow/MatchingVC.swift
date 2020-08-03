@@ -59,20 +59,7 @@ class MatchingVC: GenericStructureViewController {
     
     override func activityIndicatorContinueButtonHandler() {
         if activityIndicatorContinueButton?.alpha == 1.0 {
-            let window: UIWindow = (UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first)!
-            
-            HomeViewController.loadCardLoader(action: {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "HomeNavigationController") as! UINavigationController
-                vc.modalPresentationStyle = .overFullScreen
-                window.rootViewController = vc
-                window.makeKeyAndVisible()
-            })
+            Utilities.loadHomeScreen()
         }
     }
     

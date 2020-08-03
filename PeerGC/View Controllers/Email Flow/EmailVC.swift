@@ -24,9 +24,9 @@ class EmailVC: GenericStructureViewController {
         errorLabel?.text = text
     }
     
-    func noError() {
+    func noError(nextViewController: UIViewController) {
         EmailVC.email = textField!.text
-        nextViewControllerHandler(viewController: nextViewController())
+        nextViewControllerHandler(viewController: nextViewController)
         errorLabel!.isHidden = true
     }
     
@@ -57,7 +57,7 @@ class EmailVC: GenericStructureViewController {
                 if providers.count >= 0 { //acc DOES exist
                     if providers[0] == "password" {
                         //continue to password screen
-                        self.noError()
+                        self.noError(nextViewController: EnterPasswordVC())
                     }
                     
                     else {
@@ -71,7 +71,7 @@ class EmailVC: GenericStructureViewController {
             
             if self.validateEmail(candidate: text) {
                 // email is good move on
-                self.noError()
+                self.noError(nextViewController: EnterPasswordVC())
             }
             
             else {

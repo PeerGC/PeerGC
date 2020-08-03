@@ -15,47 +15,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setInitialViewContoller(_ window:UIWindow) {
         
-//        showController(controller: GenericExampleVC(), window: window)
-//        return
-        
-        print("SET LOGIN")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         if Auth.auth().currentUser != nil {
             
             let uid = Auth.auth().currentUser!.uid
-            let docRef = Firestore.firestore().collection("users").document(uid)
+            let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
-                    print("Document EXISTS")
-                    Firestore.firestore().collection("users").document(uid).collection("allowList").getDocuments(completion: { (querySnapshot, error) in
-                        print("QuerySnapshot Count: \(querySnapshot!.count)")
-                        if querySnapshot!.count > 0 {
-                            HomeViewController.loadCardLoader(action: {window.rootViewController = storyboard.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController})
-                        }
-                        else {
-                            window.rootViewController = storyboard.instantiateViewController(identifier: "InitialNavController") as? UINavigationController
-                        }
+                    Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
+                        
+                        Utilities.loadHomeScreen()
                     })
                 } else {
-                    print("Document does not exist")
-                    window.rootViewController = storyboard.instantiateViewController(identifier: "InitialNavController") as? UINavigationController
+                    self.showInitialNavController()
                 }
             }
-            
         }
         
         else {
-            showController(controller: storyboard.instantiateViewController(withIdentifier: "InitialNavController"), window: window)
+            showInitialNavController()
         }
-        
     }
 
-    func showController(controller: UIViewController, window: UIWindow) {
-        controller.modalPresentationStyle = .overFullScreen
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
+    func showInitialNavController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        window!.rootViewController = storyboard.instantiateViewController(identifier: "InitialNavController") as? UINavigationController
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

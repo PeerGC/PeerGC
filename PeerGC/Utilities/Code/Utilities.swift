@@ -12,6 +12,23 @@ import UIKit
 
 class Utilities {
     
+    static func loadHomeScreen() {
+        let window: UIWindow = (UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first)!
+        
+        HomeViewController.loadCardLoader(action: {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "HomeNavigationController") as! UINavigationController
+            vc.modalPresentationStyle = .overFullScreen
+            window.rootViewController = vc
+            window.makeKeyAndVisible()
+        })
+    }
+    
     static func coloredText(text: String, specialColor: UIColor, regularColor: UIColor) -> NSMutableAttributedString {
         let components = text.components(separatedBy: "/b")
         let toReturn = NSMutableAttributedString(string: "")

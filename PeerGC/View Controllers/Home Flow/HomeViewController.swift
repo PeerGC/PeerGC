@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
         HomeViewController.collectionViewStaticReference = collectionView
         HomeViewController.pageControlStaticReference = pageControl
         HomeViewController.nothingToSeeHereLabelStaticReference = nothingToSeeHereLabel
+        view.bringSubviewToFront(nothingToSeeHereLabel)
         
         if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name {
             recTutors.text = "YOUR MATCHED MENTORS"
