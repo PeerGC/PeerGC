@@ -19,7 +19,6 @@ class HighSchoolScoresVC: GenericStructureViewController {
     override func selectionButtonTextHandler(text: String) {
         if text == DatabaseValue.otherNone.rawValue {
             GenericStructureViewController.sendToDatabaseData[DatabaseKey.testScore.name] = DatabaseValue.na.name
-            super.selectionButtonTextHandler(text: text)
         }
         
         super.selectionButtonTextHandler(text: text)

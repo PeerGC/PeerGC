@@ -73,6 +73,8 @@
 		C7DEBBC324D657E900E4E465 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC224D657E900E4E465 /* ProfileVC.swift */; };
 		C7DEBBC724D7640F00E4E465 /* DatabaseValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */; };
 		C7DEBBC924D76D3800E4E465 /* DatabaseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */; };
+		C7DEBBCB24D7E7AA00E4E465 /* CollegeNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBCA24D7E7AA00E4E465 /* CollegeNameVC.swift */; };
+		C7DEBBCD24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBCC24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +173,8 @@
 		C7DEBBC224D657E900E4E465 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseValue.swift; sourceTree = "<group>"; };
 		C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseKey.swift; sourceTree = "<group>"; };
+		C7DEBBCA24D7E7AA00E4E465 /* CollegeNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeNameVC.swift; sourceTree = "<group>"; };
+		C7DEBBCC24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyYouBeCounselorVC.swift; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -301,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				C74133B824CBAEAE003FC549 /* CollegeYearVC.swift */,
+				C7DEBBCA24D7E7AA00E4E465 /* CollegeNameVC.swift */,
 				C74133CD24CBBD19003FC549 /* MajorVC.swift */,
 				C74133CF24CBBDB4003FC549 /* HighSchoolGPAVC.swift */,
 				C74133D124CBBE2D003FC549 /* HighSchoolScoresVC.swift */,
@@ -309,6 +314,7 @@
 				C74133D724CBC089003FC549 /* HelpMostVC.swift */,
 				C74133D924CBC142003FC549 /* WhyYourCollegeVC.swift */,
 				C74133DB24CBC1B8003FC549 /* PostGradAspirationsVC.swift */,
+				C7DEBBCC24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift */,
 				C74133DD24CBC298003FC549 /* WhichStudentTypeVC.swift */,
 				C74133DF24CBC336003FC549 /* WhichDegreeVC.swift */,
 			);
@@ -730,6 +736,7 @@
 				C72ED27324C909EE00419E74 /* CreateNameViewController.swift in Sources */,
 				C74133C924CBB299003FC549 /* FirstLanguageVC.swift in Sources */,
 				C74133BB24CBAF4B003FC549 /* InterestVC.swift in Sources */,
+				C7DEBBCB24D7E7AA00E4E465 /* CollegeNameVC.swift in Sources */,
 				C74133DC24CBC1B8003FC549 /* PostGradAspirationsVC.swift in Sources */,
 				C72ED27224C909EE00419E74 /* EnterPasswordViewController.swift in Sources */,
 				C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */,
@@ -743,6 +750,7 @@
 				C72ED27124C909EE00419E74 /* ResetPasswordViewController.swift in Sources */,
 				C74133D024CBBDB4003FC549 /* HighSchoolGPAVC.swift in Sources */,
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
+				C7DEBBCD24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift in Sources */,
 				C7DEBBC724D7640F00E4E465 /* DatabaseValue.swift in Sources */,
 				C74133B924CBAEAE003FC549 /* CollegeYearVC.swift in Sources */,
 				C74133C124CBB141003FC549 /* FeelAboutApplyingVC.swift in Sources */,
@@ -951,7 +959,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2380;
+				CURRENT_PROJECT_VERSION = 2386;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -976,7 +984,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2380;
+				CURRENT_PROJECT_VERSION = 2386;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

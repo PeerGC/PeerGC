@@ -1,25 +1,26 @@
 //
-//  CollegeYearVC.swift
+//  WhyYouBeCounselorVC.swift
 //  PeerGC
 //
-//  Created by Artemas Radik on 7/24/20.
+//  Created by Artemas Radik on 8/3/20.
 //  Copyright © 2020 AJ Radik. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class CollegeYearVC: GenericStructureViewController {
+class WhyYouBeCounselorVC: GenericStructureViewController {
     override func viewDidLoad() {
+        BUTTON_TEXT_SIZE = (1.2/71) * UIScreen.main.bounds.height
         genericStructureViewControllerMetadataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
 }
 
-extension CollegeYearVC: GenericStructureViewControllerMetadataDelegate {
+extension WhyYouBeCounselorVC: GenericStructureViewControllerMetadataDelegate {
     func title() -> String {
-        return "What year of college are you in?"
+        return "Why do you want to be a peer guidance counselor?"
     }
     
     func subtitle() -> String? {
@@ -27,16 +28,16 @@ extension CollegeYearVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController? {
-        return CollegeNameVC()
+        return WhichStudentTypeVC()
     }
 }
 
-extension CollegeYearVC: ButtonsDelegate {
+extension WhyYouBeCounselorVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .schoolYear
+        return .whyYouWantBeCounselor
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.freshman, .sophomore, .junior, .senior]
+        return [.wishSomethingLikeThisExisted, .canHelpWriteStrongEssays, .scoredWellOnAdmissionsTests, .sociallyEmotionallySupport, .somethingElse]
     }
 }

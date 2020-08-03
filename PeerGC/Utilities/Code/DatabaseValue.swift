@@ -130,6 +130,12 @@ enum DatabaseValue: String, CaseIterable {
     //testScore
     case na = "N/A"
     
+    //whyYouWantBeCounselor
+    case wishSomethingLikeThisExisted = "You wish something like this existed for you"
+    case canHelpWriteStrongEssays = "You can help write strong essays"
+    case scoredWellOnAdmissionsTests = "You scored well on admission tests"
+    case sociallyEmotionallySupport = "You can socially/emotionally support mentees"
+    
     var name: String {
         return String(describing: self)
     }

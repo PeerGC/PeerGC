@@ -26,12 +26,14 @@ enum DatabaseKey: CaseIterable {
     case kindOfCollege
     case whyCollege
     case major
+    case collegeName
     case highSchoolGPA
     case testTaken
     case testScore
     case helpMost
     case whyYourCollege
     case postGradAspirations
+    case whyYouWantBeCounselor
     case whichStudentType
     case whichDegree
     case firstLanguage

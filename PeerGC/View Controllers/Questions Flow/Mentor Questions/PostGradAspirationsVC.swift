@@ -28,7 +28,7 @@ extension PostGradAspirationsVC: GenericStructureViewControllerMetadataDelegate 
     }
     
     func nextViewController() -> UIViewController? {
-        return WhichStudentTypeVC()
+        return WhyYouBeCounselorVC()
     }
 }
 
