@@ -42,11 +42,11 @@ class HomeViewController: UIViewController {
         HomeViewController.collectionViewStaticReference = collectionView
         HomeViewController.pageControlStaticReference = pageControl
         
-        if HomeViewController.currentUserData?["accountType"] == DatabaseParser.getDisplayTextFromAnswerID(answerID: "Student") {
+        if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name {
             recTutors.text = "YOUR MATCHED MENTORS"
         }
         
-        else if HomeViewController.currentUserData?["accountType"] == DatabaseParser.getDisplayTextFromAnswerID(answerID: "Tutor") {
+        else if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
             recTutors.text = "YOUR MATCHED STUDENTS"
         }
         
@@ -309,12 +309,12 @@ class CustomCell: UICollectionViewCell {
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
         
-        if data!["accountType"] == DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student")  {
+        if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name  {
             vc.id = "\(data!["uid"]!)-\(Auth.auth().currentUser!.uid)"
             print("set ChatVC ID to \(vc.id)")
         }
         
-        else if data!["accountType"] == DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") {
+        else if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
             vc.id = "\(Auth.auth().currentUser!.uid)-\(data!["uid"]!)"
             print("set ChatVC ID to \(vc.id)")
         }

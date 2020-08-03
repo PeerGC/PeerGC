@@ -68,8 +68,6 @@
 		C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */; };
 		C7CC452523EB5AE300A086D7 /* Customizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452223EB5AD600A086D7 /* Customizables.swift */; };
 		C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC452323EB5AE200A086D7 /* Utilities.swift */; };
-		C7DEBBBF24D60D0D00E4E465 /* DatabaseParseSheet.csv in Resources */ = {isa = PBXBuildFile; fileRef = C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */; };
-		C7DEBBC124D6172200E4E465 /* DatabaseSheetParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC024D6172200E4E465 /* DatabaseSheetParser.swift */; };
 		C7DEBBC324D657E900E4E465 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC224D657E900E4E465 /* ProfileVC.swift */; };
 		C7DEBBC724D7640F00E4E465 /* DatabaseValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */; };
 		C7DEBBC924D76D3800E4E465 /* DatabaseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */; };
@@ -168,8 +166,6 @@
 		C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		C7CC452223EB5AD600A086D7 /* Customizables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customizables.swift; sourceTree = "<group>"; };
 		C7CC452323EB5AE200A086D7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = DatabaseParseSheet.csv; sourceTree = "<group>"; };
-		C7DEBBC024D6172200E4E465 /* DatabaseSheetParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSheetParser.swift; sourceTree = "<group>"; };
 		C7DEBBC224D657E900E4E465 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseValue.swift; sourceTree = "<group>"; };
 		C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseKey.swift; sourceTree = "<group>"; };
@@ -432,7 +428,6 @@
 				C7CC452223EB5AD600A086D7 /* Customizables.swift */,
 				C7CC452123EB5ACC00A086D7 /* UITextField+Extensions.swift */,
 				C7CC452323EB5AE200A086D7 /* Utilities.swift */,
-				C7DEBBC024D6172200E4E465 /* DatabaseSheetParser.swift */,
 				C7DEBBC624D7640F00E4E465 /* DatabaseValue.swift */,
 				C7DEBBC824D76D3800E4E465 /* DatabaseKey.swift */,
 			);
@@ -448,7 +443,6 @@
 				C700B14323EB647100816708 /* zipCodes.txt */,
 				C700B14223EB646800816708 /* zipCodesToLocation.csv */,
 				C700B14123EB644F00816708 /* zipCodesToValue.csv */,
-				C7DEBBBE24D60D0D00E4E465 /* DatabaseParseSheet.csv */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -583,7 +577,6 @@
 				C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */,
 				C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */,
 				C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */,
-				C7DEBBBF24D60D0D00E4E465 /* DatabaseParseSheet.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,7 +766,6 @@
 				C74133AD24CBA5F1003FC549 /* ZipCodeVC.swift in Sources */,
 				C74133AB24CBA35C003FC549 /* ProfilePictureVC.swift in Sources */,
 				C74133B124CBAA54003FC549 /* LGBTQVC.swift in Sources */,
-				C7DEBBC124D6172200E4E465 /* DatabaseSheetParser.swift in Sources */,
 				C74133D624CBC04E003FC549 /* ACTScoreVC.swift in Sources */,
 				C74133C324CBB1A8003FC549 /* KindOfCollegeVC.swift in Sources */,
 				C74133CE24CBBD19003FC549 /* MajorVC.swift in Sources */,
@@ -959,7 +951,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2386;
+				CURRENT_PROJECT_VERSION = 2387;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -984,7 +976,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2386;
+				CURRENT_PROJECT_VERSION = 2387;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
