@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DatabaseKey {
+enum DatabaseKey: CaseIterable {
     case accountType
     case zipCode
     case zipCodeMedianIncome
@@ -38,5 +38,15 @@ enum DatabaseKey {
     
     var name: String {
         return String(describing: self)
+    }
+    
+    init?(name: String) {
+        for key in DatabaseKey.allCases {
+            if key.name == name {
+                self = key
+                return
+            }
+        }
+        return nil
     }
 }

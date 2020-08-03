@@ -221,19 +221,19 @@ class CustomCell: UICollectionViewCell {
     }
     
     func setSentenceText() {
-        if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Student") == data!["accountType"]! {
+        if data![DatabaseKey.accountType.name]! == DatabaseValue.student.name {
             
         }
             
-        else if DatabaseParser.getAnswerIDFromDisplayText(displayText: "Mentor") == data!["accountType"]! {
-            let firstName = data!["firstName"]!
-            let schoolYear = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["schoolYear"]!)
-            let degree = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["whichDegree"]!)
-            let major = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["major"]!)
+        else if data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
+            let firstName = data![DatabaseKey.firstName.name]!
+            let schoolYear = data![DatabaseKey.schoolYear.name]!
+            let degree = data![DatabaseKey.whichDegree.name]!
+            let major = data![DatabaseKey.major.name]!
             let university = "University"
-            let testScore = data!["testScore"]!
-            let testTaken = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["testTaken"]!)
-            let firstGenerationStatus = DatabaseParser.getDisplayTextFromAnswerID(answerID: data!["parentsGoToCollege"]!)
+            let testScore = data![DatabaseKey.testScore.name]!
+            let testTaken = data![DatabaseKey.testTaken.name]!
+            let firstGenerationStatus = data![DatabaseKey.parentsGoToCollege.name]!
             let firstGenerationString = firstGenerationStatus == "Yes" ? "isn't" : "is"
             let firstLanguge = data!["firstLanguage"]!
             

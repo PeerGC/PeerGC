@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DatabaseValue: String {
+enum DatabaseValue: String, CaseIterable {
     //accountType
     case student = "Student"
     case mentor = "Mentor"
@@ -132,5 +132,15 @@ enum DatabaseValue: String {
     
     var name: String {
         return String(describing: self)
+    }
+    
+    init?(name: String) {
+        for value in DatabaseValue.allCases {
+            if value.name == name {
+                self = value
+                return
+            }
+        }
+        return nil
     }
 }
