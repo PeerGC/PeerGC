@@ -76,6 +76,7 @@
 		C7DEBBCF24D811ED00E4E465 /* EnterPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBCE24D811ED00E4E465 /* EnterPasswordVC.swift */; };
 		C7DEBBD124D811FB00E4E465 /* CreatePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */; };
 		C7DEBBD324D8A47300E4E465 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */; };
+		C7DEBBD524D8A8D500E4E465 /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD424D8A8D500E4E465 /* NameVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		C7DEBBCE24D811ED00E4E465 /* EnterPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordVC.swift; sourceTree = "<group>"; };
 		C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordVC.swift; sourceTree = "<group>"; };
 		C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		C7DEBBD424D8A8D500E4E465 /* NameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				C74133E624CE2085003FC549 /* EmailVC.swift */,
+				C7DEBBD424D8A8D500E4E465 /* NameVC.swift */,
 				C7DEBBCE24D811ED00E4E465 /* EnterPasswordVC.swift */,
 				C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */,
 				C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */,
@@ -756,6 +759,7 @@
 				C7DEBBCD24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift in Sources */,
 				C7DEBBC724D7640F00E4E465 /* DatabaseValue.swift in Sources */,
 				C74133B924CBAEAE003FC549 /* CollegeYearVC.swift in Sources */,
+				C7DEBBD524D8A8D500E4E465 /* NameVC.swift in Sources */,
 				C74133C124CBB141003FC549 /* FeelAboutApplyingVC.swift in Sources */,
 				C74133D424CBBF67003FC549 /* SATScoreVC.swift in Sources */,
 				C7CC452423EB5AE300A086D7 /* UITextField+Extensions.swift in Sources */,

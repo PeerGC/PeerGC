@@ -114,7 +114,7 @@ extension EntranceViewController: GIDSignInDelegate {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     print("Document EXISTS")
-                    Firestore.firestore().collection("users").document(uid).collection("whitelist").getDocuments(completion: { (querySnapshot, error) in
+                    Firestore.firestore().collection("users").document(uid).collection("allowList").getDocuments(completion: { (querySnapshot, error) in
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
                         Utilities.loadHomeScreen()
                     })

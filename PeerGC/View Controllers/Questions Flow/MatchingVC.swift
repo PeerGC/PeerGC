@@ -43,7 +43,7 @@ class MatchingVC: GenericStructureViewController {
         
         //Upload Data
         
-        Firestore.firestore().collection("users").document(uid).setData(GenericStructureViewController.sendToDatabaseData) { (error) in
+        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).setData(GenericStructureViewController.sendToDatabaseData) { (error) in
             
             if error != nil {
                 // Show error message

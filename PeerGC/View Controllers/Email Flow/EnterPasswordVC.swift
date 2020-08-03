@@ -66,7 +66,19 @@ class EnterPasswordVC: GenericStructureViewController {
             
             else {
                 self?.errorLabel!.isHidden = true
-                Utilities.loadHomeScreen()
+                let uid = Auth.auth().currentUser!.uid
+                let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
+                
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
+                            
+                            Utilities.loadHomeScreen()
+                        })
+                    } else {
+                        //transition to create name
+                    }
+                }
             }
         }
     }

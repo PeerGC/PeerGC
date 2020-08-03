@@ -59,27 +59,27 @@ class CreateNameViewController: UIViewController, UITextFieldDelegate {
         let changeRequest = user!.createProfileChangeRequest()
         changeRequest.displayName = "\(firstName.text!) \(lastName.text!)"
            
-            changeRequest.commitChanges { error in
-                if let error = error {
-                    
-                    let errorCode = AuthErrorCode(rawValue: error._code)
-                    
-                    switch errorCode {
-                        case .wrongPassword:
-                            self.errorLabel.text = "Wrong Password."
-                        case .networkError:
-                            self.errorLabel.text = "Network Error."
-                        default:
-                            self.errorLabel.text = "Error setting name."
-                    }
-                    
-                    self.errorLabel.isHidden = false
-                    
-                } else {
-                    self.errorLabel.isHidden = true
-                    self.performSegue(withIdentifier: "firstAndLastNameGoodGoToFurther", sender: self)
+        changeRequest.commitChanges { error in
+            if let error = error {
+                
+                let errorCode = AuthErrorCode(rawValue: error._code)
+                
+                switch errorCode {
+                    case .wrongPassword:
+                        self.errorLabel.text = "Wrong Password."
+                    case .networkError:
+                        self.errorLabel.text = "Network Error."
+                    default:
+                        self.errorLabel.text = "Error setting name."
                 }
+                
+                self.errorLabel.isHidden = false
+                
+            } else {
+                self.errorLabel.isHidden = true
+                self.performSegue(withIdentifier: "firstAndLastNameGoodGoToFurther", sender: self)
             }
+        }
         
     }
     
