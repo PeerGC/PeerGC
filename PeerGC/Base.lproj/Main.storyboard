@@ -399,10 +399,10 @@
                                         <connections>
                                             <outlet property="blurb" destination="IGD-Tz-Yg8" id="zRk-d4-Pvc"/>
                                             <outlet property="button" destination="Ptf-4c-u4i" id="Wgv-0V-pI9"/>
-                                            <outlet property="cityState" destination="pHz-Ld-iH7" id="U4X-lZ-RcX"/>
                                             <outlet property="firstname" destination="dQh-jz-bsx" id="5tD-c6-9c3"/>
                                             <outlet property="imageView" destination="NjB-zz-PZd" id="IIa-Mf-TOP"/>
                                             <outlet property="sentence" destination="4K9-2h-1Ip" id="KLk-Z0-f1j"/>
+                                            <outlet property="state" destination="pHz-Ld-iH7" id="U4X-lZ-RcX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -537,21 +537,18 @@
                                         <rect key="frame" x="0.0" y="183.66666666666669" width="374" height="183.33333333333331"/>
                                         <string key="text">Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WY-RH-UPc">
                                         <rect key="frame" x="0.0" y="367" width="374" height="183.66666666666663"/>
                                         <string key="text">Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fas-DX-CWk">
                                         <rect key="frame" x="0.0" y="550.66666666666663" width="374" height="183.33333333333337"/>
                                         <string key="text">Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

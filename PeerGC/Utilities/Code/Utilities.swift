@@ -12,7 +12,7 @@ import UIKit
 
 class Utilities {
     
-    static func blueText(text: String) -> NSMutableAttributedString {
+    static func coloredText(text: String, specialColor: UIColor, regularColor: UIColor) -> NSMutableAttributedString {
         let components = text.components(separatedBy: "/b")
         let toReturn = NSMutableAttributedString(string: "")
         
@@ -21,13 +21,13 @@ class Utilities {
         for component in components {
             if makeBlue {
                 let temp = NSMutableAttributedString(string: component)
-                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:0, length: temp.length))
+                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: specialColor, range: NSRange(location:0, length: temp.length))
                 toReturn.append(temp)
             }
             
             else {
                 let temp = NSMutableAttributedString(string: component)
-                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:0, length: temp.length))
+                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: regularColor, range: NSRange(location:0, length: temp.length))
                 toReturn.append(temp)
             }
             
@@ -35,6 +35,14 @@ class Utilities {
         }
         
         return toReturn
+    }
+    
+    static func blueWhiteText(text: String) -> NSMutableAttributedString {
+        return coloredText(text: text, specialColor: .systemBlue, regularColor: .white)
+    }
+    
+    static func blueLabelText(text: String) -> NSMutableAttributedString {
+        return coloredText(text: text, specialColor: .systemBlue, regularColor: .label)
     }
     
     static func getSimilarZipCodes(zipcode: String) -> [String] {

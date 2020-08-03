@@ -207,22 +207,65 @@ class CustomCell: UICollectionViewCell {
     var data: [String: String]? {
         didSet {
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
-            cityState.font = cityState.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
+            state.font = state.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (1.9/71) * UIScreen.main.bounds.height)
-            sentence.font = sentence.font.withSize( (1.6/71) * UIScreen.main.bounds.height)
+            sentence.font = sentence.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
             button.backgroundColor = UIColor.systemPink
 
-            firstname.text = data!["firstName"]!
-            cityState.text = Utilities.getStateByZipCode(zipcode: data!["zipCode"]!)
+            firstname.text = data![DatabaseKey.firstName.name]!
+            state.text = Utilities.getStateByZipCode(zipcode: data![DatabaseKey.zipCode.name]!)
             
             setSentenceText()
-            downloadImage(url: URL(string: data!["photoURL"]!)!, imageView: imageView)
+            downloadImage(url: URL(string: data![DatabaseKey.photoURL.name]!)!, imageView: imageView)
         }
     }
     
     func setSentenceText() {
+        let firstName = data![DatabaseKey.firstName.name]!
+        
         if data![DatabaseKey.accountType.name]! == DatabaseValue.student.name {
+            let highSchoolYear = DatabaseValue(name: data![DatabaseKey.schoolYear.name]!)!.rawValue
+            let interest = DatabaseValue(name: data![DatabaseKey.interest.name]!)!.rawValue
             
+            var whereInProcess = ""
+            
+            switch DatabaseValue(name: data![DatabaseKey.whereInProcess.name]!) {
+                case .hasntStartedLooking:
+                    whereInProcess = "has /bnot started/b looking"
+                case .startedLookingNoPicks:
+                    whereInProcess = "has /bstarted looking/b but hasn't picked any schools"
+                case .pickedNotApplying:
+                    whereInProcess = "has /bpicked schools/b but hasn't began applying"
+                case .startedAppsButStuck:
+                    whereInProcess = "has /bstarted applications/b but is stuck"
+                case .doneWithApps:
+                    whereInProcess = "is /bdone/b with applications"
+                default:
+                    break
+            }
+                
+            var lookingFor = ""
+            
+            switch DatabaseValue(name: data![DatabaseKey.lookingFor.name]!) {
+                case .keepOnTrack:
+                    lookingFor = "to help keep them /bon track/b"
+                case .infoOnCollegeWants:
+                    lookingFor = "to provide info on what /bcolleges look for/b"
+                case .supportSystem:
+                    lookingFor = "that can provide a /bsupport system/b in college"
+                case .entranceTests:
+                    lookingFor = "to help with college /bentrance tests/b"
+                case .essays:
+                    lookingFor = "to help with /bessays/b"
+                default:
+                    break
+            }
+            
+            let kindOfCollege = data!["feelAboutApplying"] == "45" ? "/bdoesn't know/b what types of colleges they're interested in" : "is interested in /b\(DatabaseValue(name: data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
+            
+            let sentenceString = "\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) has \(whereInProcess). \(firstName) is looking for someone /b\(lookingFor)/b, and \(kindOfCollege)."
+            
+            sentence.attributedText = Utilities.blueWhiteText(text: sentenceString)
         }
             
         else if data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
@@ -239,7 +282,7 @@ class CustomCell: UICollectionViewCell {
             
             let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. \(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
             
-            sentence.attributedText = Utilities.blueText(text: sentenceString)
+            sentence.attributedText = Utilities.blueWhiteText(text: sentenceString)
         }
     }
     
@@ -255,7 +298,7 @@ class CustomCell: UICollectionViewCell {
     
     @IBOutlet weak var button: DesignableButton!
     @IBOutlet weak var firstname: UILabel!
-    @IBOutlet weak var cityState: UILabel!
+    @IBOutlet weak var state: UILabel!
     @IBOutlet weak var blurb: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sentence: UILabel!
