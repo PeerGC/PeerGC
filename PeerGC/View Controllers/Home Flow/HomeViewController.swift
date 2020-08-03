@@ -47,6 +47,10 @@ class HomeViewController: UIViewController {
         HomeViewController.nothingToSeeHereLabelStaticReference = nothingToSeeHereLabel
         view.bringSubviewToFront(nothingToSeeHereLabel)
         
+        if HomeViewController.remoteUserData.count > 0 {
+            nothingToSeeHereLabel.isHidden = true
+        }
+        
         if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name {
             recTutors.text = "YOUR MATCHED MENTORS"
         }
@@ -164,6 +168,7 @@ class HomeViewController: UIViewController {
         timer.invalidate()
         print("logged out")
         HomeViewController.remoteUserData = []
+        collectionView.reloadData()
         transitionToStart()
     }
     

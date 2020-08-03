@@ -54,7 +54,9 @@ class EntranceViewController: UIViewController {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    
+    @IBAction func continueWithEmailButtonPressed(_ sender: Any) {
+        show(EmailVC(), sender: self)
+    }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
     

@@ -62,15 +62,11 @@ class GenericStructureViewController: UIViewController {
             headerStack.addArrangedSubview(initializeCustomLabel(title: genericStructureViewControllerMetadataDelegate!.subtitle()!, size: Double(SUBTITLE_TEXT_SIZE), color: .gray))
         }
         
-        let headerStackConstraints: [NSLayoutConstraint] = [
+        addAndConstraint(customView: headerStack, constraints: [
             view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor, constant: 20),
             view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor, constant: -20),
             view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: headerStack.topAnchor, constant: topBuffer)
-        ]
-        
-        headerStack.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(headerStack)
-        NSLayoutConstraint.activate(headerStackConstraints)
+        ])
             
         //MARK: Buttons Layout
         if buttonsDelegate != nil {

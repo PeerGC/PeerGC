@@ -18,6 +18,9 @@ class EnterPasswordVC: GenericStructureViewController {
         textFieldDelegate = self
         super.viewDidLoad()
         addForgotPasswordButton()
+        textField?.autocapitalizationType = .none
+        textField?.textContentType = .password
+        textField?.isSecureTextEntry = true
     }
     
     func addForgotPasswordButton() {
@@ -26,9 +29,9 @@ class EnterPasswordVC: GenericStructureViewController {
         forgotPasswordButton.setTitleColor(.link, for: .normal)
         forgotPasswordButton.titleLabel!.font = UIFont(name: FONT_NAME, size: 16)
         forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
-        let forgotPasswordButtonConstraints = [view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: forgotPasswordButton.trailingAnchor, constant: 60),
-        view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: forgotPasswordButton.leadingAnchor, constant: -60), NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal, toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 6)]
-        NSLayoutConstraint.activate(forgotPasswordButtonConstraints)
+        
+        addAndConstraint(customView: forgotPasswordButton, constraints: [view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: forgotPasswordButton.trailingAnchor, constant: 60),
+        view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: forgotPasswordButton.leadingAnchor, constant: -60), NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal, toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 6)])
     }
     
     func error(text: String) {
@@ -76,7 +79,7 @@ class EnterPasswordVC: GenericStructureViewController {
                             Utilities.loadHomeScreen()
                         })
                     } else {
-                        //transition to create name
+                        self?.nextViewControllerHandler(viewController: NameVC())
                     }
                 }
             }
@@ -84,7 +87,7 @@ class EnterPasswordVC: GenericStructureViewController {
     }
     
     @objc func forgotPassword(_ sender: UIButton) {
-        Auth.auth().sendPasswordReset(withEmail: EmailViewController.emailString) { [weak self] error in
+        Auth.auth().sendPasswordReset(withEmail: EmailVC.email!) { [weak self] error in
             
             if error != nil {
                 

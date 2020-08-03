@@ -17,6 +17,8 @@ class EmailVC: GenericStructureViewController {
         genericStructureViewControllerMetadataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
+        textField?.autocapitalizationType = .none
+        textField?.textContentType = .emailAddress
     }
     
     func error(text: String) {
@@ -33,6 +35,11 @@ class EmailVC: GenericStructureViewController {
     override func textFieldContinueButtonHandler() {
         guard let text = textField?.text else {
             error(text: "Invalid.")
+            return
+        }
+        
+        if !self.validateEmail(candidate: text) {
+            self.error(text: "This email is invalid.")
             return
         }
         
@@ -69,15 +76,7 @@ class EmailVC: GenericStructureViewController {
             }
             //account does not exist go to creation
             
-            if self.validateEmail(candidate: text) {
-                // email is good move on
-                self.noError(nextViewController: EnterPasswordVC())
-            }
-            
-            else {
-                //email is bad
-                self.error(text: "This email is invalid.")
-            }
+            self.noError(nextViewController: CreatePasswordVC())
         })
     }
     
