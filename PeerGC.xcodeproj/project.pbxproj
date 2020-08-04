@@ -19,7 +19,6 @@
 		C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */; };
 		C72ED27824C90A1600419E74 /* SpashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */; };
 		C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27724C90A1600419E74 /* EntranceViewController.swift */; };
-		C74133A924CBA08E003FC549 /* AccountTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133A824CBA08E003FC549 /* AccountTypeVC.swift */; };
 		C74133AB24CBA35C003FC549 /* ProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */; };
 		C74133AD24CBA5F1003FC549 /* ZipCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */; };
 		C74133AF24CBA848003FC549 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AE24CBA848003FC549 /* GenderVC.swift */; };
@@ -72,6 +71,7 @@
 		C7DEBBD124D811FB00E4E465 /* CreatePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */; };
 		C7DEBBD324D8A47300E4E465 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */; };
 		C7DEBBD524D8A8D500E4E465 /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD424D8A8D500E4E465 /* NameVC.swift */; };
+		C7DEBBD724D8DC2400E4E465 /* SignInProvidersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD624D8DC2400E4E465 /* SignInProvidersVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,6 @@
 		C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpashScreenViewController.swift; sourceTree = "<group>"; };
 		C72ED27724C90A1600419E74 /* EntranceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
-		C74133A824CBA08E003FC549 /* AccountTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTypeVC.swift; sourceTree = "<group>"; };
 		C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureVC.swift; sourceTree = "<group>"; };
 		C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeVC.swift; sourceTree = "<group>"; };
 		C74133AE24CBA848003FC549 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		C7DEBBD024D811FB00E4E465 /* CreatePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordVC.swift; sourceTree = "<group>"; };
 		C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		C7DEBBD424D8A8D500E4E465 /* NameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
+		C7DEBBD624D8DC2400E4E465 /* SignInProvidersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProvidersVC.swift; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -250,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				C72ED27724C90A1600419E74 /* EntranceViewController.swift */,
+				C7DEBBD624D8DC2400E4E465 /* SignInProvidersVC.swift */,
 				C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */,
 			);
 			path = "Splash Flow";
@@ -269,7 +270,6 @@
 		C74133A524CBA023003FC549 /* Shared Questions */ = {
 			isa = PBXGroup;
 			children = (
-				C74133A824CBA08E003FC549 /* AccountTypeVC.swift */,
 				C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */,
 				C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */,
 				C74133AE24CBA848003FC549 /* GenderVC.swift */,
@@ -724,8 +724,8 @@
 				C74133D224CBBE2D003FC549 /* HighSchoolScoresVC.swift in Sources */,
 				C74133B324CBAAEF003FC549 /* RaceVC.swift in Sources */,
 				C74133AF24CBA848003FC549 /* GenderVC.swift in Sources */,
+				C7DEBBD724D8DC2400E4E465 /* SignInProvidersVC.swift in Sources */,
 				C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */,
-				C74133A924CBA08E003FC549 /* AccountTypeVC.swift in Sources */,
 				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
 				C7DEBBC924D76D3800E4E465 /* DatabaseKey.swift in Sources */,
 				C74133D024CBBDB4003FC549 /* HighSchoolGPAVC.swift in Sources */,
@@ -939,7 +939,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2429;
+				CURRENT_PROJECT_VERSION = 2438;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -964,7 +964,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2429;
+				CURRENT_PROJECT_VERSION = 2438;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
