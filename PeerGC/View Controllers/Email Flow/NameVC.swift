@@ -70,7 +70,7 @@ extension NameVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func nextViewController() -> UIViewController? {
-        return ProfilePictureVC()
+        return VerifyEmailVC()
     }
 }
 

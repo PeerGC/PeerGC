@@ -56,6 +56,7 @@
 		C75F3D1A23EB570B00C7B5E5 /* PeerGCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D1923EB570B00C7B5E5 /* PeerGCUITests.swift */; };
 		C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D2923EB58DB00C7B5E5 /* AppDelegate.swift */; };
 		C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */; };
+		C7738A6B24D8F08C00A73FA6 /* VerifyEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7738A6A24D8F08C00A73FA6 /* VerifyEmailVC.swift */; };
 		C797D85F24AD99580060FFDB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797D85E24AD99580060FFDB /* ChatViewController.swift */; };
 		C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79ED2AD24AF151B00DC5239 /* UIButtonExtension.swift */; };
 		C7B0D1B2249B1BD700476FB1 /* firstNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7B0D1B1249B1BD700476FB1 /* firstNames.txt */; };
@@ -151,6 +152,7 @@
 		C75F3D1B23EB570B00C7B5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C75F3D2923EB58DB00C7B5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C75F3D2A23EB58E300C7B5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C7738A6A24D8F08C00A73FA6 /* VerifyEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVC.swift; sourceTree = "<group>"; };
 		C791D8BA24AA825B00358EB8 /* PeerGC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PeerGC.entitlements; sourceTree = "<group>"; };
 		C791D8BB24AA8DAF00358EB8 /* firstNames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = firstNames.txt; sourceTree = "<group>"; };
 		C797D85E24AD99580060FFDB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				C74133E624CE2085003FC549 /* EmailVC.swift */,
+				C7738A6A24D8F08C00A73FA6 /* VerifyEmailVC.swift */,
 				C7DEBBD424D8A8D500E4E465 /* NameVC.swift */,
 				C7DEBBCE24D811ED00E4E465 /* EnterPasswordVC.swift */,
 				C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */,
@@ -729,6 +732,7 @@
 				C7CC452623EB5AE300A086D7 /* Utilities.swift in Sources */,
 				C7DEBBC924D76D3800E4E465 /* DatabaseKey.swift in Sources */,
 				C74133D024CBBDB4003FC549 /* HighSchoolGPAVC.swift in Sources */,
+				C7738A6B24D8F08C00A73FA6 /* VerifyEmailVC.swift in Sources */,
 				C75F3D2B23EB58E300C7B5E5 /* AppDelegate.swift in Sources */,
 				C7DEBBCD24D7EA4400E4E465 /* WhyYouBeCounselorVC.swift in Sources */,
 				C7DEBBC724D7640F00E4E465 /* DatabaseValue.swift in Sources */,
@@ -939,7 +943,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2440;
+				CURRENT_PROJECT_VERSION = 2446;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -964,7 +968,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2440;
+				CURRENT_PROJECT_VERSION = 2446;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
