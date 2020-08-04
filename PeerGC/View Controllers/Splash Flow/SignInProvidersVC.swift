@@ -32,9 +32,9 @@ class SignInProvidersVC: UIViewController {
         
         subTitleLabel.font = subTitleLabel.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
         
-        signInWithEmailButton.titleLabel!.font = signInWithEmailButton.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
+        signInWithEmailButton.titleLabel!.font = signInWithEmailButton.titleLabel!.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
         
-        signInWithGoogleButton.titleLabel!.font = signInWithGoogleButton.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
+        signInWithGoogleButton.titleLabel!.font = signInWithGoogleButton.titleLabel!.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
         
         if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
             subTitleLabel.text = subTitleLabel.text! + " Please note that mentors must use a .edu email address."
