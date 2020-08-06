@@ -46,13 +46,15 @@ class Utilities {
         .first?.windows
         .filter({$0.isKeyWindow}).first)!
         
-        HomeViewController.loadCardLoader(action: {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "HomeNavigationController") as! UINavigationController
-            vc.modalPresentationStyle = .overFullScreen
-            window.rootViewController = vc
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navVC = storyboard.instantiateViewController(identifier: "HomeNavigationController") as! UINavigationController
+        let homeVC = navVC.viewControllers.first as! HomeViewController
+        
+        homeVC.loadCardLoader {
+            navVC.modalPresentationStyle = .overFullScreen
+            window.rootViewController = navVC
             window.makeKeyAndVisible()
-        })
+        }
     }
     
     static func coloredText(text: String, specialColor: UIColor, regularColor: UIColor) -> NSMutableAttributedString {

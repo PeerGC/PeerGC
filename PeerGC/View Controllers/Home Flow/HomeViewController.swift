@@ -15,26 +15,23 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nothingToSeeHereLabel: UILabel!
-    static var collectionViewStaticReference: UICollectionView?
-    static var pageControlStaticReference: UIPageControl?
-    static var nothingToSeeHereLabelStaticReference: UILabel?
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var welcome: UILabel!
     @IBOutlet weak var recTutors: UILabel!
     @IBOutlet weak var logOutButton: DesignableButton!
-    public static var remoteUserData: [[String: String]] = []
+    public var remoteUserData: [[String: String]] = []
     var timer = Timer()
     static var currentUserImage : UIImage? = nil
     static var currentUserData: [String: String]? = nil
-    private static var cardListener: ListenerRegistration?
-    private static var reference: CollectionReference?
-    private static var action: () -> Void = {}
+    private var cardListener: ListenerRegistration?
+    private var reference: CollectionReference?
+    private var action: () -> Void = {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        pageControl.numberOfPages = HomeViewController.remoteUserData.count
+        pageControl.numberOfPages = remoteUserData.count
         recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height)
         firstName.font = firstName.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
         welcome.font = welcome.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
@@ -42,12 +39,9 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         downloadCurrentUserImage()
         let currentUser = Auth.auth().currentUser!
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
-        HomeViewController.collectionViewStaticReference = collectionView
-        HomeViewController.pageControlStaticReference = pageControl
-        HomeViewController.nothingToSeeHereLabelStaticReference = nothingToSeeHereLabel
         view.bringSubviewToFront(nothingToSeeHereLabel)
         
-        if HomeViewController.remoteUserData.count > 0 {
+        if remoteUserData.count > 0 {
             nothingToSeeHereLabel.isHidden = true
         }
         
@@ -103,8 +97,8 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 //End Messaging
     }
     
-    static func loadCardLoader(action: @escaping () -> Void) {
-        HomeViewController.action = action
+    func loadCardLoader(action: @escaping () -> Void) {
+        self.action = action
         Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
             if let document = document, document.exists {
                 var dataDescription = document.data()
@@ -112,7 +106,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 dataDescription![DatabaseKey.uid.name] = Auth.auth().currentUser!.uid
                 HomeViewController.currentUserData = (dataDescription as! [String : String])
 
-                HomeViewController.reference = Firestore.firestore().collection([DatabaseKey.users.name, Auth.auth().currentUser!.uid, DatabaseKey.allowList.name].joined(separator: "/"))
+                self.reference = Firestore.firestore().collection([DatabaseKey.users.name, Auth.auth().currentUser!.uid, DatabaseKey.allowList.name].joined(separator: "/"))
                 
                 self.cardListener = self.reference?.addSnapshotListener { querySnapshot, error in
                   guard let snapshot = querySnapshot else {
@@ -125,14 +119,14 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                     if snapshot.count == 0 {
                         print("running action")
                         print(action)
-                        HomeViewController.action()
-                        HomeViewController.action = {}
-                        nothingToSeeHereLabelStaticReference?.isHidden = false
+                        self.action()
+                        self.action = {}
+                        self.nothingToSeeHereLabel.isHidden = false
                     }
                   
                     DispatchQueue.main.async {
                         snapshot.documentChanges.forEach { change in
-                          HomeViewController.handleDocumentChange(change)
+                          self.handleDocumentChange(change)
                         }
                     }
                     
@@ -144,14 +138,14 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         }
     }
     
-    private static func handleDocumentChange(_ change: DocumentChange) {
+    private func handleDocumentChange(_ change: DocumentChange) {
         
         switch change.type {
             case .added:
-                HomeViewController.addChange(change)
+                addChange(change)
             
             case .removed:
-                HomeViewController.removeChange(change)
+                removeChange(change)
             
             default:
                 break
@@ -159,10 +153,10 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         
     }
     
-    static func addChange(_ change: DocumentChange) {
+    func addChange(_ change: DocumentChange) {
         print(change.document.documentID)
         
-        for data in HomeViewController.remoteUserData {
+        for data in remoteUserData {
             if data[DatabaseKey.uid.name] == change.document.documentID {
                 print("document already present")
                 return
@@ -174,23 +168,23 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 var dataDescription = document.data() as! [String: String]
                 dataDescription[DatabaseKey.uid.name] = change.document.documentID
                 dataDescription[DatabaseKey.relativeStatus.name] = (change.document.data() as! [String: String])[DatabaseKey.relativeStatus.name]
-                HomeViewController.remoteUserData.append(dataDescription)
+                self.remoteUserData.append(dataDescription)
                 
                 print(dataDescription)
                 
-                HomeViewController.collectionViewStaticReference?.reloadData()
-                HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.remoteUserData.count
+                self.collectionView?.reloadData()
+                self.pageControl?.numberOfPages = self.remoteUserData.count
 
                 Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
                     DispatchQueue.main.async{
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
-                        if querySnapshot!.count == HomeViewController.remoteUserData.count {
+                        if querySnapshot!.count == self.remoteUserData.count {
                             print("running action")
-                            print(action)
-                            HomeViewController.action()
-                            HomeViewController.action = {}
+                            print(self.action)
+                            self.action()
+                            self.action = {}
                             //GCD here???
-                            nothingToSeeHereLabelStaticReference?.isHidden = true
+                            self.nothingToSeeHereLabel?.isHidden = true
                         }
                     }
                 })
@@ -199,28 +193,28 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 print("Document does not exist. addChange()")
             }
         }
-        print("Remote User Data Count: \(HomeViewController.remoteUserData.count)")
+        print("Remote User Data Count: \(self.remoteUserData.count)")
     }
     
-    static func removeChange(_ change: DocumentChange) {
+    func removeChange(_ change: DocumentChange) {
         
-        print("Remote User Data Count: \(HomeViewController.remoteUserData.count)")
+        print("Remote User Data Count: \(remoteUserData.count)")
         
-        for var i in 0..<HomeViewController.remoteUserData.count {
-            if HomeViewController.remoteUserData[i][DatabaseKey.uid.name] == change.document.documentID {
-                HomeViewController.remoteUserData.remove(at: i)
+        for var i in 0..<remoteUserData.count {
+            if remoteUserData[i][DatabaseKey.uid.name] == change.document.documentID {
+                remoteUserData.remove(at: i)
                 i -= 1
-                collectionViewStaticReference?.reloadData()
-                HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.remoteUserData.count
+                collectionView.reloadData()
+                pageControl.numberOfPages = remoteUserData.count
             }
         }
         
-        if HomeViewController.remoteUserData.count == 0 {
-            nothingToSeeHereLabelStaticReference?.isHidden = false
+        if remoteUserData.count == 0 {
+            nothingToSeeHereLabel.isHidden = false
         }
         
         else {
-            nothingToSeeHereLabelStaticReference?.isHidden = true
+            nothingToSeeHereLabel.isHidden = true
         }
     }
     
@@ -233,7 +227,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         try! Auth.auth().signOut()
         timer.invalidate()
         print("logged out")
-        HomeViewController.remoteUserData = []
+        remoteUserData = []
         collectionView.reloadData()
         transitionToStart()
     }
@@ -274,12 +268,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HomeViewController.remoteUserData.count
+        return remoteUserData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.data = HomeViewController.remoteUserData[indexPath.item]
+        cell.data = remoteUserData[indexPath.item]
 
         return cell
     }
@@ -297,7 +291,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return HomeViewController.remoteUserData.count
+        return remoteUserData.count
     }
 
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
