@@ -15,6 +15,7 @@ class SignInProvidersVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var signInWithEmailButton: DesignableButton!
     @IBOutlet weak var emailIcon: UIImageView!
@@ -31,6 +32,8 @@ class SignInProvidersVC: UIViewController {
         titleLabel.font = titleLabel.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
         
         subTitleLabel.font = subTitleLabel.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
+        
+        errorLabel.font = errorLabel.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
         
         signInWithEmailButton.titleLabel!.font = signInWithEmailButton.titleLabel!.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
         
@@ -90,13 +93,22 @@ extension SignInProvidersVC: GIDSignInDelegate {
             let uid = Auth.auth().currentUser!.uid
             let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
 
+            if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name && Auth.auth().currentUser?.email!.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
+                self.errorLabel.text = "Mentors must use a .edu email address."
+                self.errorLabel.isHidden = false
+                self.viewDidDisappear(true)
+                return
+            }
+            
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
                         Utilities.loadHomeScreen()
+                        self.errorLabel.isHidden = true
                     })
                 } else {
                     self.navigationController!.pushViewController(ProfilePictureVC(), animated: true)
+                    self.errorLabel.isHidden = true
                 }
             }
             

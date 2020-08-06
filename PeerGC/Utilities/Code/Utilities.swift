@@ -29,6 +29,22 @@ class Utilities {
         })
     }
     
+    static func showAlert(title: String, message: String, handler: ((UIAlertAction) -> Void)?) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: handler))
+            
+            let window: UIWindow = (UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first)!
+            
+            window.rootViewController!.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     static func coloredText(text: String, specialColor: UIColor, regularColor: UIColor) -> NSMutableAttributedString {
         let components = text.components(separatedBy: "/b")
         let toReturn = NSMutableAttributedString(string: "")

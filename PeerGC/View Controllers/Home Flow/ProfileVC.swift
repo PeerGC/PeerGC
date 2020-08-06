@@ -18,7 +18,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var section1: UILabel!
     @IBOutlet weak var section2: UILabel!
     @IBOutlet weak var section3: UILabel!
-    @IBOutlet weak var messageButton: DesignableButton!
+    @IBOutlet weak var messageAddMentorButton: DesignableButton!
     
     
     override func viewDidLoad() {
@@ -33,12 +33,19 @@ class ProfileVC: UIViewController {
         section1.font = section1.font.withSize((1.3/71) * UIScreen.main.bounds.height)
         section2.font = section2.font.withSize((1.3/71) * UIScreen.main.bounds.height)
         section3.font = section3.font.withSize((1.3/71) * UIScreen.main.bounds.height)
-        messageButton.titleLabel!.font = messageButton.titleLabel!.font.withSize((1.5/71) * UIScreen.main.bounds.height)
+        messageAddMentorButton.titleLabel!.font = messageAddMentorButton.titleLabel!.font.withSize((1.5/71) * UIScreen.main.bounds.height)
+        
+        customCell?.setUpMessageAddMentorButton(button: messageAddMentorButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
         super.viewWillAppear(animated)
+    }
+    
+    @IBAction func addMentorMessageButtonPressed(_ sender: UIButton) {
+        customCell?.addMentorMessageButtonPressed(sender)
     }
     
     func setSectionText() {

@@ -15,6 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setInitialViewContoller(_ window:UIWindow) {
         
+        Auth.auth().currentUser?.reload(completion: nil)
+        
         if Auth.auth().currentUser != nil {
             
             let uid = Auth.auth().currentUser!.uid

@@ -119,7 +119,7 @@ class HomeViewController: UIViewController {
             if let document = document, document.exists {
                 var dataDescription = document.data() as! [String: String]
                 dataDescription[DatabaseKey.uid.name] = change.document.documentID
-                
+                dataDescription[DatabaseKey.relativeStatus.name] = (change.document.data() as! [String: String])[DatabaseKey.relativeStatus.name]
                 HomeViewController.remoteUserData.append(dataDescription)
                 
                 HomeViewController.collectionViewStaticReference?.reloadData()
@@ -235,7 +235,7 @@ class CustomCell: UICollectionViewCell {
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
             state.font = state.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (1.9/71) * UIScreen.main.bounds.height)
-            sentence.font = sentence.font.withSize( (1.4/71) * UIScreen.main.bounds.height) //TODO: Font too large?
+            sentence.font = sentence.font.withSize( (1.3/71) * UIScreen.main.bounds.height) //TODO: Font too large?
             button.backgroundColor = UIColor.systemPink
 
             firstname.text = data![DatabaseKey.firstName.name]!
@@ -243,6 +243,22 @@ class CustomCell: UICollectionViewCell {
             
             setSentenceText()
             downloadImage(url: URL(string: data![DatabaseKey.photoURL.name]!)!, imageView: imageView)
+            
+            setUpMessageAddMentorButton(button: messageAddMentorButton)
+        }
+    }
+    
+    func setUpMessageAddMentorButton(button: UIButton) {
+        if data![DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
+            if data![DatabaseKey.relativeStatus.name] == DatabaseValue.matched.name {
+                button.backgroundColor = .systemBlue
+                button.setTitle("Message", for: .normal)
+            }
+            
+            else {
+                button.backgroundColor = .systemGreen
+                button.setTitle("Add Mentor", for: .normal)
+            }
         }
     }
     
@@ -347,12 +363,20 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet weak var blurb: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sentence: UILabel!
+    @IBOutlet weak var messageAddMentorButton: DesignableButton!
     
-    @IBAction func messageButtonPressed(_ sender: UIButton) {
-        let vc = ChatViewController()
+    @IBAction func addMentorMessageButtonPressed(_ sender: UIButton) {
+                
+        if sender.titleLabel?.text == "Add Mentor" {
+            data![DatabaseKey.relativeStatus.name] = DatabaseValue.matched.name
+            Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.allowList.name).document(data![DatabaseKey.uid.name]!).setData([DatabaseKey.relativeStatus.name : DatabaseValue.matched.name ], merge: true)
+            sender.backgroundColor = .systemBlue
+            sender.setTitle("Message", for: .normal)
+            Utilities.showAlert(title: "Mentor Added!", message: "Congrats, you've added a mentor! Now you can message them, and they can message you.", handler: nil)
+            return
+        }
         
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
+        let vc = ChatViewController()
         
         if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name  {
             vc.id = "\(data!["uid"]!)-\(Auth.auth().currentUser!.uid)"

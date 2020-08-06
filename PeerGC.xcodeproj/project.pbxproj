@@ -15,10 +15,10 @@
 		C700B14723EB647100816708 /* zipCodesToLocation.csv in Resources */ = {isa = PBXBuildFile; fileRef = C700B14223EB646800816708 /* zipCodesToLocation.csv */; };
 		C700B14823EB647100816708 /* zipCodes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B14323EB647100816708 /* zipCodes.txt */; };
 		C700B15523EB650500816708 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15023EB64D800816708 /* HomeViewController.swift */; };
-		C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B15423EB650500816708 /* AccountInfoViewController.swift */; };
 		C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */; };
 		C72ED27824C90A1600419E74 /* SpashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */; };
 		C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27724C90A1600419E74 /* EntranceViewController.swift */; };
+		C734B1A524DB71FA00FA2DC1 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C734B1A424DB71FA00FA2DC1 /* WelcomeVC.swift */; };
 		C74133AB24CBA35C003FC549 /* ProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */; };
 		C74133AD24CBA5F1003FC549 /* ZipCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */; };
 		C74133AF24CBA848003FC549 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AE24CBA848003FC549 /* GenderVC.swift */; };
@@ -105,10 +105,10 @@
 		C700B14223EB646800816708 /* zipCodesToLocation.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodesToLocation.csv; sourceTree = "<group>"; };
 		C700B14323EB647100816708 /* zipCodes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipCodes.txt; sourceTree = "<group>"; };
 		C700B15023EB64D800816708 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C700B15423EB650500816708 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
 		C700B16C23EB692C00816708 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpashScreenViewController.swift; sourceTree = "<group>"; };
 		C72ED27724C90A1600419E74 /* EntranceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
+		C734B1A424DB71FA00FA2DC1 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureVC.swift; sourceTree = "<group>"; };
 		C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeVC.swift; sourceTree = "<group>"; };
 		C74133AE24CBA848003FC549 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
@@ -231,7 +231,6 @@
 		C700B14B23EB649100816708 /* Home Flow */ = {
 			isa = PBXGroup;
 			children = (
-				C700B15423EB650500816708 /* AccountInfoViewController.swift */,
 				C700B15023EB64D800816708 /* HomeViewController.swift */,
 				C797D85E24AD99580060FFDB /* ChatViewController.swift */,
 				C7DEBBC224D657E900E4E465 /* ProfileVC.swift */,
@@ -254,6 +253,7 @@
 				C72ED27724C90A1600419E74 /* EntranceViewController.swift */,
 				C7DEBBD624D8DC2400E4E465 /* SignInProvidersVC.swift */,
 				C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */,
+				C734B1A424DB71FA00FA2DC1 /* WelcomeVC.swift */,
 			);
 			path = "Splash Flow";
 			sourceTree = "<group>";
@@ -744,7 +744,6 @@
 				C79ED2AE24AF151B00DC5239 /* UIButtonExtension.swift in Sources */,
 				C74133B724CBADFE003FC549 /* HighSchoolYearVC.swift in Sources */,
 				C74133BF24CBB082003FC549 /* WhereInProcessVC.swift in Sources */,
-				C700B15623EB650500816708 /* AccountInfoViewController.swift in Sources */,
 				C74133E224CBC3FB003FC549 /* GenericStructureViewController.swift in Sources */,
 				C74133E024CBC336003FC549 /* WhichDegreeVC.swift in Sources */,
 				C75F3D2C23EB58E300C7B5E5 /* SceneDelegate.swift in Sources */,
@@ -761,6 +760,7 @@
 				C74133CE24CBBD19003FC549 /* MajorVC.swift in Sources */,
 				C74133DE24CBC298003FC549 /* WhichStudentTypeVC.swift in Sources */,
 				C74133DA24CBC142003FC549 /* WhyYourCollegeVC.swift in Sources */,
+				C734B1A524DB71FA00FA2DC1 /* WelcomeVC.swift in Sources */,
 				C74133E724CE2085003FC549 /* EmailVC.swift in Sources */,
 				C7DEBBD124D811FB00E4E465 /* CreatePasswordVC.swift in Sources */,
 				C74133D824CBC089003FC549 /* HelpMostVC.swift in Sources */,
@@ -943,7 +943,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2446;
+				CURRENT_PROJECT_VERSION = 2462;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -968,7 +968,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2446;
+				CURRENT_PROJECT_VERSION = 2462;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -28,6 +28,7 @@ class EntranceViewController: UIViewController {
             versionLabel.text = "Version " + version + " Build " + build + " Alpha"
         }
         
+        performSegue(withIdentifier: "goToHowItWorks", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

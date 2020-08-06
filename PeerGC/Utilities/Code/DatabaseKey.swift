@@ -40,6 +40,7 @@ enum DatabaseKey: CaseIterable {
     case users
     case uid
     case allowList
+    case relativeStatus
     
     var name: String {
         return String(describing: self)
