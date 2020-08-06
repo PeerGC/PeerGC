@@ -41,6 +41,12 @@ enum DatabaseKey: CaseIterable {
     case uid
     case allowList
     case relativeStatus
+    case instanceID
+    case senderID
+    case senderDisplayName
+    case messageID
+    case dateStamp
+    case content
     
     var name: String {
         return String(describing: self)

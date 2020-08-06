@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -59,6 +59,48 @@ class HomeViewController: UIViewController {
             recTutors.text = "YOUR MATCHED STUDENTS"
         }
         
+        if !UIApplication.shared.isRegisteredForRemoteNotifications {
+            let alertController = UIAlertController(title: "Please let us send you notifications <3", message: "We'd be really happy if you could allow notifications. This will enable you to receive notifications when your peers message you, or when you're matched with a new peer.", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "No :|", style: .default, handler: nil))
+            //TODO: /\ \/
+            alertController.addAction(UIAlertAction(title: "Yes! :D", style: .default, handler: { action in
+                self.setUpNotifications()
+            }))
+            
+            present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    func setUpNotifications() {
+        //Messaging
+                if #available(iOS 10.0, *) {
+                  // For iOS 10 display notification (sent via APNS)
+                  UNUserNotificationCenter.current().delegate = self
+
+                  let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+                  UNUserNotificationCenter.current().requestAuthorization(
+                    options: authOptions,
+                    completionHandler: {_, _ in })
+                } else {
+                  let settings: UIUserNotificationSettings =
+                  UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                    UIApplication.shared.registerUserNotificationSettings(settings)
+                }
+
+                UIApplication.shared.registerForRemoteNotifications()
+                
+                Messaging.messaging().delegate = self
+                
+                InstanceID.instanceID().instanceID { (result, error) in
+                  if let error = error {
+                    print("Error fetching remote instance ID: \(error)")
+                  } else if let result = result {
+                    print("Remote instance ID token: \(result.token)")
+                    Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).setData([DatabaseKey.instanceID.name : result.token ], merge: true)
+                  }
+                }
+                //End Messaging
     }
     
     static func loadCardLoader(action: @escaping () -> Void) {
@@ -212,6 +254,17 @@ class HomeViewController: UIViewController {
         task.resume()
     }
     
+}
+
+extension HomeViewController: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+      print("Firebase registration token: \(fcmToken)")
+
+      let dataDict:[String: String] = ["token": fcmToken]
+      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+      // TODO: If necessary send token to application server.
+      // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -402,23 +455,32 @@ class CustomCell: UICollectionViewCell {
             Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.allowList.name).document(data![DatabaseKey.uid.name]!).setData([DatabaseKey.relativeStatus.name : DatabaseValue.matched.name ], merge: true)
             sender.backgroundColor = .systemBlue
             sender.setTitle("Message", for: .normal)
-            Utilities.showAlert(title: "Mentor Added!", message: "Congrats, you've added a mentor! Now you can message them, and they can message you.", handler: nil)
+            let alertController = UIAlertController(title: "Mentor Added!", message: "Congrats, you've added a mentor! Now you can message them, and they can message you.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            let window: UIWindow = (UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first)!
+            window.rootViewController!.present(alertController, animated: true, completion: nil)
             return
         }
         
         let vc = ChatViewController()
         
         if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name  {
-            vc.id = "\(data!["uid"]!)-\(Auth.auth().currentUser!.uid)"
+            vc.id = "\(data![DatabaseKey.uid.name]!)-\(Auth.auth().currentUser!.uid)"
             print("set ChatVC ID to \(vc.id)")
         }
         
         else if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
-            vc.id = "\(Auth.auth().currentUser!.uid)-\(data!["uid"]!)"
+            vc.id = "\(Auth.auth().currentUser!.uid)-\(data![DatabaseKey.uid.name]!)"
             print("set ChatVC ID to \(vc.id)")
         }
         
-        vc.header = data!["firstName"]!
+        vc.header = data![DatabaseKey.firstName.name]!
+        vc.customCell = self
         vc.remoteReceiverImage = imageView.image
         vc.currentSenderImage = HomeViewController.currentUserImage
         

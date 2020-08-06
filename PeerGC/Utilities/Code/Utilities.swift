@@ -12,6 +12,32 @@ import UIKit
 
 class Utilities {
     
+    static func sendPushNotification(to token: String, title: String, body: String) {
+        let urlString = "https://fcm.googleapis.com/fcm/send"
+        let url = NSURL(string: urlString)!
+        let paramString: [String : Any] = ["to" : token,
+                                           "notification" : ["title" : title, "body" : body],
+                                           "data" : ["user" : "test_id"]
+        ]
+        let request = NSMutableURLRequest(url: url as URL)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject:paramString, options: [.prettyPrinted])
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("key=AAAAcwvPqgU:APA91bHuy-lLYO2EYgE-CPPRNBOcfs4bE09ovTWoRdHwj1OYNFYE8DL015xD0R5tDF09uiv4Lx3O3cUVEzrQTCq9MrcVjKsPRyHROoJ-M4060uTU9d0urYslX5HoqmkKU_4aJ7OFvbnw", forHTTPHeaderField: "Authorization")
+        let task =  URLSession.shared.dataTask(with: request as URLRequest)  { (data, response, error) in
+            do {
+                if let jsonData = data {
+                    if let jsonDataDict  = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
+                        NSLog("Received data:\n\(jsonDataDict))")
+                    }
+                }
+            } catch let err as NSError {
+                print(err.debugDescription)
+            }
+        }
+        task.resume()
+    }
+    
     static func loadHomeScreen() {
         let window: UIWindow = (UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
@@ -27,22 +53,6 @@ class Utilities {
             window.rootViewController = vc
             window.makeKeyAndVisible()
         })
-    }
-    
-    static func showAlert(title: String, message: String, handler: ((UIAlertAction) -> Void)?) {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: handler))
-            
-            let window: UIWindow = (UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first)!
-            
-            window.rootViewController!.present(alertController, animated: true, completion: nil)
-        }
     }
     
     static func coloredText(text: String, specialColor: UIColor, regularColor: UIColor) -> NSMutableAttributedString {

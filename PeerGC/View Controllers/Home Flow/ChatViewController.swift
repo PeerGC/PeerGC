@@ -43,12 +43,12 @@ class ChatViewController: MessagesViewController {
             }
             
             let toReturn: [String : Any] = [
-            "senderID": sender.senderId,
-            "senderDisplayName": sender.displayName,
-            "messageID": messageId,
-            "dateStamp": sentDate,
-            "content": text.string
-          ]
+                DatabaseKey.senderID.name: sender.senderId,
+                DatabaseKey.senderDisplayName.name: sender.displayName,
+                DatabaseKey.messageID.name: messageId,
+                DatabaseKey.dateStamp.name: sentDate,
+                DatabaseKey.content.name: text.string
+            ]
           
           return toReturn
         }
@@ -70,6 +70,8 @@ class ChatViewController: MessagesViewController {
     
     var currentSenderImage : UIImage? = nil
     var remoteReceiverImage : UIImage? = nil
+    
+    var customCell: CustomCell? = nil
     
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
@@ -145,6 +147,10 @@ class ChatViewController: MessagesViewController {
         if let e = error {
           print("Error sending message: \(e.localizedDescription)")
           return
+        }
+        
+        if let remoteInstanceID = self.customCell?.data?[DatabaseKey.instanceID.name] {
+            Utilities.sendPushNotification(to: remoteInstanceID, title: Auth.auth().currentUser!.displayName!.components(separatedBy: [" "])[0], body: message.representation[DatabaseKey.content.name] as! String)
         }
         
         self.messagesCollectionView.scrollToBottom()
