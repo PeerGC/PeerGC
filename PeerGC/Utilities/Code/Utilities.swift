@@ -50,6 +50,9 @@ class Utilities {
         let navVC = storyboard.instantiateViewController(identifier: "HomeNavigationController") as! UINavigationController
         let homeVC = navVC.viewControllers.first as! HomeViewController
         
+        homeVC.loadView()
+        homeVC.awakeFromNib()
+        
         homeVC.loadCardLoader {
             navVC.modalPresentationStyle = .overFullScreen
             window.rootViewController = navVC

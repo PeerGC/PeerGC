@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var welcome: UILabel!
     @IBOutlet weak var recTutors: UILabel!
     @IBOutlet weak var logOutButton: DesignableButton!
-    public var remoteUserData: [[String: String]] = []
+    public var remoteUserCells: [CustomCell] = []
     var timer = Timer()
     static var currentUserImage : UIImage? = nil
     static var currentUserData: [String: String]? = nil
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        pageControl.numberOfPages = remoteUserData.count
+        pageControl.numberOfPages = remoteUserCells.count
         recTutors.font = recTutors.font.withSize( (1.3/71) * UIScreen.main.bounds.height)
         firstName.font = firstName.font.withSize( (3.5/71) * UIScreen.main.bounds.height)
         welcome.font = welcome.font.withSize( (3.0/71) * UIScreen.main.bounds.height)
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         firstName.text! = currentUser.displayName!.components(separatedBy: " ")[0]
         view.bringSubviewToFront(nothingToSeeHereLabel)
         
-        if remoteUserData.count > 0 {
+        if remoteUserCells.count > 0 {
             nothingToSeeHereLabel.isHidden = true
         }
         
@@ -156,8 +156,8 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     func addChange(_ change: DocumentChange) {
         print(change.document.documentID)
         
-        for data in remoteUserData {
-            if data[DatabaseKey.uid.name] == change.document.documentID {
+        for cell in remoteUserCells {
+            if cell.data![DatabaseKey.uid.name] == change.document.documentID {
                 print("document already present")
                 return
             }
@@ -168,17 +168,21 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 var dataDescription = document.data() as! [String: String]
                 dataDescription[DatabaseKey.uid.name] = change.document.documentID
                 dataDescription[DatabaseKey.relativeStatus.name] = (change.document.data() as! [String: String])[DatabaseKey.relativeStatus.name]
-                self.remoteUserData.append(dataDescription)
+                
+                let customCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: IndexPath(item: self.remoteUserCells.count, section: 0)) as! CustomCell
+                customCell.data = dataDescription
+                
+                self.remoteUserCells.append(customCell)
                 
                 print(dataDescription)
                 
                 self.collectionView?.reloadData()
-                self.pageControl?.numberOfPages = self.remoteUserData.count
+                self.pageControl?.numberOfPages = self.remoteUserCells.count
 
                 Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
                     DispatchQueue.main.async{
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
-                        if querySnapshot!.count == self.remoteUserData.count {
+                        if querySnapshot!.count == self.remoteUserCells.count {
                             print("running action")
                             print(self.action)
                             self.action()
@@ -193,23 +197,23 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 print("Document does not exist. addChange()")
             }
         }
-        print("Remote User Data Count: \(self.remoteUserData.count)")
+        print("Remote User Data Count: \(self.remoteUserCells.count)")
     }
     
     func removeChange(_ change: DocumentChange) {
         
-        print("Remote User Data Count: \(remoteUserData.count)")
+        print("Remote User Data Count: \(remoteUserCells.count)")
         
-        for var i in 0..<remoteUserData.count {
-            if remoteUserData[i][DatabaseKey.uid.name] == change.document.documentID {
-                remoteUserData.remove(at: i)
+        for var i in 0..<remoteUserCells.count {
+            if remoteUserCells[i].data![DatabaseKey.uid.name] == change.document.documentID {
+                remoteUserCells.remove(at: i)
                 i -= 1
                 collectionView.reloadData()
-                pageControl.numberOfPages = remoteUserData.count
+                pageControl.numberOfPages = remoteUserCells.count
             }
         }
         
-        if remoteUserData.count == 0 {
+        if remoteUserCells.count == 0 {
             nothingToSeeHereLabel.isHidden = false
         }
         
@@ -227,7 +231,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         try! Auth.auth().signOut()
         timer.invalidate()
         print("logged out")
-        remoteUserData = []
+        remoteUserCells = []
         collectionView.reloadData()
         transitionToStart()
     }
@@ -268,14 +272,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return remoteUserData.count
+        return remoteUserCells.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.data = remoteUserData[indexPath.item]
-
-        return cell
+        return remoteUserCells[indexPath.item]
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -291,7 +292,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return remoteUserData.count
+        return remoteUserCells.count
     }
 
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
