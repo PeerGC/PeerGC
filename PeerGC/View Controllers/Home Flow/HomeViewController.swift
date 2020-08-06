@@ -88,9 +88,12 @@ class HomeViewController: UIViewController {
                         nothingToSeeHereLabelStaticReference?.isHidden = false
                     }
                   
-                  snapshot.documentChanges.forEach { change in
-                    HomeViewController.handleDocumentChange(change)
-                  }
+                    DispatchQueue.main.async {
+                        snapshot.documentChanges.forEach { change in
+                          HomeViewController.handleDocumentChange(change)
+                        }
+                    }
+                    
                 }
                 
             } else {
@@ -115,12 +118,23 @@ class HomeViewController: UIViewController {
     }
     
     static func addChange(_ change: DocumentChange) {
+        print(change.document.documentID)
+        
+        for data in HomeViewController.remoteUserData {
+            if data[DatabaseKey.uid.name] == change.document.documentID {
+                print("document already present")
+                return
+            }
+        }
+        
         Firestore.firestore().collection(DatabaseKey.users.name).document(change.document.documentID).getDocument { (document, error) in
             if let document = document, document.exists {
                 var dataDescription = document.data() as! [String: String]
                 dataDescription[DatabaseKey.uid.name] = change.document.documentID
                 dataDescription[DatabaseKey.relativeStatus.name] = (change.document.data() as! [String: String])[DatabaseKey.relativeStatus.name]
                 HomeViewController.remoteUserData.append(dataDescription)
+                
+                print(dataDescription)
                 
                 HomeViewController.collectionViewStaticReference?.reloadData()
                 HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.remoteUserData.count
@@ -140,21 +154,31 @@ class HomeViewController: UIViewController {
                 })
                 
             } else {
-                print("Document does not exist")
+                print("Document does not exist. addChange()")
             }
         }
+        print("Remote User Data Count: \(HomeViewController.remoteUserData.count)")
     }
     
     static func removeChange(_ change: DocumentChange) {
-        for i in 0..<HomeViewController.remoteUserData.count {
+        
+        print("Remote User Data Count: \(HomeViewController.remoteUserData.count)")
+        
+        for var i in 0..<HomeViewController.remoteUserData.count {
             if HomeViewController.remoteUserData[i][DatabaseKey.uid.name] == change.document.documentID {
                 HomeViewController.remoteUserData.remove(at: i)
+                i -= 1
                 collectionViewStaticReference?.reloadData()
+                HomeViewController.pageControlStaticReference?.numberOfPages = HomeViewController.remoteUserData.count
             }
         }
         
         if HomeViewController.remoteUserData.count == 0 {
             nothingToSeeHereLabelStaticReference?.isHidden = false
+        }
+        
+        else {
+            nothingToSeeHereLabelStaticReference?.isHidden = true
         }
     }
     
@@ -236,6 +260,11 @@ class CustomCell: UICollectionViewCell {
             state.font = state.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (1.9/71) * UIScreen.main.bounds.height)
             sentence.font = sentence.font.withSize( (1.3/71) * UIScreen.main.bounds.height) //TODO: Font too large?
+            
+            viewProfileButton.titleLabel!.font = viewProfileButton.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
+            messageAddMentorButton.titleLabel!.font = messageAddMentorButton.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
+            
+            
             button.backgroundColor = UIColor.systemPink
 
             firstname.text = data![DatabaseKey.firstName.name]!
@@ -341,7 +370,7 @@ class CustomCell: UICollectionViewCell {
                     break
             }
             
-            let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. \(firstName) \(testingString), and with a GPA of /b\(highSchoolGPA)/b. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b. \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor)."
+            let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a(n) /b\(major)/b major at /b\(university)/b. \(firstName) \(testingString), and with a GPA of /b\(highSchoolGPA)/b. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b. \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor)."
             
             sentence.attributedText = Utilities.blueWhiteText(text: sentenceString)
         }
@@ -364,6 +393,7 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sentence: UILabel!
     @IBOutlet weak var messageAddMentorButton: DesignableButton!
+    @IBOutlet weak var viewProfileButton: DesignableButton!
     
     @IBAction func addMentorMessageButtonPressed(_ sender: UIButton) {
                 

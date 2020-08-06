@@ -189,13 +189,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing to see here! We'll notify you via both an email and a push notification when we find some peer matches for you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ata-Yu-jBq">
-                                <rect key="frame" x="60" y="366.66666666666669" width="294" height="74.666666666666686"/>
+                                <rect key="frame" x="60" y="364" width="294" height="80"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zET-8J-Wam" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                <rect key="frame" x="337" y="20" width="57" height="26"/>
+                                <rect key="frame" x="333" y="20" width="61" height="27"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12"/>
                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <state key="normal" title="  Log Out  ">
@@ -256,19 +256,19 @@
                                                     <rect key="frame" x="20" y="20" width="375" height="226"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQh-jz-bsx">
-                                                            <rect key="frame" x="16" y="16.000000000000004" width="195" height="51.333333333333343"/>
+                                                            <rect key="frame" x="16" y="16" width="215" height="55"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="44"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHz-Ld-iH7">
-                                                            <rect key="frame" x="16" y="132" width="70.666666666666671" height="35"/>
+                                                            <rect key="frame" x="16" y="127.33333333333336" width="78.333333333333329" height="37.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGD-Tz-Yg8">
-                                                            <rect key="frame" x="16" y="183" width="166.66666666666666" height="27"/>
+                                                            <rect key="frame" x="16" y="181" width="176.66666666666666" height="29"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="23"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -302,17 +302,17 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K9-2h-1Ip">
-                                                    <rect key="frame" x="36" y="246" width="343" height="219"/>
+                                                    <rect key="frame" x="36" y="246" width="343" height="239"/>
                                                     <string key="text">Firstname is African American, male, identifies as LGBTQ, majors in Computer Science, did not apply to college on sports, is a sophomore at Columbia University, and is most qualified to assist with SAT, ACT, and Essays.</string>
                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PXm-fR-mzv">
-                                                    <rect key="frame" x="40" y="485" width="335" height="80"/>
+                                                    <rect key="frame" x="40" y="505" width="335" height="60"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="si8-fB-7xT" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="80"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="60"/>
                                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                             <state key="normal" title="View Profile">
@@ -328,7 +328,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kif-B7-zu3" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                                            <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="80"/>
+                                                            <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="60"/>
                                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                             <state key="normal" title="Message">
@@ -345,7 +345,7 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="XdD-pa-rFU"/>
+                                                        <constraint firstAttribute="height" constant="60" id="XdD-pa-rFU"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -376,6 +376,7 @@
                                             <outlet property="messageAddMentorButton" destination="kif-B7-zu3" id="lLT-rr-mzH"/>
                                             <outlet property="sentence" destination="4K9-2h-1Ip" id="KLk-Z0-f1j"/>
                                             <outlet property="state" destination="pHz-Ld-iH7" id="U4X-lZ-RcX"/>
+                                            <outlet property="viewProfileButton" destination="si8-fB-7xT" id="agL-ye-aqN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -398,7 +399,7 @@
                                 <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR MATCHED MENTORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69B-Ng-YPI">
-                                <rect key="frame" x="20.000000000000014" y="158" width="221.33333333333337" height="20"/>
+                                <rect key="frame" x="20.000000000000014" y="156.66666666666666" width="224.33333333333337" height="21.333333333333343"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -460,7 +461,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="183.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A5-fx-kqN">
-                                                <rect key="frame" x="20" y="19.999999999999996" width="150.66666666666666" height="39.666666666666657"/>
+                                                <rect key="frame" x="20" y="19.999999999999996" width="166" height="42.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -477,7 +478,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFt-cq-1ik" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="75.666666666666657" width="153" height="88"/>
+                                                <rect key="frame" x="20" y="99.333333333333343" width="153" height="64.333333333333343"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                 <state key="normal" title="Message">
@@ -498,9 +499,10 @@
                                             <constraint firstItem="09p-b0-6lP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8A5-fx-kqN" secondAttribute="trailing" constant="16" id="12g-Lg-e92"/>
                                             <constraint firstItem="xFt-cq-1ik" firstAttribute="leading" secondItem="CLf-8m-6kJ" secondAttribute="leading" constant="20" id="9if-mU-1mN"/>
                                             <constraint firstItem="xFt-cq-1ik" firstAttribute="width" secondItem="CLf-8m-6kJ" secondAttribute="width" multiplier="0.409091" id="AKI-63-3K6"/>
-                                            <constraint firstItem="xFt-cq-1ik" firstAttribute="top" secondItem="8A5-fx-kqN" secondAttribute="bottom" constant="16" id="EOi-yg-77T"/>
+                                            <constraint firstItem="xFt-cq-1ik" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8A5-fx-kqN" secondAttribute="bottom" constant="6" id="EOi-yg-77T"/>
                                             <constraint firstAttribute="trailing" secondItem="09p-b0-6lP" secondAttribute="trailing" constant="20" id="IcV-tR-dc6"/>
                                             <constraint firstItem="09p-b0-6lP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xFt-cq-1ik" secondAttribute="trailing" constant="6" id="USb-ey-Rrn"/>
+                                            <constraint firstItem="xFt-cq-1ik" firstAttribute="height" secondItem="CLf-8m-6kJ" secondAttribute="height" multiplier="0.35" id="Z9k-9F-hpF"/>
                                             <constraint firstItem="09p-b0-6lP" firstAttribute="height" secondItem="CLf-8m-6kJ" secondAttribute="height" multiplier="0.75" id="d7Y-Pz-ujw"/>
                                             <constraint firstItem="09p-b0-6lP" firstAttribute="centerY" secondItem="CLf-8m-6kJ" secondAttribute="centerY" id="fVH-9E-2Hz"/>
                                             <constraint firstItem="8A5-fx-kqN" firstAttribute="top" secondItem="CLf-8m-6kJ" secondAttribute="top" constant="20" id="j7a-ry-Ax4"/>
