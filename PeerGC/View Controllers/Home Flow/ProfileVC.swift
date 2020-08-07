@@ -75,7 +75,7 @@ class ProfileVC: UIViewController {
             
             var sentenceString = "\n\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) \(whereInProcess)."
             
-            section1.attributedText = Utilities.blueLabelText(text: sentenceString)
+            section1.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
             //Section 2: Questions
             var lookingFor = ""
@@ -137,7 +137,7 @@ class ProfileVC: UIViewController {
             
             sentenceString = "\(firstName) is looking for someone /b\(lookingFor)/b, and has \(feelAboutApplying). \(firstName) \(kindOfCollege), \(whyCollege). \(firstName) /b\(firstGenerationString)/b be a first generation college student, and their first language is /b\(firstLanguge)/b."
             
-            section2.attributedText = Utilities.blueLabelText(text: sentenceString)
+            section2.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
             //Section 3: Demographics
             let state = customCell!.state.text!
@@ -151,7 +151,7 @@ class ProfileVC: UIViewController {
             
             sentenceString = "\(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
             
-            section3.attributedText = Utilities.blueLabelText(text: sentenceString)
+            section3.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
         }
     
@@ -170,7 +170,7 @@ class ProfileVC: UIViewController {
             let toAppend = testTaken == "Other / None" ? "\(firstName) did not take any college entrance exams. " : "\(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. "
             sentenceString.append(toAppend + "In high school, \(firstName) had a GPA that was /b\(highSchoolGPA)/b. ")
             
-            section1.attributedText = Utilities.blueLabelText(text: sentenceString)
+            section1.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
             //Section 2: Other
             let firstGenerationStatus = DatabaseValue(name: customCell!.data![DatabaseKey.parentsGoToCollege.name]!)
@@ -230,7 +230,7 @@ class ProfileVC: UIViewController {
             
             sentenceString = "\(firstName) chose their college because \(whyTheirCollegeReasoning). \(firstName) is most capable of helping with \(helpMost). After they graduate from college, \(firstName) aspires to \(postGradAspiration) \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
             
-            section2.attributedText = Utilities.blueLabelText(text: sentenceString)
+            section2.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
             //Section 3: Demographics & other...
             
@@ -262,7 +262,7 @@ class ProfileVC: UIViewController {
             
             sentenceString = "\(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor). \(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
             
-            section3.attributedText = Utilities.blueLabelText(text: sentenceString)
+            section3.attributedText = Utilities.indigoLabelText(text: sentenceString)
         }
     }
     

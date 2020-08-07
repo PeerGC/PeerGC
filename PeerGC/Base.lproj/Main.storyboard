@@ -313,7 +313,7 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="si8-fB-7xT" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="60"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                             <state key="normal" title="View Profile">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -329,7 +329,7 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kif-B7-zu3" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                                             <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="60"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                             <state key="normal" title="Message">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -440,11 +440,129 @@
                         <outlet property="recTutors" destination="69B-Ng-YPI" id="40A-Di-Cjt"/>
                         <outlet property="welcome" destination="BaC-pk-TBp" id="1OC-ua-FVT"/>
                         <segue destination="kFm-Wv-bWj" kind="show" identifier="placeHolder" id="fQC-Fi-ara"/>
+                        <segue destination="tVw-YO-RoF" kind="popoverPresentation" identifier="firstMessage" popoverAnchorView="G2W-ZS-CsE" id="JeN-JP-wvo">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj5-7w-wVN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2600" y="126"/>
+        </scene>
+        <!--First MessageVC-->
+        <scene sceneID="cP7-72-YGk">
+            <objects>
+                <viewController storyboardIdentifier="FirstMessageVC" id="tVw-YO-RoF" customClass="FirstMessageVC" customModule="PeerGC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="49D-cZ-Pwi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="clo-FU-TVa">
+                                <rect key="frame" x="20" y="20" width="374" height="768"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's your first message!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWj-qK-Zgn">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="106.33333333333333"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="42"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've created some helpful message templates that might help get the conversation started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzs-aa-VVc">
+                                        <rect key="frame" x="0.0" y="132.33333333333334" width="374" height="106.33333333333334"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qxc-Ot-HJ0" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="264.66666666666669" width="374" height="106.33333333333331"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                        <state key="normal" title="Message">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="tVw-YO-RoF" eventType="touchUpInside" id="pX5-hN-WpO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TQg-oM-Wci" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="397" width="374" height="106.33333333333331"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                        <state key="normal" title="Message">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="tVw-YO-RoF" eventType="touchUpInside" id="nh1-fx-QwY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cs9-OJ-8HS" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="529.33333333333337" width="374" height="106.33333333333337"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                        <state key="normal" title="Message">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="tVw-YO-RoF" eventType="touchUpInside" id="zKk-1q-ppT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Bsp-sd-PHG" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="661.66666666666663" width="374" height="106.33333333333337"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
+                                        <state key="normal" title="Message">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="tVw-YO-RoF" eventType="touchUpInside" id="4Qs-Pt-dOW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="J49-VB-Eyr" firstAttribute="bottom" secondItem="clo-FU-TVa" secondAttribute="bottom" constant="20" id="8vI-m3-Oij"/>
+                            <constraint firstItem="clo-FU-TVa" firstAttribute="leading" secondItem="49D-cZ-Pwi" secondAttribute="leading" constant="20" id="JUZ-1p-ePO"/>
+                            <constraint firstAttribute="trailing" secondItem="clo-FU-TVa" secondAttribute="trailing" constant="20" id="LaS-OG-MbH"/>
+                            <constraint firstItem="clo-FU-TVa" firstAttribute="top" secondItem="49D-cZ-Pwi" secondAttribute="top" constant="20" id="TFa-vA-ned"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J49-VB-Eyr"/>
+                    </view>
+                    <connections>
+                        <outlet property="option1Button" destination="qxc-Ot-HJ0" id="vdx-uv-ae2"/>
+                        <outlet property="option2Button" destination="TQg-oM-Wci" id="FcH-zE-5Wy"/>
+                        <outlet property="option3Button" destination="cs9-OJ-8HS" id="imj-VN-3ru"/>
+                        <outlet property="option4Button" destination="Bsp-sd-PHG" id="pqL-tD-HFZ"/>
+                        <outlet property="subTitleLabel" destination="vzs-aa-VVc" id="lJA-nd-Ztb"/>
+                        <outlet property="titleLabel" destination="AWj-qK-Zgn" id="LDZ-zb-3Hh"/>
+                        <outletCollection property="options" destination="qxc-Ot-HJ0" collectionClass="NSMutableArray" id="3eM-ou-zqk"/>
+                        <outletCollection property="options" destination="TQg-oM-Wci" collectionClass="NSMutableArray" id="Si4-l6-Ffz"/>
+                        <outletCollection property="options" destination="cs9-OJ-8HS" collectionClass="NSMutableArray" id="YBm-vI-q2Q"/>
+                        <outletCollection property="options" destination="Bsp-sd-PHG" collectionClass="NSMutableArray" id="loe-pd-GwW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEa-pG-1t4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2599" y="831"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="P4g-UM-G0S">
@@ -479,7 +597,7 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFt-cq-1ik" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="99.333333333333343" width="153" height="64.333333333333343"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                 <state key="normal" title="Message">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

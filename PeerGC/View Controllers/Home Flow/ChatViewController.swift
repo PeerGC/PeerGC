@@ -108,10 +108,24 @@ class ChatViewController: MessagesViewController {
             return
           }
           
+            if snapshot.count == 0 {
+                self.firstMessageVC()
+            }
+            
           snapshot.documentChanges.forEach { change in
             self.handleDocumentChange(change)
           }
         }
+        
+    }
+    
+    func firstMessageVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "FirstMessageVC") as! FirstMessageVC
+        vc.modalPresentationStyle = .popover
+        vc.customCell = customCell
+        vc.chatVC = self
+        present(vc, animated: true, completion: nil)
     }
     
     deinit {
@@ -142,6 +156,12 @@ class ChatViewController: MessagesViewController {
     }
     
     //MARK: Message Operations
+    func newMessage(message: String) {
+        let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]), messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: message)))
+        
+        saveMessageToDatabase(message)
+    }
+    
     private func saveMessageToDatabase(_ message: Message) {
       reference?.addDocument(data: message.representation) { error in
         if let e = error {
@@ -283,16 +303,11 @@ extension ChatViewController: MessagesDisplayDelegate {
 //MARK: Input Bar Delegate
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        print("called HIIII")
         
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
         
-        // 1
-          let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]), messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: text)))
-
-        // 2
-        saveMessageToDatabase(message)
+        newMessage(message: text)
 
         // 3
         inputBar.inputTextView.text = ""

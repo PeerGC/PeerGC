@@ -19,6 +19,7 @@
 		C72ED27824C90A1600419E74 /* SpashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */; };
 		C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72ED27724C90A1600419E74 /* EntranceViewController.swift */; };
 		C734B1A524DB71FA00FA2DC1 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C734B1A424DB71FA00FA2DC1 /* WelcomeVC.swift */; };
+		C74064B124DCD7BD00345DD0 /* FirstMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74064B024DCD7BD00345DD0 /* FirstMessageVC.swift */; };
 		C74133AB24CBA35C003FC549 /* ProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */; };
 		C74133AD24CBA5F1003FC549 /* ZipCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */; };
 		C74133AF24CBA848003FC549 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133AE24CBA848003FC549 /* GenderVC.swift */; };
@@ -109,6 +110,7 @@
 		C72ED27624C90A1600419E74 /* SpashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpashScreenViewController.swift; sourceTree = "<group>"; };
 		C72ED27724C90A1600419E74 /* EntranceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
 		C734B1A424DB71FA00FA2DC1 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		C74064B024DCD7BD00345DD0 /* FirstMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstMessageVC.swift; sourceTree = "<group>"; };
 		C74133AA24CBA35C003FC549 /* ProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureVC.swift; sourceTree = "<group>"; };
 		C74133AC24CBA5F1003FC549 /* ZipCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeVC.swift; sourceTree = "<group>"; };
 		C74133AE24CBA848003FC549 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				C700B15023EB64D800816708 /* HomeViewController.swift */,
 				C797D85E24AD99580060FFDB /* ChatViewController.swift */,
 				C7DEBBC224D657E900E4E465 /* ProfileVC.swift */,
+				C74064B024DCD7BD00345DD0 /* FirstMessageVC.swift */,
 			);
 			path = "Home Flow";
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				C74133C924CBB299003FC549 /* FirstLanguageVC.swift in Sources */,
 				C74133BB24CBAF4B003FC549 /* InterestVC.swift in Sources */,
 				C7DEBBD324D8A47300E4E465 /* ResetPasswordVC.swift in Sources */,
+				C74064B124DCD7BD00345DD0 /* FirstMessageVC.swift in Sources */,
 				C7DEBBCB24D7E7AA00E4E465 /* CollegeNameVC.swift in Sources */,
 				C74133DC24CBC1B8003FC549 /* PostGradAspirationsVC.swift in Sources */,
 				C72ED27924C90A1600419E74 /* EntranceViewController.swift in Sources */,
@@ -943,7 +947,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2502;
+				CURRENT_PROJECT_VERSION = 2510;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -968,7 +972,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2502;
+				CURRENT_PROJECT_VERSION = 2510;
 				DEVELOPMENT_TEAM = 32F8FK43RT;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

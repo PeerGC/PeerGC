@@ -328,7 +328,7 @@ class CustomCell: UICollectionViewCell {
     func setUpMessageAddMentorButton(button: UIButton) {
         if data![DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
             if data![DatabaseKey.relativeStatus.name] == DatabaseValue.matched.name {
-                button.backgroundColor = .systemBlue
+                button.backgroundColor = .systemIndigo
                 button.setTitle("Message", for: .normal)
             }
             
@@ -384,7 +384,7 @@ class CustomCell: UICollectionViewCell {
             
             let sentenceString = "\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) \(whereInProcess). \(firstName) is looking for someone /b\(lookingFor)/b, and \(kindOfCollege)."
             
-            sentence.attributedText = Utilities.blueWhiteText(text: sentenceString)
+            sentence.attributedText = Utilities.indigoWhiteText(text: sentenceString)
         }
             
         else if data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
@@ -420,7 +420,7 @@ class CustomCell: UICollectionViewCell {
             
             let sentenceString = "\(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a(n) /b\(major)/b major at /b\(university)/b. \(firstName) \(testingString), and with a GPA of /b\(highSchoolGPA)/b. \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b. \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor)."
             
-            sentence.attributedText = Utilities.blueWhiteText(text: sentenceString)
+            sentence.attributedText = Utilities.indigoWhiteText(text: sentenceString)
         }
     }
     
@@ -448,7 +448,7 @@ class CustomCell: UICollectionViewCell {
         if sender.titleLabel?.text == "Add Mentor" {
             data![DatabaseKey.relativeStatus.name] = DatabaseValue.matched.name
             Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.allowList.name).document(data![DatabaseKey.uid.name]!).setData([DatabaseKey.relativeStatus.name : DatabaseValue.matched.name ], merge: true)
-            sender.backgroundColor = .systemBlue
+            sender.backgroundColor = .systemIndigo
             sender.setTitle("Message", for: .normal)
             let alertController = UIAlertController(title: "Mentor Added!", message: "Congrats, you've added a mentor! Now you can message them, and they can message you.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))

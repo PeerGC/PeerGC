@@ -17,7 +17,7 @@ class FirstLanguageVC: GenericStructureViewController {
     }
     
     override func selectionButtonTextHandler(text: String) {
-        if text == DatabaseValue.other.name {
+        if text == DatabaseValue.other.rawValue {
             nextViewControllerHandler(viewController: OtherFirstLanguageVC())
         }
             

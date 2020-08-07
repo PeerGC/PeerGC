@@ -105,7 +105,7 @@ class GenericStructureViewController: UIViewController {
         //MARK: Image Picker Layout
         if imagePickerDelegate != nil {
             
-            let selectButton = initializeCustomButton(title: "Select", color: .systemGreen, action: #selector(imagePickerSelectButtonHandler), alpha: 1.0)
+            let selectButton = initializeCustomButton(title: "Select", color: .systemIndigo, action: #selector(imagePickerSelectButtonHandler), alpha: 1.0)
             
             addAndConstraint(customView: selectButton, constraints: [NSLayoutConstraint(item: selectButton, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -30)])
             
@@ -134,7 +134,7 @@ class GenericStructureViewController: UIViewController {
                 view.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: activityIndicator!.centerYAnchor, constant: 0)
             ])
             
-            activityIndicatorContinueButton = initializeCustomButton(title: "Finish", color: .systemGreen, action: #selector(activityIndicatorContinueButtonHandler), alpha: 0.6)
+            activityIndicatorContinueButton = initializeCustomButton(title: "Finish", color: .systemIndigo, action: #selector(activityIndicatorContinueButtonHandler), alpha: 0.6)
             
             addAndConstraint(customView: activityIndicatorContinueButton!, constraints: [
                 view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: activityIndicatorContinueButton!.trailingAnchor, constant: 30),

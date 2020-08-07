@@ -85,12 +85,12 @@ class Utilities {
         return toReturn
     }
     
-    static func blueWhiteText(text: String) -> NSMutableAttributedString {
-        return coloredText(text: text, specialColor: .systemBlue, regularColor: .white)
+    static func indigoWhiteText(text: String) -> NSMutableAttributedString {
+        return coloredText(text: text, specialColor: .systemIndigo, regularColor: .white)
     }
     
-    static func blueLabelText(text: String) -> NSMutableAttributedString {
-        return coloredText(text: text, specialColor: .systemBlue, regularColor: .label)
+    static func indigoLabelText(text: String) -> NSMutableAttributedString {
+        return coloredText(text: text, specialColor: .systemIndigo, regularColor: .label)
     }
     
     static func getSimilarZipCodes(zipcode: String) -> [String] {
