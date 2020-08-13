@@ -169,7 +169,7 @@ class ChatViewController: MessagesViewController {
           return
         }
         
-        if let remoteInstanceID = self.customCell?.data?[DatabaseKey.instanceID.name] {
+        if let remoteInstanceID = self.customCell?.data?[DatabaseKey.token.name] {
             Utilities.sendPushNotification(to: remoteInstanceID, title: Auth.auth().currentUser!.displayName!.components(separatedBy: [" "])[0], body: message.representation[DatabaseKey.content.name] as! String)
         }
         

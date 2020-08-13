@@ -11,6 +11,9 @@ import UIKit
 import Firebase
 
 class MatchingVC: GenericStructureViewController {
+    
+    lazy var functions = Functions.functions()
+    
     override func viewDidLoad() {
         topBuffer = -60
         genericStructureViewControllerMetadataDelegate = self
@@ -51,10 +54,22 @@ class MatchingVC: GenericStructureViewController {
             }
             
             else {
-                self.doneLoading()
+                self.matchStudentToMentors()
             }
         }
         
+    }
+    
+    func matchStudentToMentors() {
+        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.student.name {
+            functions.httpsCallable("matchStudentToMentors").call(nil) { (result, error) in
+                self.doneLoading()
+            }
+        }
+            
+        else {
+            self.doneLoading()
+        }
     }
     
     override func activityIndicatorContinueButtonHandler() {

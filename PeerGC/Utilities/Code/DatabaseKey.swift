@@ -41,7 +41,7 @@ enum DatabaseKey: CaseIterable {
     case uid
     case allowList
     case relativeStatus
-    case instanceID
+    case token
     case senderID
     case senderDisplayName
     case messageID

@@ -91,7 +91,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                     print("Error fetching remote instance ID: \(error)")
                   } else if let result = result {
                     print("Remote instance ID token: \(result.token)")
-                    Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).setData([DatabaseKey.instanceID.name : result.token ], merge: true)
+                    Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).setData([DatabaseKey.token.name : result.token ], merge: true)
                   }
                 }
                 //End Messaging
@@ -142,10 +142,14 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         switch change.type {
             case .added:
-                addChange(change)
+                DispatchQueue.main.async {
+                    self.addChange(change)
+                }
             
             case .removed:
-                removeChange(change)
+                DispatchQueue.main.async {
+                    self.removeChange(change)
+                }
             
             default:
                 break
@@ -167,7 +171,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
             if let document = document, document.exists {
                 var dataDescription = document.data() as! [String: String]
                 dataDescription[DatabaseKey.uid.name] = change.document.documentID
-                dataDescription[DatabaseKey.relativeStatus.name] = (change.document.data() as! [String: String])[DatabaseKey.relativeStatus.name]
+                dataDescription[DatabaseKey.relativeStatus.name] = (change.document.data())[DatabaseKey.relativeStatus.name] as? String
                 
                 let customCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: IndexPath(item: self.remoteUserCells.count, section: 0)) as! CustomCell
                 customCell.data = dataDescription
@@ -202,15 +206,21 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     func removeChange(_ change: DocumentChange) {
         
+        print("processing removal of: \(change.document.documentID)")
+        
         print("Remote User Data Count: \(remoteUserCells.count)")
         
         for var i in 0..<remoteUserCells.count {
+            print("start loop with i of \(i), current size of remoteUserCells is \(remoteUserCells.count)")
             if remoteUserCells[i].data![DatabaseKey.uid.name] == change.document.documentID {
                 remoteUserCells.remove(at: i)
+                print("removed card at \(i)")
                 i -= 1
+                print("decremented i from \(i+1) to \(i)")
                 collectionView.reloadData()
                 pageControl.numberOfPages = remoteUserCells.count
             }
+            print("end loop with i of \(i)")
         }
         
         if remoteUserCells.count == 0 {
@@ -220,6 +230,8 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         else {
             nothingToSeeHereLabel.isHidden = true
         }
+        
+        print("finished processing removal of: \(change.document.documentID)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
