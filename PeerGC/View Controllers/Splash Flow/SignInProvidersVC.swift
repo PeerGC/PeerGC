@@ -103,8 +103,17 @@ extension SignInProvidersVC: GIDSignInDelegate {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
-                        Utilities.loadHomeScreen()
-                        self.errorLabel.isHidden = true
+                        
+                        if querySnapshot?.count == 0 {
+                            self.navigationController!.pushViewController(MatchingVC(), animated: true)
+                            self.errorLabel.isHidden = true
+                        }
+                        
+                        else {
+                            Utilities.loadHomeScreen()
+                            self.errorLabel.isHidden = true
+                        }
+                        
                     })
                 } else {
                     self.navigationController!.pushViewController(ProfilePictureVC(), animated: true)

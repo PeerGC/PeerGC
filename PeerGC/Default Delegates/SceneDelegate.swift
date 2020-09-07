@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
+                    
                     Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
                         
                         Utilities.loadHomeScreen()

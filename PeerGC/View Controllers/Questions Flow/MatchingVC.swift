@@ -19,7 +19,7 @@ class MatchingVC: GenericStructureViewController {
         genericStructureViewControllerMetadataDelegate = self
         activityIndicatorDelegate = self
         super.viewDidLoad()
-        uploadDataToDatabase()
+        preUploadDataToDatabase()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,7 +27,7 @@ class MatchingVC: GenericStructureViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    func uploadDataToDatabase() {
+    func preUploadDataToDatabase() {
         let uid = Auth.auth().currentUser!.uid
         let photoURL = Auth.auth().currentUser!.photoURL
         var photoURLString = ""
@@ -46,23 +46,33 @@ class MatchingVC: GenericStructureViewController {
         
         //Upload Data
         
-        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).setData(GenericStructureViewController.sendToDatabaseData) { (error) in
+        let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+            } else {
+                self.uploadDataToDatabase()
+            }
+        }
+        
+        matchStudentToMentors()
+        
+    }
+    
+    func uploadDataToDatabase() {
+        Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).setData(GenericStructureViewController.sendToDatabaseData) { (error) in
             
             if error != nil {
                 // Show error message
                 print("Error saving user data")
             }
-            
-            else {
-                self.matchStudentToMentors()
-            }
         }
-        
     }
     
     func matchStudentToMentors() {
         if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.student.name {
-            functions.httpsCallable("matchStudentToMentors").call(nil) { (result, error) in
+            functions.httpsCallable("matchStudentToMentors").call(["uid": Auth.auth().currentUser!.uid]) { (result, error) in
                 self.doneLoading()
             }
         }
