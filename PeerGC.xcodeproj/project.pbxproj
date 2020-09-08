@@ -49,7 +49,6 @@
 		C74133E224CBC3FB003FC549 /* GenericStructureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133E124CBC3FB003FC549 /* GenericStructureViewController.swift */; };
 		C74133E424CCBECF003FC549 /* MatchingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133E324CCBECF003FC549 /* MatchingVC.swift */; };
 		C74133E724CE2085003FC549 /* EmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74133E624CE2085003FC549 /* EmailVC.swift */; };
-		C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */; };
 		C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3CFD23EB570700C7B5E5 /* Main.storyboard */; };
 		C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */; };
 		C75F3D0423EB570B00C7B5E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75F3D0223EB570B00C7B5E5 /* LaunchScreen.storyboard */; };
@@ -140,7 +139,6 @@
 		C74133E124CBC3FB003FC549 /* GenericStructureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStructureViewController.swift; sourceTree = "<group>"; };
 		C74133E324CCBECF003FC549 /* MatchingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingVC.swift; sourceTree = "<group>"; };
 		C74133E624CE2085003FC549 /* EmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVC.swift; sourceTree = "<group>"; };
-		C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C75F3CF423EB570700C7B5E5 /* PeerGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75F3CFE23EB570700C7B5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,6 +171,7 @@
 		C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		C7DEBBD424D8A8D500E4E465 /* NameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
 		C7DEBBD624D8DC2400E4E465 /* SignInProvidersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProvidersVC.swift; sourceTree = "<group>"; };
+		C7FFB645250807870099CA0C /* Firebase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Firebase; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -360,6 +359,7 @@
 		C75F3CF623EB570700C7B5E5 /* PeerGC */ = {
 			isa = PBXGroup;
 			children = (
+				C7FFB645250807870099CA0C /* Firebase */,
 				C791D8BA24AA825B00358EB8 /* PeerGC.entitlements */,
 				C700B16D23EB696000816708 /* Storyboards */,
 				C75F3D0023EB570B00C7B5E5 /* Assets.xcassets */,
@@ -402,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				C75F3D0523EB570B00C7B5E5 /* Info.plist */,
-				C7507C1724B26E7C007DB777 /* GoogleService-Info.plist */,
 			);
 			name = Info;
 			sourceTree = "<group>";
@@ -462,6 +461,7 @@
 				1B37CD84274DBFBBBED8B37D /* [CP] Check Pods Manifest.lock */,
 				C75F3CF023EB570700C7B5E5 /* Sources */,
 				C75F3CF123EB570700C7B5E5 /* Frameworks */,
+				C7FFB646250807F20099CA0C /* Setup Firebase Environment GoogleService-Info.plist */,
 				C75F3CF223EB570700C7B5E5 /* Resources */,
 				C72E232924AE5DEA00550FD9 /* FirebaseCrashlytics */,
 				967664FEB9D3282E52A9B8B6 /* [CP] Copy Pods Resources */,
@@ -569,7 +569,6 @@
 				C75F3D0423EB570B00C7B5E5 /* LaunchScreen.storyboard in Resources */,
 				C700B14423EB647100816708 /* lastNames.txt in Resources */,
 				C700B14723EB647100816708 /* zipCodesToLocation.csv in Resources */,
-				C7507C1824B26E7C007DB777 /* GoogleService-Info.plist in Resources */,
 				C75F3D0123EB570B00C7B5E5 /* Assets.xcassets in Resources */,
 				C75F3CFF23EB570700C7B5E5 /* Main.storyboard in Resources */,
 			);
@@ -711,6 +710,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		C7FFB646250807F20099CA0C /* Setup Firebase Environment GoogleService-Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Setup Firebase Environment GoogleService-Info.plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_DEV=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Dev/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_PROD=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Prod/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_DEV}\"\nif [ ! -f $GOOGLESERVICE_INFO_DEV ]\nthen\n    echo \"No Development GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PROD}\"\nif [ ! -f $GOOGLESERVICE_INFO_PROD ]\nthen\n    echo \"No Production GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_PROD}\"\n    cp \"${GOOGLESERVICE_INFO_PROD}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Using ${GOOGLESERVICE_INFO_DEV}\"\n    cp \"${GOOGLESERVICE_INFO_DEV}\" \"${PLIST_DESTINATION}\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -947,7 +964,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2554;
+				CURRENT_PROJECT_VERSION = 2560;
 				DEVELOPMENT_TEAM = TPC3B9Z27R;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -955,7 +972,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.PeerGC.PeerGC-PROD";
+				PRODUCT_BUNDLE_IDENTIFIER = org.PeerGC.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -972,7 +989,7 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2554;
+				CURRENT_PROJECT_VERSION = 2560;
 				DEVELOPMENT_TEAM = TPC3B9Z27R;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -980,7 +997,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.PeerGC.PeerGC-PROD";
+				PRODUCT_BUNDLE_IDENTIFIER = org.PeerGC.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
