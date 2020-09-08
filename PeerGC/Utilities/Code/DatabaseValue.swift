@@ -139,6 +139,11 @@ enum DatabaseValue: String, CaseIterable {
     //status
     case matched
     
+    //financialLevel
+    case belowAverage = "Below Average"
+    case average = "Average"
+    case aboveAverage = "Above Average"
+    
     var name: String {
         return String(describing: self)
     }

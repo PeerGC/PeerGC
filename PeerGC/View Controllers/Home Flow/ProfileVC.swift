@@ -141,9 +141,7 @@ class ProfileVC: UIViewController {
             
             //Section 3: Demographics
             let state = customCell!.state.text!
-            let zipCodeValue = customCell!.data![DatabaseKey.zipCodeMedianIncome.name]!
-            var zipCodeMedianIncomeClassification = zipCodeValue < "50000" ? "Below Average" : "Average"
-            zipCodeMedianIncomeClassification = zipCodeValue > "100000" ? "Above Average" : "Average"
+            let zipCodeMedianIncomeClassification = DatabaseValue(name: customCell!.data![DatabaseKey.financialLevel.name]!)!.rawValue
             let gender = DatabaseValue(name: customCell!.data![DatabaseKey.gender.name]!)!.rawValue
             let lgbtqStatus = DatabaseValue(name: customCell!.data![DatabaseKey.lgbtq.name]!)
             let lgbtqString = lgbtqStatus == .yes ? "does" : "does not"
@@ -252,9 +250,7 @@ class ProfileVC: UIViewController {
             }
             
             let state = customCell!.state.text!
-            let zipCodeValue = customCell!.data![DatabaseKey.zipCodeMedianIncome.name]!
-            var zipCodeMedianIncomeClassification = zipCodeValue < "50000" ? "Below Average" : "Average"
-            zipCodeMedianIncomeClassification = zipCodeValue > "100000" ? "Above Average" : "Average"
+            let zipCodeMedianIncomeClassification = DatabaseValue(name: customCell!.data![DatabaseKey.financialLevel.name]!)!.rawValue
             let gender = DatabaseValue(name: customCell!.data![DatabaseKey.gender.name]!)!.rawValue
             let lgbtqStatus = DatabaseValue(name: customCell!.data![DatabaseKey.lgbtq.name]!)
             let lgbtqString = lgbtqStatus == .yes ? "does" : "does not"

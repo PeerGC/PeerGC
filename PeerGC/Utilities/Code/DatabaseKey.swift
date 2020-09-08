@@ -47,6 +47,7 @@ enum DatabaseKey: CaseIterable {
     case messageID
     case dateStamp
     case content
+    case financialLevel
     
     var name: String {
         return String(describing: self)
