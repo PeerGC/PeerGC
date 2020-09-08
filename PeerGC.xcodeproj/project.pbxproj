@@ -947,15 +947,15 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2547;
-				DEVELOPMENT_TEAM = 32F8FK43RT;
+				CURRENT_PROJECT_VERSION = 2553;
+				DEVELOPMENT_TEAM = TPC3B9Z27R;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aradik.PeerGC;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.PeerGC.PeerGC-PROD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -972,15 +972,15 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2547;
-				DEVELOPMENT_TEAM = 32F8FK43RT;
+				CURRENT_PROJECT_VERSION = 2553;
+				DEVELOPMENT_TEAM = TPC3B9Z27R;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aradik.PeerGC;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.PeerGC.PeerGC-PROD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
