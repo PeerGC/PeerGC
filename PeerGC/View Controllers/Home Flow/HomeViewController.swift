@@ -176,7 +176,10 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 let customCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: IndexPath(item: self.remoteUserCells.count, section: 0)) as! CustomCell
                 customCell.data = dataDescription
                 
-                self.remoteUserCells.append(customCell)
+                if !self.remoteUserCells.contains(customCell) {
+                    self.remoteUserCells.append(customCell)
+                    print("just appended cell for \(customCell.data!["firstName"]!)")
+                }
                 
                 print(dataDescription)
                 
