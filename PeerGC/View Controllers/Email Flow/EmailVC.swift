@@ -14,7 +14,7 @@ class EmailVC: GenericStructureViewController {
     static var email: String?
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
         textField?.autocapitalizationType = .none
@@ -62,17 +62,13 @@ class EmailVC: GenericStructureViewController {
                         self.error(text: "Error Signing In.")
                 }
                 return
-            }
-            
-            else if let providers = providers {
+            } else if let providers = providers {
                 
                 if providers.count >= 0 { //acc DOES exist
                     if providers[0] == "password" {
                         //continue to password screen
                         self.noError(nextViewController: EnterPasswordVC())
-                    }
-                    
-                    else {
+                    } else {
                         //other login provider
                         self.error(text: "This email is associated with the login provider " + providers[0] + ". Please return to the home screen and log in with this provider.")
                     }

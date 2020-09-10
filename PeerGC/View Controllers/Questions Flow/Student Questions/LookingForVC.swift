@@ -13,7 +13,7 @@ class LookingForVC: GenericStructureViewController {
     
     override func viewDidLoad() {
         BUTTON_TEXT_SIZE = (1.3/71) * UIScreen.main.bounds.height
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }

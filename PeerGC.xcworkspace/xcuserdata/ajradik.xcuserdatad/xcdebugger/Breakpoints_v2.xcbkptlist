@@ -14,8 +14,8 @@
             filePath = "PeerGC/View Controllers/Home Flow/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "removeChange(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,9 +350,9 @@
             filePath = "PeerGC/View Controllers/Home Flow/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "scrollViewDidEndDecelerating(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

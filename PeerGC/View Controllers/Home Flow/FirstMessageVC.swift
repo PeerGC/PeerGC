@@ -11,8 +11,8 @@ import UIKit
 
 class FirstMessageVC: UIViewController {
     
-    var customCell: CustomCell? = nil
-    var chatVC: ChatViewController? = nil
+    var customCell: CustomCell?
+    var chatVC: ChatViewController?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
@@ -51,9 +51,7 @@ class FirstMessageVC: UIViewController {
             option1Button.setTitle("I was wondering if you could tell me about how you first got interested in \(DatabaseValue(name: customCell!.data![DatabaseKey.interest.name]!)!.rawValue)?", for: .normal)
             option2Button.setTitle("Why'd you choose \(DatabaseValue(name: customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue) as your college type?", for: .normal)
             option3Button.setTitle("Hello! What can I help you with the most?", for: .normal)
-        }
-        
-        else if customCell!.data![DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
+        } else if customCell!.data![DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
             option1Button.setTitle("I was wondering if you could tell me about how you first got interested in \(DatabaseValue(name: customCell!.data![DatabaseKey.major.name]!)!.rawValue)?", for: .normal)
             option2Button.setTitle("Why'd you choose \(customCell!.data![DatabaseKey.collegeName.name]!) as your school?", for: .normal)
             option3Button.setTitle("I was wondering if you could help me with standardized testing?", for: .normal)

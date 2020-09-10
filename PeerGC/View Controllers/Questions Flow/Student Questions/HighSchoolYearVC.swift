@@ -11,7 +11,7 @@ import UIKit
 
 class HighSchoolYearVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }

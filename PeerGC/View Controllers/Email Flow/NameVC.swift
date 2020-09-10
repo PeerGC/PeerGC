@@ -14,7 +14,7 @@ class NameVC: GenericStructureViewController {
     static var email: String?
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
     }
@@ -79,4 +79,3 @@ extension NameVC: TextFieldDelegate {
         return nil // does nothing
     }
 }
-

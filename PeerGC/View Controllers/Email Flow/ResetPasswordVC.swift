@@ -13,7 +13,7 @@ import Firebase
 class ResetPasswordVC: GenericStructureViewController {
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         super.viewDidLoad()
     }
 

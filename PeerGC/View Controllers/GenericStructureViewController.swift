@@ -6,7 +6,7 @@
 //  Copyright © 2020 AJ Radik. All rights reserved.
 //
 
-//MARK: Imports
+// MARK: Imports
 import Foundation
 import UIKit
 import Firebase
@@ -15,18 +15,18 @@ class GenericStructureViewController: UIViewController {
     
     static var sendToDatabaseData: [String: String] = [:]
     
-    //MARK: Delegates
-    var genericStructureViewControllerMetadataDelegate: GenericStructureViewControllerMetadataDelegate?
-    var buttonsDelegate: ButtonsDelegate?
-    var textFieldDelegate: TextFieldDelegate?
-    var imagePickerDelegate: ImagePickerDelegate?
-    var activityIndicatorDelegate: ActivityIndicatorDelegate?
+    // MARK: Delegates
+    weak var metaDataDelegate: GenericStructureViewControllerMetadataDelegate?
+    weak var buttonsDelegate: ButtonsDelegate?
+    weak var textFieldDelegate: TextFieldDelegate?
+    weak var imagePickerDelegate: ImagePickerDelegate?
+    weak var activityIndicatorDelegate: ActivityIndicatorDelegate?
     
-    //MARK: View Did Load
+    // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if genericStructureViewControllerMetadataDelegate == nil {
+        if metaDataDelegate == nil {
             print("ERROR: You must set the GenericStructureViewControllerMetadataDelegate.")
             return
         }
@@ -49,17 +49,17 @@ class GenericStructureViewController: UIViewController {
         layout()
     }
     
-    //MARK: Layout
+    // MARK: Layout
     var topBuffer: CGFloat = -10
     func layout() {
         
         view.backgroundColor = .secondarySystemGroupedBackground
             
         let headerStack = initializeCustomStack(spacing: 10, distribution: .fill)
-        headerStack.addArrangedSubview(initializeCustomLabel(title: genericStructureViewControllerMetadataDelegate!.title(), size: Double(TITLE_TEXT_SIZE), color: .label))
+        headerStack.addArrangedSubview(initializeCustomLabel(title: metaDataDelegate!.title(), size: Double(TITLE_TEXT_SIZE), color: .label))
         
-        if genericStructureViewControllerMetadataDelegate!.subtitle() != nil {
-            headerStack.addArrangedSubview(initializeCustomLabel(title: genericStructureViewControllerMetadataDelegate!.subtitle()!, size: Double(SUBTITLE_TEXT_SIZE), color: .gray))
+        if metaDataDelegate!.subtitle() != nil {
+            headerStack.addArrangedSubview(initializeCustomLabel(title: metaDataDelegate!.subtitle()!, size: Double(SUBTITLE_TEXT_SIZE), color: .gray))
         }
         
         addAndConstraint(customView: headerStack, constraints: [
@@ -68,7 +68,7 @@ class GenericStructureViewController: UIViewController {
             view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: headerStack.topAnchor, constant: topBuffer)
         ])
             
-        //MARK: Buttons Layout
+        // MARK: Buttons Layout
         if buttonsDelegate != nil {
             
             let buttonStack = initializeCustomStack(spacing: 10, distribution: .fillEqually)
@@ -80,7 +80,7 @@ class GenericStructureViewController: UIViewController {
             addAndConstraint(customView: buttonStack, constraints: [NSLayoutConstraint(item: buttonStack, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 20), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: -20)])
         }
         
-        //MARK: Text Field Layout
+        // MARK: Text Field Layout
         if textFieldDelegate != nil {
             
             textField = initializeCustomTextField()
@@ -102,12 +102,16 @@ class GenericStructureViewController: UIViewController {
             
         }
         
-        //MARK: Image Picker Layout
+        // MARK: Image Picker Layout
         if imagePickerDelegate != nil {
             
-            let selectButton = initializeCustomButton(title: "Select", color: .systemIndigo, action: #selector(imagePickerSelectButtonHandler), alpha: 1.0)
+            let selectButton = initializeCustomButton(title: "Select",
+                color: .systemIndigo, action: #selector(imagePickerSelectButtonHandler), alpha: 1.0)
             
-            addAndConstraint(customView: selectButton, constraints: [NSLayoutConstraint(item: selectButton, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30), view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 30), view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -30)])
+            addAndConstraint(customView: selectButton, constraints:
+                [NSLayoutConstraint(item: selectButton, attribute: .top, relatedBy: .equal, toItem: headerStack, attribute: .bottom, multiplier: 1, constant: 30),
+                view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: selectButton.trailingAnchor, constant: 30),
+                view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: selectButton.leadingAnchor, constant: -30)])
             
             imageView = initializeCustomImageView()
             
@@ -124,7 +128,7 @@ class GenericStructureViewController: UIViewController {
             imagePickerDelegate!.setInitialImage(imageView: imageView!, continueButton: imagePickerContinueButton!)
         }
         
-        //MARK: Activity Indicator Layout
+        // MARK: Activity Indicator Layout
         if activityIndicatorDelegate != nil {
             
             activityIndicator = initializeCustomActivityIndicator()
@@ -145,20 +149,20 @@ class GenericStructureViewController: UIViewController {
         }
     }
     
-    //MARK: Custom UI Initializers
+    // MARK: Custom UI Initializers
     let FONT_NAME = "LexendDeca-Regular"
     let TITLE_TEXT_SIZE = (3.0/71) * UIScreen.main.bounds.height
     let SUBTITLE_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
     var BUTTON_TEXT_SIZE = (1.5/71) * UIScreen.main.bounds.height
     
-    //MARK: Add And Constraint
+    // MARK: Add And Constraint
     func addAndConstraint(customView: UIView, constraints: [NSLayoutConstraint]) {
         customView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(customView)
         NSLayoutConstraint.activate(constraints)
     }
     
-    //MARK: Custom Button
+    // MARK: Custom Button
     func initializeCustomButton(title: String, color: UIColor, action: Selector, alpha: Double) -> DesignableButton {
         let toReturn = DesignableButton()
         toReturn.setTitle(title, for: .normal)
@@ -173,7 +177,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
-    //MARK: Custom Label
+    // MARK: Custom Label
     func initializeCustomLabel(title: String, size: Double, color: UIColor) -> UILabel {
         let toReturn = UILabel()
         toReturn.textColor = color
@@ -184,7 +188,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
-    //MARK: Custom Stack
+    // MARK: Custom Stack
     func initializeCustomStack(spacing: Int, distribution: UIStackView.Distribution) -> UIStackView {
         let toReturn = UIStackView()
         toReturn.axis = .vertical
@@ -195,7 +199,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
-    //MARK: Custom Text Field
+    // MARK: Custom Text Field
     func initializeCustomTextField() -> UITextField {
         let toReturn = UITextField()
         toReturn.delegate = self
@@ -210,7 +214,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
-    //MARK: Custom Image View
+    // MARK: Custom Image View
     func initializeCustomImageView() -> UIImageView {
         let toReturn = UIImageView()
         toReturn.cornerRadius = 20
@@ -220,7 +224,7 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
-    //MARK: Custom Activity Indicator
+    // MARK: Custom Activity Indicator
     func initializeCustomActivityIndicator() -> UIActivityIndicatorView {
         let toReturn = UIActivityIndicatorView()
         toReturn.startAnimating()
@@ -228,15 +232,15 @@ class GenericStructureViewController: UIViewController {
         return toReturn
     }
     
-    //MARK: Handlers
-    //MARK: General Handlers
+    // MARK: Handlers
+    // MARK: General Handlers
     func nextViewControllerHandler(viewController: UIViewController?) {
         if viewController != nil {
             navigationController?.pushViewController(viewController!, animated: true)
         }
     }
     
-    //MARK: Button Handlers
+    // MARK: Button Handlers
     @objc func selectionButtonHandler(sender: UIButton) {
         selectionButtonTextHandler(text: sender.titleLabel!.text!)
     }
@@ -244,10 +248,10 @@ class GenericStructureViewController: UIViewController {
     func selectionButtonTextHandler(text: String) { //override this for custom button exceptions
         GenericStructureViewController.sendToDatabaseData[buttonsDelegate!.databaseIdentifier().name] = DatabaseValue.init(rawValue: text)!.name
         
-        nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
+        nextViewControllerHandler(viewController: metaDataDelegate!.nextViewController())
     }
     
-    //MARK: Text Field Handlers
+    // MARK: Text Field Handlers
     var textField: UITextField?
     var errorLabel: UILabel?
     
@@ -256,34 +260,30 @@ class GenericStructureViewController: UIViewController {
             let error = textFieldDelegate?.continuePressed(textInput: textField!.text)
             
             if error == nil {
-                nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
+                nextViewControllerHandler(viewController: metaDataDelegate!.nextViewController())
                 errorLabel!.isHidden = true
-            }
-            
-            else {
+            } else {
                 errorLabel!.text = error
                 errorLabel!.isHidden = false
             }
         }
     }
     
-    //MARK: Image Picker Handlers
+    // MARK: Image Picker Handlers
     var imageView: UIImageView?
     var imagePickerContinueButton: UIButton?
     
     @objc func imagePickerSelectButtonHandler() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        let myActionSheet = UIAlertController(title:"Profile Picture",message:"Select",preferredStyle: UIAlertController.Style.actionSheet)
+        let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select", preferredStyle: UIAlertController.Style.actionSheet)
         
-        let photoGallery = UIAlertAction(title: "Photos", style: UIAlertAction.Style.default) { (action) in
+        let photoGallery = UIAlertAction(title: "Photos", style: UIAlertAction.Style.default) { (_) in
             
-            if UIImagePickerController.isSourceTypeAvailable( UIImagePickerController.SourceType.savedPhotosAlbum)
-            {
+            if UIImagePickerController.isSourceTypeAvailable( UIImagePickerController.SourceType.savedPhotosAlbum) {
                 imagePickerController.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
                 imagePickerController.allowsEditing = true
-                self.present(imagePickerController, animated: true
-                    , completion: nil)
+                self.present(imagePickerController, animated: true, completion: nil)
             }
         }
         
@@ -295,17 +295,17 @@ class GenericStructureViewController: UIViewController {
     
     @objc func imagePickerContinueButtonHandler(sender: UIButton) {
         if imageView!.image != nil {
-            nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
+            nextViewControllerHandler(viewController: metaDataDelegate!.nextViewController())
         }
     }
     
-    //MARK: Activity Indicator Handlers
+    // MARK: Activity Indicator Handlers
     var activityIndicator: UIActivityIndicatorView?
     var activityIndicatorContinueButton: UIButton?
     
     @objc func activityIndicatorContinueButtonHandler() {
         if activityIndicatorContinueButton!.alpha == 1.0 {
-            nextViewControllerHandler(viewController: genericStructureViewControllerMetadataDelegate!.nextViewController())
+            nextViewControllerHandler(viewController: metaDataDelegate!.nextViewController())
         }
     }
     
@@ -316,7 +316,7 @@ class GenericStructureViewController: UIViewController {
     
 }
 
-//MARK: Extensions
+// MARK: Extensions
 extension GenericStructureViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       textField.resignFirstResponder()
@@ -329,7 +329,7 @@ extension GenericStructureViewController: UIImagePickerControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         guard let image = info[.editedImage] as? UIImage else {
             print("No image found")
@@ -346,7 +346,7 @@ extension GenericStructureViewController: UINavigationControllerDelegate {
     
 }
 
-//MARK: Delegate Protocols
+// MARK: Delegate Protocols
 protocol GenericStructureViewControllerMetadataDelegate {
     func title() -> String
     func subtitle() -> String?

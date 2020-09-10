@@ -11,7 +11,7 @@ import UIKit
 
 class GenderVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
@@ -29,7 +29,6 @@ extension GenderVC: GenericStructureViewControllerMetadataDelegate {
     func nextViewController() -> UIViewController? {
         return LGBTQVC()
     }
-    
     
 }
 

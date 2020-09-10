@@ -14,7 +14,7 @@ class EnterPasswordVC: GenericStructureViewController {
     static var email: String?
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
         addForgotPasswordButton()
@@ -51,7 +51,7 @@ class EnterPasswordVC: GenericStructureViewController {
             return
         }
         
-        Auth.auth().signIn(withEmail: EmailVC.email!, password: text) { [weak self] authResult, error in
+        Auth.auth().signIn(withEmail: EmailVC.email!, password: text) { [weak self] _, error in
             
             if error != nil {
                 let errorCode = AuthErrorCode(rawValue: error!._code)
@@ -65,16 +65,14 @@ class EnterPasswordVC: GenericStructureViewController {
                         self?.errorLabel!.text = "Error Signing In."
                 }
                 self?.errorLabel!.isHidden = false
-            }
-            
-            else {
+            } else {
                 self?.errorLabel!.isHidden = true
                 let uid = Auth.auth().currentUser!.uid
                 let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
                 
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
-                        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
+                        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (_, _) in
                             
                             Utilities.loadHomeScreen()
                         })
@@ -103,9 +101,7 @@ class EnterPasswordVC: GenericStructureViewController {
                 }
                 
                 self!.errorLabel!.isHidden = false
-            }
-            
-            else {
+            } else {
                 self!.nextViewControllerHandler(viewController: ResetPasswordVC())
             }
         }

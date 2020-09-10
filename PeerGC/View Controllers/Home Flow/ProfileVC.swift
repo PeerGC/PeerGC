@@ -20,7 +20,6 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var section3: UILabel!
     @IBOutlet weak var messageAddMentorButton: DesignableButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.view.backgroundColor = .secondarySystemGroupedBackground
@@ -147,13 +146,15 @@ class ProfileVC: UIViewController {
             let lgbtqString = lgbtqStatus == .yes ? "does" : "does not"
             let race = DatabaseValue(name: customCell!.data![DatabaseKey.race.name]!)!.rawValue
             
-            sentenceString = "\(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
+            sentenceString = """
+                            \(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \
+                            \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, \
+                            and \(firstName)'s race is /b\(race)/b.
+                            """
             
             section3.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
-        }
-    
-        else if customCell!.data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
+        } else if customCell!.data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
             
             //Section 1: Education
             let collegeYear = DatabaseValue(name: customCell!.data![DatabaseKey.schoolYear.name]!)!.rawValue
@@ -164,8 +165,12 @@ class ProfileVC: UIViewController {
             let testScore = customCell!.data![DatabaseKey.testScore.name]!
             let highSchoolGPA = DatabaseValue(name: customCell!.data![DatabaseKey.highSchoolGPA.name]!)!.rawValue
             
-            var sentenceString = "\n\(firstName) is a /b\(collegeYear)/b pursuing a /b\(degree)/b degree as a  /b\(major)/b major at /b\(university)/b. "
-            let toAppend = testTaken == "Other / None" ? "\(firstName) did not take any college entrance exams. " : "\(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. "
+            var sentenceString = """
+                                \n\(firstName) is a /b\(collegeYear)/b pursuing a /b\(degree)/b degree \
+                                as a /b\(major)/b major at /b\(university)/b.
+                                """
+            let toAppend = testTaken == "Other / None" ? "\(firstName) did not take any college entrance exams. " :
+                                        "\(firstName) applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam. "
             sentenceString.append(toAppend + "In high school, \(firstName) had a GPA that was /b\(highSchoolGPA)/b. ")
             
             section1.attributedText = Utilities.indigoLabelText(text: sentenceString)
@@ -226,7 +231,13 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            sentenceString = "\(firstName) chose their college because \(whyTheirCollegeReasoning). \(firstName) is most capable of helping with \(helpMost). After they graduate from college, \(firstName) aspires to \(postGradAspiration) \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b."
+            sentenceString = """
+                            \(firstName) chose their college because \(whyTheirCollegeReasoning). \
+                            \(firstName) is most capable of helping with \(helpMost). \
+                            After they graduate from college, \(firstName) aspires to \(postGradAspiration) \
+                            \(firstName) /b\(firstGenerationString)/b a first generation college student, \
+                            and their first language is /b\(firstLanguge)/b.
+                            """
             
             section2.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
@@ -256,7 +267,12 @@ class ProfileVC: UIViewController {
             let lgbtqString = lgbtqStatus == .yes ? "does" : "does not"
             let race = DatabaseValue(name: customCell!.data![DatabaseKey.race.name]!)!.rawValue
             
-            sentenceString = "\(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor). \(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, and \(firstName)'s race is /b\(race)/b."
+            sentenceString = """
+                            \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor). \
+                            \(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \
+                            \(firstName)'s gender is /b\(gender)/b, \(firstName) /b\(lgbtqString)/b identify as LGBTQ, \
+                            and \(firstName)'s race is /b\(race)/b.
+                            """
             
             section3.attributedText = Utilities.indigoLabelText(text: sentenceString)
         }

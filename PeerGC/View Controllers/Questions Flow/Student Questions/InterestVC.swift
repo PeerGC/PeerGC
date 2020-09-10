@@ -11,7 +11,7 @@ import UIKit
 
 class InterestVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }

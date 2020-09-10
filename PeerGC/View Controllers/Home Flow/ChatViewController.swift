@@ -6,7 +6,7 @@
 //  Copyright © 2020 AJ Radik. All rights reserved.
 //
 
-//MARK: Imports
+// MARK: Imports
 import Foundation
 import UIKit
 import MessageKit
@@ -15,7 +15,7 @@ import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController {
     
-    //MARK: Message Structure
+    // MARK: Message Structure
     public struct Message: MessageType, Equatable, Comparable {
         
         public var sender: SenderType
@@ -31,7 +31,7 @@ class ChatViewController: MessagesViewController {
             return lhs.sentDate < rhs.sentDate
         }
         
-        var representation: [String : Any] {
+        var representation: [String: Any] {
           
             var text: NSAttributedString
             
@@ -42,7 +42,7 @@ class ChatViewController: MessagesViewController {
                     return [:]
             }
             
-            let toReturn: [String : Any] = [
+            let toReturn: [String: Any] = [
                 DatabaseKey.senderID.name: sender.senderId,
                 DatabaseKey.senderDisplayName.name: sender.displayName,
                 DatabaseKey.messageID.name: messageId,
@@ -54,31 +54,31 @@ class ChatViewController: MessagesViewController {
         }
     }
     
-    //MARK: Sender Structure
+    // MARK: Sender Structure
     public struct Sender: SenderType {
         public let senderId: String
 
         public let displayName: String
     }
     
-    //MARK: Variables
+    // MARK: Variables
     private let db = Firestore.firestore()
     private var reference: CollectionReference?
     
     var id: String = ""
     var header: String = ""
     
-    var currentSenderImage : UIImage? = nil
-    var remoteReceiverImage : UIImage? = nil
+    var currentSenderImage: UIImage?
+    var remoteReceiverImage: UIImage?
     
-    var customCell: CustomCell? = nil
+    var customCell: CustomCell?
     
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
     
     let FONT_NAME = "LexendDeca-Regular"
     
-    //MARK: View Did Load
+    // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         super.view.backgroundColor = .secondarySystemGroupedBackground
@@ -132,7 +132,7 @@ class ChatViewController: MessagesViewController {
       messageListener?.remove()
     }
     
-    //MARK: View Customization
+    // MARK: View Customization
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillAppear(animated)
@@ -155,7 +155,7 @@ class ChatViewController: MessagesViewController {
         }
     }
     
-    //MARK: Message Operations
+    // MARK: Message Operations
     func newMessage(message: String) {
         let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]), messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: message)))
         
@@ -200,7 +200,7 @@ class ChatViewController: MessagesViewController {
     private func handleDocumentChange(_ change: DocumentChange) {
         let data = change.document.data()
         
-        let color : UIColor = (data["senderID"] as! String == Auth.auth().currentUser!.uid) ? .white : .black
+        let color: UIColor = (data["senderID"] as! String == Auth.auth().currentUser!.uid) ? .white : .black
         
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name: FONT_NAME, size: UIFont.labelFontSize)!,
@@ -220,7 +220,7 @@ class ChatViewController: MessagesViewController {
     }
 }
 
-//MARK: Messages Data Source
+// MARK: Messages Data Source
 extension ChatViewController: MessagesDataSource {
     
     func currentSender() -> SenderType {
@@ -259,19 +259,16 @@ extension ChatViewController: MessagesDataSource {
         return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
     }
     
-    
 }
 
-//MARK: Messages Display Delegate
+// MARK: Messages Display Delegate
 extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         
         if message.sender.senderId == currentSender().senderId {
             avatarView.set(avatar: Avatar(image: currentSenderImage, initials: String(message.sender.senderId.prefix(1))))
-        }
-        
-        else {
+        } else {
             avatarView.set(avatar: Avatar(image: remoteReceiverImage, initials: String(message.sender.senderId.prefix(1))))
         }
     }
@@ -300,7 +297,7 @@ extension ChatViewController: MessagesDisplayDelegate {
     
 }
 
-//MARK: Input Bar Delegate
+// MARK: Input Bar Delegate
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
@@ -314,7 +311,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
 }
 
-//MARK: Messages Layout Delegate
+// MARK: Messages Layout Delegate
 extension ChatViewController: MessagesLayoutDelegate {
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
@@ -334,7 +331,7 @@ extension ChatViewController: MessagesLayoutDelegate {
     }
 }
 
-//MARK: Message Cell Delegate
+// MARK: Message Cell Delegate
 extension ChatViewController: MessageCellDelegate {
     
 }

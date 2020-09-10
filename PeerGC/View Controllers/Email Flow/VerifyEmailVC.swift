@@ -12,11 +12,11 @@ import Firebase
 
 class VerifyEmailVC: GenericStructureViewController {
     
-    var stateChangeHandle : AuthStateDidChangeListenerHandle?
+    var stateChangeHandle: AuthStateDidChangeListenerHandle?
     var timer: Timer?
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         activityIndicatorDelegate = self
         super.viewDidLoad()
         activityIndicatorContinueButton?.backgroundColor = .systemPink
@@ -32,7 +32,7 @@ class VerifyEmailVC: GenericStructureViewController {
             return
         }
         
-        Auth.auth().currentUser?.sendEmailVerification { (error) in
+        Auth.auth().currentUser?.sendEmailVerification { (_) in
         
         }
     }

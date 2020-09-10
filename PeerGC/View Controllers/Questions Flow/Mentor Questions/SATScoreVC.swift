@@ -11,7 +11,7 @@ import UIKit
 
 class SATScoreVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
         textField?.keyboardType = .numberPad

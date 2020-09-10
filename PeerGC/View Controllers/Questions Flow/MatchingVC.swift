@@ -16,7 +16,7 @@ class MatchingVC: GenericStructureViewController {
     
     override func viewDidLoad() {
         topBuffer = -60
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         activityIndicatorDelegate = self
         super.viewDidLoad()
         preUploadDataToDatabase()
@@ -48,7 +48,7 @@ class MatchingVC: GenericStructureViewController {
         
         let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
         
-        docRef.getDocument { (document, error) in
+        docRef.getDocument { (document, _) in
             if let document = document, document.exists {
                 
             } else {
@@ -72,12 +72,10 @@ class MatchingVC: GenericStructureViewController {
     
     func matchStudentToMentors() {
         if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.student.name {
-            functions.httpsCallable("matchStudentToMentors").call(["uid": Auth.auth().currentUser!.uid]) { (result, error) in
+            functions.httpsCallable("matchStudentToMentors").call(["uid": Auth.auth().currentUser!.uid]) { (_, _) in
                 self.doneLoading()
             }
-        }
-            
-        else {
+        } else {
             self.doneLoading()
         }
     }

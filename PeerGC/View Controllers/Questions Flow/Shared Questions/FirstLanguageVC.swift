@@ -11,7 +11,7 @@ import UIKit
 
 class FirstLanguageVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
@@ -19,9 +19,7 @@ class FirstLanguageVC: GenericStructureViewController {
     override func selectionButtonTextHandler(text: String) {
         if text == DatabaseValue.other.rawValue {
             nextViewControllerHandler(viewController: OtherFirstLanguageVC())
-        }
-            
-        else {
+        } else {
             GenericStructureViewController.sendToDatabaseData[databaseIdentifier().name] = text
             nextViewControllerHandler(viewController: nextViewController())
         }

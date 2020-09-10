@@ -11,7 +11,7 @@ import UIKit
 
 class OtherFirstLanguageVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
     }
@@ -35,7 +35,7 @@ extension OtherFirstLanguageVC: TextFieldDelegate {
     func continuePressed(textInput: String?) -> String? {
         guard let text = textInput else { return "Invalid." }
         
-        if text.count == 0 {
+        if text.isEmpty {
             return "Please enter a language."
         }
         

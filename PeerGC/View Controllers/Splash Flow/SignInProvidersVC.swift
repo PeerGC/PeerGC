@@ -85,7 +85,7 @@ extension SignInProvidersVC: GIDSignInDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                         accessToken: authentication.accessToken)
       
-        Auth.auth().signIn(with: credential) { (authResult, error) in
+        Auth.auth().signIn(with: credential) { (_, error) in
             if error != nil {
                 return
             }
@@ -102,14 +102,12 @@ extension SignInProvidersVC: GIDSignInDelegate {
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
-                    Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
+                    Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, _) in
                         
                         if querySnapshot?.count == 0 {
                             self.navigationController!.pushViewController(MatchingVC(), animated: true)
                             self.errorLabel.isHidden = true
-                        }
-                        
-                        else {
+                        } else {
                             Utilities.loadHomeScreen()
                             self.errorLabel.isHidden = true
                         }
@@ -120,7 +118,6 @@ extension SignInProvidersVC: GIDSignInDelegate {
                     self.errorLabel.isHidden = true
                 }
             }
-            
             
         }
         

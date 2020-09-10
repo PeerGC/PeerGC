@@ -11,7 +11,7 @@ import UIKit
 
 class HighSchoolScoresVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
@@ -40,13 +40,9 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
         
         if testTaken == DatabaseValue.sat.name {
             return SATScoreVC()
-        }
-        
-        else if testTaken == DatabaseValue.act.name {
+        } else if testTaken == DatabaseValue.act.name {
             return ACTScoreVC()
-        }
-        
-        else {
+        } else {
             return HelpMostVC()
         }
     }
