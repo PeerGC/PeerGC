@@ -477,6 +477,7 @@ PODS:
   - SDWebImage (5.8.3):
     - SDWebImage/Core (= 5.8.3)
   - SDWebImage/Core (5.8.3)
+  - SwiftLint (0.40.1)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -491,6 +492,7 @@ DEPENDENCIES:
   - Firebase/Performance
   - FirebaseUI
   - MessageKit
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -533,6 +535,7 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
     - SDWebImage
+    - SwiftLint
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -574,7 +577,8 @@ SPEC CHECKSUMS:
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
+  SwiftLint: bbfed21bf4451dcbd0f5cdbee44a18e06cf91b12
 
-PODFILE CHECKSUM: 918cec93ba11182706f64e4992b92204e8fc9545
+PODFILE CHECKSUM: efa4753901f2b9d199858bc82e218e65761662c2
 
 COCOAPODS: 1.9.3
