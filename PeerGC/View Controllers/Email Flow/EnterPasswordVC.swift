@@ -27,11 +27,14 @@ class EnterPasswordVC: GenericStructureViewController {
         let forgotPasswordButton = DesignableButton()
         forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
         forgotPasswordButton.setTitleColor(.link, for: .normal)
-        forgotPasswordButton.titleLabel!.font = UIFont(name: FONT_NAME, size: 16)
+        forgotPasswordButton.titleLabel!.font = UIFont(name: fontName, size: 16)
         forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
         
-        addAndConstraint(customView: forgotPasswordButton, constraints: [view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: forgotPasswordButton.trailingAnchor, constant: 60),
-        view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: forgotPasswordButton.leadingAnchor, constant: -60), NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal, toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 6)])
+        addAndConstraint(customView: forgotPasswordButton, constraints:
+            [view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: forgotPasswordButton.trailingAnchor, constant: 60),
+             view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: forgotPasswordButton.leadingAnchor, constant: -60),
+             NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal,
+                                toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 6)])
     }
     
     func error(text: String) {

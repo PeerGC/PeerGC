@@ -64,7 +64,7 @@ class EmailVC: GenericStructureViewController {
                 return
             } else if let providers = providers {
                 
-                if providers.count >= 0 { //acc DOES exist
+                if providers.isEmpty { //acc DOES exist
                     if providers[0] == "password" {
                         //continue to password screen
                         self.noError(nextViewController: EnterPasswordVC())

@@ -11,7 +11,7 @@ import UIKit
 
 class WhyYouBeCounselorVC: GenericStructureViewController {
     override func viewDidLoad() {
-        BUTTON_TEXT_SIZE = (1.2/71) * UIScreen.main.bounds.height
+        buttonTextSize = (1.2/71) * UIScreen.main.bounds.height
         metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()

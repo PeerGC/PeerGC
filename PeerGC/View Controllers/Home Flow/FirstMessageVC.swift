@@ -48,11 +48,21 @@ class FirstMessageVC: UIViewController {
     
     func setOptions() {
         if customCell!.data![DatabaseKey.accountType.name] == DatabaseValue.student.name {
-            option1Button.setTitle("I was wondering if you could tell me about how you first got interested in \(DatabaseValue(name: customCell!.data![DatabaseKey.interest.name]!)!.rawValue)?", for: .normal)
-            option2Button.setTitle("Why'd you choose \(DatabaseValue(name: customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue) as your college type?", for: .normal)
+            option1Button.setTitle(
+                """
+                I was wondering if you could tell me about how you first got interested in
+                \(DatabaseValue(name: customCell!.data![DatabaseKey.interest.name]!)!.rawValue)?
+                """, for: .normal)
+            option2Button.setTitle("""
+                Why'd you choose \(DatabaseValue(name:
+                customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue) as your college type?
+                """, for: .normal)
             option3Button.setTitle("Hello! What can I help you with the most?", for: .normal)
         } else if customCell!.data![DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
-            option1Button.setTitle("I was wondering if you could tell me about how you first got interested in \(DatabaseValue(name: customCell!.data![DatabaseKey.major.name]!)!.rawValue)?", for: .normal)
+            option1Button.setTitle("""
+                I was wondering if you could tell me about how you first got interested in
+                \(DatabaseValue(name: customCell!.data![DatabaseKey.major.name]!)!.rawValue)?
+                """, for: .normal)
             option2Button.setTitle("Why'd you choose \(customCell!.data![DatabaseKey.collegeName.name]!) as your school?", for: .normal)
             option3Button.setTitle("I was wondering if you could help me with standardized testing?", for: .normal)
         }

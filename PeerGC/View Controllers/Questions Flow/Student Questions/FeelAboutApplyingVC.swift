@@ -11,7 +11,7 @@ import UIKit
 
 class FeelAboutApplyingVC: GenericStructureViewController {
     override func viewDidLoad() {
-        BUTTON_TEXT_SIZE = (1.4/71) * UIScreen.main.bounds.height
+        buttonTextSize = (1.4/71) * UIScreen.main.bounds.height
         metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()

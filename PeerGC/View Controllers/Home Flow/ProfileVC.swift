@@ -72,7 +72,10 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            var sentenceString = "\n\(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) \(whereInProcess)."
+            var sentenceString = """
+                \n\(firstName) is a /b\(highSchoolYear)/b in high school,
+                and is interested in /b\(interest)/b. ln regards to the college application process, \(firstName) \(whereInProcess).
+                """
             
             section1.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
@@ -111,7 +114,9 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            let kindOfCollege = DatabaseValue(name: customCell!.data![DatabaseKey.feelAboutApplying.name]!) == .dontKnow ? "/bdoesn't know/b what types of colleges they're interested in" : "is interested in /b\(DatabaseValue(name: customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
+            let kindOfCollege = DatabaseValue(name: customCell!.data![DatabaseKey.feelAboutApplying.name]!) == .dontKnow ?
+                "/bdoesn't know/b what types of colleges they're interested in" :
+                "is interested in /b\(DatabaseValue(name: customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
             
             var whyCollege = ""
             
@@ -134,7 +139,11 @@ class ProfileVC: UIViewController {
             let firstGenerationString = firstGenerationStatus == .yes ? "won't" : "will"
             let firstLanguge = customCell!.data![DatabaseKey.firstLanguage.name]!
             
-            sentenceString = "\(firstName) is looking for someone /b\(lookingFor)/b, and has \(feelAboutApplying). \(firstName) \(kindOfCollege), \(whyCollege). \(firstName) /b\(firstGenerationString)/b be a first generation college student, and their first language is /b\(firstLanguge)/b."
+            sentenceString = """
+                \(firstName) is looking for someone /b\(lookingFor)/b, and has \(feelAboutApplying). \(firstName) \(kindOfCollege),
+                \(whyCollege). \(firstName) /b\(firstGenerationString)/b be a first generation college student,
+                and their first language is /b\(firstLanguge)/b.
+                """
             
             section2.attributedText = Utilities.indigoLabelText(text: sentenceString)
             

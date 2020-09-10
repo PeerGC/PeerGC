@@ -36,7 +36,7 @@ extension ACTScoreVC: TextFieldDelegate {
     func continuePressed(textInput: String?) -> String? {
         guard let text = textInput else { return "Invalid." }
         
-        if text.count == 0 {
+        if text.isEmpty {
             return "Please enter a score."
         }
         

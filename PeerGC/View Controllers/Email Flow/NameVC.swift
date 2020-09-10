@@ -26,7 +26,7 @@ class NameVC: GenericStructureViewController {
             return
         }
         
-        if text.count == 0 {
+        if text.isEmpty {
             errorLabel!.text = "Please enter a name."
             errorLabel!.isHidden = false
             return

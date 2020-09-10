@@ -93,7 +93,8 @@ extension SignInProvidersVC: GIDSignInDelegate {
             let uid = Auth.auth().currentUser!.uid
             let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
 
-            if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name && Auth.auth().currentUser?.email!.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
+            if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name &&
+                Auth.auth().currentUser?.email!.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
                 self.errorLabel.text = "Mentors must use a .edu email address."
                 self.errorLabel.isHidden = false
                 self.viewDidDisappear(true)
@@ -101,10 +102,25 @@ extension SignInProvidersVC: GIDSignInDelegate {
             }
             
             docRef.getDocument { (document, error) in
+                
+                if let error = error {
+                    Crashlytics.crashlytics().record(error: error)
+                    Utilities.logError(customMessage: "An error occured with Firebase", customCode: 3)
+                }
+                
                 if let document = document, document.exists {
-                    Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, _) in
+                    Firestore
+                        .firestore()
+                        .collection(DatabaseKey.users.name)
+                        .document(uid).collection(DatabaseKey.allowList.name)
+                        .getDocuments(completion: { (querySnapshot, _) in
                         
-                        if querySnapshot?.count == 0 {
+                        guard let querySnapshot = querySnapshot else {
+                            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+                            return
+                        }
+                            
+                        if querySnapshot.isEmpty {
                             self.navigationController!.pushViewController(MatchingVC(), animated: true)
                             self.errorLabel.isHidden = true
                         } else {

@@ -177,7 +177,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
             
             if let error = error {
                 Crashlytics.crashlytics().record(error: error)
-                Utilities.logError(customMessage: "An error occured retrieving a document.", customCode: 3)
+                Utilities.logError(customMessage: "An error occured with Firebase.", customCode: 3)
             }
             
             if let document = document, document.exists {
@@ -520,11 +520,11 @@ class CustomCell: UICollectionViewCell {
         let viewController = ChatViewController()
         
         if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name {
-            viewController.id = "\(data![DatabaseKey.uid.name]!)-\(Auth.auth().currentUser!.uid)"
-            print("set ChatVC ID to \(viewController.id)")
+            viewController.identifier = "\(data![DatabaseKey.uid.name]!)-\(Auth.auth().currentUser!.uid)"
+            print("set ChatVC ID to \(viewController.identifier)")
         } else if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
-            viewController.id = "\(Auth.auth().currentUser!.uid)-\(data![DatabaseKey.uid.name]!)"
-            print("set ChatVC ID to \(viewController.id)")
+            viewController.identifier = "\(Auth.auth().currentUser!.uid)-\(data![DatabaseKey.uid.name]!)"
+            print("set ChatVC ID to \(viewController.identifier)")
         }
         
         viewController.header = data![DatabaseKey.firstName.name]!
