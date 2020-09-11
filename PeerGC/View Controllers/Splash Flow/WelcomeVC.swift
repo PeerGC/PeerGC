@@ -28,8 +28,6 @@ class WelcomeVC: UIViewController {
     
     @IBAction func letsStartButtonPressed(_ sender: Any) {
         Utilities.logError(customMessage: "Test Error Logging In Crashlytics", customCode: -814)
-        var brek : Int? = nil
-        brek!+=1
         //self.dismiss(animated: true, completion: nil)
     }
     

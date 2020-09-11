@@ -21,7 +21,8 @@ class Utilities {
             "File Name": fileName,
             "Function Name": functionName,
             "Line Number": String(lineNumber),
-            "Column Number": String(columnNumber)
+            "Column Number": String(columnNumber),
+            "UID": Auth.auth().currentUser?.uid ?? "Not Availible."
         ]
         
         let error = NSError.init(domain: "org.PeerGC.PeerGC.ErrorDomain", code: customCode, userInfo: userInfo)
