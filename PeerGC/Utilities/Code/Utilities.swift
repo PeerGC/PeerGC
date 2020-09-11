@@ -12,6 +12,14 @@ import UIKit
 
 class Utilities {
     
+    static func getBuildConfiguration() -> String {
+        #if DEBUG
+            return "DEV"
+        #else
+            return "PROD"
+        #endif
+    }
+    
     static func logError(customMessage: String = "General Error", customCode: Int = 0, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line, columnNumber: Int = #column) {
         
         let userInfo = [

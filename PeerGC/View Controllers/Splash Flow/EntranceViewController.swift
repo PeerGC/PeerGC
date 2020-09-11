@@ -25,7 +25,7 @@ class EntranceViewController: UIViewController {
         
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
             let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-            versionLabel.text = "Version " + version + " Build " + build + " Alpha"
+            versionLabel.text = "Version " + version + " Build " + build + " " + Utilities.getBuildConfiguration() + " Alpha"
         }
         
         performSegue(withIdentifier: "goToHowItWorks", sender: self)
