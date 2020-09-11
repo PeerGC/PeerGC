@@ -63,7 +63,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
                   endingLineNumber = "30"
-                  offsetFromSymbolStart = "38">
+                  offsetFromSymbolStart = "11">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -158,9 +158,9 @@
                   urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Splash%20Flow/SignInProvidersVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "3247">
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "3218">
                </Location>
                <Location
                   uuid = "F17E7D82-FB83-47BA-BFB5-4BCC1EBFC17B - 4544e13662af8b29"
@@ -173,9 +173,9 @@
                   urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Splash%20Flow/SignInProvidersVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "221">
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "252">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -210,38 +210,6 @@
             endingLineNumber = "112"
             landmarkName = "sign(_:didSignInFor:withError:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EB7B8898-C954-4B90-928C-69C4DA9E2D55 - 4544e13662af8b29"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PeerGC.SignInProvidersVC.sign(_: Swift.Optional&lt;__C.GIDSignIn&gt;, didSignInFor: Swift.Optional&lt;__C.GIDGoogleUser&gt;, withError: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "PeerGC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Splash%20Flow/SignInProvidersVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
-                  offsetFromSymbolStart = "303">
-               </Location>
-               <Location
-                  uuid = "EB7B8898-C954-4B90-928C-69C4DA9E2D55 - 16ec444c6099a7f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PeerGC.SignInProvidersVC.sign(_: Swift.Optional&lt;__C.GIDSignIn&gt;, didSignInFor: Swift.Optional&lt;__C.GIDGoogleUser&gt;, withError: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "PeerGC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Splash%20Flow/SignInProvidersVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "118">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -335,7 +303,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "46">
+                  offsetFromSymbolStart = "19">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -370,6 +338,38 @@
             endingLineNumber = "91"
             landmarkName = "forgotPassword(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2DB7CA9F-F2B0-4DBD-A0EC-0EDBE82A4C11 - 1bf56590116b46d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeerGC.EnterPasswordVC.forgotPassword(__C.UIButton) -&gt; ()"
+                  moduleName = "PeerGC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Email%20Flow/EnterPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "2DB7CA9F-F2B0-4DBD-A0EC-0EDBE82A4C11 - 472fb03b39da1d69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PeerGC.EnterPasswordVC.forgotPassword(__C.UIButton) -&gt; ()"
+                  moduleName = "PeerGC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ajradik/Desktop/PeerGC/PeerGC/View%20Controllers/Email%20Flow/EnterPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "130">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
