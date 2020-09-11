@@ -11,8 +11,8 @@ import UIKit
 
 class PostGradAspirationsVC: GenericStructureViewController {
     override func viewDidLoad() {
-        BUTTON_TEXT_SIZE = (1.3/71) * UIScreen.main.bounds.height
-        genericStructureViewControllerMetadataDelegate = self
+        buttonTextSize = (1.3/71) * UIScreen.main.bounds.height
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }

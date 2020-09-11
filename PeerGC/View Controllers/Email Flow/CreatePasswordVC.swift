@@ -13,7 +13,7 @@ import Firebase
 class CreatePasswordVC: GenericStructureViewController {
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
         textField?.autocapitalizationType = .none
@@ -27,7 +27,7 @@ class CreatePasswordVC: GenericStructureViewController {
             return
         }
         
-        Auth.auth().createUser(withEmail: EmailVC.email!, password: text) { (result, error) in
+        Auth.auth().createUser(withEmail: EmailVC.email!, password: text) { (_, error) in
             
             if error != nil {
                 let errorCode = AuthErrorCode(rawValue: error!._code)
@@ -41,9 +41,7 @@ class CreatePasswordVC: GenericStructureViewController {
                         self.errorLabel!.text = "Error Creating user."
                 }
                 self.errorLabel?.isHidden = false
-            }
-                
-            else {
+            } else {
                 self.errorLabel!.isHidden = true
                 self.nextViewControllerHandler(viewController: self.nextViewController())
             }
@@ -72,4 +70,3 @@ extension CreatePasswordVC: TextFieldDelegate {
         return nil // does nothing
     }
 }
-

@@ -11,7 +11,7 @@ import UIKit
 
 class FirstGenerationVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
@@ -29,13 +29,9 @@ extension FirstGenerationVC: GenericStructureViewControllerMetadataDelegate {
     func nextViewController() -> UIViewController? {
         if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.student.name {
             return HighSchoolYearVC()
-        }
-        
-        else if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
+        } else if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
             return CollegeYearVC()
-        }
-        
-        else {
+        } else {
             return nil
         }
     }

@@ -11,8 +11,8 @@ import UIKit
 
 class WhichStudentTypeVC: GenericStructureViewController {
     override func viewDidLoad() {
-        BUTTON_TEXT_SIZE = (1.2/71) * UIScreen.main.bounds.height
-        genericStructureViewControllerMetadataDelegate = self
+        buttonTextSize = (1.2/71) * UIScreen.main.bounds.height
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }

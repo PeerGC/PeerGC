@@ -14,7 +14,7 @@ class NameVC: GenericStructureViewController {
     static var email: String?
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
     }
@@ -26,7 +26,7 @@ class NameVC: GenericStructureViewController {
             return
         }
         
-        if text.count == 0 {
+        if text.isEmpty {
             errorLabel!.text = "Please enter a name."
             errorLabel!.isHidden = false
             return
@@ -79,4 +79,3 @@ extension NameVC: TextFieldDelegate {
         return nil // does nothing
     }
 }
-

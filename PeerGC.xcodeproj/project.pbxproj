@@ -73,6 +73,7 @@
 		C7DEBBD324D8A47300E4E465 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */; };
 		C7DEBBD524D8A8D500E4E465 /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD424D8A8D500E4E465 /* NameVC.swift */; };
 		C7DEBBD724D8DC2400E4E465 /* SignInProvidersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DEBBD624D8DC2400E4E465 /* SignInProvidersVC.swift */; };
+		C7FFB64925081E4E0099CA0C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C7FFB64825081E4E0099CA0C /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,7 +172,10 @@
 		C7DEBBD224D8A47300E4E465 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		C7DEBBD424D8A8D500E4E465 /* NameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
 		C7DEBBD624D8DC2400E4E465 /* SignInProvidersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProvidersVC.swift; sourceTree = "<group>"; };
+		C7DF6FF6250B2A3D00D1CA44 /* libInputBarAccessoryView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInputBarAccessoryView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DF6FF8250B2A8A00D1CA44 /* libInputBarAccessoryView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInputBarAccessoryView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FFB645250807870099CA0C /* Firebase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Firebase; sourceTree = "<group>"; };
+		C7FFB64825081E4E0099CA0C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D060C30285A1C656AB43864B /* Pods-PeerGC-PeerGCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerGC-PeerGCUITests.debug.xcconfig"; path = "Target Support Files/Pods-PeerGC-PeerGCUITests/Pods-PeerGC-PeerGCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PeerGC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -336,6 +340,7 @@
 		C75F3CEB23EB570700C7B5E5 = {
 			isa = PBXGroup;
 			children = (
+				C7FFB64825081E4E0099CA0C /* .swiftlint.yml */,
 				C7B0D1B1249B1BD700476FB1 /* firstNames.txt */,
 				C75F3CF623EB570700C7B5E5 /* PeerGC */,
 				C75F3D0D23EB570B00C7B5E5 /* PeerGCTests */,
@@ -444,6 +449,8 @@
 		E0B64F441825A129476ED08F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7DF6FF8250B2A8A00D1CA44 /* libInputBarAccessoryView.a */,
+				C7DF6FF6250B2A3D00D1CA44 /* libInputBarAccessoryView.a */,
 				F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */,
 				6E395DD9BD6607AB9B897BFB /* libPods-PeerGC-PeerGCUITests.a */,
 				B104F89C4B26144AF8926C9B /* libPods-PeerGCTests.a */,
@@ -459,6 +466,7 @@
 			buildConfigurationList = C75F3D1E23EB570B00C7B5E5 /* Build configuration list for PBXNativeTarget "PeerGC" */;
 			buildPhases = (
 				1B37CD84274DBFBBBED8B37D /* [CP] Check Pods Manifest.lock */,
+				C7FFB647250819800099CA0C /* SwiftLint */,
 				C75F3CF023EB570700C7B5E5 /* Sources */,
 				C75F3CF123EB570700C7B5E5 /* Frameworks */,
 				C7FFB646250807F20099CA0C /* Setup Firebase Environment GoogleService-Info.plist */,
@@ -562,6 +570,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FFB64925081E4E0099CA0C /* .swiftlint.yml in Resources */,
 				C7B0D1B2249B1BD700476FB1 /* firstNames.txt in Resources */,
 				C700B16E23EB6C9400816708 /* LexendDeca-Regular.ttf in Resources */,
 				C700B14623EB647100816708 /* zipCodesToValue.csv in Resources */,
@@ -728,6 +737,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_DEV=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Dev/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_PROD=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Prod/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_DEV}\"\nif [ ! -f $GOOGLESERVICE_INFO_DEV ]\nthen\n    echo \"No Development GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PROD}\"\nif [ ! -f $GOOGLESERVICE_INFO_PROD ]\nthen\n    echo \"No Production GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_PROD}\"\n    cp \"${GOOGLESERVICE_INFO_PROD}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Using ${GOOGLESERVICE_INFO_DEV}\"\n    cp \"${GOOGLESERVICE_INFO_DEV}\" \"${PLIST_DESTINATION}\"\nfi\n";
+		};
+		C7FFB647250819800099CA0C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -896,6 +923,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -964,14 +993,15 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2560;
+				CURRENT_PROJECT_VERSION = 2574;
 				DEVELOPMENT_TEAM = TPC3B9Z27R;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
+				MARKETING_VERSION = 0.1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/InputBarAccessoryView/InputBarAccessoryView.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit/MessageKit.modulemap\" -Xcc -fmodule-map-file=\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit.modulemap\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = org.PeerGC.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -989,14 +1019,14 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2560;
+				CURRENT_PROJECT_VERSION = 2574;
 				DEVELOPMENT_TEAM = TPC3B9Z27R;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.PeerGC.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;

@@ -11,7 +11,7 @@ import UIKit
 
 class HighSchoolGPAVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         buttonsDelegate = self
         super.viewDidLoad()
     }
@@ -31,7 +31,7 @@ extension HighSchoolGPAVC: GenericStructureViewControllerMetadataDelegate {
     }
 }
 
-extension HighSchoolGPAVC: ButtonsDelegate  {
+extension HighSchoolGPAVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
         return .highSchoolGPA
     }

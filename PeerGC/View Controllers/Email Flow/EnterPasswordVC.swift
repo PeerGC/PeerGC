@@ -14,7 +14,7 @@ class EnterPasswordVC: GenericStructureViewController {
     static var email: String?
     
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
         addForgotPasswordButton()
@@ -27,11 +27,14 @@ class EnterPasswordVC: GenericStructureViewController {
         let forgotPasswordButton = DesignableButton()
         forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
         forgotPasswordButton.setTitleColor(.link, for: .normal)
-        forgotPasswordButton.titleLabel!.font = UIFont(name: FONT_NAME, size: 16)
+        forgotPasswordButton.titleLabel!.font = UIFont(name: fontName, size: 16)
         forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
         
-        addAndConstraint(customView: forgotPasswordButton, constraints: [view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: forgotPasswordButton.trailingAnchor, constant: 60),
-        view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: forgotPasswordButton.leadingAnchor, constant: -60), NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal, toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 6)])
+        addAndConstraint(customView: forgotPasswordButton, constraints:
+            [view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: forgotPasswordButton.trailingAnchor, constant: 60),
+             view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: forgotPasswordButton.leadingAnchor, constant: -60),
+             NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal,
+                                toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 6)])
     }
     
     func error(text: String) {
@@ -51,7 +54,7 @@ class EnterPasswordVC: GenericStructureViewController {
             return
         }
         
-        Auth.auth().signIn(withEmail: EmailVC.email!, password: text) { [weak self] authResult, error in
+        Auth.auth().signIn(withEmail: EmailVC.email!, password: text) { [weak self] _, error in
             
             if error != nil {
                 let errorCode = AuthErrorCode(rawValue: error!._code)
@@ -65,16 +68,14 @@ class EnterPasswordVC: GenericStructureViewController {
                         self?.errorLabel!.text = "Error Signing In."
                 }
                 self?.errorLabel!.isHidden = false
-            }
-            
-            else {
+            } else {
                 self?.errorLabel!.isHidden = true
                 let uid = Auth.auth().currentUser!.uid
                 let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
                 
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
-                        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
+                        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (_, _) in
                             
                             Utilities.loadHomeScreen()
                         })
@@ -103,9 +104,7 @@ class EnterPasswordVC: GenericStructureViewController {
                 }
                 
                 self!.errorLabel!.isHidden = false
-            }
-            
-            else {
+            } else {
                 self!.nextViewControllerHandler(viewController: ResetPasswordVC())
             }
         }

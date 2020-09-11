@@ -12,19 +12,52 @@ import UIKit
 
 class Utilities {
     
+    static func getBuildConfiguration() -> String {
+        #if DEBUG
+            return "DEV"
+        #else
+            return "PROD"
+        #endif
+    }
+    
+    static func logError(customMessage: String = "General Error", customCode: Int = 0, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line, columnNumber: Int = #column) {
+        
+        let userInfo = [
+            NSLocalizedDescriptionKey: NSLocalizedString(customMessage, comment: ""),
+            "Version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown",
+            "Build": Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown",
+            "File Name": fileName,
+            "Function Name": functionName,
+            "Line Number": String(lineNumber),
+            "Column Number": String(columnNumber),
+            "UID": Auth.auth().currentUser?.uid ?? "Not Availible."
+        ]
+        
+        let error = NSError.init(domain: "org.PeerGC.PeerGC.ErrorDomain", code: customCode, userInfo: userInfo)
+        Crashlytics.crashlytics().record(error: error)
+        print("ERROR:")
+        print(error.userInfo)
+    }
+    
     static func sendPushNotification(to token: String, title: String, body: String) {
         let urlString = "https://fcm.googleapis.com/fcm/send"
         let url = NSURL(string: urlString)!
-        let paramString: [String : Any] = ["to" : token,
-                                           "notification" : ["title" : title, "body" : body],
-                                           "data" : ["user" : "test_id"]
+        let paramString: [String: Any] = ["to": token,
+                                           "notification": ["title": title, "body": body],
+                                           "data": ["user": "test_id"]
         ]
         let request = NSMutableURLRequest(url: url as URL)
         request.httpMethod = "POST"
-        request.httpBody = try? JSONSerialization.data(withJSONObject:paramString, options: [.prettyPrinted])
+        request.httpBody = try? JSONSerialization.data(withJSONObject: paramString, options: [.prettyPrinted])
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("key=AAAAcwvPqgU:APA91bHuy-lLYO2EYgE-CPPRNBOcfs4bE09ovTWoRdHwj1OYNFYE8DL015xD0R5tDF09uiv4Lx3O3cUVEzrQTCq9MrcVjKsPRyHROoJ-M4060uTU9d0urYslX5HoqmkKU_4aJ7OFvbnw", forHTTPHeaderField: "Authorization")
-        let task =  URLSession.shared.dataTask(with: request as URLRequest)  { (data, response, error) in
+        request.setValue("""
+            key=AAAAcwvPqgU:APA91bHuy-lLYO2EYgE-\
+            CPPRNBOcfs4bE09ovTWoRdHwj1OYNFYE8DL0\
+            15xD0R5tDF09uiv4Lx3O3cUVEzrQTCq9MrcV\
+            jKsPRyHROoJ-M4060uTU9d0urYslX5HoqmkK\
+            U_4aJ7OFvbnw
+            """, forHTTPHeaderField: "Authorization")
+        let task =  URLSession.shared.dataTask(with: request as URLRequest) { (data, _, _) in
             do {
                 if let jsonData = data {
                     if let jsonDataDict  = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
@@ -47,9 +80,9 @@ class Utilities {
         .filter({$0.isKeyWindow}).first)!
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navVC = storyboard.instantiateViewController(identifier: "HomeNavigationController") as! UINavigationController
-        let homeVC = navVC.viewControllers.first as! HomeViewController
-        
+        guard let navVC = storyboard.instantiateViewController(identifier: "HomeNavigationController") as? UINavigationController else { return }
+        guard let homeVC = navVC.viewControllers.first as? HomeViewController else { return }
+                
         homeVC.loadView()
         homeVC.awakeFromNib()
         
@@ -69,13 +102,11 @@ class Utilities {
         for component in components {
             if makeBlue {
                 let temp = NSMutableAttributedString(string: component)
-                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: specialColor, range: NSRange(location:0, length: temp.length))
+                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: specialColor, range: NSRange(location: 0, length: temp.length))
                 toReturn.append(temp)
-            }
-            
-            else {
+            } else {
                 let temp = NSMutableAttributedString(string: component)
-                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: regularColor, range: NSRange(location:0, length: temp.length))
+                temp.addAttribute(NSAttributedString.Key.foregroundColor, value: regularColor, range: NSRange(location: 0, length: temp.length))
                 toReturn.append(temp)
             }
             
@@ -193,9 +224,7 @@ class Utilities {
         do {
             let dataString = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
             return dataString
-        }
-        
-        catch let error {
+        } catch let error {
             print(error)
         }
         return nil
@@ -212,82 +241,6 @@ class Utilities {
            return result
        }
     
-    static func createTestUsers() {
-        
-        var firstNamesString: String? = nil
-        var lastNamesString: String? = nil
-        var zipCodesString: String? = nil
-        
-        do {
-          
-            var path = Bundle.main.path(forResource: "firstNames", ofType: "txt")
-            firstNamesString = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
-            
-            path = Bundle.main.path(forResource: "lastNames", ofType: "txt")
-            lastNamesString = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
-            
-            path = Bundle.main.path(forResource: "zipCodes", ofType: "txt")
-            zipCodesString = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
-        }
-      
-        catch let error {
-            print(error)
-        }
-        
-        let firstNames: [String] = firstNamesString!.components(separatedBy: "\n")
-        let lastNames: [String] = lastNamesString!.components(separatedBy: "\n")
-        let zipCodes: [String] = zipCodesString!.components(separatedBy: "\n")
-        let accTypes: [String] = ["Student", "Tutor"]
-        let genders: [String] = ["Male", "Female", "Other"]
-        let interests: [String] =  ["S.T.E.M.", "Arts", "Other"]
-        let races: [String] = ["White", "Black", "Native A.", "Asian", "Pacific"]
-        
-        let NUMBER_OF_USERS = 16
-        
-        for i in 0..<NUMBER_OF_USERS {
-            
-            let firstName = firstNames[Int.random(in: 0..<firstNames.count)].trimmingCharacters(in: .whitespacesAndNewlines)
-            let lastName = lastNames[Int.random(in: 0..<lastNames.count)].trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = "\(firstName)\(lastName)@gmail.com"
-            let password = "\(firstName)\(lastName)"
-            let accType = accTypes[Int.random(in: 0..<accTypes.count)]
-            let zipCode = zipCodes[Int.random(in: 0..<zipCodes.count)]
-            let gender = genders[Int.random(in: 0..<genders.count)]
-            let interest = interests[Int.random(in: 0..<interests.count)]
-            let race: String = races[Int.random(in: 0..<races.count)]
-            
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-              
-                
-                let user = authResult!.user
-                
-                    let changeRequest = user.createProfileChangeRequest()
-                    changeRequest.displayName = "\(firstName) \(lastName)"
-                   
-                    changeRequest.commitChanges { error in
-                        if let error = error {
-                            print(error)
-                        } else {
-                            // Profile updated.
-                        }
-                    }
-                
-                let uid = authResult!.user.uid
-                Firestore.firestore().collection("users").document(uid).setData(["accountType": accType, "zipCode": zipCode, "gender": gender, "interest": interest, "race": race]) { (error) in
-                    
-                    if error != nil {
-                        // Show error message
-                        print("Error saving user data")
-                    }
-                }
-                
-                print("created user \(i): \(uid)")
-                
-            }
-            
-        }
-        
-    }
 }
 
 extension Array where Element: Hashable {

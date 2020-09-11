@@ -6,7 +6,7 @@
 //  Copyright © 2020 AJ Radik. All rights reserved.
 //
 
-//MARK: Imports
+// MARK: Imports
 import Foundation
 import UIKit
 import MessageKit
@@ -15,7 +15,7 @@ import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController {
     
-    //MARK: Message Structure
+    // MARK: Message Structure
     public struct Message: MessageType, Equatable, Comparable {
         
         public var sender: SenderType
@@ -31,7 +31,7 @@ class ChatViewController: MessagesViewController {
             return lhs.sentDate < rhs.sentDate
         }
         
-        var representation: [String : Any] {
+        var representation: [String: Any] {
           
             var text: NSAttributedString
             
@@ -42,7 +42,7 @@ class ChatViewController: MessagesViewController {
                     return [:]
             }
             
-            let toReturn: [String : Any] = [
+            let toReturn: [String: Any] = [
                 DatabaseKey.senderID.name: sender.senderId,
                 DatabaseKey.senderDisplayName.name: sender.displayName,
                 DatabaseKey.messageID.name: messageId,
@@ -54,31 +54,31 @@ class ChatViewController: MessagesViewController {
         }
     }
     
-    //MARK: Sender Structure
+    // MARK: Sender Structure
     public struct Sender: SenderType {
         public let senderId: String
 
         public let displayName: String
     }
     
-    //MARK: Variables
-    private let db = Firestore.firestore()
+    // MARK: Variables
+    private let database = Firestore.firestore()
     private var reference: CollectionReference?
     
-    var id: String = ""
+    var identifier: String = ""
     var header: String = ""
     
-    var currentSenderImage : UIImage? = nil
-    var remoteReceiverImage : UIImage? = nil
+    var currentSenderImage: UIImage?
+    var remoteReceiverImage: UIImage?
     
-    var customCell: CustomCell? = nil
+    var customCell: CustomCell?
     
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
     
-    let FONT_NAME = "LexendDeca-Regular"
+    let fontName = "LexendDeca-Regular"
     
-    //MARK: View Did Load
+    // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         super.view.backgroundColor = .secondarySystemGroupedBackground
@@ -93,14 +93,14 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         title = header
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController!.navigationBar.titleTextAttributes = [.font: UIFont(name: FONT_NAME, size: 26)!]
+        self.navigationController!.navigationBar.titleTextAttributes = [.font: UIFont(name: fontName, size: 26)!]
         
-        db.collection("chats").document(id).setData([
-            "Student": id.components(separatedBy: "-")[0],
-            "Tutor": id.components(separatedBy: "-")[1]
+        database.collection("chats").document(identifier).setData([
+            "Student": identifier.components(separatedBy: "-")[0],
+            "Tutor": identifier.components(separatedBy: "-")[1]
         ])
         
-        reference = db.collection(["chats", id, "thread"].joined(separator: "/"))
+        reference = database.collection(["chats", identifier, "thread"].joined(separator: "/"))
         
         messageListener = reference?.addSnapshotListener { querySnapshot, error in
           guard let snapshot = querySnapshot else {
@@ -108,7 +108,7 @@ class ChatViewController: MessagesViewController {
             return
           }
           
-            if snapshot.count == 0 {
+            if snapshot.isEmpty {
                 self.firstMessageVC()
             }
             
@@ -121,18 +121,21 @@ class ChatViewController: MessagesViewController {
     
     func firstMessageVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "FirstMessageVC") as! FirstMessageVC
-        vc.modalPresentationStyle = .popover
-        vc.customCell = customCell
-        vc.chatVC = self
-        present(vc, animated: true, completion: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "FirstMessageVC") as? FirstMessageVC else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
+        }
+        viewController.modalPresentationStyle = .popover
+        viewController.customCell = customCell
+        viewController.chatVC = self
+        present(viewController, animated: true, completion: nil)
     }
     
     deinit {
       messageListener?.remove()
     }
     
-    //MARK: View Customization
+    // MARK: View Customization
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillAppear(animated)
@@ -155,22 +158,31 @@ class ChatViewController: MessagesViewController {
         }
     }
     
-    //MARK: Message Operations
+    // MARK: Message Operations
     func newMessage(message: String) {
-        let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]), messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: message)))
+        let message = Message(sender: Sender(senderId: Auth.auth().currentUser!.uid,
+                        displayName: Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]),
+                        messageId: UUID().uuidString, sentDate: Date(), kind: .attributedText(NSAttributedString(string: message)))
         
         saveMessageToDatabase(message)
     }
     
     private func saveMessageToDatabase(_ message: Message) {
       reference?.addDocument(data: message.representation) { error in
-        if let e = error {
-          print("Error sending message: \(e.localizedDescription)")
-          return
+        if let error = error {
+            Crashlytics.crashlytics().record(error: error)
+            Utilities.logError(customMessage: "An error occured with Firebase.", customCode: 3)
+        }
+        
+        guard let body = message.representation[DatabaseKey.content.name] as? String else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
         }
         
         if let remoteInstanceID = self.customCell?.data?[DatabaseKey.token.name] {
-            Utilities.sendPushNotification(to: remoteInstanceID, title: Auth.auth().currentUser!.displayName!.components(separatedBy: [" "])[0], body: message.representation[DatabaseKey.content.name] as! String)
+            Utilities.sendPushNotification(to: remoteInstanceID,
+                title: Auth.auth().currentUser!.displayName!.components(separatedBy: [" "])[0],
+                body: body)
         }
         
         self.messagesCollectionView.scrollToBottom()
@@ -200,31 +212,64 @@ class ChatViewController: MessagesViewController {
     private func handleDocumentChange(_ change: DocumentChange) {
         let data = change.document.data()
         
-        let color : UIColor = (data["senderID"] as! String == Auth.auth().currentUser!.uid) ? .white : .black
+        guard let color: UIColor = (data["senderID"] as? String == Auth.auth().currentUser!.uid) ? .white : .black else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
+        }
         
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont(name: FONT_NAME, size: UIFont.labelFontSize)!,
+            .font: UIFont(name: fontName, size: UIFont.labelFontSize)!,
             .foregroundColor: color
         ]
         
-        let message = Message(sender: Sender(senderId: data["senderID"] as! String, displayName: data["senderDisplayName"] as! String), messageId: data["messageID"] as! String, sentDate: (data["dateStamp"] as! Timestamp).dateValue(), kind: .attributedText(NSAttributedString(string: data["content"] as! String, attributes: attributes)))
+        guard let senderID = data["senderID"] as? String else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
+        }
+        
+        guard let senderDisplayName = data["senderDisplayName"] as? String else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
+        }
+        
+        guard let messageID = data["messageID"] as? String else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
+        }
+        
+        guard let dateStamp = (data["dateStamp"] as? Timestamp)?.dateValue() else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
+        }
+        
+        guard let content = data["content"] as? String else {
+            Utilities.logError(customMessage: "Casting Error.", customCode: 4)
+            return
+        }
+        
+        let message = Message(sender: Sender(senderId: senderID,
+                                             displayName: senderDisplayName),
+                                             messageId: messageID,
+                                             sentDate: dateStamp,
+                                             kind: .attributedText(NSAttributedString(string: content, attributes: attributes)))
 
         switch change.type {
-            case .added:
-                insertNewMessageToCollectionView(message)
+        case .added:
+            insertNewMessageToCollectionView(message)
 
-            default:
-                break
+        default:
+            break
         }
         
     }
 }
 
-//MARK: Messages Data Source
+// MARK: Messages Data Source
 extension ChatViewController: MessagesDataSource {
     
     func currentSender() -> SenderType {
-        return Sender(senderId: Auth.auth().currentUser?.uid ?? "nil", displayName: Auth.auth().currentUser?.displayName?.components(separatedBy: " ")[0] ?? "nil")
+        return Sender(senderId: Auth.auth().currentUser?.uid ?? "nil",
+                      displayName: Auth.auth().currentUser?.displayName?.components(separatedBy: " ")[0] ?? "nil")
     }
 
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -237,7 +282,9 @@ extension ChatViewController: MessagesDataSource {
     
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if indexPath.section % 3 == 0 {
-            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate),
+                                      attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+                                                   NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         }
         return nil
     }
@@ -259,19 +306,16 @@ extension ChatViewController: MessagesDataSource {
         return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
     }
     
-    
 }
 
-//MARK: Messages Display Delegate
+// MARK: Messages Display Delegate
 extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         
         if message.sender.senderId == currentSender().senderId {
             avatarView.set(avatar: Avatar(image: currentSenderImage, initials: String(message.sender.senderId.prefix(1))))
-        }
-        
-        else {
+        } else {
             avatarView.set(avatar: Avatar(image: remoteReceiverImage, initials: String(message.sender.senderId.prefix(1))))
         }
     }
@@ -300,7 +344,7 @@ extension ChatViewController: MessagesDisplayDelegate {
     
 }
 
-//MARK: Input Bar Delegate
+// MARK: Input Bar Delegate
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
@@ -314,7 +358,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
 }
 
-//MARK: Messages Layout Delegate
+// MARK: Messages Layout Delegate
 extension ChatViewController: MessagesLayoutDelegate {
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
@@ -334,7 +378,7 @@ extension ChatViewController: MessagesLayoutDelegate {
     }
 }
 
-//MARK: Message Cell Delegate
+// MARK: Message Cell Delegate
 extension ChatViewController: MessageCellDelegate {
     
 }

@@ -12,7 +12,7 @@ import Firebase
 
 class ProfilePictureVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         imagePickerDelegate = self
         super.viewDidLoad()
     }
@@ -47,7 +47,7 @@ extension ProfilePictureVC: ImagePickerDelegate {
         
         let profilePicStorageRef = Storage.storage().reference().child("users/\(Auth.auth().currentUser!.uid)/profilePicture")
         
-        profilePicStorageRef.putData(imageData, metadata: nil) { (metadata, error) in
+        profilePicStorageRef.putData(imageData, metadata: nil) { (_, error) in
             
             profilePicStorageRef.downloadURL { (url, error) in
                 guard let url = url else { return }
@@ -64,9 +64,7 @@ extension ProfilePictureVC: ImagePickerDelegate {
                             default:
                                 print("Error setting name.")
                         }
-                    }
-                    
-                    else {
+                    } else {
                         continueButton.alpha = 1.0
                         imageView.image = image
                     }

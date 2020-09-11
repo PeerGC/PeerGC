@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    func setInitialViewContoller(_ window:UIWindow) {
+    func setInitialViewContoller(_ window: UIWindow) {
         
         Auth.auth().currentUser?.reload(completion: nil)
         
@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     
-                    Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, error) in
+                    Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (_, _) in
                         
                         Utilities.loadHomeScreen()
                     })
@@ -33,9 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     self.showInitialNavController()
                 }
             }
-        }
-        
-        else {
+        } else {
             showInitialNavController()
         }
     }
@@ -81,6 +79,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
-

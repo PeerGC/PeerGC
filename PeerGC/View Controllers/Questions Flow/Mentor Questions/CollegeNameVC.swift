@@ -11,7 +11,7 @@ import UIKit
 
 class CollegeNameVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
     }
@@ -36,7 +36,7 @@ extension CollegeNameVC: TextFieldDelegate {
         
         guard let text = textInput else { return "Invalid." }
         
-        if text.count == 0 {
+        if text.isEmpty {
             return "Please enter a college."
         }
         

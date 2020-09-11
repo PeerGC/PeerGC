@@ -11,7 +11,7 @@ import UIKit
 
 class SATScoreVC: GenericStructureViewController {
     override func viewDidLoad() {
-        genericStructureViewControllerMetadataDelegate = self
+        metaDataDelegate = self
         textFieldDelegate = self
         super.viewDidLoad()
         textField?.keyboardType = .numberPad
@@ -36,7 +36,7 @@ extension SATScoreVC: TextFieldDelegate {
     func continuePressed(textInput: String?) -> String? {
         guard let text = textInput else { return "Invalid." }
         
-        if text.count == 0 {
+        if text.isEmpty {
             return "Please enter a score."
         }
         
