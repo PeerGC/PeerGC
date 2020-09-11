@@ -27,9 +27,7 @@ class WelcomeVC: UIViewController {
     }
     
     @IBAction func letsStartButtonPressed(_ sender: Any) {
-        Utilities.logError(customMessage: "Test Error Logging In Crashlytics", customCode: -814)
-        fatalError()
-        //self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
