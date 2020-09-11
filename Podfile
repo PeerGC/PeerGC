@@ -21,7 +21,7 @@ target 'PeerGC' do
 	pod 'Firebase/Performance'
 	pod 'Firebase/Firestore'
 	pod 'FBSDKCoreKit', :modular_headers => true
-	pod 'MessageKit'
+	pod 'MessageKit', '3.1.0'
 	pod 'SwiftLint'
 
   target 'PeerGCTests' do
