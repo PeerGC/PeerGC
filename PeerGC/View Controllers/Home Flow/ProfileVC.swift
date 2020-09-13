@@ -25,7 +25,7 @@ class ProfileVC: UIViewController {
         super.view.backgroundColor = .secondarySystemGroupedBackground
         self.navigationController?.navigationBar.isTranslucent = false
         imageView.image = customCell!.imageView.image
-        firstName.text = customCell!.data![DatabaseKey.firstName.name]!
+        firstName.text = customCell!.data![DatabaseKey.First_Name.name]!
         setSectionText()
         
         firstName.font = firstName.font.withSize((2.8/71) * UIScreen.main.bounds.height)
@@ -48,16 +48,16 @@ class ProfileVC: UIViewController {
     }
     
     func setSectionText() {
-        let firstName = customCell!.data![DatabaseKey.firstName.name]!
+        let firstName = customCell!.data![DatabaseKey.First_Name.name]!
         
-        if customCell!.data![DatabaseKey.accountType.name]! == DatabaseValue.student.name {
+        if customCell!.data![DatabaseKey.Account_Type.name]! == DatabaseValue.student.name {
             //Section 1: Education
-            let highSchoolYear = DatabaseValue(name: customCell!.data![DatabaseKey.schoolYear.name]!)!.rawValue
-            let interest = DatabaseValue(name: customCell!.data![DatabaseKey.interest.name]!)!.rawValue
+            let highSchoolYear = DatabaseValue(name: customCell!.data![DatabaseKey.What_Year_Of_School.name]!)!.rawValue
+            let interest = DatabaseValue(name: customCell!.data![DatabaseKey.Which_Of_These_Interests_You_Most.name]!)!.rawValue
             
             var whereInProcess = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.whereInProcess.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.Where_Are_You_In_The_College_Application_Process.name]!) {
                 case .hasntStartedLooking:
                     whereInProcess = "has /bnot started/b looking"
                 case .startedLookingNoPicks:
@@ -82,7 +82,7 @@ class ProfileVC: UIViewController {
             //Section 2: Questions
             var lookingFor = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.lookingFor.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.What_Are_You_Looking_For_From_A_Peer_Counselor.name]!) {
                 case .keepOnTrack:
                     lookingFor = "to help keep them /bon track/b"
                 case .infoOnCollegeWants:
@@ -99,7 +99,7 @@ class ProfileVC: UIViewController {
             
             var feelAboutApplying = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.feelAboutApplying.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.How_Do_You_Feel_About_Applying.name]!) {
                 case .noIdea:
                     feelAboutApplying = "/bno idea/b what to do"
                 case .someIdea:
@@ -114,13 +114,13 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            let kindOfCollege = DatabaseValue(name: customCell!.data![DatabaseKey.feelAboutApplying.name]!) == .dontKnow ?
+            let kindOfCollege = DatabaseValue(name: customCell!.data![DatabaseKey.How_Do_You_Feel_About_Applying.name]!) == .dontKnow ?
                 "/bdoesn't know/b what types of colleges they're interested in" :
-                "is interested in /b\(DatabaseValue(name: customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
+                "is interested in /b\(DatabaseValue(name: customCell!.data![DatabaseKey.What_Kind_Of_College_Are_You_Considering.name]!)!.rawValue)/b"
             
             var whyCollege = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.whyCollege.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.Why_Do_You_Want_To_Go_To_College.name]!) {
                 case .getOutOfLivingSituation:
                     whyCollege = "to /bget out/b from their current living situation"
                 case .specificFieldOfStudy:
@@ -135,9 +135,9 @@ class ProfileVC: UIViewController {
                     break
             }
             
-            let firstGenerationStatus = DatabaseValue(name: customCell!.data![DatabaseKey.parentsGoToCollege.name]!)
+            let firstGenerationStatus = DatabaseValue(name: customCell!.data![DatabaseKey.Did_Either_Of_Your_Parents_Attend_Higher_Education.name]!)
             let firstGenerationString = firstGenerationStatus == .yes ? "won't" : "will"
-            let firstLanguge = customCell!.data![DatabaseKey.firstLanguage.name]!
+            let firstLanguge = customCell!.data![DatabaseKey.First_Language.name]!
             
             sentenceString = """
                 \(firstName) is looking for someone /b\(lookingFor)/b, and has \(feelAboutApplying). \(firstName) \(kindOfCollege),
@@ -149,11 +149,11 @@ class ProfileVC: UIViewController {
             
             //Section 3: Demographics
             let state = customCell!.state.text!
-            let zipCodeMedianIncomeClassification = DatabaseValue(name: customCell!.data![DatabaseKey.financialLevel.name]!)!.rawValue
-            let gender = DatabaseValue(name: customCell!.data![DatabaseKey.gender.name]!)!.rawValue
-            let lgbtqStatus = DatabaseValue(name: customCell!.data![DatabaseKey.lgbtq.name]!)
+            let zipCodeMedianIncomeClassification = DatabaseValue(name: customCell!.data![DatabaseKey.Financial_Level.name]!)!.rawValue
+            let gender = DatabaseValue(name: customCell!.data![DatabaseKey.Gender.name]!)!.rawValue
+            let lgbtqStatus = DatabaseValue(name: customCell!.data![DatabaseKey.LGBTQ.name]!)
             let lgbtqString = lgbtqStatus == .yes ? "does" : "does not"
-            let race = DatabaseValue(name: customCell!.data![DatabaseKey.race.name]!)!.rawValue
+            let race = DatabaseValue(name: customCell!.data![DatabaseKey.Race.name]!)!.rawValue
             
             sentenceString = """
                             \(firstName) lives in /b\(state)/b in a zipcode with a(n) /b\(zipCodeMedianIncomeClassification)/b median income. \
@@ -163,16 +163,16 @@ class ProfileVC: UIViewController {
             
             section3.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
-        } else if customCell!.data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
+        } else if customCell!.data![DatabaseKey.Account_Type.name]! == DatabaseValue.mentor.name {
             
             //Section 1: Education
-            let collegeYear = DatabaseValue(name: customCell!.data![DatabaseKey.schoolYear.name]!)!.rawValue
-            let degree = DatabaseValue(name: customCell!.data![DatabaseKey.whichDegree.name]!)!.rawValue
-            let major = DatabaseValue(name: customCell!.data![DatabaseKey.major.name]!)!.rawValue
-            let university = customCell!.data![DatabaseKey.collegeName.name]!
-            let testTaken = DatabaseValue(name: customCell!.data![DatabaseKey.testTaken.name]!)!.rawValue
-            let testScore = customCell!.data![DatabaseKey.testScore.name]!
-            let highSchoolGPA = DatabaseValue(name: customCell!.data![DatabaseKey.highSchoolGPA.name]!)!.rawValue
+            let collegeYear = DatabaseValue(name: customCell!.data![DatabaseKey.What_Year_Of_School.name]!)!.rawValue
+            let degree = DatabaseValue(name: customCell!.data![DatabaseKey.What_Kind_Of_Degree_Are_You_Currently_Pursuing.name]!)!.rawValue
+            let major = DatabaseValue(name: customCell!.data![DatabaseKey.What_Field_Of_Study_Are_You_Currently_Pursuing.name]!)!.rawValue
+            let university = customCell!.data![DatabaseKey.What_College_Do_You_Attend.name]!
+            let testTaken = DatabaseValue(name: customCell!.data![DatabaseKey.Which_Test_Did_You_Use_For_Your_College_Application.name]!)!.rawValue
+            let testScore = customCell!.data![DatabaseKey.Test_Score.name]!
+            let highSchoolGPA = DatabaseValue(name: customCell!.data![DatabaseKey.What_Was_Your_High_School_GPA.name]!)!.rawValue
             
             var sentenceString = """
                                 \n\(firstName) is a /b\(collegeYear)/b pursuing a /b\(degree)/b degree \
@@ -185,13 +185,13 @@ class ProfileVC: UIViewController {
             section1.attributedText = Utilities.indigoLabelText(text: sentenceString)
             
             //Section 2: Other
-            let firstGenerationStatus = DatabaseValue(name: customCell!.data![DatabaseKey.parentsGoToCollege.name]!)
+            let firstGenerationStatus = DatabaseValue(name: customCell!.data![DatabaseKey.Did_Either_Of_Your_Parents_Attend_Higher_Education.name]!)
             let firstGenerationString = firstGenerationStatus == .yes ? "isn't" : "is"
-            let firstLanguge = customCell!.data![DatabaseKey.firstLanguage.name]!
+            let firstLanguge = customCell!.data![DatabaseKey.First_Language.name]!
             
             var whyTheirCollegeReasoning = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.whyYourCollege.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.Why_Did_You_Choose_The_College_You_Are_In.name]!) {
                 case .closeToHome:
                     whyTheirCollegeReasoning = "it was /bClose to Home/b"
                 case .bigNameSchool:
@@ -208,7 +208,7 @@ class ProfileVC: UIViewController {
             
             var postGradAspiration = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.postGradAspirations.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.What_Are_Your_Post_Grad_Aspirations.name]!) {
                 case .continuedStudy:
                     postGradAspiration = " perform /bContinued Study/b [masters, PHD, MD, etc...]."
                 case .atheltics:
@@ -225,7 +225,7 @@ class ProfileVC: UIViewController {
             
             var helpMost = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.helpMost.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.Where_Can_You_Help_A_Student_Most.name]!) {
                 case .generalGuidance:
                     helpMost = "/bgeneral guidance/b and keeping you on track"
                 case .infoCollegeLookFor:
@@ -254,7 +254,7 @@ class ProfileVC: UIViewController {
             
             var whyTheyWantToBeCounselor = ""
             
-            switch DatabaseValue(name: customCell!.data![DatabaseKey.whyYouWantBeCounselor.name]!) {
+            switch DatabaseValue(name: customCell!.data![DatabaseKey.Why_Do_You_Want_To_Be_A_Peer_Guidance_Counselor.name]!) {
                 case .wishSomethingLikeThisExisted:
                     whyTheyWantToBeCounselor = "they wish they knew /bsomething like this/b existed for them"
                 case .canHelpWriteStrongEssays:
@@ -270,11 +270,11 @@ class ProfileVC: UIViewController {
             }
             
             let state = customCell!.state.text!
-            let zipCodeMedianIncomeClassification = DatabaseValue(name: customCell!.data![DatabaseKey.financialLevel.name]!)!.rawValue
-            let gender = DatabaseValue(name: customCell!.data![DatabaseKey.gender.name]!)!.rawValue
-            let lgbtqStatus = DatabaseValue(name: customCell!.data![DatabaseKey.lgbtq.name]!)
+            let zipCodeMedianIncomeClassification = DatabaseValue(name: customCell!.data![DatabaseKey.Financial_Level.name]!)!.rawValue
+            let gender = DatabaseValue(name: customCell!.data![DatabaseKey.Gender.name]!)!.rawValue
+            let lgbtqStatus = DatabaseValue(name: customCell!.data![DatabaseKey.LGBTQ.name]!)
             let lgbtqString = lgbtqStatus == .yes ? "does" : "does not"
-            let race = DatabaseValue(name: customCell!.data![DatabaseKey.race.name]!)!.rawValue
+            let race = DatabaseValue(name: customCell!.data![DatabaseKey.Race.name]!)!.rawValue
             
             sentenceString = """
                             \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor). \

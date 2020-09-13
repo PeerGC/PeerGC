@@ -39,7 +39,7 @@ class SignInProvidersVC: UIViewController {
         
         signInWithGoogleButton.titleLabel!.font = signInWithGoogleButton.titleLabel!.font.withSize( (1.4/71) * UIScreen.main.bounds.height)
         
-        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
+        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name {
             subTitleLabel.text = subTitleLabel.text! + " Please note that mentors must use a .edu email address."
         }
         
@@ -91,9 +91,9 @@ extension SignInProvidersVC: GIDSignInDelegate {
             }
             
             let uid = Auth.auth().currentUser!.uid
-            let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
+            let docRef = Firestore.firestore().collection(DatabaseKey.Users.name).document(uid)
 
-            if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name &&
+            if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name &&
                 Auth.auth().currentUser?.email!.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
                 self.errorLabel.text = "Mentors must use a .edu email address."
                 self.errorLabel.isHidden = false
@@ -111,8 +111,8 @@ extension SignInProvidersVC: GIDSignInDelegate {
                 if let document = document, document.exists {
                     Firestore
                         .firestore()
-                        .collection(DatabaseKey.users.name)
-                        .document(uid).collection(DatabaseKey.allowList.name)
+                        .collection(DatabaseKey.Users.name)
+                        .document(uid).collection(DatabaseKey.Allow_List.name)
                         .getDocuments(completion: { (querySnapshot, _) in
                         
                         guard let querySnapshot = querySnapshot else {

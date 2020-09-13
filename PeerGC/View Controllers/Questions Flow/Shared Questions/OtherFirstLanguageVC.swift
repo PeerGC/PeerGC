@@ -39,7 +39,7 @@ extension OtherFirstLanguageVC: TextFieldDelegate {
             return "Please enter a language."
         }
         
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.firstLanguage.name] = text
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.First_Language.name] = text
         
         return nil
     }

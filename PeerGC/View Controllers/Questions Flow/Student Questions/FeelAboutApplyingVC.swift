@@ -34,7 +34,7 @@ extension FeelAboutApplyingVC: GenericStructureViewControllerMetadataDelegate {
 
 extension FeelAboutApplyingVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .feelAboutApplying
+        return .How_Do_You_Feel_About_Applying
     }
     
     func buttons() -> [DatabaseValue] {

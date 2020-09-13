@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 enum DatabaseValue: String, CaseIterable {
     //accountType
     case student = "Student"

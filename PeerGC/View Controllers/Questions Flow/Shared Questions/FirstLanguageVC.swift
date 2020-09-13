@@ -42,7 +42,7 @@ extension FirstLanguageVC: GenericStructureViewControllerMetadataDelegate {
 
 extension FirstLanguageVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .firstLanguage
+        return .First_Language
     }
     
     func buttons() -> [DatabaseValue] {

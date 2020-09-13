@@ -34,7 +34,7 @@ extension WhyYouBeCounselorVC: GenericStructureViewControllerMetadataDelegate {
 
 extension WhyYouBeCounselorVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .whyYouWantBeCounselor
+        return .Why_Do_You_Want_To_Be_A_Peer_Guidance_Counselor
     }
     
     func buttons() -> [DatabaseValue] {

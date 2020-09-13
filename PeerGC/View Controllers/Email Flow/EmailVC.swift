@@ -43,7 +43,7 @@ class EmailVC: GenericStructureViewController {
             return
         }
         
-        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name && text.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
+        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name && text.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
             self.error(text: "Mentors must use a .edu email address.")
             return
         }
@@ -96,7 +96,7 @@ extension EmailVC: GenericStructureViewControllerMetadataDelegate {
     func subtitle() -> String? {
         var firstPart = "If you have an account, you will be asked to log in with your password. If not, you will be asked to create an account with a password."
         
-        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
+        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name {
             firstPart += " Please note that mentors must use a .edu email address."
         }
         

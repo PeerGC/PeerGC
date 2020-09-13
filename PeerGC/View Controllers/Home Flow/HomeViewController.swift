@@ -45,9 +45,9 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
             nothingToSeeHereLabel.isHidden = true
         }
         
-        if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name {
+        if HomeViewController.currentUserData?[DatabaseKey.Account_Type.name] == DatabaseValue.student.name {
             recTutors.text = "YOUR MATCHED MENTORS"
-        } else if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
+        } else if HomeViewController.currentUserData?[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name {
             recTutors.text = "YOUR MATCHED STUDENTS"
         }
         
@@ -94,7 +94,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                     print("Error fetching remote instance ID: \(error)")
                   } else if let result = result {
                     print("Remote instance ID token: \(result.token)")
-                    Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).setData([DatabaseKey.token.name: result.token ], merge: true)
+                    Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid).setData([DatabaseKey.Token.name: result.token ], merge: true)
                   }
                 }
                 //End Messaging
@@ -102,11 +102,11 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     func loadCardLoader(action: @escaping () -> Void) {
         self.action = action
-        Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
+        Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid ).getDocument { (document, error) in
             if let document = document, document.exists {
                 var dataDescription = document.data()
                 
-                dataDescription![DatabaseKey.uid.name] = Auth.auth().currentUser!.uid
+                dataDescription![DatabaseKey.UID.name] = Auth.auth().currentUser!.uid
                 guard let currentUserData = (dataDescription as? [String: String]) else {
                     Utilities.logError(customMessage: "Casting Error.", customCode: 4)
                     return
@@ -114,7 +114,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
 
                 HomeViewController.currentUserData = currentUserData
                 
-                self.reference = Firestore.firestore().collection([DatabaseKey.users.name, Auth.auth().currentUser!.uid, DatabaseKey.allowList.name].joined(separator: "/"))
+                self.reference = Firestore.firestore().collection([DatabaseKey.Users.name, Auth.auth().currentUser!.uid, DatabaseKey.Allow_List.name].joined(separator: "/"))
                 
                 self.cardListener = self.reference?.addSnapshotListener { querySnapshot, error in
                   guard let snapshot = querySnapshot else {
@@ -168,12 +168,12 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     func addChange(_ change: DocumentChange) {
         print(change.document.documentID)
         
-        for cell in remoteUserCells where cell.data![DatabaseKey.uid.name] == change.document.documentID {
+        for cell in remoteUserCells where cell.data![DatabaseKey.UID.name] == change.document.documentID {
             print("document already present")
             return
         }
         
-        Firestore.firestore().collection(DatabaseKey.users.name).document(change.document.documentID).getDocument { (document, error) in
+        Firestore.firestore().collection(DatabaseKey.Users.name).document(change.document.documentID).getDocument { (document, error) in
             
             if let error = error {
                 Crashlytics.crashlytics().record(error: error)
@@ -187,8 +187,8 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                     return
                 }
                 
-                dataDescription[DatabaseKey.uid.name] = change.document.documentID
-                dataDescription[DatabaseKey.relativeStatus.name] = (change.document.data())[DatabaseKey.relativeStatus.name] as? String
+                dataDescription[DatabaseKey.UID.name] = change.document.documentID
+                dataDescription[DatabaseKey.Relative_Status.name] = (change.document.data())[DatabaseKey.Relative_Status.name] as? String
                 
                 guard let customCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                     for: IndexPath(item: self.remoteUserCells.count, section: 0)) as? CustomCell else {
@@ -208,7 +208,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 self.collectionView?.reloadData()
                 self.pageControl?.numberOfPages = self.remoteUserCells.count
 
-                Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (querySnapshot, _) in
+                Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.Allow_List.name).getDocuments(completion: { (querySnapshot, _) in
                     DispatchQueue.main.async {
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
                         if querySnapshot!.count == self.remoteUserCells.count {
@@ -237,7 +237,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         for var index in 0..<remoteUserCells.count {
             print("start loop with i of \(index), current size of remoteUserCells is \(remoteUserCells.count)")
-            if remoteUserCells[index].data![DatabaseKey.uid.name] == change.document.documentID {
+            if remoteUserCells[index].data![DatabaseKey.UID.name] == change.document.documentID {
                 remoteUserCells.remove(at: index)
                 print("removed card at \(index)")
                 index -= 1
@@ -354,19 +354,19 @@ class CustomCell: UICollectionViewCell {
             
             button.backgroundColor = UIColor.systemPink
 
-            firstname.text = data![DatabaseKey.firstName.name]!
-            state.text = Utilities.getStateByZipCode(zipcode: data![DatabaseKey.zipCode.name]!)
+            firstname.text = data![DatabaseKey.First_Name.name]!
+            state.text = Utilities.getStateByZipCode(zipcode: data![DatabaseKey.ZIP_Code.name]!)
             
             setSentenceText()
-            downloadImage(url: URL(string: data![DatabaseKey.photoURL.name]!)!, imageView: imageView)
+            downloadImage(url: URL(string: data![DatabaseKey.Photo_URL.name]!)!, imageView: imageView)
             
             setUpMessageAddMentorButton(button: messageAddMentorButton)
         }
     }
     
     func setUpMessageAddMentorButton(button: UIButton) {
-        if data![DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
-            if data![DatabaseKey.relativeStatus.name] == DatabaseValue.matched.name {
+        if data![DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name {
+            if data![DatabaseKey.Relative_Status.name] == DatabaseValue.matched.name {
                 button.backgroundColor = .systemIndigo
                 button.setTitle("Message", for: .normal)
             } else {
@@ -377,15 +377,15 @@ class CustomCell: UICollectionViewCell {
     }
     
     func setSentenceText() {
-        let firstName = data![DatabaseKey.firstName.name]!
+        let firstName = data![DatabaseKey.First_Name.name]!
         
-        if data![DatabaseKey.accountType.name]! == DatabaseValue.student.name {
-            let highSchoolYear = DatabaseValue(name: data![DatabaseKey.schoolYear.name]!)!.rawValue
-            let interest = DatabaseValue(name: data![DatabaseKey.interest.name]!)!.rawValue
+        if data![DatabaseKey.Account_Type.name]! == DatabaseValue.student.name {
+            let highSchoolYear = DatabaseValue(name: data![DatabaseKey.What_Year_Of_School.name]!)!.rawValue
+            let interest = DatabaseValue(name: data![DatabaseKey.Which_Of_These_Interests_You_Most.name]!)!.rawValue
             
             var whereInProcess = ""
             
-            switch DatabaseValue(name: data![DatabaseKey.whereInProcess.name]!) {
+            switch DatabaseValue(name: data![DatabaseKey.Where_Are_You_In_The_College_Application_Process.name]!) {
                 case .hasntStartedLooking:
                     whereInProcess = "has /bnot started/b looking"
                 case .startedLookingNoPicks:
@@ -402,7 +402,7 @@ class CustomCell: UICollectionViewCell {
                 
             var lookingFor = ""
             
-            switch DatabaseValue(name: data![DatabaseKey.lookingFor.name]!) {
+            switch DatabaseValue(name: data![DatabaseKey.What_Are_You_Looking_For_From_A_Peer_Counselor.name]!) {
                 case .keepOnTrack:
                     lookingFor = "to help keep them /bon track/b"
                 case .infoOnCollegeWants:
@@ -417,9 +417,9 @@ class CustomCell: UICollectionViewCell {
                     break
             }
             
-            let kindOfCollege = DatabaseValue(name: data![DatabaseKey.feelAboutApplying.name]!) == .dontKnow ?
+            let kindOfCollege = DatabaseValue(name: data![DatabaseKey.How_Do_You_Feel_About_Applying.name]!) == .dontKnow ?
                 "/bdoesn't know/b what types of colleges they're interested in" :
-                "is interested in /b\(DatabaseValue(name: data![DatabaseKey.kindOfCollege.name]!)!.rawValue)/b"
+                "is interested in /b\(DatabaseValue(name: data![DatabaseKey.What_Kind_Of_College_Are_You_Considering.name]!)!.rawValue)/b"
             
             let sentenceString = """
                 \(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. \
@@ -428,17 +428,17 @@ class CustomCell: UICollectionViewCell {
             """
             
             sentence.attributedText = Utilities.indigoWhiteText(text: sentenceString)
-        } else if data![DatabaseKey.accountType.name]! == DatabaseValue.mentor.name {
-            let schoolYear = DatabaseValue(name: data![DatabaseKey.schoolYear.name]!)!.rawValue
-            let degree = DatabaseValue(name: data![DatabaseKey.whichDegree.name]!)!.rawValue
-            let major = DatabaseValue(name: data![DatabaseKey.major.name]!)!.rawValue
-            let university = data![DatabaseKey.collegeName.name]!
-            let testScore = data![DatabaseKey.testScore.name]!
-            let testTaken = DatabaseValue(name: data![DatabaseKey.testTaken.name]!)!.rawValue
-            let highSchoolGPA = DatabaseValue(name: data![DatabaseKey.highSchoolGPA.name]!)!.rawValue
-            let firstGenerationStatus = DatabaseValue(name: data![DatabaseKey.parentsGoToCollege.name]!)!
+        } else if data![DatabaseKey.Account_Type.name]! == DatabaseValue.mentor.name {
+            let schoolYear = DatabaseValue(name: data![DatabaseKey.What_Year_Of_School.name]!)!.rawValue
+            let degree = DatabaseValue(name: data![DatabaseKey.What_Kind_Of_Degree_Are_You_Currently_Pursuing.name]!)!.rawValue
+            let major = DatabaseValue(name: data![DatabaseKey.What_Field_Of_Study_Are_You_Currently_Pursuing.name]!)!.rawValue
+            let university = data![DatabaseKey.What_College_Do_You_Attend.name]!
+            let testScore = data![DatabaseKey.Test_Score.name]!
+            let testTaken = DatabaseValue(name: data![DatabaseKey.Which_Test_Did_You_Use_For_Your_College_Application.name]!)!.rawValue
+            let highSchoolGPA = DatabaseValue(name: data![DatabaseKey.What_Was_Your_High_School_GPA.name]!)!.rawValue
+            let firstGenerationStatus = DatabaseValue(name: data![DatabaseKey.Did_Either_Of_Your_Parents_Attend_Higher_Education.name]!)!
             let firstGenerationString = firstGenerationStatus == .yes ? "isn't" : "is"
-            let firstLanguge = data![DatabaseKey.firstLanguage.name]!
+            let firstLanguge = data![DatabaseKey.First_Language.name]!
             
             let testingString = testTaken == DatabaseValue.otherNone.rawValue ?
                 "applied to college /bwithout/b the SAT or ACT" :
@@ -446,7 +446,7 @@ class CustomCell: UICollectionViewCell {
             
             var whyTheyWantToBeCounselor = ""
             
-            switch DatabaseValue(name: data![DatabaseKey.whyYouWantBeCounselor.name]!) {
+            switch DatabaseValue(name: data![DatabaseKey.Why_Do_You_Want_To_Be_A_Peer_Guidance_Counselor.name]!) {
                 case .wishSomethingLikeThisExisted:
                     whyTheyWantToBeCounselor = "they wish they knew /bsomething like this/b existed for them"
                 case .canHelpWriteStrongEssays:
@@ -494,13 +494,13 @@ class CustomCell: UICollectionViewCell {
     @IBAction func addMentorMessageButtonPressed(_ sender: UIButton) {
                 
         if sender.titleLabel?.text == "Add Mentor" {
-            data![DatabaseKey.relativeStatus.name] = DatabaseValue.matched.name
+            data![DatabaseKey.Relative_Status.name] = DatabaseValue.matched.name
             Firestore.firestore()
-                .collection(DatabaseKey.users.name)
+                .collection(DatabaseKey.Users.name)
                 .document(Auth.auth().currentUser!.uid)
-                .collection(DatabaseKey.allowList.name)
-                .document(data![DatabaseKey.uid.name]!)
-                .setData([DatabaseKey.relativeStatus.name: DatabaseValue.matched.name], merge: true)
+                .collection(DatabaseKey.Allow_List.name)
+                .document(data![DatabaseKey.UID.name]!)
+                .setData([DatabaseKey.Relative_Status.name: DatabaseValue.matched.name], merge: true)
             sender.backgroundColor = .systemIndigo
             sender.setTitle("Message", for: .normal)
             let alertController = UIAlertController(title: "Mentor Added!",
@@ -519,15 +519,15 @@ class CustomCell: UICollectionViewCell {
         
         let viewController = ChatViewController()
         
-        if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.student.name {
-            viewController.identifier = "\(data![DatabaseKey.uid.name]!)-\(Auth.auth().currentUser!.uid)"
+        if HomeViewController.currentUserData?[DatabaseKey.Account_Type.name] == DatabaseValue.student.name {
+            viewController.identifier = "\(data![DatabaseKey.UID.name]!)-\(Auth.auth().currentUser!.uid)"
             print("set ChatVC ID to \(viewController.identifier)")
-        } else if HomeViewController.currentUserData?[DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
-            viewController.identifier = "\(Auth.auth().currentUser!.uid)-\(data![DatabaseKey.uid.name]!)"
+        } else if HomeViewController.currentUserData?[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name {
+            viewController.identifier = "\(Auth.auth().currentUser!.uid)-\(data![DatabaseKey.UID.name]!)"
             print("set ChatVC ID to \(viewController.identifier)")
         }
         
-        viewController.header = data![DatabaseKey.firstName.name]!
+        viewController.header = data![DatabaseKey.First_Name.name]!
         viewController.customCell = self
         viewController.remoteReceiverImage = imageView.image
         viewController.currentSenderImage = HomeViewController.currentUserImage

@@ -47,23 +47,23 @@ class FirstMessageVC: UIViewController {
     }
     
     func setOptions() {
-        if customCell!.data![DatabaseKey.accountType.name] == DatabaseValue.student.name {
+        if customCell!.data![DatabaseKey.Account_Type.name] == DatabaseValue.student.name {
             option1Button.setTitle(
                 """
                 I was wondering if you could tell me about how you first got interested in
-                \(DatabaseValue(name: customCell!.data![DatabaseKey.interest.name]!)!.rawValue)?
+                \(DatabaseValue(name: customCell!.data![DatabaseKey.Which_Of_These_Interests_You_Most.name]!)!.rawValue)?
                 """, for: .normal)
             option2Button.setTitle("""
                 Why'd you choose \(DatabaseValue(name:
-                customCell!.data![DatabaseKey.kindOfCollege.name]!)!.rawValue) as your college type?
+                customCell!.data![DatabaseKey.What_Kind_Of_College_Are_You_Considering.name]!)!.rawValue) as your college type?
                 """, for: .normal)
             option3Button.setTitle("Hello! What can I help you with the most?", for: .normal)
-        } else if customCell!.data![DatabaseKey.accountType.name] == DatabaseValue.mentor.name {
+        } else if customCell!.data![DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name {
             option1Button.setTitle("""
                 I was wondering if you could tell me about how you first got interested in
-                \(DatabaseValue(name: customCell!.data![DatabaseKey.major.name]!)!.rawValue)?
+                \(DatabaseValue(name: customCell!.data![DatabaseKey.What_Field_Of_Study_Are_You_Currently_Pursuing.name]!)!.rawValue)?
                 """, for: .normal)
-            option2Button.setTitle("Why'd you choose \(customCell!.data![DatabaseKey.collegeName.name]!) as your school?", for: .normal)
+            option2Button.setTitle("Why'd you choose \(customCell!.data![DatabaseKey.What_College_Do_You_Attend.name]!) as your school?", for: .normal)
             option3Button.setTitle("I was wondering if you could help me with standardized testing?", for: .normal)
         }
         

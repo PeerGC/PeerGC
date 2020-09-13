@@ -34,7 +34,7 @@ extension RaceVC: GenericStructureViewControllerMetadataDelegate {
 
 extension RaceVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .race
+        return .Race
     }
     
     func buttons() -> [DatabaseValue] {

@@ -41,12 +41,12 @@ class MatchingVC: GenericStructureViewController {
             photoURLString = "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
         }
         
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.photoURL.name] = photoURLString
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.firstName.name] = Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.Photo_URL.name] = photoURLString
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.First_Name.name] = Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]
         
         //Upload Data
         
-        let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
+        let docRef = Firestore.firestore().collection(DatabaseKey.Users.name).document(uid)
         
         docRef.getDocument { (document, _) in
             if let document = document, document.exists {
@@ -61,7 +61,7 @@ class MatchingVC: GenericStructureViewController {
     }
     
     func uploadDataToDatabase() {
-        Firestore.firestore().collection(DatabaseKey.users.name).document(Auth.auth().currentUser!.uid).setData(GenericStructureViewController.sendToDatabaseData) { (error) in
+        Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid).setData(GenericStructureViewController.sendToDatabaseData) { (error) in
             
             if error != nil {
                 // Show error message
@@ -71,7 +71,7 @@ class MatchingVC: GenericStructureViewController {
     }
     
     func matchStudentToMentors() {
-        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] == DatabaseValue.student.name {
+        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] == DatabaseValue.student.name {
             functions.httpsCallable("matchStudentToMentors").call(["uid": Auth.auth().currentUser!.uid]) { (_, _) in
                 self.doneLoading()
             }

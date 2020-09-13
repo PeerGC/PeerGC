@@ -35,7 +35,7 @@ extension LookingForVC: GenericStructureViewControllerMetadataDelegate {
 
 extension LookingForVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .lookingFor
+        return .What_Are_You_Looking_For_From_A_Peer_Counselor
     }
     
     func buttons() -> [DatabaseValue] {

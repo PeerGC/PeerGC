@@ -37,12 +37,12 @@ class EntranceViewController: UIViewController {
     }
 
     @IBAction func studentButtonPressed(_ sender: Any) {
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] = DatabaseValue.student.name
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] = DatabaseValue.student.name
         performSegue(withIdentifier: "goToSignInProviders", sender: nil)
     }
     
     @IBAction func mentorButtonPressed(_ sender: Any) {
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.accountType.name] = DatabaseValue.mentor.name
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] = DatabaseValue.mentor.name
         performSegue(withIdentifier: "goToSignInProviders", sender: nil)
     }
     

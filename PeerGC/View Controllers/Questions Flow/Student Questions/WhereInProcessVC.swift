@@ -34,7 +34,7 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
 
 extension WhereInProcessVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .whereInProcess
+        return .Where_Are_You_In_The_College_Application_Process
     }
     
     func buttons() -> [DatabaseValue] {

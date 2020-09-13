@@ -34,7 +34,7 @@ extension WhichStudentTypeVC: GenericStructureViewControllerMetadataDelegate {
 
 extension WhichStudentTypeVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .whichStudentType
+        return .What_Kind_Of_Student_Would_You_Be_Most_Excited_To_Mentor
     }
     
     func buttons() -> [DatabaseValue] {

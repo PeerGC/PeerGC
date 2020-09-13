@@ -43,11 +43,11 @@ class ChatViewController: MessagesViewController {
             }
             
             let toReturn: [String: Any] = [
-                DatabaseKey.senderID.name: sender.senderId,
-                DatabaseKey.senderDisplayName.name: sender.displayName,
-                DatabaseKey.messageID.name: messageId,
-                DatabaseKey.dateStamp.name: sentDate,
-                DatabaseKey.content.name: text.string
+                DatabaseKey.Sender_ID.name: sender.senderId,
+                DatabaseKey.Sender_Display_Name.name: sender.displayName,
+                DatabaseKey.Message_ID.name: messageId,
+                DatabaseKey.Date_Stamp.name: sentDate,
+                DatabaseKey.Content.name: text.string
             ]
           
           return toReturn
@@ -174,12 +174,12 @@ class ChatViewController: MessagesViewController {
             Utilities.logError(customMessage: "An error occured with Firebase.", customCode: 3)
         }
         
-        guard let body = message.representation[DatabaseKey.content.name] as? String else {
+        guard let body = message.representation[DatabaseKey.Content.name] as? String else {
             Utilities.logError(customMessage: "Casting Error.", customCode: 4)
             return
         }
         
-        if let remoteInstanceID = self.customCell?.data?[DatabaseKey.token.name] {
+        if let remoteInstanceID = self.customCell?.data?[DatabaseKey.Token.name] {
             Utilities.sendPushNotification(to: remoteInstanceID,
                 title: Auth.auth().currentUser!.displayName!.components(separatedBy: [" "])[0],
                 body: body)

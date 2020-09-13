@@ -33,7 +33,7 @@ extension MajorVC: GenericStructureViewControllerMetadataDelegate {
 
 extension MajorVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .major
+        return .What_Field_Of_Study_Are_You_Currently_Pursuing
     }
     
     func buttons() -> [DatabaseValue] {
