@@ -30,9 +30,5 @@ class PeerGCTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
-    func testFailure() {
-        XCTFail("Forced Failure")
-    }
 
 }
