@@ -24,9 +24,9 @@ enum DatabaseKey: CaseIterable {
     case Race
     case Did_Either_Of_Your_Parents_Attend_Higher_Education
     case First_Language
-    case What_Year_Of_School
     
     //Student Question Keys
+    case What_Year_Of_High_School
     case Which_Of_These_Interests_You_Most
     case What_Are_You_Looking_For_From_A_Peer_Counselor
     case Where_Are_You_In_The_College_Application_Process
@@ -35,6 +35,7 @@ enum DatabaseKey: CaseIterable {
     case Why_Do_You_Want_To_Go_To_College
     
     //Mentor Question Keys
+    case What_Year_Of_College
     case What_Field_Of_Study_Are_You_Currently_Pursuing
     case What_College_Do_You_Attend
     case What_Was_Your_High_School_GPA

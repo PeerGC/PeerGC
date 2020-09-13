@@ -380,7 +380,7 @@ class CustomCell: UICollectionViewCell {
         let firstName = data![DatabaseKey.First_Name.name]!
         
         if data![DatabaseKey.Account_Type.name]! == DatabaseValue.student.name {
-            let highSchoolYear = DatabaseValue(name: data![DatabaseKey.What_Year_Of_School.name]!)!.rawValue
+            let highSchoolYear = DatabaseValue(name: data![DatabaseKey.What_Year_Of_High_School.name]!)!.rawValue
             let interest = DatabaseValue(name: data![DatabaseKey.Which_Of_These_Interests_You_Most.name]!)!.rawValue
             
             var whereInProcess = ""
@@ -429,7 +429,7 @@ class CustomCell: UICollectionViewCell {
             
             sentence.attributedText = Utilities.indigoWhiteText(text: sentenceString)
         } else if data![DatabaseKey.Account_Type.name]! == DatabaseValue.mentor.name {
-            let schoolYear = DatabaseValue(name: data![DatabaseKey.What_Year_Of_School.name]!)!.rawValue
+            let schoolYear = DatabaseValue(name: data![DatabaseKey.What_Year_Of_College.name]!)!.rawValue
             let degree = DatabaseValue(name: data![DatabaseKey.What_Kind_Of_Degree_Are_You_Currently_Pursuing.name]!)!.rawValue
             let major = DatabaseValue(name: data![DatabaseKey.What_Field_Of_Study_Are_You_Currently_Pursuing.name]!)!.rawValue
             let university = data![DatabaseKey.What_College_Do_You_Attend.name]!
