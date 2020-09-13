@@ -59,6 +59,7 @@ enum DatabaseKey: CaseIterable {
     case Message_ID
     case Date_Stamp
     case Content
+    case Profile_Picture
     
     var name: String {
         return String(describing: self)

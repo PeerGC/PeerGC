@@ -45,7 +45,7 @@ extension ProfilePictureVC: ImagePickerDelegate {
         
         guard let imageData = image.pngData() else { return }
         
-        let profilePicStorageRef = Storage.storage().reference().child("users/\(Auth.auth().currentUser!.uid)/profilePicture")
+        let profilePicStorageRef = Storage.storage().reference().child("\(DatabaseKey.Users.name)/\(Auth.auth().currentUser!.uid)/\(DatabaseKey.Profile_Picture.name)")
         
         profilePicStorageRef.putData(imageData, metadata: nil) { (_, error) in
             
