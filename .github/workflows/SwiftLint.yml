@@ -2,17 +2,11 @@ name: SwiftLint
 
 on:
   pull_request:
-    branches:
-      - prod
-      - dev
     paths:
       - '.github/workflows/swiftlint.yml'
       - '.swiftlint.yml'
       - '**/*.swift'
   push:
-    branches:
-      - prod
-      - dev
     paths:
       - '.github/workflows/swiftlint.yml'
       - '.swiftlint.yml'
