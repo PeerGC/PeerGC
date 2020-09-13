@@ -1,0 +1,14 @@
+name: XcodeBuild
+
+on:
+  push:
+
+jobs:
+  XcodeBuild:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    - name: Start xcodebuild test
+      run: xcodebuild -workspace PeerGC.xcworkspace -scheme PeerGC -destination "platform=iOS Simulator,name=iPhone 11 Pro"
