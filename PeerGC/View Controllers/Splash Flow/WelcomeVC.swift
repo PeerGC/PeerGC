@@ -27,7 +27,7 @@ class WelcomeVC: UIViewController {
     }
     
     @IBAction func letsStartButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
