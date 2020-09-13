@@ -8,9 +8,9 @@ on:
       - '**/*.swift'
   push:
     paths:
-    - '.github/workflows/swiftlint.yml'
-    - '.swiftlint.yml'
-    - '**/*.swift'
+      - '.github/workflows/swiftlint.yml'
+      - '.swiftlint.yml'
+      - '**/*.swift'
 
 jobs:
   SwiftLint:
