@@ -37,6 +37,6 @@ extension KindOfCollegeVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.localCommunityColleges, .fourYearCityColleges, .tradeSchools, .topTierUniversites, .dontKnow]
+        return [.local_community_colleges_only, .four_year_city_colleges, .trade_schools, .top_tier_universities, .i_dont_know]
     }
 }

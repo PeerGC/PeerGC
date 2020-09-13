@@ -38,6 +38,6 @@ extension WhichStudentTypeVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.financiallyUnderprivileged, .lgbtq, .womenInStem, .similarCultureReligion, .similarRacialBackground]
+        return [.financially_underprivileged, .lgbtq, .women_in_stem, .similar_cultural_or_religious_background_as_you, .similar_racial_background_as_you]
     }
 }

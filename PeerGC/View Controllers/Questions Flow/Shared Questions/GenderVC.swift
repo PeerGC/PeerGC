@@ -38,6 +38,6 @@ extension GenderVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.male, .female, .nonBinary, .other]
+        return [.male, .female, .non_binary, .other]
     }
 }

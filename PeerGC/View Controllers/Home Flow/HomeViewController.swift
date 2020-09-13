@@ -386,15 +386,15 @@ class CustomCell: UICollectionViewCell {
             var whereInProcess = ""
             
             switch DatabaseValue(name: data![DatabaseKey.Where_Are_You_In_The_College_Application_Process.name]!) {
-                case .hasntStartedLooking:
+                case .i_havent_started_looking:
                     whereInProcess = "has /bnot started/b looking"
-                case .startedLookingNoPicks:
+                case .i_started_looking_but_havent_picked_any_schools:
                     whereInProcess = "has /bstarted looking/b but hasn't picked any schools"
-                case .pickedNotApplying:
+                case .ive_picked_schools_but_havent_started_applying:
                     whereInProcess = "has /bpicked schools/b but hasn't began applying"
-                case .startedAppsButStuck:
+                case .ive_started_applications_but_im_stuck:
                     whereInProcess = "has /bstarted applications/b but is stuck"
-                case .doneWithApps:
+                case .im_done_with_applications:
                     whereInProcess = "is /bdone/b with applications"
                 default:
                     break
@@ -403,21 +403,21 @@ class CustomCell: UICollectionViewCell {
             var lookingFor = ""
             
             switch DatabaseValue(name: data![DatabaseKey.What_Are_You_Looking_For_From_A_Peer_Counselor.name]!) {
-                case .keepOnTrack:
+                case .to_help_keep_me_on_track:
                     lookingFor = "to help keep them /bon track/b"
-                case .infoOnCollegeWants:
+                case .to_provide_info_on_what_colleges_look_for:
                     lookingFor = "to provide info on what /bcolleges look for/b"
-                case .supportSystem:
+                case .to_find_a_support_system_in_college:
                     lookingFor = "that can provide a /bsupport system/b in college"
-                case .entranceTests:
+                case .to_help_with_college_entrance_tests:
                     lookingFor = "to help with college /bentrance tests/b"
-                case .essays:
+                case .to_help_with_essays:
                     lookingFor = "to help with /bessays/b"
                 default:
                     break
             }
             
-            let kindOfCollege = DatabaseValue(name: data![DatabaseKey.How_Do_You_Feel_About_Applying.name]!) == .dontKnow ?
+            let kindOfCollege = DatabaseValue(name: data![DatabaseKey.How_Do_You_Feel_About_Applying.name]!) == .i_dont_know ?
                 "/bdoesn't know/b what types of colleges they're interested in" :
                 "is interested in /b\(DatabaseValue(name: data![DatabaseKey.What_Kind_Of_College_Are_You_Considering.name]!)!.rawValue)/b"
             
@@ -440,22 +440,22 @@ class CustomCell: UICollectionViewCell {
             let firstGenerationString = firstGenerationStatus == .yes ? "isn't" : "is"
             let firstLanguge = data![DatabaseKey.First_Language.name]!
             
-            let testingString = testTaken == DatabaseValue.otherNone.rawValue ?
+            let testingString = testTaken == DatabaseValue.other_or_none.rawValue ?
                 "applied to college /bwithout/b the SAT or ACT" :
                 "applied to college with a /b\(testScore)/b on the /b\(testTaken)/b exam"
             
             var whyTheyWantToBeCounselor = ""
             
             switch DatabaseValue(name: data![DatabaseKey.Why_Do_You_Want_To_Be_A_Peer_Guidance_Counselor.name]!) {
-                case .wishSomethingLikeThisExisted:
+                case .you_wish_something_like_this_existed_for_you:
                     whyTheyWantToBeCounselor = "they wish they knew /bsomething like this/b existed for them"
-                case .canHelpWriteStrongEssays:
+                case .you_can_help_write_strong_essays:
                     whyTheyWantToBeCounselor = "they can help write /bstrong essays/b"
-                case .scoredWellOnAdmissionsTests:
+                case .you_scored_well_on_admissions_tests:
                     whyTheyWantToBeCounselor = "they /bscored well/b on admissions tests"
-                case .sociallyEmotionallySupport:
+                case .you_can_socially_or_emotionally_support_mentees:
                     whyTheyWantToBeCounselor = "they can /bsocially and emotionally/b support you"
-                case .somethingElse:
+                case .something_else:
                     whyTheyWantToBeCounselor = "of an /bUnspecified Reason/b"
                 default:
                     break

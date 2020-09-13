@@ -38,6 +38,10 @@ extension WhereInProcessVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.hasntStartedLooking, .startedLookingNoPicks, .pickedNotApplying, .startedAppsButStuck, .doneWithApps]
+        return [.i_havent_started_looking,
+                .i_started_looking_but_havent_picked_any_schools,
+                .ive_picked_schools_but_havent_started_applying,
+                .ive_started_applications_but_im_stuck,
+                .im_done_with_applications]
     }
 }

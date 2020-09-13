@@ -11,140 +11,140 @@ import Foundation
 // swiftlint:disable identifier_name
 
 enum DatabaseValue: String, CaseIterable {
-    //accountType
+    //Account_Type
     case student = "Student"
     case mentor = "Mentor"
     
-    //gender
+    //Gender
     case male = "Male"
     case female = "Female"
-    case nonBinary = "Non-Binary"
+    case non_binary = "Non-Binary"
     case other = "Other"
     
-    //lgbtq
+    //Financial_Level
+    case below_average = "Below Average"
+    case average = "Average"
+    case above_average = "Above Average"
+    
+    //LGBTQ
     case yes = "Yes"
     case no = "No"
     
-    //race
+    //Race
     case white = "White"
-    case blackAfricanAmerican = "Black / African American"
-    case americanIndianAlaskaNative = "American Indian / Alaska Native"
+    case black_or_african_american = "Black / African American"
+    case american_indian_or_alaska_native = "American Indian / Alaska Native"
     case asian = "Asian"
-    case nativeHawaiianPacificIslander = "Native Hawaiian / Pacific Islander"
+    case native_hawaiian_or_pacific_islander = "Native Hawaiian / Pacific Islander"
     
-    //parentsGoToCollege
-    case partially = "Partially but with no degree"
+    //Did_Either_Of_Your_Parents_Attend_Higher_Education
+    case partially_but_with_no_degree = "Partially but with no degree"
     
-    //schoolYear
+    //What_Year_Of_High_School and What_Year_Of_College
     case freshman = "Freshman"
     case sophomore = "Sophomore"
     case junior = "Junior"
     case senior = "Senior"
     
-    //interest
+    //Which_Of_These_Interests_You_Most and What_Field_Of_Study_Are_You_Currently_Pursuing
     case humanities = "Humanities"
-    case mathComputerScience = "Math / Computer Science"
+    case math_or_computer_science = "Math / Computer Science"
     case sciences = "Sciences"
     case business = "Business"
-    case artTheatre = "Art / Theatre"
+    case art_or_theatre = "Art / Theatre"
     
-    //lookingFor
-    case keepOnTrack = "To help keep me on track"
-    case infoOnCollegeWants = "To provide info on what colleges look for"
-    case supportSystem = "To find a support system in college"
-    case entranceTests = "To help with college entrance tests"
-    case essays = "To help with essays"
+    //What_Are_You_Looking_For_From_A_Peer_Counselor
+    case to_help_keep_me_on_track = "To help keep me on track"
+    case to_provide_info_on_what_colleges_look_for = "To provide info on what colleges look for"
+    case to_find_a_support_system_in_college = "To find a support system in college"
+    case to_help_with_college_entrance_tests = "To help with college entrance tests"
+    case to_help_with_essays = "To help with essays"
     
-    //whereInProcess
-    case hasntStartedLooking = "I haven’t started looking"
-    case startedLookingNoPicks = "I started looking but haven’t picked any schools"
-    case pickedNotApplying = "I've picked schools but haven't started applying"
-    case startedAppsButStuck = "I've started applications but I'm stuck"
-    case doneWithApps = "I'm done with applications"
+    //Where_Are_You_In_The_College_Application_Process
+    case i_havent_started_looking = "I haven’t started looking"
+    case i_started_looking_but_havent_picked_any_schools = "I started looking but haven’t picked any schools"
+    case ive_picked_schools_but_havent_started_applying = "I've picked schools but haven't started applying"
+    case ive_started_applications_but_im_stuck = "I've started applications but I'm stuck"
+    case im_done_with_applications = "I'm done with applications"
     
-    //feelAboutApplying
-    case noIdea = "No idea what I’m doing"
-    case someIdea = "Some idea of where to start"
-    case startedButStuck = "Started but stuck"
-    case prettyGoodIdea = "Pretty good idea of what I have to do"
-    case takenAllKnownSteps = "Have taken all known steps"
+    //How_Do_You_Feel_About_Applying
+    case no_idea_what_im_doing = "No idea what I’m doing"
+    case some_idea_of_where_to_start = "Some idea of where to start"
+    case started_but_stuck = "Started but stuck"
+    case pretty_good_idea_of_what_i_have_to_do = "Pretty good idea of what I have to do"
+    case have_taken_all_known_steps = "Have taken all known steps"
     
-    //kindOfCollege
-    case localCommunityColleges = "Local community colleges only"
-    case fourYearCityColleges = "Four year city colleges"
-    case tradeSchools = "Trade schools"
-    case topTierUniversites = "Top Tier Universities"
-    case dontKnow = "I don’t know"
+    //What_Kind_Of_College_Are_You_Considering
+    case local_community_colleges_only = "Local community colleges only"
+    case four_year_city_colleges = "Four year city colleges"
+    case trade_schools = "Trade schools"
+    case top_tier_universities = "Top Tier Universities"
+    case i_dont_know = "I don’t know"
     
-    //whyCollege
-    case getOutOfLivingSituation = "Get out of current living situation"
-    case specificFieldOfStudy = "Specific field of study"
-    case highPayingJob = "To get a high paying job"
+    //Why_Do_You_Want_To_Go_To_College
+    case get_out_of_current_living_situation = "Get out of current living situation"
+    case specific_field_of_study = "Specific field of study"
+    case to_get_a_high_paying_job = "To get a high paying job"
     case athletics = "Atheltics"
     
-    //highSchoolGPA
-    case twoOrUnder = "2 or under"
-    case betweenTwoAndThree = "Between 2 and 3"
-    case betweenThreeAndFour = "Between 3 and 4"
-    case fourPlus = "4+"
+    //What_Was_Your_High_School_GPA
+    case two_or_under = "2 or under"
+    case between_two_and_three = "Between 2 and 3"
+    case between_three_and_four = "Between 3 and 4"
+    case four_or_higher = "4+"
     
-    //testTaken
+    //Which_Test_Did_You_Use_For_Your_College_Application
     case sat = "SAT"
     case act = "ACT"
-    case otherNone = "Other / None"
+    case other_or_none = "Other / None"
     
-    //helpMost
-    case generalGuidance = "General guidance / keeping on track"
-    case infoCollegeLookFor = "Info on what colleges look for"
-    case findingSupportSystem = "Finding a support system in college"
-    case collegeEntranceTests = "College entrance tests"
-    case applicationEssays = "Application essays"
+    //Where_Can_You_Help_A_Student_Most
+    case general_guidance_or_keeping_on_track = "General guidance / keeping on track"
+    case info_on_what_colleges_look_for = "Info on what colleges look for"
+    case finding_a_support_system_in_college = "Finding a support system in college"
+    case college_entrance_tests = "College entrance tests"
+    case application_essays = "Application essays"
     
-    //whyYourCollege
-    case closeToHome = "Close to home"
-    case bigNameSchool = "Big name school"
-    case bestScholarship = "Best scholarship"
-    case bestReligionCultureFit = "Best fit with your religion or culture"
-    case somethingElse = "Something else"
+    //Why_Did_You_Choose_The_College_You_Are_In
+    case close_to_home = "Close to home"
+    case big_name_school = "Big name school"
+    case best_scholarship = "Best scholarship"
+    case best_fit_with_your_religion_or_culture = "Best fit with your religion or culture"
+    case something_else = "Something else"
     
-    //postGradAspirations
-    case continuedStudy = "Continued study [masters / PhD / MD ...]"
+    //What_Are_Your_Post_Grad_Aspirations
+    case continued_study = "Continued study [masters / PhD / MD ...]"
     case atheltics  = "Athelitcs"
-    case relatedIndustry = "Work in an industry related to your major"
-    case earnMoney = "Earn money with your degree"
+    case work_in_an_industry_related_to_your_major = "Work in an industry related to your major"
+    case earn_money_with_your_degree = "Earn money with your degree"
     
-    //whichStudentType
-    case financiallyUnderprivileged = "Financially underprivileged"
+    //Why_Do_You_Want_To_Be_A_Peer_Guidance_Counselor
+    case you_wish_something_like_this_existed_for_you = "You wish something like this existed for you"
+    case you_can_help_write_strong_essays = "You can help write strong essays"
+    case you_scored_well_on_admissions_tests = "You scored well on admission tests"
+    case you_can_socially_or_emotionally_support_mentees = "You can socially/emotionally support mentees"
+    
+    //What_Kind_Of_Student_Would_You_Be_Most_Excited_To_Mentor
+    case financially_underprivileged = "Financially underprivileged"
     case lgbtq = "LGBTQ"
-    case womenInStem = "Women in STEM"
-    case similarCultureReligion = "Similar cultural/religious background as you"
-    case similarRacialBackground = "Similar racial background as you"
+    case women_in_stem = "Women in STEM"
+    case similar_cultural_or_religious_background_as_you = "Similar cultural/religious background as you"
+    case similar_racial_background_as_you = "Similar racial background as you"
     
-    //whichDegree
+    //What_Kind_Of_Degree_Are_You_Currently_Pursuing
     case aa = "AA"
-    case aaForTransfer = "AA for transfer"
-    case bachelorArtScience = "Bachelor of Art or Science"
-    case tradeSchoolDegree = "Trade school degree"
+    case aa_for_transfer = "AA for transfer"
+    case bachelor_of_art_or_science = "Bachelor of Art or Science"
+    case trade_school_degree = "Trade school degree"
     
-    //firstLangauge
+    //First_Language
     case english = "English"
     
-    //testScore
-    case na = "N/A"
+    //Test_Score
+    case not_availible = "N/A"
     
-    //whyYouWantBeCounselor
-    case wishSomethingLikeThisExisted = "You wish something like this existed for you"
-    case canHelpWriteStrongEssays = "You can help write strong essays"
-    case scoredWellOnAdmissionsTests = "You scored well on admission tests"
-    case sociallyEmotionallySupport = "You can socially/emotionally support mentees"
-    
-    //status
+    //Relative_Status
     case matched
-    
-    //financialLevel
-    case belowAverage = "Below Average"
-    case average = "Average"
-    case aboveAverage = "Above Average"
     
     var name: String {
         return String(describing: self)

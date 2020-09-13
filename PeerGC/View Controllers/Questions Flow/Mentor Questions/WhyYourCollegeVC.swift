@@ -37,6 +37,6 @@ extension WhyYourCollegeVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.closeToHome, .bigNameSchool, .bestScholarship, .bestReligionCultureFit, .somethingElse]
+        return [.close_to_home, .big_name_school, .best_scholarship, .best_fit_with_your_religion_or_culture, .something_else]
     }
 }

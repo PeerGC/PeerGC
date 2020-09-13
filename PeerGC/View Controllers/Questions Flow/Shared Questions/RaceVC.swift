@@ -38,6 +38,6 @@ extension RaceVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.white, .blackAfricanAmerican, .americanIndianAlaskaNative, .asian, .nativeHawaiianPacificIslander, .other]
+        return [.white, .black_or_african_american, .american_indian_or_alaska_native, .asian, .native_hawaiian_or_pacific_islander, .other]
     }
 }

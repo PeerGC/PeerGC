@@ -38,6 +38,6 @@ extension WhyCollegeVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.getOutOfLivingSituation, .specificFieldOfStudy, .highPayingJob, .atheltics, .dontKnow]
+        return [.get_out_of_current_living_situation, .specific_field_of_study, .to_get_a_high_paying_job, .atheltics, .i_dont_know]
     }
 }

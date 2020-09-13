@@ -43,6 +43,6 @@ extension FirstGenerationVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.yes, .no, .partially]
+        return [.yes, .no, .partially_but_with_no_degree]
     }
 }

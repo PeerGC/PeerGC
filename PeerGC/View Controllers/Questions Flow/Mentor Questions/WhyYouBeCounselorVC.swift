@@ -38,6 +38,10 @@ extension WhyYouBeCounselorVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.wishSomethingLikeThisExisted, .canHelpWriteStrongEssays, .scoredWellOnAdmissionsTests, .sociallyEmotionallySupport, .somethingElse]
+        return [.you_wish_something_like_this_existed_for_you,
+                .you_can_help_write_strong_essays,
+                .you_scored_well_on_admissions_tests,
+                .you_can_socially_or_emotionally_support_mentees,
+                .something_else]
     }
 }

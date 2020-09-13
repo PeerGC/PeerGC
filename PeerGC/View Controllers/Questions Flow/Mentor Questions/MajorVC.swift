@@ -37,6 +37,6 @@ extension MajorVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.humanities, .mathComputerScience, .sciences, .business, .artTheatre]
+        return [.humanities, .math_or_computer_science, .sciences, .business, .art_or_theatre]
     }
 }
