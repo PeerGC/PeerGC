@@ -33,7 +33,7 @@ extension LGBTQVC: GenericStructureViewControllerMetadataDelegate {
 
 extension LGBTQVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .lgbtq
+        return .LGBTQ
     }
     
     func buttons() -> [DatabaseValue] {

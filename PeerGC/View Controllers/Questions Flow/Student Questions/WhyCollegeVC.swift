@@ -34,10 +34,10 @@ extension WhyCollegeVC: GenericStructureViewControllerMetadataDelegate {
 
 extension WhyCollegeVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .whyCollege
+        return .Why_Do_You_Want_To_Go_To_College
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.getOutOfLivingSituation, .specificFieldOfStudy, .highPayingJob, .atheltics, .dontKnow]
+        return [.get_out_of_current_living_situation, .specific_field_of_study, .to_get_a_high_paying_job, .atheltics, .i_dont_know]
     }
 }

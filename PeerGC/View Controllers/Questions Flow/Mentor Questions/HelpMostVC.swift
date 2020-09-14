@@ -33,10 +33,10 @@ extension HelpMostVC: GenericStructureViewControllerMetadataDelegate {
 
 extension HelpMostVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .helpMost
+        return .Where_Can_You_Help_A_Student_Most
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.generalGuidance, .infoCollegeLookFor, .findingSupportSystem, .collegeEntranceTests, .applicationEssays]
+        return [.general_guidance_or_keeping_on_track, .info_on_what_colleges_look_for, .finding_a_support_system_in_college, .college_entrance_tests, .application_essays]
     }
 }

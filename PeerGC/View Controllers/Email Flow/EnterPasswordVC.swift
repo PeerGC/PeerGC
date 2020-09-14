@@ -71,11 +71,11 @@ class EnterPasswordVC: GenericStructureViewController {
             } else {
                 self?.errorLabel!.isHidden = true
                 let uid = Auth.auth().currentUser!.uid
-                let docRef = Firestore.firestore().collection(DatabaseKey.users.name).document(uid)
+                let docRef = Firestore.firestore().collection(DatabaseKey.Users.name).document(uid)
                 
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
-                        Firestore.firestore().collection(DatabaseKey.users.name).document(uid).collection(DatabaseKey.allowList.name).getDocuments(completion: { (_, _) in
+                        Firestore.firestore().collection(DatabaseKey.Users.name).document(uid).collection(DatabaseKey.Allow_List.name).getDocuments(completion: { (_, _) in
                             
                             Utilities.loadHomeScreen()
                         })

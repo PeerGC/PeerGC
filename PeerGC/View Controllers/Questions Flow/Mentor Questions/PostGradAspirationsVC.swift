@@ -34,10 +34,10 @@ extension PostGradAspirationsVC: GenericStructureViewControllerMetadataDelegate 
 
 extension PostGradAspirationsVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .postGradAspirations
+        return .What_Are_Your_Post_Grad_Aspirations
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.continuedStudy, .atheltics, .relatedIndustry, .earnMoney, .somethingElse]
+        return [.continued_study, .atheltics, .work_in_an_industry_related_to_your_major, .earn_money_with_your_degree, .something_else]
     }
 }

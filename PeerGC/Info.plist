@@ -25,13 +25,15 @@
 			<string>com.googleusercontent.apps.494119397893-m8t9068a6ogb0jvuj0efdnivjhje9o90</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>com.googleusercontent.apps.117153529604-mframcmtb2qr96s3isk7v41fa09rhdiq</string>
+				<string>com.googleusercontent.apps.640194154734-itcsq5352024qmau2fsdc3pkin49avj5</string>
 				<string>com.googleusercontent.apps.494119397893-l9dvnau11aeu3gq94nllkiahclqmplo7</string>
 				<string>com.googleusercontent.apps.494119397893-m8t9068a6ogb0jvuj0efdnivjhje9o90</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2574</string>
+	<string>2590</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.education</string>
 	<key>LSRequiresIPhoneOS</key>

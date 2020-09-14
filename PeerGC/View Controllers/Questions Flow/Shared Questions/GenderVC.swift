@@ -34,10 +34,10 @@ extension GenderVC: GenericStructureViewControllerMetadataDelegate {
 
 extension GenderVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .gender
+        return .Gender
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.male, .female, .nonBinary, .other]
+        return [.male, .female, .non_binary, .other]
     }
 }

@@ -62,8 +62,9 @@ extension ZipCodeVC: TextFieldDelegate {
             return "Please enter a valid zip code."
         }
         
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.zipCode.name] = zipCodeEdited
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.zipCodeMedianIncome.name] = Utilities.getValueByZipCode(zipcode: zipCodeEdited)
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.ZIP_Code.name] = zipCodeEdited
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.ZIP_Code_Median_Income.name] = Utilities.getValueByZipCode(zipcode: zipCodeEdited)
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.State.name] = Utilities.getStateByZipCode(zipcode: zipCodeEdited)
         
         return nil
     }

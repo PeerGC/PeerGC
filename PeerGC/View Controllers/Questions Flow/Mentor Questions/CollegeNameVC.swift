@@ -40,7 +40,7 @@ extension CollegeNameVC: TextFieldDelegate {
             return "Please enter a college."
         }
         
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.collegeName.name] = text
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.What_College_Do_You_Attend.name] = text
         
         return nil
     }

@@ -34,10 +34,14 @@ extension WhereInProcessVC: GenericStructureViewControllerMetadataDelegate {
 
 extension WhereInProcessVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .whereInProcess
+        return .Where_Are_You_In_The_College_Application_Process
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.hasntStartedLooking, .startedLookingNoPicks, .pickedNotApplying, .startedAppsButStuck, .doneWithApps]
+        return [.i_havent_started_looking,
+                .i_started_looking_but_havent_picked_any_schools,
+                .ive_picked_schools_but_havent_started_applying,
+                .ive_started_applications_but_im_stuck,
+                .im_done_with_applications]
     }
 }

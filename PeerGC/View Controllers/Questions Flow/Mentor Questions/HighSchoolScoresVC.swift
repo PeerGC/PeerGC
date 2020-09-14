@@ -17,8 +17,8 @@ class HighSchoolScoresVC: GenericStructureViewController {
     }
     
     override func selectionButtonTextHandler(text: String) {
-        if text == DatabaseValue.otherNone.rawValue {
-            GenericStructureViewController.sendToDatabaseData[DatabaseKey.testScore.name] = DatabaseValue.na.name
+        if text == DatabaseValue.other_or_none.rawValue {
+            GenericStructureViewController.sendToDatabaseData[DatabaseKey.Test_Score.name] = DatabaseValue.not_availible.name
         }
         
         super.selectionButtonTextHandler(text: text)
@@ -50,10 +50,10 @@ extension HighSchoolScoresVC: GenericStructureViewControllerMetadataDelegate {
 
 extension HighSchoolScoresVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .testTaken
+        return .Which_Test_Did_You_Use_For_Your_College_Application
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.sat, .act, .otherNone]
+        return [.sat, .act, .other_or_none]
     }
 }

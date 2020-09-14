@@ -33,7 +33,7 @@ extension HighSchoolYearVC: GenericStructureViewControllerMetadataDelegate {
 
 extension HighSchoolYearVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .schoolYear
+        return .What_Year_Of_High_School
     }
     
     func buttons() -> [DatabaseValue] {

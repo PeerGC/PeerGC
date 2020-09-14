@@ -33,10 +33,10 @@ extension InterestVC: GenericStructureViewControllerMetadataDelegate {
 
 extension InterestVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .interest
+        return .Which_Of_These_Interests_You_Most
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.humanities, .mathComputerScience, .sciences, .business, .artTheatre]
+        return [.humanities, .math_or_computer_science, .sciences, .business, .art_or_theatre]
     }
 }

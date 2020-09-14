@@ -33,10 +33,10 @@ extension KindOfCollegeVC: GenericStructureViewControllerMetadataDelegate {
 
 extension KindOfCollegeVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .kindOfCollege
+        return .What_Kind_Of_College_Are_You_Considering
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.localCommunityColleges, .fourYearCityColleges, .tradeSchools, .topTierUniversites, .dontKnow]
+        return [.local_community_colleges_only, .four_year_city_colleges, .trade_schools, .top_tier_universities, .i_dont_know]
     }
 }

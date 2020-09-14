@@ -33,10 +33,10 @@ extension HighSchoolGPAVC: GenericStructureViewControllerMetadataDelegate {
 
 extension HighSchoolGPAVC: ButtonsDelegate {
     func databaseIdentifier() -> DatabaseKey {
-        return .highSchoolGPA
+        return .What_Was_Your_High_School_GPA
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.twoOrUnder, .betweenTwoAndThree, .betweenThreeAndFour, .fourPlus]
+        return [.two_or_under, .between_two_and_three, .between_three_and_four, .four_or_higher]
     }
 }
