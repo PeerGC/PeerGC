@@ -54,9 +54,9 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         if !UIApplication.shared.isRegisteredForRemoteNotifications {
             let alertController = UIAlertController(title: "Please let us send you notifications <3",
                                                     message: """
-                                                        We'd be really happy if you could allow notifications. \
-                                                        This will enable you to receive notifications when your peers message you, \
-                                                        or when you're matched with a new peer.
+                                                    We'd be really happy if you could allow notifications. \
+                                                    This will enable you to receive notifications when your peers message you, \
+                                                    or when you're matched with a new peer.
                                                     """,
                                                     preferredStyle: .alert)
             
@@ -200,7 +200,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 
                 if !self.remoteUserCells.contains(customCell) {
                     self.remoteUserCells.append(customCell)
-                    print("just appended cell for \(customCell.data!["firstName"]!)")
+                    print("just appended cell for \(customCell.data![DatabaseKey.First_Name.name]!)")
                 }
                 
                 print(dataDescription)
@@ -422,9 +422,9 @@ class CustomCell: UICollectionViewCell {
                 "is interested in /b\(DatabaseValue(name: data![DatabaseKey.What_Kind_Of_College_Are_You_Considering.name]!)!.rawValue)/b"
             
             let sentenceString = """
-                \(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. \
-                ln regards to the college application process, \(firstName) \(whereInProcess). \
-                \(firstName) is looking for someone /b\(lookingFor)/b, and \(kindOfCollege).
+            \(firstName) is a /b\(highSchoolYear)/b in high school, and is interested in /b\(interest)/b. \
+            ln regards to the college application process, \(firstName) \(whereInProcess). \
+            \(firstName) is looking for someone /b\(lookingFor)/b, and \(kindOfCollege).
             """
             
             sentence.attributedText = Utilities.indigoWhiteText(text: sentenceString)
@@ -462,10 +462,10 @@ class CustomCell: UICollectionViewCell {
             }
             
             let sentenceString = """
-                \(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a(n) /b\(major)/b major at /b\(university)/b. \
-                \(firstName) \(testingString), and with a GPA of /b\(highSchoolGPA)/b. \
-                \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b. \
-                \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor).
+            \(firstName) is a /b\(schoolYear)/b pursuing a /b\(degree)/b degree as a(n) /b\(major)/b major at /b\(university)/b. \
+            \(firstName) \(testingString), and with a GPA of /b\(highSchoolGPA)/b. \
+            \(firstName) /b\(firstGenerationString)/b a first generation college student, and their first language is /b\(firstLanguge)/b. \
+            \(firstName) wants to be your counselor because \(whyTheyWantToBeCounselor).
             """
             
             sentence.attributedText = Utilities.indigoWhiteText(text: sentenceString)

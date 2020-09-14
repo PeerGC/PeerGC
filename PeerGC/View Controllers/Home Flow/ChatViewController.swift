@@ -212,7 +212,7 @@ class ChatViewController: MessagesViewController {
     private func handleDocumentChange(_ change: DocumentChange) {
         let data = change.document.data()
         
-        guard let color: UIColor = (data["senderID"] as? String == Auth.auth().currentUser!.uid) ? .white : .black else {
+        guard let color: UIColor = (data[DatabaseKey.Sender_ID.name] as? String == Auth.auth().currentUser!.uid) ? .white : .black else {
             Utilities.logError(customMessage: "Casting Error.", customCode: 4)
             return
         }
@@ -222,27 +222,27 @@ class ChatViewController: MessagesViewController {
             .foregroundColor: color
         ]
         
-        guard let senderID = data["senderID"] as? String else {
+        guard let senderID = data[DatabaseKey.Sender_ID.name] as? String else {
             Utilities.logError(customMessage: "Casting Error.", customCode: 4)
             return
         }
         
-        guard let senderDisplayName = data["senderDisplayName"] as? String else {
+        guard let senderDisplayName = data[DatabaseKey.Sender_Display_Name.name] as? String else {
             Utilities.logError(customMessage: "Casting Error.", customCode: 4)
             return
         }
         
-        guard let messageID = data["messageID"] as? String else {
+        guard let messageID = data[DatabaseKey.Message_ID.name] as? String else {
             Utilities.logError(customMessage: "Casting Error.", customCode: 4)
             return
         }
         
-        guard let dateStamp = (data["dateStamp"] as? Timestamp)?.dateValue() else {
+        guard let dateStamp = (data[DatabaseKey.Date_Stamp.name] as? Timestamp)?.dateValue() else {
             Utilities.logError(customMessage: "Casting Error.", customCode: 4)
             return
         }
         
-        guard let content = data["content"] as? String else {
+        guard let content = data[DatabaseKey.Content.name] as? String else {
             Utilities.logError(customMessage: "Casting Error.", customCode: 4)
             return
         }
