@@ -67,11 +67,9 @@ enum DatabaseKey: CaseIterable {
     }
     
     init?(name: String) {
-        for key in DatabaseKey.allCases {
-            if key.name == name {
-                self = key
-                return
-            }
+        for key in DatabaseKey.allCases where key.name == name {
+            self = key
+            return
         }
         return nil
     }

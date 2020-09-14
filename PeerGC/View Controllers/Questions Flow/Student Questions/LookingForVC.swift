@@ -39,6 +39,7 @@ extension LookingForVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.to_help_keep_me_on_track, .to_provide_info_on_what_colleges_look_for, .finding_a_support_system_in_college, .to_help_with_college_entrance_tests, .to_help_with_essays]
+        return [.to_help_keep_me_on_track, .to_provide_info_on_what_colleges_look_for,
+                .finding_a_support_system_in_college, .to_help_with_college_entrance_tests, .to_help_with_essays]
     }
 }

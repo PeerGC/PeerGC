@@ -60,12 +60,12 @@ class EnterPasswordVC: GenericStructureViewController {
                 let errorCode = AuthErrorCode(rawValue: error!._code)
                 
                 switch errorCode {
-                    case .wrongPassword:
-                        self?.errorLabel!.text = "Wrong Password."
-                    case .networkError:
-                        self?.errorLabel!.text = "Network Error."
-                    default:
-                        self?.errorLabel!.text = "Error Signing In."
+                case .wrongPassword:
+                    self?.errorLabel!.text = "Wrong Password."
+                case .networkError:
+                    self?.errorLabel!.text = "Network Error."
+                default:
+                    self?.errorLabel!.text = "Error Signing In."
                 }
                 self?.errorLabel!.isHidden = false
             } else {
@@ -74,8 +74,19 @@ class EnterPasswordVC: GenericStructureViewController {
                 let docRef = Firestore.firestore().collection(DatabaseKey.Users.name).document(uid)
                 
                 docRef.getDocument { (document, error) in
+                    
+                    if let error = error {
+                        Crashlytics.crashlytics().record(error: error)
+                        Utilities.logError(customMessage: "An error occured with Firebase.", customCode: 3)
+                    }
+                    
                     if let document = document, document.exists {
-                        Firestore.firestore().collection(DatabaseKey.Users.name).document(uid).collection(DatabaseKey.Allow_List.name).getDocuments(completion: { (_, _) in
+                        Firestore
+                            .firestore()
+                            .collection(DatabaseKey.Users.name)
+                            .document(uid)
+                            .collection(DatabaseKey.Allow_List.name)
+                            .getDocuments(completion: { (_, _) in
                             
                             Utilities.loadHomeScreen()
                         })
@@ -95,12 +106,12 @@ class EnterPasswordVC: GenericStructureViewController {
                 let errorCode = AuthErrorCode(rawValue: error!._code)
                 
                 switch errorCode {
-                    case .wrongPassword:
-                        self!.errorLabel!.text = "Wrong Password."
-                    case .networkError:
-                        self!.errorLabel!.text = "Network Error."
-                    default:
-                        self!.errorLabel!.text = "Error Signing In."
+                case .wrongPassword:
+                    self!.errorLabel!.text = "Wrong Password."
+                case .networkError:
+                    self!.errorLabel!.text = "Network Error."
+                default:
+                    self!.errorLabel!.text = "Error Signing In."
                 }
                 
                 self!.errorLabel!.isHidden = false

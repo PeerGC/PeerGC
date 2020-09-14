@@ -23,9 +23,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let docRef = Firestore.firestore().collection(DatabaseKey.Users.name).document(uid)
             
             docRef.getDocument { (document, error) in
+                
+                if let error = error {
+                    Crashlytics.crashlytics().record(error: error)
+                    Utilities.logError(customMessage: "An error occured with Firebase.", customCode: 3)
+                }
+                
                 if let document = document, document.exists {
-                    
-                    Firestore.firestore().collection(DatabaseKey.Users.name).document(uid).collection(DatabaseKey.Allow_List.name).getDocuments(completion: { (_, _) in
+                    Firestore
+                        .firestore()
+                        .collection(DatabaseKey.Users.name)
+                        .document(uid)
+                        .collection(DatabaseKey.Allow_List.name)
+                        .getDocuments(completion: { (_, _) in
                         
                         Utilities.loadHomeScreen()
                     })
@@ -47,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard (scene as? UIWindowScene) != nil else { return }
         setInitialViewContoller(window!)
     }
 

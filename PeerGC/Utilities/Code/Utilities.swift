@@ -60,7 +60,8 @@ class Utilities {
         let task =  URLSession.shared.dataTask(with: request as URLRequest) { (data, _, _) in
             do {
                 if let jsonData = data {
-                    if let jsonDataDict  = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
+                    if let jsonDataDict  = try JSONSerialization.jsonObject(with: jsonData, options:
+                        JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
                         NSLog("Received data:\n\(jsonDataDict))")
                     }
                 }
@@ -172,10 +173,8 @@ class Utilities {
         let dataString = getDataString(path: path)!
         let data = csv(data: dataString)
         
-        for row in data {
-            if row[0] == zipcode {
-                return true
-            }
+        for row in data where row[0] == zipcode {
+            return true
         }
         
         return false
@@ -186,10 +185,8 @@ class Utilities {
         let dataString = getDataString(path: path)!
         let data = csv(data: dataString)
         
-        for row in data {
-            if row[0] == zipcode {
-                return row[1]
-            }
+        for row in data where row[0] == zipcode {
+            return row[1]
         }
         return nil
     }
@@ -199,10 +196,8 @@ class Utilities {
         let dataString = getDataString(path: path)!
         let data = csv(data: dataString)
         
-        for row in data {
-            if row[0] == zipcode {
-                return row[1]
-            }
+        for row in data where row[0] == zipcode {
+            return row[1]
         }
         return nil
     }
@@ -212,10 +207,8 @@ class Utilities {
                let dataString = getDataString(path: path)!
                let data = csv(data: dataString)
                
-               for row in data {
-                   if row[0] == zipcode {
-                    return row[2].trimmingCharacters(in: ["\r"])
-                   }
+               for row in data where row[0] == zipcode {
+                   return row[2].trimmingCharacters(in: ["\r"])
                }
                return nil
     }

@@ -38,6 +38,7 @@ extension FeelAboutApplyingVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.no_idea_what_im_doing, .some_idea_of_where_to_start, .started_but_stuck, .pretty_good_idea_of_what_i_have_to_do, .have_taken_all_known_steps]
+        return [.no_idea_what_im_doing, .some_idea_of_where_to_start,
+                .started_but_stuck, .pretty_good_idea_of_what_i_have_to_do, .have_taken_all_known_steps]
     }
 }

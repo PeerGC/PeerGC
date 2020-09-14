@@ -63,7 +63,8 @@ class FirstMessageVC: UIViewController {
                 I was wondering if you could tell me about how you first got interested in
                 \(DatabaseValue(name: customCell!.data![DatabaseKey.What_Field_Of_Study_Are_You_Currently_Pursuing.name]!)!.rawValue)?
                 """, for: .normal)
-            option2Button.setTitle("Why'd you choose \(customCell!.data![DatabaseKey.What_College_Do_You_Attend.name]!) as your school?", for: .normal)
+            option2Button.setTitle(
+                "Why'd you choose \(customCell!.data![DatabaseKey.What_College_Do_You_Attend.name]!) as your school?", for: .normal)
             option3Button.setTitle("I was wondering if you could help me with standardized testing?", for: .normal)
         }
         

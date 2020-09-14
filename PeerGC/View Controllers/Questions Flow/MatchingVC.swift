@@ -34,15 +34,13 @@ class MatchingVC: GenericStructureViewController {
         
         if photoURL != nil {
             photoURLString = "\(photoURL!)"
-        }
-        
-        //TODO: Change this default photo url
-        else {
+        } else {
             photoURLString = "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
         }
         
         GenericStructureViewController.sendToDatabaseData[DatabaseKey.Photo_URL.name] = photoURLString
-        GenericStructureViewController.sendToDatabaseData[DatabaseKey.First_Name.name] = Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.First_Name.name] =
+            Auth.auth().currentUser!.displayName!.components(separatedBy: " ")[0]
         
         //Upload Data
         
@@ -61,7 +59,8 @@ class MatchingVC: GenericStructureViewController {
     }
     
     func uploadDataToDatabase() {
-        Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid).setData(GenericStructureViewController.sendToDatabaseData) { (error) in
+        Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid)
+            .setData(GenericStructureViewController.sendToDatabaseData) { (error) in
             
             if error != nil {
                 // Show error message

@@ -36,10 +36,10 @@ class ChatViewController: MessagesViewController {
             var text: NSAttributedString
             
             switch kind {
-                case .attributedText(let attributedText):
-                    text = attributedText
-                default:
-                    return [:]
+            case .attributedText(let attributedText):
+                text = attributedText
+            default:
+                return [:]
             }
             
             let toReturn: [String: Any] = [

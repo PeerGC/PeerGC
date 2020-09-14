@@ -45,7 +45,8 @@ extension ProfilePictureVC: ImagePickerDelegate {
         
         guard let imageData = image.pngData() else { return }
         
-        let profilePicStorageRef = Storage.storage().reference().child("\(DatabaseKey.Users.name)/\(Auth.auth().currentUser!.uid)/\(DatabaseKey.Profile_Picture.name)")
+        let profilePicStorageRef = Storage.storage().reference().child(
+            "\(DatabaseKey.Users.name)/\(Auth.auth().currentUser!.uid)/\(DatabaseKey.Profile_Picture.name)")
         
         profilePicStorageRef.putData(imageData, metadata: nil) { (_, error) in
             
@@ -57,12 +58,12 @@ extension ProfilePictureVC: ImagePickerDelegate {
                     if let error = error {
                         let errorCode = AuthErrorCode(rawValue: error._code)
                         switch errorCode {
-                            case .wrongPassword:
-                                print("Wrong Password.")
-                            case .networkError:
-                                print("Network Error.")
-                            default:
-                                print("Error setting name.")
+                        case .wrongPassword:
+                            print("Wrong Password.")
+                        case .networkError:
+                            print("Network Error.")
+                        default:
+                            print("Error setting name.")
                         }
                     } else {
                         continueButton.alpha = 1.0

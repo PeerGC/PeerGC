@@ -37,6 +37,7 @@ extension HelpMostVC: ButtonsDelegate {
     }
     
     func buttons() -> [DatabaseValue] {
-        return [.general_guidance_or_keeping_on_track, .info_on_what_colleges_look_for, .finding_a_support_system_in_college, .college_entrance_tests, .application_essays]
+        return [.general_guidance_or_keeping_on_track, .info_on_what_colleges_look_for,
+                .finding_a_support_system_in_college, .college_entrance_tests, .application_essays]
     }
 }

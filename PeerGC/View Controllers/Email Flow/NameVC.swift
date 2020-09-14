@@ -41,12 +41,12 @@ class NameVC: GenericStructureViewController {
                 let errorCode = AuthErrorCode(rawValue: error._code)
                 
                 switch errorCode {
-                    case .wrongPassword:
-                        self.errorLabel!.text = "Wrong Password."
-                    case .networkError:
-                        self.errorLabel!.text = "Network Error."
-                    default:
-                        self.errorLabel!.text = "Error setting name."
+                case .wrongPassword:
+                    self.errorLabel!.text = "Wrong Password."
+                case .networkError:
+                    self.errorLabel!.text = "Network Error."
+                default:
+                    self.errorLabel!.text = "Error setting name."
                 }
                 
                 self.errorLabel!.isHidden = false

@@ -35,10 +35,8 @@ class GenericStructureViewController: UIViewController {
         
         var numberOfNonNilOptionalDelegates = 0
         
-        for delegate in optionalDelegates {
-            if delegate != nil {
-                numberOfNonNilOptionalDelegates += 1
-            }
+        for delegate in optionalDelegates where delegate != nil {
+            numberOfNonNilOptionalDelegates += 1
         }
         
         if numberOfNonNilOptionalDelegates > 1 {

@@ -94,7 +94,11 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                     print("Error fetching remote instance ID: \(error)")
                   } else if let result = result {
                     print("Remote instance ID token: \(result.token)")
-                    Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid).setData([DatabaseKey.Token.name: result.token ], merge: true)
+                    Firestore
+                        .firestore()
+                        .collection(DatabaseKey.Users.name)
+                        .document(Auth.auth().currentUser!.uid)
+                        .setData([DatabaseKey.Token.name: result.token ], merge: true)
                   }
                 }
                 //End Messaging
@@ -114,7 +118,9 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
 
                 HomeViewController.currentUserData = currentUserData
                 
-                self.reference = Firestore.firestore().collection([DatabaseKey.Users.name, Auth.auth().currentUser!.uid, DatabaseKey.Allow_List.name].joined(separator: "/"))
+                self.reference = Firestore
+                    .firestore()
+                    .collection([DatabaseKey.Users.name, Auth.auth().currentUser!.uid, DatabaseKey.Allow_List.name].joined(separator: "/"))
                 
                 self.cardListener = self.reference?.addSnapshotListener { querySnapshot, error in
                   guard let snapshot = querySnapshot else {
@@ -149,18 +155,19 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     private func handleDocumentChange(_ change: DocumentChange) {
         
         switch change.type {
-            case .added:
-                DispatchQueue.main.async {
-                    self.addChange(change)
-                }
-            
-            case .removed:
-                DispatchQueue.main.async {
-                    self.removeChange(change)
-                }
-            
-            default:
-                break
+        
+        case .added:
+            DispatchQueue.main.async {
+                self.addChange(change)
+            }
+        
+        case .removed:
+            DispatchQueue.main.async {
+                self.removeChange(change)
+            }
+        
+        default:
+            break
         }
         
     }
@@ -208,7 +215,9 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                 self.collectionView?.reloadData()
                 self.pageControl?.numberOfPages = self.remoteUserCells.count
 
-                Firestore.firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid).collection(DatabaseKey.Allow_List.name).getDocuments(completion: { (querySnapshot, _) in
+                Firestore
+                    .firestore().collection(DatabaseKey.Users.name).document(Auth.auth().currentUser!.uid)
+                    .collection(DatabaseKey.Allow_List.name).getDocuments(completion: { (querySnapshot, _) in
                     DispatchQueue.main.async {
                         print("QuerySnapshot Count: \(querySnapshot!.count)")
                         if querySnapshot!.count == self.remoteUserCells.count {
@@ -300,12 +309,12 @@ extension HomeViewController: MessagingDelegate {
 
       let dataDict: [String: String] = ["token": fcmToken]
       NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-      // TODO: If necessary send token to application server.
       // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,
+            UIScrollViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
@@ -347,7 +356,7 @@ class CustomCell: UICollectionViewCell {
             firstname.font = firstname.font.withSize( (4.0/71) * UIScreen.main.bounds.height)
             state.font = state.font.withSize( (2.2/71) * UIScreen.main.bounds.height)
             blurb.font = blurb.font.withSize( (1.9/71) * UIScreen.main.bounds.height)
-            sentence.font = sentence.font.withSize( (1.3/71) * UIScreen.main.bounds.height) //TODO: Font too large?
+            sentence.font = sentence.font.withSize( (1.3/71) * UIScreen.main.bounds.height)
             
             viewProfileButton.titleLabel!.font = viewProfileButton.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
             messageAddMentorButton.titleLabel!.font = messageAddMentorButton.titleLabel!.font.withSize( (1.5/71) * UIScreen.main.bounds.height)
@@ -386,35 +395,35 @@ class CustomCell: UICollectionViewCell {
             var whereInProcess = ""
             
             switch DatabaseValue(name: data![DatabaseKey.Where_Are_You_In_The_College_Application_Process.name]!) {
-                case .i_havent_started_looking:
-                    whereInProcess = "has /bnot started/b looking"
-                case .i_started_looking_but_havent_picked_any_schools:
-                    whereInProcess = "has /bstarted looking/b but hasn't picked any schools"
-                case .ive_picked_schools_but_havent_started_applying:
-                    whereInProcess = "has /bpicked schools/b but hasn't began applying"
-                case .ive_started_applications_but_im_stuck:
-                    whereInProcess = "has /bstarted applications/b but is stuck"
-                case .im_done_with_applications:
-                    whereInProcess = "is /bdone/b with applications"
-                default:
-                    break
+            case .i_havent_started_looking:
+                whereInProcess = "has /bnot started/b looking"
+            case .i_started_looking_but_havent_picked_any_schools:
+                whereInProcess = "has /bstarted looking/b but hasn't picked any schools"
+            case .ive_picked_schools_but_havent_started_applying:
+                whereInProcess = "has /bpicked schools/b but hasn't began applying"
+            case .ive_started_applications_but_im_stuck:
+                whereInProcess = "has /bstarted applications/b but is stuck"
+            case .im_done_with_applications:
+                whereInProcess = "is /bdone/b with applications"
+            default:
+                break
             }
                 
             var lookingFor = ""
             
             switch DatabaseValue(name: data![DatabaseKey.What_Are_You_Looking_For_From_A_Peer_Counselor.name]!) {
-                case .to_help_keep_me_on_track:
-                    lookingFor = "to help keep them /bon track/b"
-                case .to_provide_info_on_what_colleges_look_for:
-                    lookingFor = "to provide info on what /bcolleges look for/b"
-                case .to_find_a_support_system_in_college:
-                    lookingFor = "that can provide a /bsupport system/b in college"
-                case .to_help_with_college_entrance_tests:
-                    lookingFor = "to help with college /bentrance tests/b"
-                case .to_help_with_essays:
-                    lookingFor = "to help with /bessays/b"
-                default:
-                    break
+            case .to_help_keep_me_on_track:
+                lookingFor = "to help keep them /bon track/b"
+            case .to_provide_info_on_what_colleges_look_for:
+                lookingFor = "to provide info on what /bcolleges look for/b"
+            case .to_find_a_support_system_in_college:
+                lookingFor = "that can provide a /bsupport system/b in college"
+            case .to_help_with_college_entrance_tests:
+                lookingFor = "to help with college /bentrance tests/b"
+            case .to_help_with_essays:
+                lookingFor = "to help with /bessays/b"
+            default:
+                break
             }
             
             let kindOfCollege = DatabaseValue(name: data![DatabaseKey.How_Do_You_Feel_About_Applying.name]!) == .i_dont_know ?
@@ -447,18 +456,18 @@ class CustomCell: UICollectionViewCell {
             var whyTheyWantToBeCounselor = ""
             
             switch DatabaseValue(name: data![DatabaseKey.Why_Do_You_Want_To_Be_A_Peer_Guidance_Counselor.name]!) {
-                case .you_wish_something_like_this_existed_for_you:
-                    whyTheyWantToBeCounselor = "they wish they knew /bsomething like this/b existed for them"
-                case .you_can_help_write_strong_essays:
-                    whyTheyWantToBeCounselor = "they can help write /bstrong essays/b"
-                case .you_scored_well_on_admissions_tests:
-                    whyTheyWantToBeCounselor = "they /bscored well/b on admissions tests"
-                case .you_can_socially_or_emotionally_support_mentees:
-                    whyTheyWantToBeCounselor = "they can /bsocially and emotionally/b support you"
-                case .something_else:
-                    whyTheyWantToBeCounselor = "of an /bUnspecified Reason/b"
-                default:
-                    break
+            case .you_wish_something_like_this_existed_for_you:
+                whyTheyWantToBeCounselor = "they wish they knew /bsomething like this/b existed for them"
+            case .you_can_help_write_strong_essays:
+                whyTheyWantToBeCounselor = "they can help write /bstrong essays/b"
+            case .you_scored_well_on_admissions_tests:
+                whyTheyWantToBeCounselor = "they /bscored well/b on admissions tests"
+            case .you_can_socially_or_emotionally_support_mentees:
+                whyTheyWantToBeCounselor = "they can /bsocially and emotionally/b support you"
+            case .something_else:
+                whyTheyWantToBeCounselor = "of an /bUnspecified Reason/b"
+            default:
+                break
             }
             
             let sentenceString = """

@@ -43,7 +43,8 @@ class EmailVC: GenericStructureViewController {
             return
         }
         
-        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name && text.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
+        if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] ==
+            DatabaseValue.mentor.name && text.trimmingCharacters(in: .whitespacesAndNewlines).suffix(4) != ".edu" {
             self.error(text: "Mentors must use a .edu email address.")
             return
         }
@@ -54,12 +55,12 @@ class EmailVC: GenericStructureViewController {
                 let errorCode = AuthErrorCode(rawValue: error._code)
                 
                 switch errorCode {
-                    case .wrongPassword:
-                        self.error(text: "Wrong Password.")
-                    case .networkError:
-                        self.error(text: "Network Error.")
-                    default:
-                        self.error(text: "Error Signing In.")
+                case .wrongPassword:
+                    self.error(text: "Wrong Password.")
+                case .networkError:
+                    self.error(text: "Network Error.")
+                default:
+                    self.error(text: "Error Signing In.")
                 }
                 return
             } else if let providers = providers {
@@ -70,7 +71,8 @@ class EmailVC: GenericStructureViewController {
                         self.noError(nextViewController: EnterPasswordVC())
                     } else {
                         //other login provider
-                        self.error(text: "This email is associated with the login provider " + providers[0] + ". Please return to the home screen and log in with this provider.")
+                        self.error(text: "This email is associated with the login provider "
+                            + providers[0] + ". Please return to the home screen and log in with this provider.")
                     }
                     return
                 }
@@ -94,7 +96,10 @@ extension EmailVC: GenericStructureViewControllerMetadataDelegate {
     }
     
     func subtitle() -> String? {
-        var firstPart = "If you have an account, you will be asked to log in with your password. If not, you will be asked to create an account with a password."
+        var firstPart = """
+        If you have an account, you will be asked to log in with your password. \
+        If not, you will be asked to create an account with a password.
+        """
         
         if GenericStructureViewController.sendToDatabaseData[DatabaseKey.Account_Type.name] == DatabaseValue.mentor.name {
             firstPart += " Please note that mentors must use a .edu email address."

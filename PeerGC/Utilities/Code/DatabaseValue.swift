@@ -151,11 +151,9 @@ enum DatabaseValue: String, CaseIterable {
     }
     
     init?(name: String) {
-        for value in DatabaseValue.allCases {
-            if value.name == name {
-                self = value
-                return
-            }
+        for value in DatabaseValue.allCases where value.name == name {
+            self = value
+            return
         }
         return nil
     }
