@@ -64,6 +64,7 @@ extension ZipCodeVC: TextFieldDelegate {
         
         GenericStructureViewController.sendToDatabaseData[DatabaseKey.ZIP_Code.name] = zipCodeEdited
         GenericStructureViewController.sendToDatabaseData[DatabaseKey.ZIP_Code_Median_Income.name] = Utilities.getValueByZipCode(zipcode: zipCodeEdited)
+        GenericStructureViewController.sendToDatabaseData[DatabaseKey.State.name] = Utilities.getStateByZipCode(zipcode: zipCodeEdited)
         
         return nil
     }

@@ -12,7 +12,7 @@ import Foundation
 
 enum DatabaseKey: CaseIterable {
     
-    //Shared Question Keys
+    //Shared Keys
     case Account_Type
     case ZIP_Code
     case ZIP_Code_Median_Income
@@ -24,6 +24,7 @@ enum DatabaseKey: CaseIterable {
     case Race
     case Did_Either_Of_Your_Parents_Attend_Higher_Education
     case First_Language
+    case State
     
     //Student Question Keys
     case What_Year_Of_High_School

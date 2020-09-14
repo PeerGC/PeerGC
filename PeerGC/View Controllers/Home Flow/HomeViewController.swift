@@ -355,7 +355,7 @@ class CustomCell: UICollectionViewCell {
             button.backgroundColor = UIColor.systemPink
 
             firstname.text = data![DatabaseKey.First_Name.name]!
-            state.text = Utilities.getStateByZipCode(zipcode: data![DatabaseKey.ZIP_Code.name]!)
+            state.text = data![DatabaseKey.State.name]!
             
             setSentenceText()
             downloadImage(url: URL(string: data![DatabaseKey.Photo_URL.name]!)!, imageView: imageView)
