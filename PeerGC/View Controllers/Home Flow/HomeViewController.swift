@@ -51,14 +51,17 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
             recTutors.text = "YOUR MATCHED STUDENTS"
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         if !UIApplication.shared.isRegisteredForRemoteNotifications {
             let alertController = UIAlertController(title: "Please let us send you notifications <3",
-                                                    message: """
-                                                    We'd be really happy if you could allow notifications. \
-                                                    This will enable you to receive notifications when your peers message you, \
-                                                    or when you're matched with a new peer.
-                                                    """,
-                                                    preferredStyle: .alert)
+            message: """
+            We'd be really happy if you could allow notifications. \
+            This will enable you to receive notifications when your peers message you, \
+            or when you're matched with a new peer.
+            """,
+            preferredStyle: .alert)
             
             alertController.addAction(UIAlertAction(title: "No :|", style: .default, handler: nil))
             alertController.addAction(UIAlertAction(title: "Yes! :D", style: .default, handler: { _ in
