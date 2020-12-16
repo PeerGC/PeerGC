@@ -33,7 +33,7 @@
                                 <rect key="frame" x="60" y="155.33333333333334" width="294" height="385.33333333333326"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version X Build Y Alpha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbn-ed-EfS">
-                                <rect key="frame" x="20" y="546.66666666666663" width="374" height="21.333333333333371"/>
+                                <rect key="frame" x="20" y="546.66666666666663" width="374" height="20"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -143,7 +143,7 @@
                                 <rect key="frame" x="60" y="130.33333333333334" width="294" height="347.33333333333326"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version X Build Y Alpha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oP-l0-XiY">
-                                <rect key="frame" x="20" y="483.66666666666663" width="374" height="21.333333333333314"/>
+                                <rect key="frame" x="20" y="483.66666666666663" width="374" height="20"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
@@ -191,13 +191,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing to see here! We'll notify you via both an email and a push notification when we find some peer matches for you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ata-Yu-jBq">
-                                <rect key="frame" x="60" y="364" width="294" height="80"/>
+                                <rect key="frame" x="60" y="366.66666666666669" width="294" height="74.666666666666686"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zET-8J-Wam" customClass="DesignableButton" customModule="PeerGC" customModuleProvider="target">
-                                <rect key="frame" x="333" y="20" width="61" height="27"/>
+                                <rect key="frame" x="337" y="20" width="57" height="26"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12"/>
                                 <color key="tintColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                 <state key="normal" title="  Log Out  ">
@@ -258,19 +258,19 @@
                                                     <rect key="frame" x="20" y="20" width="375" height="226"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQh-jz-bsx">
-                                                            <rect key="frame" x="16" y="16" width="215" height="55"/>
+                                                            <rect key="frame" x="16" y="16.000000000000004" width="195" height="51.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="44"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHz-Ld-iH7">
-                                                            <rect key="frame" x="16" y="127.33333333333336" width="78.333333333333329" height="37.666666666666671"/>
+                                                            <rect key="frame" x="16" y="132" width="70.666666666666671" height="35"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGD-Tz-Yg8">
-                                                            <rect key="frame" x="16" y="181" width="176.66666666666666" height="29"/>
+                                                            <rect key="frame" x="16" y="183" width="166.66666666666666" height="27"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="23"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -401,7 +401,7 @@
                                 <color key="currentPageIndicatorTintColor" systemColor="scrollViewTexturedBackgroundColor"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR MATCHED MENTORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69B-Ng-YPI">
-                                <rect key="frame" x="20.000000000000014" y="156.66666666666666" width="224.33333333333337" height="21.333333333333343"/>
+                                <rect key="frame" x="20.000000000000014" y="158" width="221.33333333333337" height="20"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -581,7 +581,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="183.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A5-fx-kqN">
-                                                <rect key="frame" x="20" y="19.999999999999996" width="166" height="42.666666666666657"/>
+                                                <rect key="frame" x="20" y="19.999999999999996" width="150.66666666666666" height="39.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -769,15 +769,15 @@
                                 </userDefinedRuntimeAttributes>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XGz-bC-dcp">
-                                <rect key="frame" x="20" y="20" width="374" height="167.66666666666666"/>
+                                <rect key="frame" x="20" y="20" width="374" height="157"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you want to sign in?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hei-SV-wb0">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="105"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="42"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will determine who manages your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91C-bU-eJr">
-                                        <rect key="frame" x="0.0" y="115.00000000000001" width="374" height="52.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="108" width="374" height="49"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="21"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
@@ -791,7 +791,7 @@
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOA-eX-Aci">
-                                <rect key="frame" x="20" y="207.66666666666669" width="374" height="22.666666666666657"/>
+                                <rect key="frame" x="20" y="197" width="374" height="21"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
@@ -873,40 +873,40 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Pjr-eR-aWf">
-                                <rect key="frame" x="20" y="20" width="374" height="610"/>
+                                <rect key="frame" x="20" y="20" width="374" height="554.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PeerGC!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LE-Tc-2cB">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="105"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="42"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWs-ja-dWG">
-                                        <rect key="frame" x="0.0" y="131" width="374" height="175"/>
+                                        <rect key="frame" x="0.0" y="124" width="374" height="140"/>
                                         <string key="text">PeerGC aims to provide a platform where high school students in need of assistance with college applications can receive the assitance they need from college students looking to help promote equity in education. Here's how it works:</string>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Create an account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jn-tg-tZo">
-                                        <rect key="frame" x="0.0" y="332" width="374" height="25"/>
+                                        <rect key="frame" x="0.0" y="290" width="374" height="23.333333333333314"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Answer some questions that establish your profile and help our matching algorithm." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reR-ZQ-6qR">
-                                        <rect key="frame" x="0.0" y="383" width="374" height="75"/>
+                                        <rect key="frame" x="0.0" y="339.33333333333331" width="374" height="70"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Wait for our algorithm to match your with some peers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9V-6L-jkJ">
-                                        <rect key="frame" x="0.0" y="484" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="435.33333333333331" width="374" height="46.666666666666686"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Message your peers and together, you can get into college!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chq-fo-upF">
-                                        <rect key="frame" x="0.0" y="560" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="508.00000000000006" width="374" height="46.666666666666686"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
@@ -940,50 +940,6 @@
             <point key="canvasLocation" x="137.68115942028987" y="-596.65178571428567"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Bsp-sd-PHG">
-            <size key="intrinsicContentSize" width="86" height="37"/>
-        </designable>
-        <designable name="Ptf-4c-u4i">
-            <size key="intrinsicContentSize" width="30" height="61"/>
-        </designable>
-        <designable name="SIf-3v-azR">
-            <size key="intrinsicContentSize" width="107" height="34"/>
-        </designable>
-        <designable name="TQg-oM-Wci">
-            <size key="intrinsicContentSize" width="86" height="37"/>
-        </designable>
-        <designable name="buf-V6-sI1">
-            <size key="intrinsicContentSize" width="89" height="34"/>
-        </designable>
-        <designable name="cs9-OJ-8HS">
-            <size key="intrinsicContentSize" width="86" height="37"/>
-        </designable>
-        <designable name="fcX-QN-Z4Q">
-            <size key="intrinsicContentSize" width="113" height="34"/>
-        </designable>
-        <designable name="iVY-ec-n4D">
-            <size key="intrinsicContentSize" width="167" height="34"/>
-        </designable>
-        <designable name="kif-B7-zu3">
-            <size key="intrinsicContentSize" width="86" height="37"/>
-        </designable>
-        <designable name="qFu-Qf-W2e">
-            <size key="intrinsicContentSize" width="154" height="34"/>
-        </designable>
-        <designable name="qxc-Ot-HJ0">
-            <size key="intrinsicContentSize" width="86" height="37"/>
-        </designable>
-        <designable name="si8-fB-7xT">
-            <size key="intrinsicContentSize" width="115" height="37"/>
-        </designable>
-        <designable name="xFt-cq-1ik">
-            <size key="intrinsicContentSize" width="86" height="37"/>
-        </designable>
-        <designable name="zET-8J-Wam">
-            <size key="intrinsicContentSize" width="61" height="27"/>
-        </designable>
-    </designables>
     <resources>
         <image name="PeerGC-Loading" width="704" height="822"/>
         <image name="accountCircle" width="512" height="512"/>
