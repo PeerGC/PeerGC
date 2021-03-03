@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01BAA9930ADC29B20EACB9F2 /* libPods-PeerGC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */; };
+		01BAA9930ADC29B20EACB9F2 /* libPods-PeerGC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D04A0D7C7E63F30B2C2A7 /* libPods-PeerGC.a */; platformFilter = ios; };
 		23B9F656E073468D92CC9FEE /* libPods-PeerGCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B104F89C4B26144AF8926C9B /* libPods-PeerGCTests.a */; };
 		6F359944F160F9D1CEB7985B /* libPods-PeerGC-PeerGCUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E395DD9BD6607AB9B897BFB /* libPods-PeerGC-PeerGCUITests.a */; };
 		C700B14423EB647100816708 /* lastNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = C700B13F23EB644400816708 /* lastNames.txt */; };
@@ -905,6 +905,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -967,6 +968,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -993,8 +995,9 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2600;
+				CURRENT_PROJECT_VERSION = 2601;
 				DEVELOPMENT_TEAM = TPC3B9Z27R;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1004,7 +1007,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/InputBarAccessoryView/InputBarAccessoryView.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit/MessageKit.modulemap\" -Xcc -fmodule-map-file=\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit.modulemap\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = org.PeerGC.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1019,8 +1022,9 @@
 				CODE_SIGN_ENTITLEMENTS = PeerGC/PeerGC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2600;
+				CURRENT_PROJECT_VERSION = 2601;
 				DEVELOPMENT_TEAM = TPC3B9Z27R;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = PeerGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1029,7 +1033,7 @@
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.PeerGC.PeerGC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
